@@ -12,14 +12,16 @@ public class Constants
     // Pick-ups
     public const int healthPickUp = 1;
     public const int granadePickUp = 2;
+    public const int maxUpPickUp = 3;
 
     //Enemy Types
     public const string Spider = "Spider";
 
-    public static readonly int[] AllPickUps = new int[2]
+    public static readonly int[] AllPickUps = new int[3]
     {
         healthPickUp,
-        granadePickUp
+        granadePickUp,
+        maxUpPickUp
     };
 
 }

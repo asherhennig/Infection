@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
         
     }
 
-    //added damage getter
+    //added takeDamage function
     public void takeDamage(int amount)
     {
         int healthDamage = amount;
@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     {
         maxHealth += 1;
         curHealth += 1;
+        Debug.Log("Max Health Up: " + maxHealth + " Current Health: " + curHealth);
     }
 
     // added health pick up and it caps at max health
@@ -36,10 +37,15 @@ public class Player : MonoBehaviour
     {
         //pick up only gives one health
         curHealth += 1;
-        if(curHealth > maxHealth)
+        if (curHealth > maxHealth)
         {
             //wont go over max health
             curHealth = maxHealth;
+            Debug.Log("You're at max health!");
+        }
+        else
+        {
+            Debug.Log("Health Up! " + curHealth);
         }
     }
 
@@ -51,6 +57,9 @@ public class Player : MonoBehaviour
                 pickUpHealth();
                 break;
             case Constants.granadePickUp:
+                break;
+            case Constants.maxUpPickUp:
+                maxUp();
                 break;
             default:
                 Debug.LogError("Bad pickup type passed" + pickupItem);
