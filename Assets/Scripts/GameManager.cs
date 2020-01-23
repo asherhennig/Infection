@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     //these are for enemy spawns
     private float generatedSpawnTime = 0;
     private float currentSpawnTime = 0;
+    GameObject pickUp;
 
     // Start is called before the first frame update
     void Start()
@@ -42,19 +43,24 @@ public class GameManager : MonoBehaviour
     {
         //updating pick up spawn time
         currentPickUpTime += Time.deltaTime;
-
         //checks if the current spawntime is more than the upgrade spawn time and that one isnt spawned
-        if(currentPickUpTime > actualPickUpTime && !spawnedPickUp)
+        if (currentPickUpTime > actualPickUpTime && !spawnedPickUp)
         {
             //generates a random number based on the number of spawnpoints we have and
             //assigns one to be the spawn, finally it spawns a pickup
             int randnum = Random.Range(0, spawnPoints.Length - 1);
             GameObject spawnLocation = spawnPoints[randnum];
-            GameObject pickUp = Instantiate(pickUpPrefab) as GameObject;
+            pickUp  = Instantiate(pickUpPrefab) as GameObject;
             pickUp.transform.position = spawnLocation.transform.position;
             spawnedPickUp = true;
+            Debug.Log("picked up");
         }
-
+        //checks if the pick up has been picked up
+        if (pickUp == null && spawnedPickUp == true)
+        {
+            spawnedPickUp = false;
+            Debug.Log("deactive");
+        }
         ////enemy spawn timer tick
         //currentSpawnTime += Time.deltaTime;
         ////checks if its time to spawn

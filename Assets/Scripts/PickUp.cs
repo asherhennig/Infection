@@ -19,6 +19,7 @@ public class PickUp : MonoBehaviour
         {
             collider.gameObject.GetComponent<Player>().PickUpItem(type);
             Destroy(gameObject);
+            Debug.Log("destroyed");
         }
     }
     // Update is called once per frame
