@@ -6,19 +6,20 @@ public class FollowFood : MonoBehaviour
 
 {
     public float speed = 1.0f;
-    public float accuracy = 0.09f;
-    public Transform goal;      //goal is hero/player
+    public float accuracy = 0.09f;      //enemy accuracy to player before enemy stops moving
+    public Transform goal;             //goal is hero/player
 
 
-    // Update is called once per frame
+    // LateUpdate for physics
     void LateUpdate()
     {
-        this.transform.LookAt(goal.position);
-        Vector3 direction = goal.position - this.transform.position;        //calculating player's location minus the AI's positions
-        Debug.DrawRay(this.transform.position, direction, Color.green);
+        this.transform.LookAt(goal.position);                               //Enemy faces player
+        Vector3 direction = goal.position - this.transform.position;        //enemy direction: where its going MINUS where it is
+        Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
 
-        if (direction.magnitude > accuracy)
+        if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
 
-            this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //as opposed to local space.
+            this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the goal in 
+                                                                                                        // global space
     }
 }
