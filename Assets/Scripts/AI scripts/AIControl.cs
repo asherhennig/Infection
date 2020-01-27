@@ -20,7 +20,6 @@ public class AIControl : MonoBehaviour
         agent.angularSpeed = 120;
         // anim.SetFloat("speedMult", speedMult);
         // anim.SetTrigger("isWalking");
-        agent.ResetPath();
 
     }
 
@@ -30,12 +29,10 @@ public class AIControl : MonoBehaviour
     {
         playerLocation = GameObject.FindGameObjectWithTag("Player");  //all "goal" locations in the scene
         agent = this.GetComponent<NavMeshAgent>();
-        agent.SetDestination(playerLocation[Random.Range(0, playerLocation.Length)].transform.position);   //array of random goals, agent will choose one.
 
         anim = this.GetComponent<Animator>();
         //before walking animation starts:
         anim.SetFloat("wOffset", Random.Range(0, 1));
-        ResetAgent();
         //anim.SetTrigger("IsWalking");     // "triggering" the walking animation
         //anim.SetTrigger("IsBiting");      //Bite animation triggered
 
@@ -46,7 +43,7 @@ public class AIControl : MonoBehaviour
     {
         if (agent.remainingDistance < 1)   //remaing referencing distnace between avatar and goal
         {
-            ResetAgent();
+
             agent.SetDestination(playerLocation[Random.Range(0, playerLocation.Length)].transform.position);
         }
     }
@@ -57,11 +54,7 @@ public class AIControl : MonoBehaviour
         if (Vector3.Distance(position, this.transform.position) < detectionRadius)      //
         {
             Vector3 detectionRadius = (this.transform.position - position).normalized;
-            Vector3 newgoal = this.transform.position - // detect the players 
-
-            NavMeshPath path = new NavMeshPath();
-            agent.CalculatePath(newgoal, path);
-
+            Vector3 newgoal = this.transform.position - playerLocation;
             {
                 agent.SetDestination();
                 // anim.SetTrigger("isBiting);
