@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8296953126934281247}
   - component: {fileID: 8296953126934281246}
   - component: {fileID: 8296953126934281248}
+  - component: {fileID: 6501056162033322901}
   m_Layer: 0
   m_Name: Enemey
   m_TagString: Untagged
@@ -145,3 +146,23 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6501056162033322901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6655332630351602138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd463e62d03cc04c9c186d3757cdb85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  accuracy: 0.09
+  target: {fileID: 0}
+  onDestroy:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
