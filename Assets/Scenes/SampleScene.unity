@@ -232,10 +232,9 @@ MonoBehaviour:
   enemySpawnPoints:
   - {fileID: 1714825931}
   - {fileID: 397009161}
-  - {fileID: 0}
+  - {fileID: 1694738951}
   - {fileID: 31003355}
   - {fileID: 1482357590}
-  - {fileID: 0}
   enemy: {fileID: 6655332630351602138, guid: fec5e9872afd82345a4a1f0ba07ba9f8, type: 3}
   pickUpPrefab: {fileID: 2085492883978391239, guid: 2b874bf9c936f224bbb3f8e494bff2a8,
     type: 3}
@@ -999,6 +998,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1694738951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 702378081175345548, guid: 5391f74a5dfa1e446898048783748a7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2021221097}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1714767202 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1799712733756462201, guid: 1326f778db9e0ba4394892a9d5c99a7a,
@@ -1927,5 +1932,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 270948476, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
