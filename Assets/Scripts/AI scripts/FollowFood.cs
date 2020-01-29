@@ -20,7 +20,7 @@ public class FollowFood : MonoBehaviour
 
         if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
 
-            this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the goal in 
+            this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in 
                                                                                                         // global space
     }
 
