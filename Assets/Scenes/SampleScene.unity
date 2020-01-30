@@ -235,6 +235,7 @@ MonoBehaviour:
   - {fileID: 1694738951}
   - {fileID: 31003355}
   - {fileID: 1482357590}
+  - {fileID: 1482357590}
   enemy: {fileID: 6655332630351602138, guid: fec5e9872afd82345a4a1f0ba07ba9f8, type: 3}
   pickUpPrefab: {fileID: 2085492883978391239, guid: 2b874bf9c936f224bbb3f8e494bff2a8,
     type: 3}
@@ -1867,7 +1868,12 @@ PrefabInstance:
     - target: {fileID: 1799712733756462198, guid: 1326f778db9e0ba4394892a9d5c99a7a,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799712733756462198, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 270948476, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
       propertyPath: layerMask.m_Bits
@@ -1932,6 +1938,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 270948476, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
