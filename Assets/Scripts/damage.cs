@@ -17,7 +17,7 @@ public class damage : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision coll)
+    void OnTriggerEnter(Collider coll)
     {
         Debug.Log("in collision");
         //check if enemy collided with bullet
