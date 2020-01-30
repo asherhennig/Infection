@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameManager singleton;
     //gameobjects that will be needed in the script
     public GameObject player;
     public GameObject[] itemSpawnPoints;
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     public int maxEnemiesOnScreen;
     public int totalEnemies;
     public int enemiesPerSpawn;
+    public int restTimer;
     public float minSpawnTime;
     public float maxSpawnTime;
     public float pickUpMaxSpawnTime = 10.0f;
@@ -27,15 +29,20 @@ public class GameManager : MonoBehaviour
     private float actualPickUpTime = 0;
     private float currentPickUpTime = 0;
     //these are for enemy spawns
-    private float generatedSpawnTime = 0;
-    private float currentSpawnTime = 0;
+    public int MaxPerWave = 5;
+    private int curSpawnedWave = 0;
     GameObject pickUp;
+    //this lets us know if a wave is active
+    private bool activeWave = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        singleton = this;
         actualPickUpTime = Random.Range(pickUpMaxSpawnTime - 3.0f, pickUpMaxSpawnTime);
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
+        Time.timeScale = 1;
+        restTimer = 0;
 
     }
 
@@ -65,57 +72,79 @@ public class GameManager : MonoBehaviour
             spawnedPickUp = false;
             Debug.Log("deactive");
         }
-        //enemy spawn timer tick
-        currentSpawnTime += Time.deltaTime;
-        //checks if its time to spawn
-        if (currentSpawnTime > generatedSpawnTime)
+        if (activeWave)
         {
-            //if it is sets spawn timer to 0 and new time to spawn
-            currentSpawnTime = 0;
-            generatedSpawnTime = Random.Range(minSpawnTime, maxSpawnTime);
-            //
-            if (enemiesPerSpawn > 0 && enemiesOnScreen < totalEnemies)
+            //checks if its time to spawn
+            if (curSpawnedWave <= MaxPerWave)
             {
-                List<int> previousSpawnLocations = new List<int>();
-                if (enemiesPerSpawn > enemySpawnPoints.Length)
-                {
-                    enemiesPerSpawn = enemySpawnPoints.Length - 1;
-                }
+               // Debug.Log("hi");
 
-                enemiesPerSpawn = (enemiesPerSpawn > totalEnemies) ? enemiesPerSpawn - totalEnemies : enemiesPerSpawn;
-                for (int i = 0; i < enemiesPerSpawn; i++)
+                if (enemiesPerSpawn > 0 && enemiesOnScreen <= MaxPerWave)
                 {
-                    if (enemiesOnScreen < maxEnemiesOnScreen)
+                    List<int> previousSpawnLocations = new List<int>();
+                    if (enemiesPerSpawn > enemySpawnPoints.Length)
                     {
-                        enemiesOnScreen += 1;
-                        int spawnPoint = -1;
-                        while (spawnPoint == -1)
+                        enemiesPerSpawn = enemySpawnPoints.Length - 1;
+                    }
+
+                    enemiesPerSpawn = (enemiesPerSpawn > MaxPerWave) ? enemiesPerSpawn - MaxPerWave : enemiesPerSpawn;
+                    for (int i = 0; i < enemiesPerSpawn; i++)
+                    {
+                        if (enemiesOnScreen < maxEnemiesOnScreen)
                         {
-                            int randNum = Random.Range(0, enemySpawnPoints.Length-1);
-                            if (!previousSpawnLocations.Contains(randNum))
+                            enemiesOnScreen += 1;
+                            int spawnPoint = -1;
+                            while (spawnPoint == -1)
                             {
-                                previousSpawnLocations.Add(randNum);
-                                spawnPoint = randNum;
+                                int randNum = Random.Range(0, enemySpawnPoints.Length - 1);
+                                if (!previousSpawnLocations.Contains(randNum))
+                                {
+                                    previousSpawnLocations.Add(randNum);
+                                    spawnPoint = randNum;
+                                }
                             }
+                            GameObject spawnLocation = enemySpawnPoints[spawnPoint];
+                            GameObject newEnemy = Instantiate(enemy) as GameObject;
+                            Debug.Log("Enemy Spawned");
+                            newEnemy.transform.position = spawnLocation.transform.position;
+                            FollowFood enemyScript = newEnemy.GetComponent<FollowFood>();
+                            if (player != null)
+                            {
+                                enemyScript.target = player.transform;
+                                Vector3 targetRotation = new Vector3(player.transform.position.x,
+                                       newEnemy.transform.position.y, player.transform.position.z);
+                                newEnemy.transform.LookAt(targetRotation);
+                            }
+                            enemyScript.onDestroy.AddListener(enemyDestroyed);
                         }
-                        GameObject spawnLocation = enemySpawnPoints[spawnPoint];
-                        GameObject newEnemy = Instantiate(enemy) as GameObject;
-                        newEnemy.transform.position = spawnLocation.transform.position;
-                        FollowFood enemyScript = newEnemy.GetComponent<FollowFood>();
-                        if (player != null)
-                        {
-                            enemyScript.target = player.transform;
-                            Vector3 targetRotation = new Vector3(player.transform.position.x,
-                                   newEnemy.transform.position.y, player.transform.position.z);
-                            newEnemy.transform.LookAt(targetRotation);
-                        }
-                        enemyScript.onDestroy.AddListener(enemyDestroyed);
                     }
                 }
-            }
 
+            }
+            else if (curSpawnedWave == MaxPerWave && enemiesOnScreen == 0)
+            {
+                activeWave = false;
+                restTimer = 10;
+                curSpawnedWave = 0;
+                Debug.Log("rest period");
+            }
         }
     }
+
+    private IEnumerator updatedRestTimer()
+    {
+        while(!activeWave)
+        {
+            yield return new WaitForSeconds(1f);
+            restTimer--;
+            if(restTimer == 0)
+            {
+                activeWave = true;
+            }
+        }
+    }
+
+    
     public void enemyDestroyed()
     {
         enemiesOnScreen -= 1;

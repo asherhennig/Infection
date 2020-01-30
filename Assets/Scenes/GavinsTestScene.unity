@@ -1463,7 +1463,7 @@ MonoBehaviour:
   curHealth: 5
   maxHealth: 5
   speed: 10
-  rotSpeed: 1
+  rotSpeed: 5
   timeBetweenHits: 0
   layerMask:
     serializedVersion: 2
@@ -2268,6 +2268,39 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2081915507001911588, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+        type: 3}
+      propertyPath: fireSpeed
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799712733756462198, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799712733756462198, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799712733756462198, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799712733756462198, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 270948476, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 270948476, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
+      propertyPath: rotSpeed
+      value: 6.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1799712733756462197, guid: 1326f778db9e0ba4394892a9d5c99a7a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2322,34 +2355,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081915507001911588, guid: 1326f778db9e0ba4394892a9d5c99a7a,
-        type: 3}
-      propertyPath: fireSpeed
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799712733756462198, guid: 1326f778db9e0ba4394892a9d5c99a7a,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799712733756462198, guid: 1326f778db9e0ba4394892a9d5c99a7a,
-        type: 3}
-      propertyPath: m_Height
-      value: 2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799712733756462198, guid: 1326f778db9e0ba4394892a9d5c99a7a,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 270948476, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
-      propertyPath: layerMask.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 270948476, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
-      propertyPath: rotSpeed
-      value: 6.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 270948476, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
