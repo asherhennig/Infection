@@ -102,10 +102,13 @@ public class GameManager : MonoBehaviour
                         GameObject newEnemy = Instantiate(enemy) as GameObject;
                         newEnemy.transform.position = spawnLocation.transform.position;
                         FollowFood enemyScript = newEnemy.GetComponent<FollowFood>();
-                        enemyScript.target = player.transform;
-                        Vector3 targetRotation = new Vector3(player.transform.position.x,
-                               newEnemy.transform.position.y, player.transform.position.z);
-                        newEnemy.transform.LookAt(targetRotation);
+                        if (player != null)
+                        {
+                            enemyScript.target = player.transform;
+                            Vector3 targetRotation = new Vector3(player.transform.position.x,
+                                   newEnemy.transform.position.y, player.transform.position.z);
+                            newEnemy.transform.LookAt(targetRotation);
+                        }
                         enemyScript.onDestroy.AddListener(enemyDestroyed);
                     }
                 }
