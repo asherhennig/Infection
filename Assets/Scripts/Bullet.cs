@@ -9,8 +9,12 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        Destroy(gameObject);
+         if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }

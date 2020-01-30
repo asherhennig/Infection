@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public float minSpawnTime;
     public float maxSpawnTime;
     public float pickUpMaxSpawnTime = 10.0f;
+    public int wave=0;
 
     //private data for keeping track of enemies on screen and time
     // between spawns of enemies and pick-ups
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
                     enemiesPerSpawn = (enemiesPerSpawn > MaxPerWave) ? enemiesPerSpawn - MaxPerWave : enemiesPerSpawn;
                     for (int i = 0; i < enemiesPerSpawn; i++)
                     {
-                        if (curSpawnedWave < MaxPerWave && enemiesOnScreen < maxEnemiesOnScreen)
+                        if (curSpawnedWave < MaxPerWave + wave && enemiesOnScreen < maxEnemiesOnScreen)
                         {
                             Debug.Log("here");
                             enemiesOnScreen += 1;
@@ -129,7 +130,10 @@ public class GameManager : MonoBehaviour
                 restTimer = 10;
                 curSpawnedWave = 0;
                 Debug.Log("rest period");
-                
+                wave++;
+                MaxPerWave++;
+                maxEnemiesOnScreen++;
+
             }
         }
     }
@@ -141,6 +145,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("hello?");
             yield return new WaitForSeconds(10);
                 activeWave = true;
+            
         }
     }
 
