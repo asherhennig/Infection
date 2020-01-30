@@ -102,8 +102,7 @@ public class Paused : MonoBehaviour
 
     public void Exit()
     {
-        Debug.Log("Quit");
-        Application.Quit();
+        SceneManager.LoadScene(sceneName:"Main menu");
         hideOptions();
     }
 }
