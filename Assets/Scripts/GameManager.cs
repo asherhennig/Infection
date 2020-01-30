@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
 
     //public vars so we can modify them as we need
     public int maxEnemiesOnScreen;
-    public int totalEnemies;
     public int enemiesPerSpawn;
     public int restTimer;
     public float minSpawnTime;
@@ -33,7 +32,7 @@ public class GameManager : MonoBehaviour
     private int curSpawnedWave = 0;
     GameObject pickUp;
     //this lets us know if a wave is active
-    private bool activeWave = true;
+    public bool activeWave = true;
 
     // Start is called before the first frame update
     void Start()
@@ -43,12 +42,14 @@ public class GameManager : MonoBehaviour
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
         Time.timeScale = 1;
         restTimer = 0;
+        StartCoroutine("updatedRestTimer");
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        StartCoroutine("updatedRestTimer");
         //updating pick up spawn time
         currentPickUpTime += Time.deltaTime;
         //checks if the current spawntime is more than the upgrade spawn time and that one isnt spawned
@@ -75,11 +76,10 @@ public class GameManager : MonoBehaviour
         if (activeWave)
         {
             //checks if its time to spawn
-            if (curSpawnedWave <= MaxPerWave)
+            if (curSpawnedWave < MaxPerWave)
             {
                // Debug.Log("hi");
-
-                if (enemiesPerSpawn > 0 && enemiesOnScreen <= MaxPerWave)
+                if (enemiesPerSpawn > 0 && enemiesOnScreen < MaxPerWave)
                 {
                     List<int> previousSpawnLocations = new List<int>();
                     if (enemiesPerSpawn > enemySpawnPoints.Length)
@@ -90,8 +90,9 @@ public class GameManager : MonoBehaviour
                     enemiesPerSpawn = (enemiesPerSpawn > MaxPerWave) ? enemiesPerSpawn - MaxPerWave : enemiesPerSpawn;
                     for (int i = 0; i < enemiesPerSpawn; i++)
                     {
-                        if (enemiesOnScreen < maxEnemiesOnScreen)
+                        if (curSpawnedWave < MaxPerWave && enemiesOnScreen < maxEnemiesOnScreen)
                         {
+                            Debug.Log("here");
                             enemiesOnScreen += 1;
                             int spawnPoint = -1;
                             while (spawnPoint == -1)
@@ -105,6 +106,7 @@ public class GameManager : MonoBehaviour
                             }
                             GameObject spawnLocation = enemySpawnPoints[spawnPoint];
                             GameObject newEnemy = Instantiate(enemy) as GameObject;
+                            curSpawnedWave++;
                             Debug.Log("Enemy Spawned");
                             newEnemy.transform.position = spawnLocation.transform.position;
                             FollowFood enemyScript = newEnemy.GetComponent<FollowFood>();
@@ -127,20 +129,18 @@ public class GameManager : MonoBehaviour
                 restTimer = 10;
                 curSpawnedWave = 0;
                 Debug.Log("rest period");
+                
             }
         }
     }
 
     private IEnumerator updatedRestTimer()
     {
-        while(!activeWave)
+        if(!activeWave)
         {
-            yield return new WaitForSeconds(1f);
-            restTimer--;
-            if(restTimer == 0)
-            {
+            Debug.Log("hello?");
+            yield return new WaitForSeconds(10);
                 activeWave = true;
-            }
         }
     }
 
@@ -148,6 +148,6 @@ public class GameManager : MonoBehaviour
     public void enemyDestroyed()
     {
         enemiesOnScreen -= 1;
-        totalEnemies -= 1;
+        Debug.Log("enemy destroyed");
     }
 }

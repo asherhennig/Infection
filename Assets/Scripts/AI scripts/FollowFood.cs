@@ -31,4 +31,14 @@ public class FollowFood : MonoBehaviour
         onDestroy.Invoke();
         onDestroy.RemoveAllListeners();
     }
+    void OnTriggerEnter(Collider coll)
+    {
+        //Debug.Log("in collision");
+        //check if enemy collided with bullet
+        if (coll.gameObject.tag == "Bullet")
+        {
+            Destroy(gameObject);
+            Die();
+        }
+    }
 }
