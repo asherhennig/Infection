@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class FollowFood : MonoBehaviour
 
 {
-    public float speed = 1.0f;
+    public float speed = 3.0f;
     public float accuracy = 0.09f;      //enemy accuracy to player before enemy stops moving
     public Transform target;             //goal is hero/player
     public UnityEvent onDestroy;
@@ -40,5 +40,6 @@ public class FollowFood : MonoBehaviour
             Destroy(gameObject);
             Die();
         }
+       
     }
 }
