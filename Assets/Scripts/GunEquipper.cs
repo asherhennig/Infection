@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunEquiper : MonoBehaviour
+public class GunEquipper : MonoBehaviour
 {
 
     public static string activeWeaponType;

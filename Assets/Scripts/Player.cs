@@ -13,12 +13,17 @@ public class Player : MonoBehaviour
     public LayerMask layerMask;
 
     private CharacterController characterController;
-
     private Vector3 currentLookTarget = Vector3.zero;
+    private bool isDead = false;
+    private bool isHit = false;
+    private float timeSinceHit = 0;
+    private GunEquipper gunEquipper;
+
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        gunEquipper = GetComponent<GunEquipper>();
     }
 
     //added takeDamage function
