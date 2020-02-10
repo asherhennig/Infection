@@ -5,12 +5,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager singleton;
-    //gameobjects that will be needed in the script
+    //game objects that will be needed in the script
     public GameObject player;
     public GameObject[] itemSpawnPoints;
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
-    public GameObject pickUpPrefab;
+    public GameObject[] pickUpPrefab;
+    //public GameObject[] bubbleGum;
 
     //public vars so we can modify them as we need
     public int maxEnemiesOnScreen;
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
     public int restTimer;
     public float minSpawnTime;
     public float maxSpawnTime;
-    public float pickUpMaxSpawnTime = 10.0f;
+    public float pickUpMaxSpawnTime = 20.0f;
     public int wave=0;
 
     //private data for keeping track of enemies on screen and time
@@ -28,10 +29,13 @@ public class GameManager : MonoBehaviour
     private bool spawnedPickUp = false;
     private float actualPickUpTime = 0;
     private float currentPickUpTime = 0;
+    //number for a random pick up in array
+    int pickUpNum;
     //these are for enemy spawns
     public int MaxPerWave = 5;
     private int curSpawnedWave = 0;
     GameObject pickUp;
+    GameObject currency;
     //this lets us know if a wave is active
     public bool activeWave = true;
 
@@ -53,14 +57,15 @@ public class GameManager : MonoBehaviour
         StartCoroutine("updatedRestTimer");
         //updating pick up spawn time
         currentPickUpTime += Time.deltaTime;
-        //checks if the current spawntime is more than the upgrade spawn time and that one isnt spawned
+        //checks if the current spawn time is more than the upgrade spawn time and that one isnt spawned
         if (currentPickUpTime > actualPickUpTime && !spawnedPickUp)
         {
-            //generates a random number based on the number of spawnpoints we have and
+            pickUpNum = Random.Range(0, 2);
+            //generates a random number based on the number of spawn points we have and
             //assigns one to be the spawn, finally it spawns a pickup
             int randnum = Random.Range(0, itemSpawnPoints.Length - 1);
             GameObject spawnLocation = itemSpawnPoints[randnum];
-            pickUp = Instantiate(pickUpPrefab) as GameObject;
+            pickUp = Instantiate(pickUpPrefab[pickUpNum]) as GameObject;
             pickUp.transform.position = spawnLocation.transform.position;
             spawnedPickUp = true;
             actualPickUpTime = Random.Range(pickUpMaxSpawnTime - 3.0f, pickUpMaxSpawnTime);
@@ -152,7 +157,9 @@ public class GameManager : MonoBehaviour
     
     public void enemyDestroyed()
     {
+        //int gumChance = Random.Range(0, 10);
         enemiesOnScreen -= 1;
+        //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
     }
 }

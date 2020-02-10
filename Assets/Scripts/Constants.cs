@@ -10,19 +10,21 @@ public class Constants
     public const string Granade = "Granade";
 
     // Pick-ups
-    public const int healthPickUp = 1;
-    public const int granadePickUp = 2;
-    public const int maxUpPickUp = 3;
-    public const int miniGunPickUp = 4;
+    public const int healthPickUp1 = 1;
+    public const int HealthPickUpFull = 2;
+    public const int bubbleGum1 = 3;
+    public const int bubbleGum5 = 4;
+    public const int miniGunPickUp = 5;
 
     //Enemy Types
     public const string Spider = "Spider";
 
-    public static readonly int[] AllPickUps = new int[4]
+    public static readonly int[] AllPickUps = new int[5]
     {
-        healthPickUp,
-        granadePickUp,
-        maxUpPickUp,
+        healthPickUp1,
+        HealthPickUpFull,
+        bubbleGum1,
+        bubbleGum5,
         miniGunPickUp
     };
 
