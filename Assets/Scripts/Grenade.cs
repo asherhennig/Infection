@@ -10,7 +10,7 @@ public class Grenade : MonoBehaviour
     public float fuseTime = 3.0f;
     public int  baseDamage = 5;
 
-
+    private int expDam;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +34,7 @@ public class Grenade : MonoBehaviour
     }
 
     //explode returns an int to be used as the damage to be applied to others
-    int explode()
+    void explode()
     {
         //sets two seperate radius for near and far damage for explosion
         Collider[] Arround = Physics.OverlapSphere(transform.position, exploRadius);
@@ -45,7 +45,9 @@ public class Grenade : MonoBehaviour
         {
             if (intoExp.transform.tag == "Enemy")
             {
-                return baseDamage;
+                expDam = baseDamage;
+                intoExp.gameObject.GetComponent<FollowFood>().takeDamage(expDam);
+
             }
                
         }
@@ -56,7 +58,8 @@ public class Grenade : MonoBehaviour
             if (inExp.transform.tag == "Enemy")
             {
                //this should return an int a thrid the size of base damage
-                return Mathf.Abs(baseDamage / 3);
+                expDam = Mathf.Abs(baseDamage / 3);
+                inExp.gameObject.GetComponent<FollowFood>().takeDamage(expDam);
             }
         }
 
@@ -64,6 +67,5 @@ public class Grenade : MonoBehaviour
         //grenade.GetComponent<ParticleSystem>().Play();
         //Destroy(gameObject, grenade.GetComponent<ParticleSystem>().duration);
         Destroy(gameObject);
-        return 0;
     }
 }

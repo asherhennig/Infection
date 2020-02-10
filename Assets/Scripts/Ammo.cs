@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
+    [SerializeField]
     private int grenadeAmmo = 5;
-
+    [SerializeField]
     private int shotgunAmmo = 25;
 
     public Dictionary<string, int> tagToAmmo;

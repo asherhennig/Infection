@@ -10,6 +10,8 @@ public class FollowFood : MonoBehaviour
     public float accuracy = 0.09f;      //enemy accuracy to player before enemy stops moving
     public Transform target;             //goal is hero/player
     public UnityEvent onDestroy;
+    public int health = 5;
+    private int newHealth = 0;
 
     // LateUpdate for physics
     void LateUpdate()
@@ -24,10 +26,17 @@ public class FollowFood : MonoBehaviour
 
                 this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in 
         }                                                                                              // global space
+
+        health -= newHealth;
+        if (health == 0)
+        {
+            Die();
+        }
     }
 
     public void Die()
     {
+        Destroy(gameObject);
         onDestroy.Invoke();
         onDestroy.RemoveAllListeners();
     }
@@ -35,11 +44,17 @@ public class FollowFood : MonoBehaviour
     {
         //Debug.Log("in collision");
         //check if enemy collided with bullet
-        if (coll.gameObject.tag == "Bullet")
-        {
-            Destroy(gameObject);
-            Die();
-        }
+        //if (coll.gameObject.tag == "Bullet")
+        //{
+        //    takeDamage(1);
+
+        //}
        
+    }
+
+    public void takeDamage(int damTaken)
+    {
+        newHealth = damTaken;
+        Debug.Log("enemy took damage " + health);
     }
 }

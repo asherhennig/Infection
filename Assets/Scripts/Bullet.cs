@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public int pistolDam = 1;
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
@@ -13,6 +14,7 @@ public class Bullet : MonoBehaviour
     {
          if (collision.gameObject.tag == "Enemy")
         {
+            collision.gameObject.GetComponent<FollowFood>().takeDamage(pistolDam);
             Destroy(gameObject);
         }
         
