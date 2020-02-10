@@ -11,6 +11,8 @@ public class GunEquipper : MonoBehaviour
     public GameObject shotgun;
     public GameObject granade;
 
+    Ammo Ammo;
+
     GameObject activeGun;
     // Start is called before the first frame update
     void Start()
@@ -37,12 +39,12 @@ public class GunEquipper : MonoBehaviour
             loadWeapons(pistol);
             activeWeaponType = Constants.Pistol;
         }
-        else if (Input.GetKeyDown("2"))
+        else if (Input.GetKeyDown("2") && Ammo.HasAmmo("Grenade") == true)
         {
             loadWeapons(granade);
             activeWeaponType = Constants.Granade;
         }
-        else if (Input.GetKeyDown("3"))
+        else if (Input.GetKeyDown("3") && Ammo.HasAmmo("Shotgun") == true)
         {
             loadWeapons(shotgun);
             activeWeaponType = Constants.Shotgun;
