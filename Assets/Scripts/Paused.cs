@@ -13,6 +13,7 @@ public class Paused : MonoBehaviour
     GameObject[] pauseMenu;
     GameObject[] pauseButton;
     GameObject[] Options;
+    GameObject[] purchase;
 
     //Caled once when the game starts
     void Start()
@@ -23,9 +24,11 @@ public class Paused : MonoBehaviour
         pauseMenu = GameObject.FindGameObjectsWithTag("ShowOnPause");
         pauseButton = GameObject.FindGameObjectsWithTag("HideOnPause");
         Options = GameObject.FindGameObjectsWithTag("Option");
+        purchase = GameObject.FindGameObjectsWithTag("Purchase");
         //Hides the Menus
         hidePaused();
         hideOptions();
+        HidePurchase();
     }
     //When the options button is pressed, show the options menu and keep the game paused
     public void Option()
@@ -109,6 +112,22 @@ public class Paused : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName:"Main menu");
         hideOptions();
+    }
+    //Asks if the player is sure about their purchase
+    public void Purchase()
+    {
+        foreach (GameObject g in purchase)
+        {
+            g.SetActive(true);
+        }
+    }
+
+    public void HidePurchase()
+    {
+        foreach (GameObject g in purchase)
+        {
+            g.SetActive(false);
+        }
     }
 }
 
