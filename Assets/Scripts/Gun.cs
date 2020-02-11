@@ -2,18 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBullet : MonoBehaviour
+public class Gun : MonoBehaviour
 {
+    public int weaponDam;
     public GameObject bulletPrefab;
     public Transform firePosition;
     public float fireSpeed = 0.75f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -37,12 +31,21 @@ public class FireBullet : MonoBehaviour
         bullet.transform.position = firePosition.position;
         bullet.transform.rotation = firePosition.rotation;
         // 3   
-        bullet.GetComponent<Rigidbody>().velocity =      
+        bullet.GetComponent<Rigidbody>().velocity =
             transform.forward * 10;
     }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+         if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<enemyBase>().takeDamage(weaponDam);
+            Destroy(gameObject);
+        }
+        
+    }
 }
-
-
-
-

@@ -11,7 +11,26 @@ public class enemyBase : MonoBehaviour
     public Transform target;             //goal is hero/player
     public UnityEvent onDestroy;
     public int health = 5;
-    private int newHealth = 0;
+    private int newHealth;
+    
+
+    void Start()
+    {
+        newHealth = health;
+    }
+
+    // update is called every frame
+    void Update()
+    {
+        //updates health to the newhealth value
+        health = newHealth;
+
+        //if the health of a enemy is equal or lesss than 0 it dies
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
 
     // LateUpdate for physics
     void LateUpdate()
@@ -27,11 +46,7 @@ public class enemyBase : MonoBehaviour
                 this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in 
         }                                                                                              // global space
 
-        health -= newHealth;
-        if (health == 0)
-        {
-            Die();
-        }
+
     }
 
     public void Die()
@@ -40,21 +55,11 @@ public class enemyBase : MonoBehaviour
         onDestroy.Invoke();
         onDestroy.RemoveAllListeners();
     }
-    void OnTriggerEnter(Collider coll)
-    {
-        //Debug.Log("in collision");
-        //check if enemy collided with bullet
-        //if (coll.gameObject.tag == "Bullet")
-        //{
-        //    takeDamage(1);
-
-        //}
-       
-    }
-
+    
+    //this has calculates the players new health post damage
     public void takeDamage(int damTaken)
     {
-        newHealth = damTaken;
-        Debug.Log("enemy took damage " + health);
+        newHealth = health - damTaken;
+        Debug.Log("enemy took damage " + newHealth);
     }
 }

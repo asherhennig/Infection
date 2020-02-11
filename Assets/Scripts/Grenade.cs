@@ -23,6 +23,10 @@ public class Grenade : MonoBehaviour
     {
         
     }
+    void throwGrenade()
+    {
+
+    }
 
     //explodes the granade on contact with an enemy
     void exploOnContact(Collision collision)
