@@ -40,9 +40,8 @@ public class Player : MonoBehaviour
     //added max health up function
     public void maxUp()
     {
-        maxHealth += 1;
-        curHealth += 1;
-        Debug.Log("Max Health Up: " + maxHealth + " Current Health: " + curHealth);
+        curHealth = maxHealth;
+        Debug.Log("health is: " + curHealth);
     }
 
     // added health pick up and it caps at max health

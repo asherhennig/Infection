@@ -8,6 +8,7 @@ public class Constants
     public const string Pistol = "Pistol";
     public const string Shotgun = "Shotgun";
     public const string Granade = "Granade";
+    public const string miniGun = "miniGun";
 
     // Pick-ups
     public const int healthPickUp1 = 1;

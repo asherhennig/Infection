@@ -10,6 +10,7 @@ public class GunEquiper : MonoBehaviour
     public GameObject pistol;
     public GameObject shotgun;
     public GameObject granade;
+    public GameObject miniGun;
 
     GameObject activeGun;
     // Start is called before the first frame update
@@ -24,11 +25,19 @@ public class GunEquiper : MonoBehaviour
         pistol.SetActive(false);
         shotgun.SetActive(false);
         granade.SetActive(false);
+        miniGun.SetActive(false);
 
         weapon.SetActive(true);
         activeGun = weapon;
     }
 
+    private void activeMiniGun()
+    {
+        loadWeapons(miniGun);
+        activeWeaponType = Constants.miniGun;
+    }
+
+    
     // Update is called once per frame
     void Update()
     {

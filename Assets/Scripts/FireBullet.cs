@@ -30,6 +30,8 @@ public class FireBullet : MonoBehaviour
         }
     }
 
+   
+
     void fireBullet()
     {   // 1   
         GameObject bullet = Instantiate(bulletPrefab) as GameObject;
