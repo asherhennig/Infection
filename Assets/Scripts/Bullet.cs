@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
     {
          if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<FollowFood>().takeDamage(pistolDam);
+            collision.gameObject.GetComponent<enemyBase>().takeDamage(pistolDam);
             Destroy(gameObject);
         }
         

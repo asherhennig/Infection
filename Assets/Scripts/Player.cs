@@ -136,7 +136,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //checks if its and enemy by seeing if it has the FollowFood script
-        FollowFood enemy = other.gameObject.GetComponent<FollowFood>();
+        enemyBase enemy = other.gameObject.GetComponent<enemyBase>();
         if (enemy != null)
         {
             //checks if were not already hit

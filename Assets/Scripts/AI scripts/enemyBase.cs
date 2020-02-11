@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class FollowFood : MonoBehaviour
+public class enemyBase : MonoBehaviour
 
 {
     public float speed = 3.0f;

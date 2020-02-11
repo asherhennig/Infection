@@ -46,7 +46,7 @@ public class Grenade : MonoBehaviour
             if (intoExp.transform.tag == "Enemy")
             {
                 expDam = baseDamage;
-                intoExp.gameObject.GetComponent<FollowFood>().takeDamage(expDam);
+                intoExp.gameObject.GetComponent<enemyBase>().takeDamage(expDam);
 
             }
                
@@ -59,7 +59,7 @@ public class Grenade : MonoBehaviour
             {
                //this should return an int a thrid the size of base damage
                 expDam = Mathf.Abs(baseDamage / 3);
-                inExp.gameObject.GetComponent<FollowFood>().takeDamage(expDam);
+                inExp.gameObject.GetComponent<enemyBase>().takeDamage(expDam);
             }
         }
 

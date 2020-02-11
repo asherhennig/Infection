@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
                             curSpawnedWave++;
                             Debug.Log("Enemy Spawned");
                             newEnemy.transform.position = spawnLocation.transform.position;
-                            FollowFood enemyScript = newEnemy.GetComponent<FollowFood>();
+                            enemyBase enemyScript = newEnemy.GetComponent<enemyBase>();
                             if (player != null)
                             {
                                 enemyScript.target = player.transform;
