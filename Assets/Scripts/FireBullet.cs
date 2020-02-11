@@ -7,6 +7,7 @@ public class FireBullet : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePosition;
     public float fireSpeed = 0.75f;
+    bool miniFire = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,15 @@ public class FireBullet : MonoBehaviour
         }
     }
 
-   
+   public void miniGunFire()
+    {
+        //acrtivate mini gun
+        gameObject.GetComponent<GunEquiper>().activeMiniGun();
+        //start corutine to constantly fire
+        StartCoroutine("miniGunAttack");
+        //stop the firing
+        CancelInvoke("fireBullet");
+    }
 
     void fireBullet()
     {   // 1   
@@ -41,6 +50,17 @@ public class FireBullet : MonoBehaviour
         // 3   
         bullet.GetComponent<Rigidbody>().velocity =      
             transform.forward * 10;
+    }
+
+    //FIRE THE MINI GUN
+    private IEnumerator miniGunAttack()
+    {
+        //starts firing reptated at double speed
+        InvokeRepeating("fireBullet", 0f, fireSpeed*2);
+        //waits for 15 seconds
+        yield return new WaitForSeconds(15);
+        Debug.Log("minigun");
+        
     }
 
 }
