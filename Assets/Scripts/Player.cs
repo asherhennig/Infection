@@ -76,9 +76,9 @@ public class Player : MonoBehaviour
     public void pickUpMiniGun()
     {
         //get component to fire the mini gun for 15 seconds
-        gameObject.GetComponent<FireBullet>().miniGunFire();
+        gameObject.GetComponent<Gun>().miniGunFire();
         //deactivate the mini gun and reactivate pistol
-        gameObject.GetComponent<GunEquiper>().deactiveMiniGun();
+        gameObject.GetComponent<GunEquipper>().deactiveMiniGun();
     }
     //checks which pickup we got to know its effect
     public void PickUpItem(int pickupItem)
