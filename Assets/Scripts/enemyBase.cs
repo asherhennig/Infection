@@ -60,6 +60,8 @@ public class enemyBase : MonoBehaviour
     public void takeDamage(int damTaken)
     {
         newHealth = health - damTaken;
+        Debug.Log("Pistol damage after shot is:" + damTaken);
+        Debug.Log("health is:" + health);
         Debug.Log("enemy took damage " + newHealth);
     }
 }

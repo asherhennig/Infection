@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Pistol update:" + weaponDam);
             if (!IsInvoking("fireBullet"))
             {
                 InvokeRepeating("fireBullet", 0f, fireSpeed);
@@ -33,19 +34,8 @@ public class Gun : MonoBehaviour
         // 3   
         bullet.GetComponent<Rigidbody>().velocity =
             transform.forward * 10;
-    }
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
+        //4
+        bullet.GetComponent<bullet>().damage = weaponDam;
     }
 
-    private void OnTriggerEnter(Collider collision)
-    {
-         if (collision.gameObject.tag == "Enemy")
-        {
-            collision.gameObject.GetComponent<enemyBase>().takeDamage(weaponDam);
-            Destroy(gameObject);
-        }
-        
-    }
 }
