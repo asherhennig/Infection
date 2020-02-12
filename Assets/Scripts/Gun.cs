@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePosition;
     public float fireSpeed = 0.75f;
+    public float bulletSpeed = 10.0f;
     bool miniFire = false;
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,7 @@ public class Gun : MonoBehaviour
         bullet.transform.rotation = firePosition.rotation;
         // 3   
         bullet.GetComponent<Rigidbody>().velocity =
-            transform.forward * 10;
+            transform.forward * bulletSpeed;
         //4
         bullet.GetComponent<bullet>().damage = weaponDam;
     }

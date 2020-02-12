@@ -1349,6 +1349,7 @@ MonoBehaviour:
     type: 3}
   firePosition: {fileID: 832502818}
   fireSpeed: 0.75
+  bulletSpeed: 25
 --- !u!1 &1401122601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 702378081175345548, guid: 5391f74a5dfa1e446898048783748a7a,
@@ -1469,7 +1470,7 @@ MonoBehaviour:
   maxHealth: 5
   speed: 10
   rotSpeed: 5
-  timeBetweenHits: 0
+  timeBetweenHits: 2
   layerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1801,6 +1802,10 @@ PrefabInstance:
       propertyPath: enemySpawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 4519336829337794245}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: MaxPerWave
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
 --- !u!1001 &1966028517
@@ -2611,6 +2616,10 @@ PrefabInstance:
       propertyPath: granade
       value: 
       objectReference: {fileID: 1863785746}
+    - target: {fileID: 1714767210, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
+      propertyPath: timeBetweenHits
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5210626811733590223, guid: 1326f778db9e0ba4394892a9d5c99a7a,
         type: 3}
       propertyPath: m_IsActive
