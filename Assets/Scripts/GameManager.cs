@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
                 wave++;
                 MaxPerWave++;
                 maxEnemiesOnScreen++;
-
+             
             }
         }
     }
