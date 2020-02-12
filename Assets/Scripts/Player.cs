@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     {
         int healthDamage = 1;
         curHealth -= healthDamage;
-        Debug.Log("youve been hurt, health is: " + curHealth + " out of: " + maxHealth);
+        Debug.Log("you've been hurt, health is: " + curHealth + " out of: " + maxHealth);
         if(curHealth <= 0)
         {
             isDead = true;
@@ -40,9 +40,8 @@ public class Player : MonoBehaviour
     //added max health up function
     public void maxUp()
     {
-        maxHealth += 1;
-        curHealth += 1;
-        Debug.Log("Max Health Up: " + maxHealth + " Current Health: " + curHealth);
+        curHealth = maxHealth;
+        Debug.Log("health is: " + curHealth);
     }
 
     // added health pick up and it caps at max health
@@ -62,19 +61,56 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void pickUp1Curr()
+    {
+
+    }
+
+    public void picUp5Curr()
+    {
+
+    }
+
+    public void pickUpMiniGun()
+    {
+        //get component to fire the mini gun for 15 seconds
+        gameObject.GetComponent<FireBullet>().miniGunFire();
+        //deactivate the mini gun and reactivate pistol
+        gameObject.GetComponent<GunEquiper>().deactiveMiniGun();
+    }
     //checks which pickup we got to know its effect
     public void PickUpItem(int pickupItem)
     {
+        
         switch (pickupItem)
         {
-            case Constants.healthPickUp:
+            //uses constant class to define the variables and set it to case 1, 2 .....ect.
+
+            //heals 1 health point
+            case Constants.healthPickUp1:
                 pickUpHealth();
                 break;
-            case Constants.granadePickUp:
-                break;
-            case Constants.maxUpPickUp:
+            
+            //heals full
+            case Constants.HealthPickUpFull:
                 maxUp();
                 break;
+
+            //add one bubble gum to inventory
+            case Constants.bubbleGum1:
+                pickUp1Curr();
+                break;
+
+            //add 5 bubble gum to inventory
+            case Constants.bubbleGum5:
+                picUp5Curr();
+                break;
+
+            //pick up the mini gun and start shooting
+            case Constants.miniGunPickUp:
+                pickUpMiniGun();
+                break;
+
             default:
                 //in case of bad pick up
                 Debug.LogError("Bad pickup type passed" + pickupItem);
