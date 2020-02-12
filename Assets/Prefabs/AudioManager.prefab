@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6522407077695208051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5348682790860439361}
+  - component: {fileID: 2229594137745025537}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5348682790860439361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6522407077695208051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2229594137745025537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6522407077695208051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c178ac08f3b114b47831392b1729163e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: MenuBGM
+    clip: {fileID: 8300000, guid: be3b21f969dfbe146b94cc0266fa073d, type: 3}
+    volume: 1
+  - name: LabBGM
+    clip: {fileID: 8300000, guid: c600564bb9b541a44ba16c055761d74f, type: 3}
+    volume: 1
+  - name: ForestBGM
+    clip: {fileID: 8300000, guid: e34349e0f87af9f44962af345bdab6a2, type: 3}
+    volume: 1
+  - name: LaunchpadBGM
+    clip: {fileID: 8300000, guid: 5e5e61f09a153b748a33ecd4341f1d3b, type: 3}
+    volume: 1
+  - name: LaserSound
+    clip: {fileID: 8300000, guid: 15508674c880ff5459b621ff16695d52, type: 3}
+    volume: 1
+  - name: ShotgunSound
+    clip: {fileID: 8300000, guid: b09494a0f7dd66f458a9cd412924d33a, type: 3}
+    volume: 1
