@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6348976245456934558}
   - component: {fileID: 612117995264922401}
   - component: {fileID: 8296953126934281247}
-  - component: {fileID: 7955778371712103252}
   - component: {fileID: 8296953126934281248}
   - component: {fileID: 6501056162033322901}
   m_Layer: 0
@@ -111,18 +110,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7955778371712103252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6655332630351602138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6be3dd7241693534eaedb3988d44bb63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &8296953126934281248
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -165,3 +152,4 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  health: 5

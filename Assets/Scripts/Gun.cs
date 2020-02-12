@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBullet : MonoBehaviour
+public class Gun : MonoBehaviour
 {
+    public int weaponDam;
     public GameObject bulletPrefab;
     public Transform firePosition;
     public float fireSpeed = 0.75f;
@@ -19,6 +20,7 @@ public class FireBullet : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Pistol update:" + weaponDam);
             if (!IsInvoking("fireBullet"))
             {
                 InvokeRepeating("fireBullet", 0f, fireSpeed);
@@ -48,8 +50,10 @@ public class FireBullet : MonoBehaviour
         bullet.transform.position = firePosition.position;
         bullet.transform.rotation = firePosition.rotation;
         // 3   
-        bullet.GetComponent<Rigidbody>().velocity =      
+        bullet.GetComponent<Rigidbody>().velocity =
             transform.forward * 10;
+        //4
+        bullet.GetComponent<bullet>().damage = weaponDam;
     }
 
     //FIRE THE MINI GUN
@@ -64,7 +68,3 @@ public class FireBullet : MonoBehaviour
     }
 
 }
-
-
-
-

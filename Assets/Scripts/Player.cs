@@ -18,11 +18,13 @@ public class Player : MonoBehaviour
     private bool isDead = false;
     private bool isHit = false;
     private float timeSinceHit = 0;
+    private GunEquipper gunEquipper;
 
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        gunEquipper = GetComponent<GunEquipper>();
     }
 
     //added takeDamage function
@@ -170,7 +172,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //checks if its and enemy by seeing if it has the FollowFood script
-        FollowFood enemy = other.gameObject.GetComponent<FollowFood>();
+        enemyBase enemy = other.gameObject.GetComponent<enemyBase>();
         if (enemy != null)
         {
             //checks if were not already hit
