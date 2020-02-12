@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class FollowFood : MonoBehaviour
 
 {
     public float speed = 1.0f;
     public float accuracy = 0.09f;      //enemy accuracy to player before enemy stops moving
-    public Transform target;             //goal is hero/player
-    public UnityEvent onDestroy;
+    public Transform target;             //target is hero/player
+
 
     // LateUpdate for physics
     void LateUpdate()
@@ -22,11 +21,5 @@ public class FollowFood : MonoBehaviour
 
             this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in 
                                                                                                         // global space
-    }
-
-    public void Die()
-    {
-        onDestroy.Invoke();
-        onDestroy.RemoveAllListeners();
     }
 }

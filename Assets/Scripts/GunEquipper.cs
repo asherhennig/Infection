@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunEquiper : MonoBehaviour
+public class GunEquipper : MonoBehaviour
 {
 
     public static string activeWeaponType;
@@ -11,6 +11,10 @@ public class GunEquiper : MonoBehaviour
     public GameObject shotgun;
     public GameObject granade;
 
+    Ammo Ammo;
+
+    public GameObject miniGun;
+    GameObject gameObject;
     GameObject activeGun;
     // Start is called before the first frame update
     void Start()
@@ -24,11 +28,29 @@ public class GunEquiper : MonoBehaviour
         pistol.SetActive(false);
         shotgun.SetActive(false);
         granade.SetActive(false);
+        miniGun.SetActive(false);
 
         weapon.SetActive(true);
         activeGun = weapon;
     }
+    //ACTIVATES MINI GUN AND STARTS THE CORUTINE TO FIRE
+    public void activeMiniGun()
+    {
+        
+        //load  mini gun
+        loadWeapons(miniGun);
+        //set active gun to mini gun
+        activeWeaponType = Constants.miniGun;
+       
+    }
 
+    public void deactiveMiniGun()
+    {
+        //makes minigun not active and pistol active
+        activeWeaponType = Constants.Pistol;
+    }
+
+    
     // Update is called once per frame
     void Update()
     {
@@ -42,7 +64,7 @@ public class GunEquiper : MonoBehaviour
             loadWeapons(granade);
             activeWeaponType = Constants.Granade;
         }
-        else if (Input.GetKeyDown("3"))
+        else if (Input.GetKeyDown("3") )
         {
             loadWeapons(shotgun);
             activeWeaponType = Constants.Shotgun;
