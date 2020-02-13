@@ -11,20 +11,15 @@ public class enemyBase : MonoBehaviour
     public Transform target;             //goal is hero/player
     public UnityEvent onDestroy;
     public int health = 5;
-    private int newHealth;
     
 
     void Start()
     {
-        newHealth = health;
     }
 
     // update is called every frame
     void Update()
     {
-        //updates health to the newhealth value
-        health = newHealth;
-
         //if the health of a enemy is equal or lesss than 0 it dies
         if (health <= 0)
         {
@@ -59,9 +54,8 @@ public class enemyBase : MonoBehaviour
     //this has calculates the players new health post damage
     public void takeDamage(int damTaken)
     {
-        newHealth = health - damTaken;
-        Debug.Log("Pistol damage after shot is:" + damTaken);
+        health -= damTaken;
+        Debug.Log("damage after shot is:" + damTaken);
         Debug.Log("health is:" + health);
-        Debug.Log("enemy took damage " + newHealth);
     }
 }

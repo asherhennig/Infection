@@ -5,71 +5,51 @@ using UnityEngine;
 public class Grenade : MonoBehaviour
 {
     public GameObject grenade;
-    public float throwSpeed = 5.0f;
-    public float exploRadius = 1.0f;
-    public float fuseTime = 3.0f;
-    public int  baseDamage = 5;
+    public Transform tossPos;
+    public Vector3 throwPos;
+    public float throwSpeed = 0.1f;
+    public float TOF = 1.0f;
 
-    private int expDam;
     // Start is called before the first frame update
     void Start()
     {
-        //calls the grenade to explode after the fuse goes off
-        Invoke("explode", fuseTime);   
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        throwGrenade();
     }
     void throwGrenade()
     {
-
-    }
-
-    //explodes the granade on contact with an enemy
-    void exploOnContact(Collision collision)
-    {
-        if(collision.gameObject.tag == "Enemy")
+        if (Input.GetMouseButtonDown(0))
         {
-            explode();
-        }
-    }
-
-    //explode returns an int to be used as the damage to be applied to others
-    void explode()
-    {
-        //sets two seperate radius for near and far damage for explosion
-        Collider[] Arround = Physics.OverlapSphere(transform.position, exploRadius);
-        Collider[] ArroundNear = Physics.OverlapSphere(transform.position, Mathf.Abs(exploRadius / 2)); 
-
-        //close radius does base damage
-        foreach (Collider intoExp in ArroundNear)
-        {
-            if (intoExp.transform.tag == "Enemy")
+            if (!IsInvoking("toss"))
             {
-                expDam = baseDamage;
-                intoExp.gameObject.GetComponent<enemyBase>().takeDamage(expDam);
-
-            }
-               
-        }
-
-        //farther radius that does less damage
-        foreach (Collider inExp in Arround)
-        {
-            if (inExp.transform.tag == "Enemy")
-            {
-               //this should return an int a thrid the size of base damage
-                expDam = Mathf.Abs(baseDamage / 3);
-                inExp.gameObject.GetComponent<enemyBase>().takeDamage(expDam);
+                InvokeRepeating("toss", 0f, throwSpeed);
             }
         }
 
-        //this will be used for when the particle system for the grenade is ready
-        //grenade.GetComponent<ParticleSystem>().Play();
-        //Destroy(gameObject, grenade.GetComponent<ParticleSystem>().duration);
-        Destroy(gameObject);
+        if (Input.GetMouseButtonUp(0))
+        {
+            CancelInvoke("toss");
+        }
+    }
+
+    void toss()
+    {
+        GameObject tossedGrenade = Instantiate(grenade) as GameObject;
+        // 2   
+        tossedGrenade.transform.position = tossPos.position;
+        tossedGrenade.transform.rotation = tossPos.rotation;
+        //calls the grenade to explode after the fuse goes off
+        
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if(Physics.Raycast(ray, out hit))
+        {
+            throwPos = hit.point;
+            tossedGrenade.transform.Translate(throwPos * TOF * Time.deltaTime, Space.World);
+        }
     }
 }

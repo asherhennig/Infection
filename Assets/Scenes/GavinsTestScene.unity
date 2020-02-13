@@ -1448,6 +1448,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1588086804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1588086805}
+  m_Layer: 0
+  m_Name: tossPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1588086805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588086804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1863785750}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1714767202 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1799712733756462201, guid: 1326f778db9e0ba4394892a9d5c99a7a,
@@ -1583,6 +1613,29 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1799712734480006750}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1863785750 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3010392515467682476, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1799712734480006750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1863785751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863785746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d7fd5f4e0afff045bb8e660068094f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grenade: {fileID: 5526541897191183552, guid: 4fe536aefb656e7488337cf9e6d0cc77, type: 3}
+  tossPos: {fileID: 1588086805}
+  throwPos: {x: 0, y: 0, z: 0}
+  throwSpeed: 0.1
+  TOF: 1
 --- !u!4 &1887767410 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7110997855309831082, guid: 5391f74a5dfa1e446898048783748a7a,
@@ -1806,6 +1859,21 @@ PrefabInstance:
       propertyPath: MaxPerWave
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: pickUpPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 7106424366926364555, guid: 225a666908dd5c54e86170d4b85dafbe,
+        type: 3}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: pickUpPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 7106424366926364555, guid: 225a666908dd5c54e86170d4b85dafbe,
+        type: 3}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: pickUpPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 7106424366926364555, guid: 225a666908dd5c54e86170d4b85dafbe,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
 --- !u!1001 &1966028517
@@ -2616,6 +2684,12 @@ PrefabInstance:
       propertyPath: granade
       value: 
       objectReference: {fileID: 1863785746}
+    - target: {fileID: 8105099349774420256, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+        type: 3}
+      propertyPath: miniGun
+      value: 
+      objectReference: {fileID: 2770092862140750304, guid: a8d05c05a6850c446807099f6380c476,
+        type: 3}
     - target: {fileID: 1714767210, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
       propertyPath: timeBetweenHits
       value: 2

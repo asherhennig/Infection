@@ -19,6 +19,11 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        fire();
+    }
+
+    public void fire()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Pistol update:" + weaponDam);
