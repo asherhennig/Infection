@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fragGrenade : Grenade
+public class fragGrenade : MonoBehaviour
 {
 
     public float exploRadius = 2.5f;
@@ -18,7 +18,6 @@ public class fragGrenade : Grenade
     // Update is called once per frame
     void Update()
     {
-        
     }
     //explodes the granade on contact with an enemy
     void exploOnContact(Collision collision)

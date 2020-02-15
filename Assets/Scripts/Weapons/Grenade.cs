@@ -38,18 +38,23 @@ public class Grenade : MonoBehaviour
         }
     }
 
+    //throws grenade
     void toss()
     {
+        //spawns grenade we want thrown
         GameObject tossedGrenade = Instantiate(grenade) as GameObject;
-        // 2   
+        //spawns it at set throw point
         tossedGrenade.transform.position = tossPos.position;
         tossedGrenade.transform.rotation = tossPos.rotation;
+        //check where the player clicked
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out hit))
         {
+            //set were the grenade should go and send it there
             throwPos = hit.point;
-            tossedGrenade.transform.Translate(throwPos * TOF * Time.deltaTime, Space.Self);
+            tossedGrenade.GetComponent<Rigidbody>().MovePosition
+                (Vector3.MoveTowards(transform.position, throwPos, TOF * Time.deltaTime));
         }
 
     }
