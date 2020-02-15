@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player : MonoBehaviour
 {
     //initialized current health and max health and other public vars
     public int curHealth;
     public int maxHealth;
+    public int currency = 0;
     public float speed = 10;
     public float rotSpeed = 1.0f;
     public float timeBetweenHits = 0;
     public LayerMask layerMask;
+    //so get componet can access the minigun
+   private Gun minigun;
+    public bool isactive = false;
 
     //private init
     private CharacterController characterController;
@@ -19,12 +24,13 @@ public class Player : MonoBehaviour
     private bool isHit = false;
     private float timeSinceHit = 0;
     private GunEquipper gunEquipper;
-
+    
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
+        minigun = GetComponent<Gun>();
     }
 
     //added takeDamage function
@@ -36,6 +42,7 @@ public class Player : MonoBehaviour
         if(curHealth <= 0)
         {
             isDead = true;
+            
         }
     }
 
@@ -65,18 +72,27 @@ public class Player : MonoBehaviour
 
     public void pickUp1Curr()
     {
-
+        currency++;
     }
 
     public void picUp5Curr()
     {
-
+        currency = currency + 5;
     }
 
+   
+   
     public void pickUpMiniGun()
     {
-        //get component to fire the mini gun for 15 seconds
-        gameObject.GetComponent<Gun>().miniGunFire();
+        isactive = true;
+        gunEquipper.activeMiniGun();
+        while(isactive)
+        {
+            
+            minigun.fireBullet();
+
+        }
+
         //deactivate the mini gun and reactivate pistol
         gameObject.GetComponent<GunEquipper>().deactiveMiniGun();
     }

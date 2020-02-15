@@ -41,6 +41,7 @@ public class GunEquipper : MonoBehaviour
         loadWeapons(miniGun);
         //set active gun to mini gun
         activeWeaponType = Constants.miniGun;
+        Debug.Log("mini gun away");
        
     }
 
@@ -48,6 +49,7 @@ public class GunEquipper : MonoBehaviour
     {
         //makes minigun not active and pistol active
         activeWeaponType = Constants.Pistol;
+        Debug.Log("deactive minigun");
     }
 
     
