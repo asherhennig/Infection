@@ -10,6 +10,8 @@ public class Grenade : MonoBehaviour
     public float throwSpeed = 0.1f;
     public float TOF = 1.0f;
 
+    public LayerMask LayerMask;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,7 @@ public class Grenade : MonoBehaviour
         {
             if (!IsInvoking("toss"))
             {
-                InvokeRepeating("toss", 0f, throwSpeed);
+                Invoke("toss", 0f);
             }
         }
 
@@ -42,14 +44,13 @@ public class Grenade : MonoBehaviour
         // 2   
         tossedGrenade.transform.position = tossPos.position;
         tossedGrenade.transform.rotation = tossPos.rotation;
-        //calls the grenade to explode after the fuse goes off
-        
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out hit))
         {
             throwPos = hit.point;
-            tossedGrenade.transform.Translate(throwPos * TOF * Time.deltaTime, Space.World);
+            tossedGrenade.transform.Translate(throwPos * TOF * Time.deltaTime, Space.Self);
         }
+
     }
 }

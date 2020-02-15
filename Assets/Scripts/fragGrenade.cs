@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fragGrenade : MonoBehaviour
+public class fragGrenade : Grenade
 {
 
     public float exploRadius = 2.5f;
