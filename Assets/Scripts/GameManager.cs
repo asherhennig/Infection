@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
     public GameObject[] pickUpPrefab;
+    public ScoreCounter gameUI;
+    public int score;
+    public int bubblegum;
+    public bool isGameOver = false;
     //public GameObject[] bubbleGum;
 
     //public vars so we can modify them as we need
@@ -48,7 +53,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         restTimer = 0;
         StartCoroutine("updatedRestTimer");
-
+        
     }
 
     // Update is called once per frame
@@ -154,11 +159,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+    IEnumerator increaseScoreEachSecond()
+    {
+        while (!isGameOver)
+        {
+            yield return new WaitForSeconds(1);
+            score += 1;
+            gameUI.SetScoreText(score);
+        }
+    }
+
+
     public void enemyDestroyed()
     {
         //int gumChance = Random.Range(0, 10);
         enemiesOnScreen -= 1;
+        bubblegum += 5;
+        gameUI.SetMoneyText(bubblegum);
+        score += 100;
+        gameUI.SetScoreText(score);
+        
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
     }
