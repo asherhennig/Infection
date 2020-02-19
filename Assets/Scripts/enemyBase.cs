@@ -2,21 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.AI;       //for AI mechs like navmesh
 
 public class enemyBase : MonoBehaviour
 
 {
     public float speed = 3.0f;
     public float accuracy = 0.09f;      //enemy accuracy to player before enemy stops moving
-    public Transform target;             //goal is hero/player
+    public Transform target;             //target is hero/player
     public UnityEvent onDestroy;
     public int health = 5;
+    public GameObject grenade;          //Enemy Class can recognize the grenade
+    NavMeshAgent enemy;
+
     private int newHealth;
     
+   
 
     void Start()
     {
         newHealth = health;
+        enemy = this.GetComponent<NavMeshAgent>();
+        enemy.SetDestination(grenade.transform.position);   //enemy navmesh set to follow once recognized grenade's position
     }
 
     // update is called every frame

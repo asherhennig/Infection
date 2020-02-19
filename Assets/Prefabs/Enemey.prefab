@@ -144,12 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd463e62d03cc04c9c186d3757cdb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0
   accuracy: 0.09
   target: {fileID: 1799712733756462197, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
   onDestroy:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   health: 5
+  grenade: {fileID: 2499105395947668361, guid: 563d79a9c9227ed44a9bc775b9a9f38d, type: 3}
