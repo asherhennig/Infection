@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Purchase : MonoBehaviour
 {
+    bool canPurchase = false;
     // Start is called before the first frame update
     void Start()
     {

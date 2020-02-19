@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public ScoreCounter gameUI;
     public int score;
     public int bubblegum;
+    public int price;
+    private bool canPurchase = false;
     public bool isGameOver = false;
     //public GameObject[] bubbleGum;
 
@@ -174,6 +176,7 @@ public class GameManager : MonoBehaviour
     {
         //int gumChance = Random.Range(0, 10);
         enemiesOnScreen -= 1;
+        //give gum and score on kill(testing score and bubblegum counters)
         bubblegum += 5;
         gameUI.SetMoneyText(bubblegum);
         score += 100;
@@ -181,5 +184,21 @@ public class GameManager : MonoBehaviour
         
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
+    }
+
+    public void Buyable()
+    {
+        if (bubblegum >= price)
+        {
+            canPurchase = true;
+            bubblegum = bubblegum - price;
+            gameUI.SetMoneyText(bubblegum);
+            Debug.Log("Item Purchased");
+        }
+        else
+        {
+            canPurchase = false;
+            Debug.Log("You can't afford this item");
+        }
     }
 }
