@@ -13,7 +13,7 @@ public class enemyBase : MonoBehaviour
     public UnityEvent onDestroy;
     public int health = 5;
     public GameObject grenade;          //Enemy Class can recognize the grenade
-    NavMeshAgent enemy;
+    NavMeshAgent enemy;                 //AI navigate
 
     private int newHealth;
     
@@ -23,7 +23,7 @@ public class enemyBase : MonoBehaviour
     {
         newHealth = health;
         enemy = this.GetComponent<NavMeshAgent>();
-        enemy.SetDestination(grenade.transform.position);   //enemy navmesh set to follow once recognized grenade's position
+        enemy.SetDestination(grenade.transform.position);   //enemy nav set to follow once recognized grenade's position
     }
 
     // update is called every frame
