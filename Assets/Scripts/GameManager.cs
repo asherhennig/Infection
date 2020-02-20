@@ -12,10 +12,17 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
     public GameObject[] pickUpPrefab;
+    GameObject[] buyShotgun;
+    GameObject[] buyShells;
+    GameObject[] buyNade;
+    GameObject[] buyHealth;
+    GameObject[] buyMax;
+    GameObject[] buyBrain;
+    GameObject[] purchase;
     public ScoreCounter gameUI;
     public int score;
     public int bubblegum;
-    public int price;
+    private int price;
     private bool canPurchase = false;
     public bool isGameOver = false;
     //public GameObject[] bubbleGum;
@@ -55,7 +62,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         restTimer = 0;
         StartCoroutine("updatedRestTimer");
-        
+        buyShotgun = GameObject.FindGameObjectsWithTag("BuyShotgun");
+        buyShells = GameObject.FindGameObjectsWithTag("BuyShells");
+        buyNade = GameObject.FindGameObjectsWithTag("BuyNade");
+        buyHealth = GameObject.FindGameObjectsWithTag("BuyHealth");
+        buyMax = GameObject.FindGameObjectsWithTag("BuyMax");
+        buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
+        purchase = GameObject.FindGameObjectsWithTag("Purchase");
+        HidePurchase();
+
     }
 
     // Update is called once per frame
@@ -163,7 +178,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator increaseScoreEachSecond()
     {
-        while (!isGameOver)
+        while (isGameOver == false)
         {
             yield return new WaitForSeconds(1);
             score += 1;
@@ -184,6 +199,73 @@ public class GameManager : MonoBehaviour
         
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
+    }
+
+    public void Purchase()
+    {
+        foreach (GameObject g in purchase)
+        {
+            g.SetActive(true);
+        }
+    }
+
+    public void Prices()
+    {
+        foreach (GameObject g in buyShotgun)
+        {
+            price = 1000;
+            Debug.Log("Testing");
+        }
+    }
+    public void Prices1()
+    {
+        foreach (GameObject g in buyShells)
+        {
+            price = 200;
+            Debug.Log("Testing1");
+        }
+    }
+
+    public void Prices2()
+    {
+        foreach (GameObject g in buyNade)
+        {
+            price = 3000;
+            Debug.Log("Testing2");
+        }
+    }
+    public void Prices3()
+    {
+        foreach (GameObject g in buyHealth)
+        {
+            price = 2500;
+            Debug.Log("Testing3");
+        }
+    }
+
+    public void Prices4()
+    {
+        foreach (GameObject g in buyMax)
+        {
+            price = 5000;
+            Debug.Log("Testing4");
+        }
+    }
+    public void Prices5()
+    {
+        foreach (GameObject g in buyBrain)
+        {
+            price = 3500;
+            Debug.Log("Testing5");
+        }
+    }
+
+    public void HidePurchase()
+    {
+        foreach (GameObject g in purchase)
+        {
+            g.SetActive(false);
+        }
     }
 
     public void Buyable()

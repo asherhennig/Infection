@@ -1383,7 +1383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -44, y: -36}
+  m_AnchoredPosition: {x: -85, y: -36}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &266155870
@@ -1560,7 +1560,7 @@ GameObject:
   - component: {fileID: 324795481}
   m_Layer: 5
   m_Name: Shotgun
-  m_TagString: Untagged
+  m_TagString: BuyShotgun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1627,8 +1627,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1742861086}
+      - m_Target: {fileID: 364760203}
         m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 364760203}
+        m_MethodName: Prices
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1778,8 +1789,7 @@ MonoBehaviour:
   pickUpPrefab: []
   gameUI: {fileID: 803615291}
   score: 0
-  bubblegum: 1000
-  price: 1000
+  bubblegum: 100000
   isGameOver: 0
   maxEnemiesOnScreen: 5
   enemiesPerSpawn: 1
@@ -1804,7 +1814,7 @@ GameObject:
   - component: {fileID: 375678540}
   m_Layer: 5
   m_Name: Brain Grenade
-  m_TagString: Untagged
+  m_TagString: BuyBrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1871,8 +1881,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1742861086}
+      - m_Target: {fileID: 364760203}
         m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 364760203}
+        m_MethodName: Prices5
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2468,7 +2489,7 @@ GameObject:
   - component: {fileID: 498690107}
   m_Layer: 5
   m_Name: Shotgun Shells
-  m_TagString: Untagged
+  m_TagString: BuyShells
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2535,8 +2556,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1742861086}
+      - m_Target: {fileID: 364760203}
         m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 364760203}
+        m_MethodName: Prices1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2719,7 +2751,7 @@ GameObject:
   - component: {fileID: 592811566}
   m_Layer: 5
   m_Name: Health Slot
-  m_TagString: Untagged
+  m_TagString: BuyHealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2786,8 +2818,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1742861086}
+      - m_Target: {fileID: 364760203}
         m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 364760203}
+        m_MethodName: Prices3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2979,7 +3022,7 @@ GameObject:
   - component: {fileID: 613165336}
   m_Layer: 5
   m_Name: Grenade
-  m_TagString: Untagged
+  m_TagString: BuyNade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3046,8 +3089,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1742861086}
+      - m_Target: {fileID: 364760203}
         m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 364760203}
+        m_MethodName: Prices2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6611,7 +6665,7 @@ GameObject:
   - component: {fileID: 1759918006}
   m_Layer: 5
   m_Name: Full Health
-  m_TagString: Untagged
+  m_TagString: BuyMax
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6678,8 +6732,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1742861086}
+      - m_Target: {fileID: 364760203}
         m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 364760203}
+        m_MethodName: Prices4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7290,7 +7355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 530, y: 203}
+  m_AnchoredPosition: {x: 490, y: 203}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1855959194
@@ -7326,7 +7391,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Bubblegum: 1000'
+  m_Text: 'Bubblegum: 100000'
 --- !u!222 &1855959195
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7486,7 +7551,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1742861086}
+      - m_Target: {fileID: 364760203}
         m_MethodName: HidePurchase
         m_Mode: 1
         m_Arguments:
@@ -8280,7 +8345,7 @@ GameObject:
   - component: {fileID: 2087240467}
   m_Layer: 5
   m_Name: Yes
-  m_TagString: Untagged
+  m_TagString: Purchase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
