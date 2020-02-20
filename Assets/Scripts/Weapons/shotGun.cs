@@ -15,12 +15,19 @@ public class shotGun : Gun
         {
             // calculate angle of bullet
             float spreadA = totalSpread * (i + 1);
+          //  Debug.Log("totalSpread: " + totalSpread);
+           // Debug.Log("spreadA: " + spreadA);
             float spreadB = spread / 2.0f;
-            float finSpread = spread - spreadB + totalSpread / 2;
+          //  Debug.Log("spreadB: " + spreadB);
+            float finSpread = spreadB - spreadA + totalSpread / 2;
+          //  Debug.Log("finSpread: " + finSpread);
             float angle = transform.eulerAngles.y;
 
+           // Debug.Log("angle: " + angle);
+
             //create bullet rot
-            Quaternion rotation = Quaternion.Euler(new Vector3(90, 0, spread + angle));
+            Quaternion rotation = Quaternion.Euler(new Vector3(90, 0, finSpread + angle));
+          //  Debug.Log("angle: " + angle);
 
             // spawn bullet   
             GameObject bullet = Instantiate(bulletPrefab) as GameObject;
@@ -28,8 +35,12 @@ public class shotGun : Gun
             bullet.transform.position = firePosition.position;
             bullet.transform.rotation = rotation;
             // give it speed   
-            bullet.GetComponent<Rigidbody>().velocity =
-                transform.forward * bulletSpeed;
+          //  Debug.Log("transform.forward:" + transform.up);
+          //  Debug.Log("bulletSpeed: "+ bulletSpeed);
+            Debug.Log("transform.forward * bulletSpeed: " + transform.up * bullet.transform.rotation.z * bulletSpeed);
+
+            bullet.GetComponent<Rigidbody>().AddForce(new Vector3(rotation.x, rotation.y, rotation.z) * bulletSpeed, ForceMode.VelocityChange);//velocity =
+            //    transform.forward * bulletSpeed;
             // give it damage
             bullet.GetComponent<bullet>().damage = weaponDam;
         }
