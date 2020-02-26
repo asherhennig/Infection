@@ -81,15 +81,13 @@ public class Player : MonoBehaviour
         currency = currency + 5;
     }
 
-   
-   
+
+
     public void pickUpMiniGun()
     {
         StartCoroutine("fireMiniGun");
-
-        //deactivate the mini gun and reactivate pistol
-        gunEquipper.deactiveMiniGun();
     }
+        
     //checks which pickup we got to know its effect
     public void PickUpItem(int pickupItem)
     {
@@ -203,15 +201,19 @@ public class Player : MonoBehaviour
 
     private IEnumerator fireMiniGun()
     {
+        //200 is the num of bulets fired when powered up
         for(int i = -0; i<200;i++)
         {
+            //minigun is checking if a minigun GO is there
             miniGun = GameObject.FindGameObjectWithTag("miniGun");
 
-
+            //gets the fire bulet function from the mini gun in gun script and calls it
             miniGun.GetComponent<Gun>().fireBullet();
-
+            //call againg in half a second
             yield return new WaitForSeconds(1/2);
         }
-         
+            //deactivate the mini gun and reactivate pistol
+            gunEquipper.deactiveMiniGun();
+        
     }
 }
