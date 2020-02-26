@@ -35,14 +35,11 @@ public class Gun : MonoBehaviour
         }
     }
 
-   public void miniGunFire()
-    {
-        
-       
-    }
 
     public void fireBullet()
-    {   // 1   
+    {
+        Debug.Log("Firing");
+        // 1   
         GameObject bullet = Instantiate(bulletPrefab) as GameObject;
         // 2   
         bullet.transform.position = firePosition.position;

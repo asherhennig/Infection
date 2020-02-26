@@ -13,26 +13,27 @@ public class Player : MonoBehaviour
     public float rotSpeed = 1.0f;
     public float timeBetweenHits = 0;
     public LayerMask layerMask;
+    public GameObject miniGun;
     //so get componet can access the minigun
-   private Gun minigun;
+   
     public bool isactive = false;
 
     //private init
+
     private CharacterController characterController;
     private Vector3 currentLookTarget = Vector3.zero;
     private bool isDead = false;
     private bool isHit = false;
     private float timeSinceHit = 0;
     private GunEquipper gunEquipper;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
-        minigun = GetComponent<Gun>();
+        miniGun = GameObject.FindGameObjectWithTag("miniGun");
     }
-
     //added takeDamage function
     public void takeDamage()
     {
@@ -84,17 +85,10 @@ public class Player : MonoBehaviour
    
     public void pickUpMiniGun()
     {
-        isactive = true;
-        gunEquipper.activeMiniGun();
-        while(isactive)
-        {
-            
-            minigun.fireBullet();
-
-        }
+        StartCoroutine("fireMiniGun");
 
         //deactivate the mini gun and reactivate pistol
-        gameObject.GetComponent<GunEquipper>().deactiveMiniGun();
+        gunEquipper.deactiveMiniGun();
     }
     //checks which pickup we got to know its effect
     public void PickUpItem(int pickupItem)
@@ -126,6 +120,7 @@ public class Player : MonoBehaviour
 
             //pick up the mini gun and start shooting
             case Constants.miniGunPickUp:
+                gunEquipper.activeMiniGun();
                 pickUpMiniGun();
                 break;
 
@@ -204,5 +199,19 @@ public class Player : MonoBehaviour
     {
         Debug.Log("GameOver");
         Destroy(gameObject);
+    }
+
+    private IEnumerator fireMiniGun()
+    {
+        for(int i = -0; i<200;i++)
+        {
+            miniGun = GameObject.FindGameObjectWithTag("miniGun");
+
+
+            miniGun.GetComponent<Gun>().fireBullet();
+
+            yield return new WaitForSeconds(1/2);
+        }
+         
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class miniGunTimer : MonoBehaviour
 {
-    float timeleft = 15;
+    public float timeleft = 15;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +17,12 @@ public class miniGunTimer : MonoBehaviour
         if (gameObject.GetComponent<Player>().isactive==true)
         {
             timeleft -= Time.deltaTime;
+            Debug.Log("timer working");
             if (timeleft == 0)
             {
+                Debug.Log("timer done");
                 gameObject.GetComponent<Player>().isactive = false;
+                timeleft = 15;
             }
         }
         
