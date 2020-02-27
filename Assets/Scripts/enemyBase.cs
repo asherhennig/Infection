@@ -12,6 +12,7 @@ public class enemyBase : MonoBehaviour
     public UnityEvent onDestroy;
     public int health = 5;
     private int newHealth;
+    public GameObject currencyprefab;
     
 
     void Start()
@@ -25,10 +26,12 @@ public class enemyBase : MonoBehaviour
         //updates health to the newhealth value
         health = newHealth;
 
-        //if the health of a enemy is equal or lesss than 0 it dies
+        //if the health of a enemy is equal or less than 0 it dies
         if (health <= 0)
         {
             Die();
+            GameObject currency = Instantiate(currencyprefab) as GameObject;
+            currencyprefab.transform.position = this.transform.position;
         }
     }
 
