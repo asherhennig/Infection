@@ -13,7 +13,8 @@ public class enemyBase : MonoBehaviour
     public int health = 5;
     private int newHealth;
     public GameObject currencyprefab;
-    
+    int chance;
+    public GameObject currencyprefab2;
 
     void Start()
     {
@@ -29,9 +30,24 @@ public class enemyBase : MonoBehaviour
         //if the health of a enemy is equal or less than 0 it dies
         if (health <= 0)
         {
+            // increase the number of kills the player has in the player script
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().numKills++;
             Die();
-            GameObject currency = Instantiate(currencyprefab) as GameObject;
-            currencyprefab.transform.position = this.transform.position;
+            //create a random chance for drop 
+            chance = Random.Range(0, 10);
+            //if it is the low chance of 5 gum loot drop is that
+            if (chance >= 8)
+            {
+                GameObject currency = Instantiate(currencyprefab2) as GameObject;
+                currencyprefab2.transform.position = this.transform.position;
+            }
+            //other wise it is normal drop
+            else
+            {
+                GameObject currency = Instantiate(currencyprefab) as GameObject;
+                currencyprefab.transform.position = this.transform.position;
+            }
+           
         }
     }
 
