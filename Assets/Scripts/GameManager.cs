@@ -80,26 +80,29 @@ public class GameManager : MonoBehaviour
         //updating pick up spawn time
         currentPickUpTime += Time.deltaTime;
         //checks if the current spawn time is more than the upgrade spawn time and that one isnt spawned
-        if (currentPickUpTime > actualPickUpTime && !spawnedPickUp)
+        if (pickUpPrefab.Length > 0)
         {
-            pickUpNum = Random.Range(0, 2);
-            //generates a random number based on the number of spawn points we have and
-            //assigns one to be the spawn, finally it spawns a pickup
-            int randnum = Random.Range(0, itemSpawnPoints.Length - 1);
-            GameObject spawnLocation = itemSpawnPoints[randnum];
-            pickUp = Instantiate(pickUpPrefab[pickUpNum]) as GameObject;
-            pickUp.transform.position = spawnLocation.transform.position;
-            spawnedPickUp = true;
-            actualPickUpTime = Random.Range(pickUpMaxSpawnTime - 3.0f, pickUpMaxSpawnTime);
-            actualPickUpTime = Mathf.Abs(actualPickUpTime);
-            Debug.Log("Spawned");
-        }
-        //checks if the pick up has been picked up
-        if (pickUp == null && spawnedPickUp == true)
-        {
-            currentPickUpTime = 0;
-            spawnedPickUp = false;
-            Debug.Log("deactive");
+            if (currentPickUpTime > actualPickUpTime && !spawnedPickUp)
+            {
+                pickUpNum = Random.Range(0, 2);
+                //generates a random number based on the number of spawn points we have and
+                //assigns one to be the spawn, finally it spawns a pickup
+                int randnum = Random.Range(0, itemSpawnPoints.Length - 1);
+                GameObject spawnLocation = itemSpawnPoints[randnum];
+                pickUp = Instantiate(pickUpPrefab[pickUpNum]) as GameObject;
+                pickUp.transform.position = spawnLocation.transform.position;
+                spawnedPickUp = true;
+                actualPickUpTime = Random.Range(pickUpMaxSpawnTime - 3.0f, pickUpMaxSpawnTime);
+                actualPickUpTime = Mathf.Abs(actualPickUpTime);
+                Debug.Log("Spawned");
+            }
+            //checks if the pick up has been picked up
+            if (pickUp == null && spawnedPickUp == true)
+            {
+                currentPickUpTime = 0;
+                spawnedPickUp = false;
+                Debug.Log("deactive");
+            }
         }
         if (activeWave)
         {

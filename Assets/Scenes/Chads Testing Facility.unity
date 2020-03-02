@@ -1448,12 +1448,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curHealth: 5
   maxHealth: 5
+  currency: 0
   speed: 10
   rotSpeed: 5
   timeBetweenHits: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 4294967295
+  miniGun: {fileID: 0}
+  isactive: 0
 --- !u!1 &274837580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,7 +1630,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364760203}
+      - m_Target: {fileID: 364760204}
         m_MethodName: Purchase
         m_Mode: 1
         m_Arguments:
@@ -1800,6 +1803,18 @@ MonoBehaviour:
   wave: 0
   MaxPerWave: 5
   activeWave: 1
+--- !u!114 &364760204 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84,
+    type: 3}
+  m_PrefabInstance: {fileID: 2041152272}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364760202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad1a7097fd072343b5bf2b79678ed2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &375678538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,7 +1896,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364760203}
+      - m_Target: {fileID: 364760204}
         m_MethodName: Purchase
         m_Mode: 1
         m_Arguments:
@@ -2556,7 +2571,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364760203}
+      - m_Target: {fileID: 364760204}
         m_MethodName: Purchase
         m_Mode: 1
         m_Arguments:
@@ -2818,7 +2833,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364760203}
+      - m_Target: {fileID: 364760204}
         m_MethodName: Purchase
         m_Mode: 1
         m_Arguments:
@@ -3089,7 +3104,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364760203}
+      - m_Target: {fileID: 364760204}
         m_MethodName: Purchase
         m_Mode: 1
         m_Arguments:
@@ -6732,7 +6747,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364760203}
+      - m_Target: {fileID: 364760204}
         m_MethodName: Purchase
         m_Mode: 1
         m_Arguments:
@@ -7551,7 +7566,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364760203}
+      - m_Target: {fileID: 364760204}
         m_MethodName: HidePurchase
         m_Mode: 1
         m_Arguments:
