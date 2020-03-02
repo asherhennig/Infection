@@ -17,7 +17,7 @@ public class KneeznToes : MonoBehaviour
     void Start()
     {
         shooterZar = this.GetComponent<NavMeshAgent>();
-        shooterZar.stoppingDistance = shotRange - 2.5;
+        shooterZar.stoppingDistance = shotRange;
 
     }
 
@@ -26,4 +26,4 @@ public class KneeznToes : MonoBehaviour
         
     }
 }
-}
+
