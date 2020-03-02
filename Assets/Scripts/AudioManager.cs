@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Sound
@@ -17,6 +18,12 @@ public class Sound
     {
         source = audioSource;
         source.clip = clip;
+    }
+
+    public void SetVolume(float vol)
+    {
+        volume = vol;
+        source.volume = vol;
     }
 
     public void Play()
@@ -68,5 +75,13 @@ public class AudioManager : MonoBehaviour
 
         // no sound with soundName
         Debug.Log("AudioManager: Sound not found in list, " + soundName);
+    }
+
+    public void SetVolume(Slider slider)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            sounds[i].SetVolume(slider.value);
+        }
     }
 }
