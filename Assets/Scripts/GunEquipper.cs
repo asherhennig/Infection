@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunEquiper : MonoBehaviour
+public class GunEquipper : MonoBehaviour
 {
 
     public static string activeWeaponType;
@@ -10,6 +10,9 @@ public class GunEquiper : MonoBehaviour
     public GameObject pistol;
     public GameObject shotgun;
     public GameObject granade;
+
+    Ammo Ammo;
+
     public GameObject miniGun;
     GameObject gameObject;
     GameObject activeGun;
@@ -38,12 +41,13 @@ public class GunEquiper : MonoBehaviour
         loadWeapons(miniGun);
         //set active gun to mini gun
         activeWeaponType = Constants.miniGun;
+        Debug.Log("mini gun away");
        
     }
 
     public void deactiveMiniGun()
     {
-        //makes minigun not active and pistol active
+        loadWeapons(pistol);
         activeWeaponType = Constants.Pistol;
     }
 
@@ -61,7 +65,7 @@ public class GunEquiper : MonoBehaviour
             loadWeapons(granade);
             activeWeaponType = Constants.Granade;
         }
-        else if (Input.GetKeyDown("3"))
+        else if (Input.GetKeyDown("3") )
         {
             loadWeapons(shotgun);
             activeWeaponType = Constants.Shotgun;
