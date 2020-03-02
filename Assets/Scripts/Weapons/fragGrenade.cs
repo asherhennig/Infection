@@ -32,7 +32,7 @@ public class fragGrenade : MonoBehaviour
     {
         //sets two seperate radius for near and far damage for explosion
         Collider[] Arround = Physics.OverlapSphere(transform.position, exploRadius);
-        Collider[] ArroundNear = Physics.OverlapSphere(transform.position, Mathf.Abs(exploRadius / 2));
+        Collider[] ArroundNear = Physics.OverlapSphere(transform.position, Mathf.Abs(exploRadius / 3));
 
         //close radius does base damage
         foreach (Collider intoExp in ArroundNear)
