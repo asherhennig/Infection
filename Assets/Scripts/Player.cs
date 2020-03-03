@@ -16,14 +16,14 @@ public class Player : MonoBehaviour
     public LayerMask layerMask;
     public GameObject miniGun;
     //so get componet can access the minigun
-   
+    public bool isDead = false;
     public bool isactive = false;
 
     //private init
 
     private CharacterController characterController;
     private Vector3 currentLookTarget = Vector3.zero;
-    private bool isDead = false;
+    
     private bool isHit = false;
     private float timeSinceHit = 0;
     private GunEquipper gunEquipper;
@@ -198,6 +198,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("GameOver");
         Destroy(gameObject);
+        
     }
 
     private IEnumerator fireMiniGun()
