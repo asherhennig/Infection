@@ -8,9 +8,11 @@ public class Grenade : MonoBehaviour
     public Transform tossPos;
     public Vector3 throwPos;
     public float throwSpeed = 0.1f;
-    public float TOF = 1.0f;
-
+    public float TOF = 100.0f;
+    bool tossed = false;
     public LayerMask LayerMask;
+    Vector3 direction;
+    GameObject tossedGrenade;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,15 @@ public class Grenade : MonoBehaviour
     void Update()
     {
         throwGrenade();
+
+        if (tossed && tossedGrenade != null)
+        {
+            Debug.Log(direction);
+            Debug.Log(direction * TOF );
+          //  Debug.Log(Time.deltaTime);
+           // Debug.Log(TOF);
+            tossedGrenade.GetComponent<Rigidbody>().MovePosition(tossedGrenade.transform.position + direction * TOF * Time.deltaTime );
+        }
     }
     void throwGrenade()
     {
@@ -42,7 +53,7 @@ public class Grenade : MonoBehaviour
     void toss()
     {
         //spawns grenade we want thrown
-        GameObject tossedGrenade = Instantiate(grenade) as GameObject;
+        tossedGrenade = Instantiate(grenade) as GameObject;
         //spawns it at set throw point
         tossedGrenade.transform.position = tossPos.position;
         tossedGrenade.transform.rotation = tossPos.rotation;
@@ -53,8 +64,14 @@ public class Grenade : MonoBehaviour
         {
             //set were the grenade should go and send it there
             throwPos = hit.point;
-            tossedGrenade.GetComponent<Rigidbody>().MovePosition
-                (Vector3.MoveTowards(transform.position, throwPos, TOF * Time.deltaTime));
+
+            direction = (throwPos - tossPos.position).normalized;
+
+          //  Debug.Log(direction);
+            tossedGrenade.GetComponent<Rigidbody>().MovePosition(transform.position + direction * TOF * Time.deltaTime);
+
+            tossed = true;
+            //tossedGrenade.GetComponent<Rigidbody>().AddForce(Vector3.MoveTowards(transform.position, throwPos, TOF * Time.deltaTime));
         }
 
     }
