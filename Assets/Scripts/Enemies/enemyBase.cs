@@ -11,10 +11,15 @@ public class enemyBase : MonoBehaviour
     public Transform target;             //goal is hero/player
     public UnityEvent onDestroy;
     public int health = 5;
+    public float diffMod;
     
+    void Awake()
+    {
 
+    }
     void Start()
     {
+        setHealth();
     }
 
     // update is called every frame
@@ -57,5 +62,15 @@ public class enemyBase : MonoBehaviour
         health -= damTaken;
         Debug.Log("damage after shot is:" + damTaken);
         Debug.Log("health is:" + health);
+    }
+
+    public void setDiff(float DiffMod)
+    {
+        diffMod = DiffMod;
+    }
+
+    public void setHealth()
+    {
+        health = (int)(health * diffMod);
     }
 }

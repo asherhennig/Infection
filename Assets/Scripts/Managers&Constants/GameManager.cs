@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
     GameObject currency;
     //this lets us know if a wave is active
     public bool activeWave = true;
+    //Difficulty
+    public int curDifficulty = 1;
+    public float difficultyMod = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -116,6 +119,7 @@ public class GameManager : MonoBehaviour
                             Debug.Log("Enemy Spawned");
                             newEnemy.transform.position = spawnLocation.transform.position;
                             enemyBase enemyScript = newEnemy.GetComponent<enemyBase>();
+                            newEnemy.GetComponent<enemyBase>().setDiff(difficultyMod);
                             if (player != null)
                             {
                                 enemyScript.target = player.transform;
@@ -161,5 +165,22 @@ public class GameManager : MonoBehaviour
         enemiesOnScreen -= 1;
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
+    }
+
+    public float setDifficulty(int difficulty)
+    {
+        if(difficulty == 1)
+        {
+            difficultyMod = 0.5f;
+        }
+        else if (difficulty == 2)
+        {
+            difficultyMod = 1.0f;
+        }
+        else if (difficulty == 3)
+        {
+            difficultyMod = 2.0f;
+        }
+        return difficultyMod;
     }
 }
