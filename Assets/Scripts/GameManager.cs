@@ -195,6 +195,7 @@ public class GameManager : MonoBehaviour
 
     public void Purchase()
     {
+        Debug.Log("purchase:" + purchase.Length);
         foreach (GameObject g in purchase)
         {
             g.SetActive(true);
@@ -254,10 +255,12 @@ public class GameManager : MonoBehaviour
 
     public void HidePurchase()
     {
+        Debug.Log("purchase:" + purchase.Length);
         foreach (GameObject g in purchase)
         {
             g.SetActive(false);
         }
+        Debug.Log("purchase:" + purchase.Length);
     }
 
     public void Buyable()
