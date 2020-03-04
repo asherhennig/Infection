@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public int curHealth;
     public int maxHealth;
     public int currency = 0;
+    public int numKills = 0;
     public float speed = 10;
     public float rotSpeed = 1.0f;
     public float timeBetweenHits = 0;
