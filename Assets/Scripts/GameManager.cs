@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     public int bubblegum;
     private int price;
     private bool canPurchase = false;
-    public bool isGameOver = false;
     //public GameObject[] bubbleGum;
 
     //public vars so we can modify them as we need
@@ -163,6 +162,7 @@ public class GameManager : MonoBehaviour
                 wave++;
                 MaxPerWave++;
                 maxEnemiesOnScreen++;
+                score += 500;
              
             }
         }
@@ -178,17 +178,6 @@ public class GameManager : MonoBehaviour
             
         }
     }
-
-    IEnumerator increaseScoreEachSecond()
-    {
-        while (isGameOver == false)
-        {
-            yield return new WaitForSeconds(1);
-            score += 1;
-            gameUI.SetScoreText(score);
-        }
-    }
-
 
     public void enemyDestroyed()
     {
