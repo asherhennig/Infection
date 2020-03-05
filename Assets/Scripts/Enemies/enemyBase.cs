@@ -15,10 +15,6 @@ public class enemyBase : MonoBehaviour
     
     void Awake()
     {
-
-    }
-    void Start()
-    {
         setHealth();
     }
 

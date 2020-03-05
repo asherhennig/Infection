@@ -26,6 +26,7 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Pistol update:" + weaponDam);
             if (!IsInvoking("fireBullet"))
             {
                 InvokeRepeating("fireBullet", 0f, fireSpeed);

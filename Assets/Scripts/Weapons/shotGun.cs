@@ -9,38 +9,40 @@ public class shotGun : Gun
     GameObject bullet;
     Quaternion rotation;
 
-    void Update()
+    void fireBullet()
     {
-
-    }
-
-    private void Awake()
-    {
-        pellets = new List<Quaternion>(pelletsPerShot);
+        ///this was referanced from https://answers.unity.com/questions/1337081/shotgun-radndom-spread-with-true-bullets-c.html
+        float totalSpread = spread / pelletsPerShot;
         for (int i = 0; i < pelletsPerShot; i++)
         {
             // calculate angle of bullet
             float spreadA = totalSpread * (i + 1);
+            //  Debug.Log("totalSpread: " + totalSpread);
+            // Debug.Log("spreadA: " + spreadA);
             float spreadB = spread / 2.0f;
+            //  Debug.Log("spreadB: " + spreadB);
             float finSpread = spreadB - spreadA + totalSpread / 2;
+            //  Debug.Log("finSpread: " + finSpread);
             float angle = transform.eulerAngles.y;
 
-            //create bullet rot
-            rotation = Quaternion.Euler(new Vector3(90, 0, finSpread + angle));
+            // Debug.Log("angle: " + angle);
 
-            // spawn bullet   
-            bullet = Instantiate(bulletPrefab) as GameObject;
-            // set it to spawn at the firePos
-            bullet.transform.position = firePosition.position;
-            bullet.transform.rotation = rotation;
-            // give it speed   
-            bullet.GetComponent<Rigidbody>().AddForce(new Vector3(rotation.x, 0, rotation.z) * bulletSpeed, ForceMode.VelocityChange);//velocity =
-            //    transform.forward * bulletSpeed;
-            // give it damage
-            bullet.GetComponent<bullet>().damage = weaponDam;
+            //create bullet rot
+            Quaternion rotation = Quaternion.Euler(new Vector3(90, 0, finSpread + angle));
+            //  Debug.Log("angle: " + angle);
+            // ray cast implemtation
+            RaycastHit hit;
+
+            //fires out raycast from fire pos
+            if(Physics.Raycast(transform.position, Vector3.forward, out hit))
+            {
+                if(hit.collider.gameObject.tag == "Enemy")
+                {
+
+                }
+            }
         }
     }
-
     void upgradePelletNum()
     {
         pelletsPerShot++;
@@ -51,3 +53,5 @@ public class shotGun : Gun
         weaponDam++;
     }
 }
+
+

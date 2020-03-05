@@ -8,7 +8,7 @@ public class Grenade : MonoBehaviour
     public Transform tossPos;
     public Vector3 throwPos;
     public float throwSpeed = 0.1f;
-    public float TOF = 100.0f;
+    public float TOF = 1000.0f;
     bool tossed = false;
     public LayerMask LayerMask;
     Vector3 direction;
