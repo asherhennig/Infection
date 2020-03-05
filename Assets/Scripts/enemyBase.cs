@@ -24,7 +24,7 @@ public class enemyBase : MonoBehaviour
     {
         newHealth = health;
         enemy = this.GetComponent<NavMeshAgent>();
-        enemy.SetDestination(grenade.transform.position);   //enemy nav set to follow once recognized grenade's position
+ 
     }
 
     // update is called every frame
