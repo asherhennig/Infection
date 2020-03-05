@@ -14,10 +14,9 @@ public class shotGun : Gun
 
     }
 
-    void fireBullet()
+    private void Awake()
     {
-        ///this was referanced from https://answers.unity.com/questions/1337081/shotgun-radndom-spread-with-true-bullets-c.html
-        float totalSpread = spread / pelletsPerShot;
+        pellets = new List<Quaternion>(pelletsPerShot);
         for (int i = 0; i < pelletsPerShot; i++)
         {
             // calculate angle of bullet
