@@ -36,9 +36,10 @@ public class shotGun : Gun
             //fires out raycast from fire pos
             if(Physics.Raycast(transform.position, Vector3.forward, out hit))
             {
+                //if it hits an enemy it does damage
                 if(hit.collider.gameObject.tag == "Enemy")
                 {
-
+                    hit.collider.gameObject.GetComponent<enemyBase>().takeDamage(weaponDam);
                 }
             }
         }
