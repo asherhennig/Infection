@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using Panda;
+//using Panda;
 
 public class ShoulderShooter : MonoBehaviour
 {
