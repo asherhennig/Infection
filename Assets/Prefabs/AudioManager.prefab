@@ -46,43 +46,46 @@ MonoBehaviour:
   sounds:
   - name: MenuBGM
     clip: {fileID: 8300000, guid: be3b21f969dfbe146b94cc0266fa073d, type: 3}
-    volume: 1
+    source: {fileID: 0}
   - name: LabBGM
     clip: {fileID: 8300000, guid: c600564bb9b541a44ba16c055761d74f, type: 3}
-    volume: 1
+    source: {fileID: 0}
   - name: ForestBGM
     clip: {fileID: 8300000, guid: e34349e0f87af9f44962af345bdab6a2, type: 3}
-    volume: 1
+    source: {fileID: 0}
   - name: LaunchpadBGM
     clip: {fileID: 8300000, guid: 5e5e61f09a153b748a33ecd4341f1d3b, type: 3}
-    volume: 1
+    source: {fileID: 0}
   - name: LaserSound
     clip: {fileID: 8300000, guid: 15508674c880ff5459b621ff16695d52, type: 3}
-    volume: 1
+    source: {fileID: 0}
   - name: ShotgunSound
     clip: {fileID: 8300000, guid: b09494a0f7dd66f458a9cd412924d33a, type: 3}
-    volume: 1
+    source: {fileID: 0}
   - name: GrenadeSound
     clip: {fileID: 8300000, guid: 536743d6f181ce14aa0a3d47b02258e4, type: 3}
-    volume: 1
+    source: {fileID: 0}
   - name: B_GrenadeSound
     clip: {fileID: 8300000, guid: 4fb60075193cf0e4b92fa4c7e7538374, type: 3}
-    volume: 1
+    source: {fileID: 0}
   - name: PickupSound
     clip: {fileID: 8300000, guid: 48fb2ceea9ff8b1449393f357b491a01, type: 3}
-    volume: 1
+    source: {fileID: 0}
   - name: PowerupSound
     clip: {fileID: 8300000, guid: 370ba73bf9b9f9c428b0dc4977fd8eaa, type: 3}
-    volume: 1
+    source: {fileID: 0}
   - name: RobotSound
     clip: {fileID: 8300000, guid: e5af086adb5958245bd00d01b6406dfe, type: 3}
-    volume: 1
+    source: {fileID: 0}
   - name: RobotDeathSound
     clip: {fileID: 8300000, guid: 32cc37d4bd33fb04eab0969a3a7e2fbe, type: 3}
-    volume: 1
+    source: {fileID: 0}
   - name: WaveClearedSound
     clip: {fileID: 8300000, guid: 95cbf38c7ffe35d47a0cd29d0b17e81c, type: 3}
-    volume: 1
+    source: {fileID: 0}
   - name: DoorSound
     clip: {fileID: 8300000, guid: f1003126972dea3459c4d013f6134a10, type: 3}
-    volume: 1
+    source: {fileID: 0}
+  - name: MinigunSound
+    clip: {fileID: 8300000, guid: b02ffc995f854014a8359b166d5c088e, type: 3}
+    source: {fileID: 0}

@@ -8,11 +8,10 @@ public class Sound
 {
     public string name;
     public AudioClip clip;
+    
+    private float volume = 0.7f;
 
-    [Range(0f, 1f)]
-    public float volume = 0.7f;
-
-    private AudioSource source;
+    public AudioSource source;
 
     public void SetSource(AudioSource audioSource)
     {
@@ -82,6 +81,17 @@ public class AudioManager : MonoBehaviour
         for (int i = 0; i < sounds.Length; i++)
         {
             sounds[i].SetVolume(slider.value);
+        }
+    }
+
+    public void Loop()
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name == "MenuBGM" || sounds[i].name == "LabBGM" || sounds[i].name == "ForestBGM" || sounds[i].name == "LaunchpadBGM")
+            {
+                sounds[i].source.loop = true;
+            }
         }
     }
 }
