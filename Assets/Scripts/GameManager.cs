@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private static GameManager singleton;
     //game objects that will be needed in the script
     public GameObject player;
+    private Player player1;
     public GameObject[] itemSpawnPoints;
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
@@ -52,6 +53,10 @@ public class GameManager : MonoBehaviour
     //this lets us know if a wave is active
     public bool activeWave = true;
 
+    void Awake()
+    {
+        player1 = GameObject.FindObjectOfType<Player>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -233,6 +238,7 @@ public class GameManager : MonoBehaviour
             price = 2500;
             Debug.Log("Testing3");
         }
+       
     }
 
     public void Prices4()
@@ -254,7 +260,6 @@ public class GameManager : MonoBehaviour
 
     public void HidePurchase()
     {
-        Debug.Log("purchase:" + purchase.Length);
         foreach (GameObject g in purchase)
         {
             g.SetActive(false);
