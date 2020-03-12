@@ -13,7 +13,7 @@ public class enemyBase : MonoBehaviour
     public int health = 5;
     public float diffMod;
     
-    void Awake()
+    void Start()
     {
         setHealth();
     }
