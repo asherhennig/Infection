@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
-
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class Paused : MonoBehaviour
 {
