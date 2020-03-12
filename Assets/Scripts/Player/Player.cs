@@ -9,20 +9,21 @@ public class Player : MonoBehaviour
     public int curHealth;
     public int maxHealth;
     public int currency = 0;
+    public int numKills = 0;
     public float speed = 10;
     public float rotSpeed = 1.0f;
     public float timeBetweenHits = 0;
     public LayerMask layerMask;
     public GameObject miniGun;
     //so get componet can access the minigun
-   
+    public bool isDead = false;
     public bool isactive = false;
 
     //private init
 
     private CharacterController characterController;
     private Vector3 currentLookTarget = Vector3.zero;
-    private bool isDead = false;
+    
     private bool isHit = false;
     private float timeSinceHit = 0;
     private GunEquipper gunEquipper;
@@ -197,6 +198,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("GameOver");
         Destroy(gameObject);
+        
     }
 
     private IEnumerator fireMiniGun()
