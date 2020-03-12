@@ -1,18 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.IO;
 using UnityEngine;
+using System.Runtime.Serialization.Formatters.Binary;
 
-public class saveSystem : MonoBehaviour
+
+//refrences https://answers.unity.com/questions/1601012/saving-system-tutorial-load-through-main-menu.html
+//https://nielson.dev/2015/09/saving-games-in-unity
+public class saveSystem
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
