@@ -1,0 +1,23 @@
+- 19/02/2020
+- Worked on getting my menus to load through a script instead of having it rigged through Unity, Previously I ran into a problem where the scenes were not 
+being loaded through the script. I later found that I was attempting to load prefab of that instance and therefore could not load the game objects as the
+function cannot properly reference a prefab. I solved this by putting a debug.log that checked the size of the gameobjects to see what was being stored,
+the output was 0 as the script could not get a reference to the gameobjects.
+
+-Made a temporary button that loads the post wave stats screen with code
+	- Added a continue button to keep playing after displaying the stats
+
+- 20/2/2020
+- Cleaned up the gameover screen and anchored the game over text to make sure that resizing does not put it off screen.
+
+- Anchored various text objects and buttons to ensure they are not offset if the screen is resized
+	- Anchored Infection title
+	- Anchored main menu buttons
+	- Anchored show stats buttons and continue buttons
+
+- Made a temporary button that loads the post level stats screen with code
+	- Added a continue button to keep playing after displaying the stats
+
+- Added a highlight color for buttons to help show what button is currently being highlighted.
+	- Added to main menu
+	- Added to options menu

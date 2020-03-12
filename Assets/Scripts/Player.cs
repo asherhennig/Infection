@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Player : MonoBehaviour
     public float rotSpeed = 1.0f;
     public float timeBetweenHits = 0;
     public LayerMask layerMask;
+    public Text gameOver;
+    public HealthBar healthbar;
 
     //private init
     private CharacterController characterController;
@@ -23,6 +26,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        healthbar.setMaxHealth(maxHealth);
     }
 
     //added takeDamage function
@@ -30,6 +34,7 @@ public class Player : MonoBehaviour
     {
         int healthDamage = 1;
         curHealth -= healthDamage;
+        healthbar.setHealth(curHealth);
         Debug.Log("youve been hurt, health is: " + curHealth + " out of: " + maxHealth);
         if(curHealth <= 0)
         {
@@ -148,6 +153,7 @@ public class Player : MonoBehaviour
     //this is where eventually well do everything that happens when the player dies here
     public void Die()
     {
+        gameOver.text = "Game Over";
         Debug.Log("GameOver");
         Destroy(gameObject);
     }

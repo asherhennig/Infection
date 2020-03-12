@@ -80,6 +80,7 @@ public class Paused : MonoBehaviour
 
     public void showOptions()
     {
+        Debug.Log("Showoptions");
         foreach (GameObject g in Options)
         {
             g.SetActive(true);
@@ -88,6 +89,7 @@ public class Paused : MonoBehaviour
 
     public void hideOptions()
     {
+        Debug.Log("hideoptions");
         foreach (GameObject g in Options)
         {
             g.SetActive(false);
