@@ -11,10 +11,16 @@ public class Gun : MonoBehaviour
     public Transform firePosition;
     public float fireSpeed = 0.75f;
     bool miniFire = false;
+    private AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found!!!");
+        }
     }
 
     // Update is called once per frame
@@ -26,6 +32,9 @@ public class Gun : MonoBehaviour
             if (!IsInvoking("fireBullet"))
             {
                 InvokeRepeating("fireBullet", 0f, fireSpeed);
+
+                // Play audio when bullet is fired
+                audioManager.PlaySound("LaserSound");
             }
         }
 
