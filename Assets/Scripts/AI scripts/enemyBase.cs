@@ -38,14 +38,12 @@ public class enemyBase : MonoBehaviour
             //if it is the low chance of 5 gum loot drop is that
             if (chance >= 8)
             {
-                GameObject currency = Instantiate(currencyprefab2) as GameObject;
-                currencyprefab2.transform.position = this.transform.position;
+                Instantiate(currencyprefab2, this.transform.position, Quaternion.identity);
             }
             //other wise it is normal drop
             else
             {
-                GameObject currency = Instantiate(currencyprefab) as GameObject;
-                currencyprefab.transform.position = this.transform.position;
+                Instantiate(currencyprefab, this.transform.position, Quaternion.identity);
             }
            
         }
