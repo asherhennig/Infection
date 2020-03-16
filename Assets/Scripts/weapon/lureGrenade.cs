@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol : Gun
+public class lureGrenade : Grenade
 {
-    void upgradeDam()
-    {
-        weaponDam++;
-    }
+
 }

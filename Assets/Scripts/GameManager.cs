@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,19 +11,6 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
     public GameObject[] pickUpPrefab;
-    GameObject[] buyShotgun;
-    GameObject[] buyShells;
-    GameObject[] buyNade;
-    GameObject[] buyHealth;
-    GameObject[] buyMax;
-    GameObject[] buyBrain;
-    GameObject[] purchase;
-    public ScoreCounter gameUI;
-    public int score;
-    public int bubblegum;
-    private int price;
-    private bool canPurchase = false;
-    public bool isGameOver = false;
     //public GameObject[] bubbleGum;
 
     //public vars so we can modify them as we need
@@ -52,6 +38,9 @@ public class GameManager : MonoBehaviour
     GameObject currency;
     //this lets us know if a wave is active
     public bool activeWave = true;
+    //Difficulty
+    public int curDifficulty = 1;
+    public float difficultyMod = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -62,14 +51,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         restTimer = 0;
         StartCoroutine("updatedRestTimer");
-        buyShotgun = GameObject.FindGameObjectsWithTag("BuyShotgun");
-        buyShells = GameObject.FindGameObjectsWithTag("BuyShells");
-        buyNade = GameObject.FindGameObjectsWithTag("BuyNade");
-        buyHealth = GameObject.FindGameObjectsWithTag("BuyHealth");
-        buyMax = GameObject.FindGameObjectsWithTag("BuyMax");
-        buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
-        purchase = GameObject.FindGameObjectsWithTag("Purchase");
-        HidePurchase();
 
     }
 
@@ -138,6 +119,7 @@ public class GameManager : MonoBehaviour
                             Debug.Log("Enemy Spawned");
                             newEnemy.transform.position = spawnLocation.transform.position;
                             enemyBase enemyScript = newEnemy.GetComponent<enemyBase>();
+                            newEnemy.GetComponent<enemyBase>().setDiff(difficultyMod);
                             if (player != null)
                             {
                                 enemyScript.target = player.transform;
@@ -176,111 +158,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    IEnumerator increaseScoreEachSecond()
-    {
-        while (isGameOver == false)
-        {
-            yield return new WaitForSeconds(1);
-            score += 1;
-            gameUI.SetScoreText(score);
-        }
-    }
-
-
+    
     public void enemyDestroyed()
     {
         //int gumChance = Random.Range(0, 10);
         enemiesOnScreen -= 1;
-        //give gum and score on kill(testing score and bubblegum counters)
-        bubblegum += 5;
-        gameUI.SetMoneyText(bubblegum);
-        score += 100;
-        gameUI.SetScoreText(score);
-        
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
     }
 
-    public void Purchase()
+    public float setDifficulty(int difficulty)
     {
-        foreach (GameObject g in purchase)
+        if(difficulty == 1)
         {
-            g.SetActive(true);
+            difficultyMod = 0.5f;
         }
-    }
-
-    public void Prices()
-    {
-        foreach (GameObject g in buyShotgun)
+        else if (difficulty == 2)
         {
-            price = 1000;
-            Debug.Log("Testing");
+            difficultyMod = 1.0f;
         }
-    }
-    public void Prices1()
-    {
-        foreach (GameObject g in buyShells)
+        else if (difficulty == 3)
         {
-            price = 200;
-            Debug.Log("Testing1");
+            difficultyMod = 2.0f;
         }
-    }
-
-    public void Prices2()
-    {
-        foreach (GameObject g in buyNade)
-        {
-            price = 3000;
-            Debug.Log("Testing2");
-        }
-    }
-    public void Prices3()
-    {
-        foreach (GameObject g in buyHealth)
-        {
-            price = 2500;
-            Debug.Log("Testing3");
-        }
-    }
-
-    public void Prices4()
-    {
-        foreach (GameObject g in buyMax)
-        {
-            price = 5000;
-            Debug.Log("Testing4");
-        }
-    }
-    public void Prices5()
-    {
-        foreach (GameObject g in buyBrain)
-        {
-            price = 3500;
-            Debug.Log("Testing5");
-        }
-    }
-
-    public void HidePurchase()
-    {
-        foreach (GameObject g in purchase)
-        {
-            g.SetActive(false);
-        }
-    }
-
-    public void Buyable()
-    {
-        if (bubblegum >= price)
-        {
-            canPurchase = true;
-            bubblegum = bubblegum - price;
-            gameUI.SetMoneyText(bubblegum);
-            Debug.Log("Item Purchased");
-        }
-        else
-        {
-            canPurchase = false;
-            Debug.Log("You can't afford this item");
-        }
+        return difficultyMod;
     }
 }
