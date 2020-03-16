@@ -11,11 +11,11 @@ public class Player : MonoBehaviour
     public float rotSpeed = 1.0f;
     public float timeBetweenHits = 0;
     public LayerMask layerMask;
+    public bool isDead = false;
 
     //private init
     private CharacterController characterController;
     private Vector3 currentLookTarget = Vector3.zero;
-    private bool isDead = false;
     private bool isHit = false;
     private float timeSinceHit = 0;
     private GunEquipper gunEquipper;
