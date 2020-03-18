@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float timeBetweenHits = 0;
     public LayerMask layerMask;
     public bool isDead = false;
+    public HealthBar healthBar;
 
     //private init
     private CharacterController characterController;
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
+        healthBar.setMaxHealth(maxHealth);
     }
 
     //added takeDamage function
@@ -32,6 +34,7 @@ public class Player : MonoBehaviour
     {
         int healthDamage = 1;
         curHealth -= healthDamage;
+        healthBar.setHealth(curHealth);
         Debug.Log("you've been hurt, health is: " + curHealth + " out of: " + maxHealth);
         if(curHealth <= 0)
         {
