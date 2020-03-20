@@ -59,6 +59,65 @@ ModelImporter:
     100106: Thumb_2_R_001
     100108: Thumb_3_R
     100110: Thumb_3_R_001
+    100112: Arm.1.R
+    100114: Arm.1.R.001
+    100116: Arm.2.R
+    100118: Arm.2.R.001
+    100120: BezierCurve.001
+    100122: BezierCurve.002
+    100124: Bone.005
+    100126: Bone.005_end
+    100128: Collar.L
+    100130: Collar.R
+    100132: Cube.001
+    100134: Cube.002
+    100136: Cube.003
+    100138: Cube.004
+    100140: Finger.1.1.R
+    100142: Finger.1.1.R.001
+    100144: Finger.1.2.R
+    100146: Finger.1.2.R.001
+    100148: Finger.1.3.R
+    100150: Finger.1.3.R.001
+    100152: Finger.1.3.R.001_end
+    100154: Finger.1.3.R_end
+    100156: Finger.2.1.R
+    100158: Finger.2.1.R.001
+    100160: Finger.2.2.R
+    100162: Finger.2.2.R.001
+    100164: Finger.2.3.R
+    100166: Finger.2.3.R.001
+    100168: Finger.2.3.R.001_end
+    100170: Finger.2.3.R_end
+    100172: Hip.R
+    100174: Hip.R.001
+    100176: Lamp
+    100178: Leg.1.R
+    100180: Leg.1.R.001
+    100182: Leg.2.R
+    100184: Leg.2.R.001
+    100186: Leg.3.R
+    100188: Leg.3.R.001
+    100190: Leg.4.R
+    100192: Leg.4.R.001
+    100194: Leg.5.R
+    100196: Leg.5.R.001
+    100198: Leg.6.R
+    100200: Leg.6.R.001
+    100202: Leg.6.R.001_end
+    100204: Leg.6.R_end
+    100206: Spine.1
+    100208: Spine.2
+    100210: Spine.3
+    100212: Spine.4
+    100214: Thumb.1.R
+    100216: Thumb.1.R.001
+    100218: Thumb.2.R
+    100220: Thumb.2.R.001
+    100222: Thumb.3.R
+    100224: Thumb.3.R.001
+    100226: Thumb.3.R.001_end
+    100228: Thumb.3.R_end
     400000: Arm_1_R
     400002: Arm_1_R_001
     400004: Arm_2_R
@@ -115,7 +174,67 @@ ModelImporter:
     400106: Thumb_2_R_001
     400108: Thumb_3_R
     400110: Thumb_3_R_001
+    400112: Arm.1.R
+    400114: Arm.1.R.001
+    400116: Arm.2.R
+    400118: Arm.2.R.001
+    400120: BezierCurve.001
+    400122: BezierCurve.002
+    400124: Bone.005
+    400126: Bone.005_end
+    400128: Collar.L
+    400130: Collar.R
+    400132: Cube.001
+    400134: Cube.002
+    400136: Cube.003
+    400138: Cube.004
+    400140: Finger.1.1.R
+    400142: Finger.1.1.R.001
+    400144: Finger.1.2.R
+    400146: Finger.1.2.R.001
+    400148: Finger.1.3.R
+    400150: Finger.1.3.R.001
+    400152: Finger.1.3.R.001_end
+    400154: Finger.1.3.R_end
+    400156: Finger.2.1.R
+    400158: Finger.2.1.R.001
+    400160: Finger.2.2.R
+    400162: Finger.2.2.R.001
+    400164: Finger.2.3.R
+    400166: Finger.2.3.R.001
+    400168: Finger.2.3.R.001_end
+    400170: Finger.2.3.R_end
+    400172: Hip.R
+    400174: Hip.R.001
+    400176: Lamp
+    400178: Leg.1.R
+    400180: Leg.1.R.001
+    400182: Leg.2.R
+    400184: Leg.2.R.001
+    400186: Leg.3.R
+    400188: Leg.3.R.001
+    400190: Leg.4.R
+    400192: Leg.4.R.001
+    400194: Leg.5.R
+    400196: Leg.5.R.001
+    400198: Leg.6.R
+    400200: Leg.6.R.001
+    400202: Leg.6.R.001_end
+    400204: Leg.6.R_end
+    400206: Spine.1
+    400208: Spine.2
+    400210: Spine.3
+    400212: Spine.4
+    400214: Thumb.1.R
+    400216: Thumb.1.R.001
+    400218: Thumb.2.R
+    400220: Thumb.2.R.001
+    400222: Thumb.3.R
+    400224: Thumb.3.R.001
+    400226: Thumb.3.R.001_end
+    400228: Thumb.3.R_end
     2100000: unnamed
+    2100002: No Name
     4300000: Cube
     4300002: Cube_001
     4300004: Cube_002
@@ -125,9 +244,17 @@ ModelImporter:
     4300012: BezierCurve_002
     4300014: BezierCurve_001
     4300016: BezierCurve
+    4300018: Cube.001
+    4300020: Cube.002
+    4300022: Cube.004
+    4300024: Cube.003
+    4300026: BezierCurve.002
+    4300028: BezierCurve.001
     7400000: Default Take
     7400002: Walk
+    7400004: Armature|Walk
     9500000: //RootNode
+    10800000: Lamp
     13700000: BezierCurve
     13700002: BezierCurve_001
     13700004: BezierCurve_002
@@ -137,6 +264,12 @@ ModelImporter:
     13700012: Cube_003
     13700014: Cube_004
     13700016: Cylinder
+    13700018: BezierCurve.001
+    13700020: BezierCurve.002
+    13700022: Cube.001
+    13700024: Cube.002
+    13700026: Cube.003
+    13700028: Cube.004
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:

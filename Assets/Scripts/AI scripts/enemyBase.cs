@@ -11,6 +11,7 @@ public class enemyBase : MonoBehaviour
     public Transform target;             //goal is hero/player
     public UnityEvent onDestroy;
     public int health = 5;
+
     private int newHealth;
     public GameObject currencyprefab;
     int chance;
@@ -18,22 +19,21 @@ public class enemyBase : MonoBehaviour
     public GameObject hitPrefab;
     public GameObject enemyDeathPrefab;
 
+
+    public float diffMod;
+    
+
     void Start()
     {
-        newHealth = health;
+        setHealth();
     }
 
     // update is called every frame
     void Update()
     {
-        //updates health to the newhealth value
-        health = newHealth;
-
-        //if the health of a enemy is equal or less than 0 it dies
+        //if the health of a enemy is equal or lesss than 0 it dies
         if (health <= 0)
         {
-            // increase the number of kills the player has in the player script
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().numKills++;
             Die();
             Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
             //create a random chance for drop 
@@ -81,9 +81,20 @@ public class enemyBase : MonoBehaviour
     {
         Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
 
-        newHealth = health - damTaken;
+        
         Debug.Log("Pistol damage after shot is:" + damTaken);
+        health -= damTaken;
+        Debug.Log("damage after shot is:" + damTaken);
         Debug.Log("health is:" + health);
-        Debug.Log("enemy took damage " + newHealth);
+    }
+
+    public void setDiff(float DiffMod)
+    {
+        diffMod = DiffMod;
+    }
+
+    public void setHealth()
+    {
+        health = (int)(health * diffMod);
     }
 }
