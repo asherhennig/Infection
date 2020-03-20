@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private static GameManager singleton;
     //game objects that will be needed in the script
     public GameObject player;
+    private Player player1;
     public GameObject[] itemSpawnPoints;
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
@@ -54,6 +55,10 @@ public class GameManager : MonoBehaviour
     public int curDifficulty = 1;
     public float difficultyMod = 1.0f;
 
+    void Awake()
+    {
+        player1 = GameObject.FindObjectOfType<Player>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -73,26 +78,29 @@ public class GameManager : MonoBehaviour
         //updating pick up spawn time
         currentPickUpTime += Time.deltaTime;
         //checks if the current spawn time is more than the upgrade spawn time and that one isnt spawned
-        if (currentPickUpTime > actualPickUpTime && !spawnedPickUp)
+        if (pickUpPrefab.Length > 0)
         {
-            pickUpNum = Random.Range(0, 2);
-            //generates a random number based on the number of spawn points we have and
-            //assigns one to be the spawn, finally it spawns a pickup
-            int randnum = Random.Range(0, itemSpawnPoints.Length - 1);
-            GameObject spawnLocation = itemSpawnPoints[randnum];
-            pickUp = Instantiate(pickUpPrefab[pickUpNum]) as GameObject;
-            pickUp.transform.position = spawnLocation.transform.position;
-            spawnedPickUp = true;
-            actualPickUpTime = Random.Range(pickUpMaxSpawnTime - 3.0f, pickUpMaxSpawnTime);
-            actualPickUpTime = Mathf.Abs(actualPickUpTime);
-            Debug.Log("Spawned");
-        }
-        //checks if the pick up has been picked up
-        if (pickUp == null && spawnedPickUp == true)
-        {
-            currentPickUpTime = 0;
-            spawnedPickUp = false;
-            Debug.Log("deactive");
+            if (currentPickUpTime > actualPickUpTime && !spawnedPickUp)
+            {
+                pickUpNum = Random.Range(0, 2);
+                //generates a random number based on the number of spawn points we have and
+                //assigns one to be the spawn, finally it spawns a pickup
+                int randnum = Random.Range(0, itemSpawnPoints.Length - 1);
+                GameObject spawnLocation = itemSpawnPoints[randnum];
+                pickUp = Instantiate(pickUpPrefab[pickUpNum]) as GameObject;
+                pickUp.transform.position = spawnLocation.transform.position;
+                spawnedPickUp = true;
+                actualPickUpTime = Random.Range(pickUpMaxSpawnTime - 3.0f, pickUpMaxSpawnTime);
+                actualPickUpTime = Mathf.Abs(actualPickUpTime);
+                Debug.Log("Spawned");
+            }
+            //checks if the pick up has been picked up
+            if (pickUp == null && spawnedPickUp == true)
+            {
+                currentPickUpTime = 0;
+                spawnedPickUp = false;
+                Debug.Log("deactive");
+            }
         }
         if (activeWave)
         {
@@ -154,6 +162,7 @@ public class GameManager : MonoBehaviour
                 wave++;
                 MaxPerWave++;
                 maxEnemiesOnScreen++;
+                score += 500;
              
             }
         }
@@ -170,7 +179,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
     public void enemyDestroyed()
     {
         //int gumChance = Random.Range(0, 10);
@@ -183,6 +191,63 @@ public class GameManager : MonoBehaviour
         
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
+    }
+        public void Prices1()
+    {
+        foreach (GameObject g in buyShells)
+        {
+            price = 200;
+            Debug.Log("Testing1");
+        }
+    }
+
+    public void Prices2()
+    {
+        foreach (GameObject g in buyNade)
+        {
+            price = 3000;
+            Debug.Log("Testing2");
+        }
+    }
+    public void Prices3()
+    {
+        foreach (GameObject g in buyHealth)
+        {
+            price = 2500;
+            Debug.Log("Testing3");
+        }
+       
+    }
+
+    public void Prices4()
+    {
+        foreach (GameObject g in buyMax)
+        {
+            price = 5000;
+            Debug.Log("Testing4");
+        }
+    }
+    public void Prices5()
+    {
+        foreach (GameObject g in buyBrain)
+        {
+            price = 3500;
+            Debug.Log("Testing5");
+        }
+    }
+
+    public void HidePurchase()
+    {
+        foreach (GameObject g in purchase)
+        {
+            g.SetActive(false);
+        }
+        Debug.Log("purchase:" + purchase.Length);
+    }
+
+    public void Buyable()
+    {
+        if (bubblegum >= price)
     }
 
     public float setDifficulty(int difficulty)
