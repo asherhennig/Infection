@@ -369,6 +369,18 @@ MonoBehaviour:
   wave: 0
   MaxPerWave: 5
   activeWave: 1
+--- !u!114 &49615722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49615720}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a699da25b489442bbe9982124c2b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &64556807
 GameObject:
   m_ObjectHideFlags: 0
@@ -5911,6 +5923,11 @@ PrefabInstance:
       propertyPath: miniGun
       value: 
       objectReference: {fileID: 37356844}
+    - target: {fileID: 1714767210, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
+      propertyPath: PlayerHitPrefab
+      value: 
+      objectReference: {fileID: 6511216531592707412, guid: d7c08a461f9b0b146b65fda2f7c94349,
+        type: 3}
     - target: {fileID: 4249793747814606861, guid: 1326f778db9e0ba4394892a9d5c99a7a,
         type: 3}
       propertyPath: player

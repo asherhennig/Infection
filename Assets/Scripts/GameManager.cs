@@ -11,7 +11,19 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
     public GameObject[] pickUpPrefab;
-    //public GameObject[] bubbleGum;
+    GameObject[] buyShotgun;
+    GameObject[] buyShells;
+    GameObject[] buyNade;
+    GameObject[] buyHealth;
+    GameObject[] buyMax;
+    GameObject[] buyBrain;
+    GameObject[] purchase;
+    public ScoreCounter gameUI;
+    public int score;
+    public int bubblegum;
+    private int price;
+    private bool canPurchase = false;
+    public bool isGameOver = false;
 
     //public vars so we can modify them as we need
     public int maxEnemiesOnScreen;
@@ -163,6 +175,12 @@ public class GameManager : MonoBehaviour
     {
         //int gumChance = Random.Range(0, 10);
         enemiesOnScreen -= 1;
+        //give gum and score on kill(testing score and bubblegum counters)
+        bubblegum += 5;
+        //gameUI.SetMoneyText(bubblegum);
+        score += 100;
+        //gameUI.SetScoreText(score);
+        
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
     }

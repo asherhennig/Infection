@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     public float rotSpeed = 1.0f;
     public float timeBetweenHits = 0;
     public LayerMask layerMask;
+    public GameObject miniGun;
+    public GameObject PlayerHitPrefab;
+    //so get componet can access the minigun
     public bool isDead = false;
     public HealthBar healthBar;
 
@@ -181,6 +184,7 @@ public class Player : MonoBehaviour
             //checks if were not already hit
             if(!isHit)
             {
+                Instantiate(PlayerHitPrefab, this.transform.position, Quaternion.identity);
                 takeDamage();
             }
         }

@@ -11,8 +11,18 @@ public class enemyBase : MonoBehaviour
     public Transform target;             //goal is hero/player
     public UnityEvent onDestroy;
     public int health = 5;
+
+    private int newHealth;
+    public GameObject currencyprefab;
+    int chance;
+    public GameObject currencyprefab2;
+    public GameObject hitPrefab;
+    public GameObject enemyDeathPrefab;
+
+
     public float diffMod;
     
+
     void Start()
     {
         setHealth();
@@ -25,6 +35,20 @@ public class enemyBase : MonoBehaviour
         if (health <= 0)
         {
             Die();
+            Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
+            //create a random chance for drop 
+            chance = Random.Range(0, 10);
+            //if it is the low chance of 5 gum loot drop is that
+            if (chance >= 8)
+            {
+                Instantiate(currencyprefab2, this.transform.position, Quaternion.identity);
+            }
+            //other wise it is normal drop
+            else
+            {
+                Instantiate(currencyprefab, this.transform.position, Quaternion.identity);
+            }
+           
         }
     }
 
@@ -55,6 +79,10 @@ public class enemyBase : MonoBehaviour
     //this has calculates the players new health post damage
     public void takeDamage(int damTaken)
     {
+        Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
+
+        
+        Debug.Log("Pistol damage after shot is:" + damTaken);
         health -= damTaken;
         Debug.Log("damage after shot is:" + damTaken);
         Debug.Log("health is:" + health);
