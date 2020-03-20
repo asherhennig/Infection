@@ -2,28 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Player : MonoBehaviour
 {
     //initialized current health and max health and other public vars
     public int curHealth;
     public int maxHealth;
-    public int currency = 0;
-    public int numKills = 0;
     public float speed = 10;
     public float rotSpeed = 1.0f;
     public float timeBetweenHits = 0;
     public LayerMask layerMask;
     public GameObject miniGun;
+    public GameObject PlayerHitPrefab;
     //so get componet can access the minigun
     public bool isDead = false;
-    public bool isactive = false;
+    public HealthBar healthBar;
 
     //private init
-
     private CharacterController characterController;
     private Vector3 currentLookTarget = Vector3.zero;
-    
     private bool isHit = false;
     private float timeSinceHit = 0;
     private GunEquipper gunEquipper;
@@ -33,18 +29,19 @@ public class Player : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
-        miniGun = GameObject.FindGameObjectWithTag("miniGun");
+        healthBar.setMaxHealth(maxHealth);
     }
+
     //added takeDamage function
     public void takeDamage()
     {
         int healthDamage = 1;
         curHealth -= healthDamage;
+        healthBar.setHealth(curHealth);
         Debug.Log("you've been hurt, health is: " + curHealth + " out of: " + maxHealth);
         if(curHealth <= 0)
         {
             isDead = true;
-            
         }
     }
 
@@ -74,21 +71,21 @@ public class Player : MonoBehaviour
 
     public void pickUp1Curr()
     {
-        currency++;
+
     }
 
     public void picUp5Curr()
     {
-        currency = currency + 5;
+
     }
-
-
 
     public void pickUpMiniGun()
     {
-        StartCoroutine("fireMiniGun");
+        //get component to fire the mini gun for 15 seconds
+        gameObject.GetComponent<Gun>().miniGunFire();
+        //deactivate the mini gun and reactivate pistol
+        gameObject.GetComponent<GunEquipper>().deactiveMiniGun();
     }
-        
     //checks which pickup we got to know its effect
     public void PickUpItem(int pickupItem)
     {
@@ -119,7 +116,6 @@ public class Player : MonoBehaviour
 
             //pick up the mini gun and start shooting
             case Constants.miniGunPickUp:
-                gunEquipper.activeMiniGun();
                 pickUpMiniGun();
                 break;
 
@@ -188,6 +184,7 @@ public class Player : MonoBehaviour
             //checks if were not already hit
             if(!isHit)
             {
+                Instantiate(PlayerHitPrefab, this.transform.position, Quaternion.identity);
                 takeDamage();
             }
         }
@@ -198,24 +195,5 @@ public class Player : MonoBehaviour
     {
         Debug.Log("GameOver");
         Destroy(gameObject);
-        
-    }
-
-    private IEnumerator fireMiniGun()
-    {
-        //200 is the num of bulets fired when powered up
-        for(int i = -0; i<200;i++)
-        {
-            //minigun is checking if a minigun GO is there
-            miniGun = GameObject.FindGameObjectWithTag("miniGun");
-
-            //gets the fire bulet function from the mini gun in gun script and calls it
-            miniGun.GetComponent<Gun>().fireBullet();
-            //call againg in half a second
-            yield return new WaitForSeconds(1/2);
-        }
-            //deactivate the mini gun and reactivate pistol
-            gunEquipper.deactiveMiniGun();
-        
     }
 }

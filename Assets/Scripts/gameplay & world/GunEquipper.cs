@@ -9,12 +9,13 @@ public class GunEquipper : MonoBehaviour
 
     public GameObject pistol;
     public GameObject shotgun;
-    public GameObject granade;
+    public GameObject fragGranade;
+    public GameObject lureGranade;
 
     Ammo Ammo;
 
     public GameObject miniGun;
-    GameObject gameObject;
+    //GameObject gameObject;
     GameObject activeGun;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,8 @@ public class GunEquipper : MonoBehaviour
     {
         pistol.SetActive(false);
         shotgun.SetActive(false);
-        granade.SetActive(false);
+        fragGranade.SetActive(false);
+        lureGranade.SetActive(false);
         miniGun.SetActive(false);
 
         weapon.SetActive(true);
@@ -41,13 +43,12 @@ public class GunEquipper : MonoBehaviour
         loadWeapons(miniGun);
         //set active gun to mini gun
         activeWeaponType = Constants.miniGun;
-        Debug.Log("mini gun away");
        
     }
 
     public void deactiveMiniGun()
     {
-        loadWeapons(pistol);
+        //makes minigun not active and pistol active
         activeWeaponType = Constants.Pistol;
     }
 
@@ -60,14 +61,19 @@ public class GunEquipper : MonoBehaviour
             loadWeapons(pistol);
             activeWeaponType = Constants.Pistol;
         }
-        else if (Input.GetKeyDown("2"))
+        else if (Input.GetKeyDown("3"))
         {
-            loadWeapons(granade);
+            loadWeapons(fragGranade);
             activeWeaponType = Constants.Granade;
         }
-        else if (Input.GetKeyDown("3") )
+        else if (Input.GetKeyDown("2") )
         {
             loadWeapons(shotgun);
+            activeWeaponType = Constants.Shotgun;
+        }
+        else if (Input.GetKeyDown("4"))
+        {
+            loadWeapons(lureGranade);
             activeWeaponType = Constants.Shotgun;
         }
     }
