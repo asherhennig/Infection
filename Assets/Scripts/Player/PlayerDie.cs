@@ -9,16 +9,16 @@ public class PlayerDie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GetComponent<Player>().isDead==true)
+        if (GetComponent<Player>().isDead == true)
         {
             Instantiate(playerDeathPrefab, this.transform.position, Quaternion.identity);
         }
-        
+
     }
 }

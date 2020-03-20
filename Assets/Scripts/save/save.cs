@@ -18,7 +18,7 @@ public class Save : MonoBehaviour
     {
         //find the game objects with the tags so you can access the variables in the ammo and player script
         Player = GameObject.FindGameObjectWithTag("Player");
-        Ammo = GameObject.FindGameObjectsWithTag("");
+        //Ammo = GameObject.FindGameObjectsWithTag("");
         // sets variables in the save script to be the variables in other scripts wanting to save
         int health = GetComponent<Player>().curHealth;
         int shotgunAmmo = GetComponent<Ammo>().shotgunAmmo;

@@ -15,6 +15,8 @@ public class enemyBase : MonoBehaviour
     public GameObject currencyprefab;
     int chance;
     public GameObject currencyprefab2;
+    public GameObject hitPrefab;
+    public GameObject enemyDeathPrefab;
 
     void Start()
     {
@@ -33,6 +35,7 @@ public class enemyBase : MonoBehaviour
             // increase the number of kills the player has in the player script
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().numKills++;
             Die();
+            Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
             //create a random chance for drop 
             chance = Random.Range(0, 10);
             //if it is the low chance of 5 gum loot drop is that
@@ -76,6 +79,8 @@ public class enemyBase : MonoBehaviour
     //this has calculates the players new health post damage
     public void takeDamage(int damTaken)
     {
+        Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
+
         newHealth = health - damTaken;
         Debug.Log("Pistol damage after shot is:" + damTaken);
         Debug.Log("health is:" + health);

@@ -192,9 +192,9 @@ public class GameManager : MonoBehaviour
         enemiesOnScreen -= 1;
         //give gum and score on kill(testing score and bubblegum counters)
         bubblegum += 5;
-        gameUI.SetMoneyText(bubblegum);
+        //gameUI.SetMoneyText(bubblegum);
         score += 100;
-        gameUI.SetScoreText(score);
+        //gameUI.SetScoreText(score);
         
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
