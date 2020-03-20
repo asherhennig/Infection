@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     private int price;
     private bool canPurchase = false;
     public bool isGameOver = false;
-    //public GameObject[] bubbleGum;
 
     //public vars so we can modify them as we need
     public int maxEnemiesOnScreen;
