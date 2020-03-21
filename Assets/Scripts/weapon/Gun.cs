@@ -79,7 +79,7 @@ public class Gun : MonoBehaviour
         //waits for 15 seconds
         yield return new WaitForSeconds(15);
         Debug.Log("minigun");
-        
+        audioManager.PlaySound("MinigunSound");
     }
 
 }
