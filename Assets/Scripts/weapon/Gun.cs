@@ -36,9 +36,6 @@ public class Gun : MonoBehaviour
             if (!IsInvoking("fireBullet"))
             {
                 InvokeRepeating("fireBullet", 0f, fireSpeed);
-
-                // Play audio when bullet is fired
-                audioManager.PlaySound("LaserSound");
             }
         }
 
@@ -69,6 +66,9 @@ public class Gun : MonoBehaviour
             transform.forward * bulletSpeed;
         //4
         bullet.GetComponent<bullet>().damage = weaponDam;
+
+        // Play audio when bullet is fired
+        audioManager.PlaySound("LaserSound");
     }
 
     //FIRE THE MINI GUN
@@ -76,7 +76,6 @@ public class Gun : MonoBehaviour
     {
         //starts firing reptated at double speed
         InvokeRepeating("fireBullet", 0f, fireSpeed*2);
-        audioManager.PlaySound("MinigunSound");
         //waits for 15 seconds
         yield return new WaitForSeconds(15);
         Debug.Log("minigun");
