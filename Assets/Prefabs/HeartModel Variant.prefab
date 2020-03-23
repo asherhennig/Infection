@@ -25,7 +25,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc42f521a9ac0c4b80c43ec2d1d78ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 2
 --- !u!1001 &2085492883978356839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37,6 +37,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeartModel Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: ddc30fcede2d8324b979347d3c2d1447, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8e2bae3968f3d9479426441c8bd6995, type: 2}
     - target: {fileID: 400000, guid: ddc30fcede2d8324b979347d3c2d1447, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.819263
@@ -81,10 +85,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: ddc30fcede2d8324b979347d3c2d1447, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c8e2bae3968f3d9479426441c8bd6995, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc30fcede2d8324b979347d3c2d1447, type: 3}
 --- !u!1 &2085492883978391239 stripped

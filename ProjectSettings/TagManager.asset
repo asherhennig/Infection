@@ -3,7 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
+  - Enemy
+  - Wall
+  - Pick-Up
+  - ShowOnPause
+  - Option
+  - HideOnPause
+  - ShopMenu
+  - Purchase
+  - BuyShotgun
+  - BuyShells
+  - BuyNade
+  - BuyHealth
+  - BuyMax
+  - BuyBrain
+  - miniGun
+  - playerDeath
   layers:
   - Default
   - TransparentFX
