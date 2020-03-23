@@ -21,8 +21,8 @@ public class GunEquipper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //activeWeaponType = Constants.Pistol;
-        //activeGun = pistol;
+        activeWeaponType = Constants.Pistol;
+        activeGun = pistol;
     }
 
     private void loadWeapons(GameObject weapon)
@@ -34,7 +34,7 @@ public class GunEquipper : MonoBehaviour
         miniGun.SetActive(false);
 
         weapon.SetActive(true);
-        //activeGun = weapon;
+        activeGun = weapon;
     }
     //ACTIVATES MINI GUN AND STARTS THE CORUTINE TO FIRE
     public void activeMiniGun()
