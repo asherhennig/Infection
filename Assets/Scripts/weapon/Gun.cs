@@ -36,9 +36,6 @@ public class Gun : MonoBehaviour
             if (!IsInvoking("fireBullet"))
             {
                 InvokeRepeating("fireBullet", 0f, fireSpeed);
-
-                // Play audio when bullet is fired
-                audioManager.PlaySound("LaserSound");
             }
         }
 
@@ -61,8 +58,9 @@ public class Gun : MonoBehaviour
             transform.forward * bulletSpeed;
         //4
         bullet.GetComponent<bullet>().damage = weaponDam;
-    }
 
-   
+        // Play audio when bullet is fired
+        audioManager.PlaySound("LaserSound");
+    }
 
 }
