@@ -1460,7 +1460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -72.836716, y: -35.565754}
+  m_AnchoredPosition: {x: -85, y: -35.565754}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &266155870
@@ -1878,7 +1878,7 @@ MonoBehaviour:
   - {fileID: 5341088506673595396, guid: 1812ffa029a1b1744b59d89b9d4d61f8, type: 3}
   gameUI: {fileID: 803615291}
   score: 0
-  bubblegum: 500
+  bubblegum: 20000
   maxEnemiesOnScreen: 5
   enemiesPerSpawn: 1
   restTimer: 0
@@ -7507,7 +7507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -72.836716, y: -75.565674}
+  m_AnchoredPosition: {x: -85, y: -75.565674}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1855959194
@@ -7543,7 +7543,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Bubblegum: 500'
+  m_Text: 'Bubblegum: 20000'
 --- !u!222 &1855959195
 CanvasRenderer:
   m_ObjectHideFlags: 0
