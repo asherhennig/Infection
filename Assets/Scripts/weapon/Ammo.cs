@@ -15,7 +15,7 @@ public class Ammo : MonoBehaviour
     {
         tagToAmmo = new Dictionary<string, int>
         {
-            {Constants.Granade, grenadeAmmo},
+            {Constants.Grenade, grenadeAmmo},
             {Constants.Shotgun, shotgunAmmo}
         };
     }
