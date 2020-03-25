@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class fragGrenade : MonoBehaviour
 {
-
+    private AudioManager audioManager;
     public float exploRadius = 2.5f;
     public float fuseTime = 3.0f;
     public int baseDamage = 5;
@@ -14,6 +14,12 @@ public class fragGrenade : MonoBehaviour
     void Start()
     {
         Invoke("explode", fuseTime);
+
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found!!!");
+        }
     }
 
     // Update is called once per frame
@@ -34,6 +40,8 @@ public class fragGrenade : MonoBehaviour
         if (other.gameObject.tag == "Enemy" && IsInvoking("explode"))
         {
             explode();
+            // Play sound
+            audioManager.PlaySound("GrenadeSound");
         }
 
     }
