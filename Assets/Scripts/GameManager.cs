@@ -247,6 +247,7 @@ public class GameManager : MonoBehaviour
 
     public void Buyable()
     {
+<<<<<<< HEAD
         if (bubblegum >= price)
         {
             canPurchase = true;
@@ -254,6 +255,8 @@ public class GameManager : MonoBehaviour
             gameUI.SetMoneyText(bubblegum);
             Debug.Log("Item Purchased");
         }
+=======
+>>>>>>> f79f98a8c0b584744e8486f67474e855ae45796a
     }
 
     public float setDifficulty(int difficulty)
