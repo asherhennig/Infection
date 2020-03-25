@@ -441,13 +441,43 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  miniGun: {fileID: 973957938}
+  miniGun: {fileID: 0}
   PlayerHitPrefab: {fileID: 6511216531592707412, guid: d7c08a461f9b0b146b65fda2f7c94349,
     type: 3}
   currency: 0
   isDead: 0
-  healthBar: {fileID: 1639777525937123376, guid: 13eabd9dd3a545d439bc399b4cc34dc2,
-    type: 3}
+  healthBar: {fileID: 0}
+--- !u!114 &713955204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713955202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd98973668d7df746bb8da0398f98978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pistol: {fileID: 100014, guid: b1b4e04f08890064b90903d8a99cde1e, type: 3}
+  shotgun: {fileID: 179884741893322542, guid: ebeca8ea42470c044a92dfa9c7d2d6bc, type: 3}
+  fragGrenade: {fileID: 100000, guid: 5627f7e3f5051954ba471e527413c961, type: 3}
+  lureGrenade: {fileID: 100000, guid: 9e5230e73e7f5dc4dba5a2f6178be7b1, type: 3}
+  miniGun: {fileID: 0}
+--- !u!136 &713955205
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713955202}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.5
+  m_Height: 10
+  m_Direction: 1
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!143 &713955206
 CharacterController:
   m_ObjectHideFlags: 0
@@ -459,13 +489,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
+  m_Height: 10
+  m_Radius: 1.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!1001 &841151173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -628,12 +658,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b60c58ad4fceedc4095eed473a4210c0, type: 3}
---- !u!1 &973957938 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100050, guid: 1a192e9adb9e22740a4bb6efbc8ecae7,
-    type: 3}
-  m_PrefabInstance: {fileID: 841151173}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1742001830
 GameObject:
   m_ObjectHideFlags: 0
