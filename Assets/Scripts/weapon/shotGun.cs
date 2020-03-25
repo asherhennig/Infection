@@ -6,46 +6,28 @@ public class shotGun : Gun
 {
     public int pelletsPerShot;
     public float spread;
-    GameObject bullet;
-    Quaternion rotation;
-    public float shotTrailDuration;
+    List<Quaternion> pellets;
 
-    void fireBullet()
+    void Awake()
     {
-        ///this was referanced from https://answers.unity.com/questions/1337081/shotgun-radndom-spread-with-true-bullets-c.html
-        float totalSpread = spread / pelletsPerShot;
+        pellets = new List<Quaternion>(pelletsPerShot);
         for (int i = 0; i < pelletsPerShot; i++)
         {
-            // calculate angle of bullet
-            float spreadA = totalSpread * (i + 1);
-            //  Debug.Log("totalSpread: " + totalSpread);
-            // Debug.Log("spreadA: " + spreadA);
-            float spreadB = spread / 2.0f;
-            //  Debug.Log("spreadB: " + spreadB);
-            float finSpread = spreadB - spreadA + totalSpread / 2;
-            //  Debug.Log("finSpread: " + finSpread);
-            float angle = transform.eulerAngles.y;
-
-            // Debug.Log("angle: " + angle);
-
-            //create bullet rot
-            Quaternion rotation = Quaternion.Euler(new Vector3(90, 0, finSpread + angle));
-            //  Debug.Log("angle: " + angle);
-            // ray cast implemtation
-            RaycastHit hit;
-
-            //fires out raycast from fire pos
-            if(Physics.Raycast(firePosition.position, Vector3.forward, out hit))
-            {
-                SpawnBullet(firePosition.transform.position, hit.transform.position, shotTrailDuration);
-                //if it hits an enemy it does damage
-                if(hit.collider.gameObject.tag == "Enemy")
-                {
-                    hit.collider.gameObject.GetComponent<enemyBase>().takeDamage(weaponDam);
-                }
-            }
+            pellets.Add(Quaternion.Euler(Vector3.zero)); 
         }
     }
+    void fireBullet()
+    {
+        for(int i = 0; i < pelletsPerShot; i++)
+        {
+            pellets[i] = Random.rotation;
+            GameObject pellet = Instantiate(bulletPrefab, firePosition.position, firePosition.rotation);
+            pellet.transform.rotation = new Quaternion(pellet.transform.rotation.x, pellet.transform.rotation.y, Quaternion.RotateTowards(pellet.transform.rotation, pellets[i], spread).z, pellet.transform.rotation.w);
+            pellet.GetComponent<Rigidbody>().AddForce(pellet.transform.forward * bulletSpeed);
+            bulletPrefab.GetComponent<bullet>().damage = weaponDam;
+        }
+    }
+
     void upgradePelletNum()
     {
         pelletsPerShot++;
@@ -54,15 +36,6 @@ public class shotGun : Gun
     void upgradeDam()
     {
         weaponDam++;
-    }
-    //this spawns the bullet to be used for the shotgun and attaches the shotgunbullet script to it for us as well as set the values in it
-    public void SpawnBullet(Vector3 start, Vector3 end, float duration)
-    {
-        GameObject sgBullets = Instantiate(bullet) as GameObject;
-        sgBullets.transform.position = start;
-        sgBullets.transform.rotation = transform.rotation;
-        shotgunBullet bulletComponent = sgBullets.AddComponent<shotgunBullet>();
-        bulletComponent.SetValues(start, end, duration);
     }
 }
 
