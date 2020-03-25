@@ -134,6 +134,8 @@ public class Player : MonoBehaviour
         Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"),
                                             0, Input.GetAxis("Vertical"));
         characterController.SimpleMove(moveDirection * speed);
+
+
         //gives the player some I frames after being hit, we can adjust how long
         if(isHit)
         {
@@ -152,6 +154,22 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
+        //Player direction controls
+        Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"),
+                                            0, Input.GetAxis("Vertical"));
+
+
+        if (moveDirection == Vector3.zero)
+        {
+            bodyAnimator.SetBool("IsMoving", false);        //Set Animator to not moving if character vector = 0
+        }
+
+        else
+        {
+            head.AddForce(transform.right * 150, ForceMode.Acceleration);            //head bobble functionality
+
+            bodyAnimator.SetBool("IsMoving", true);         //Set Animator to moving if character vector != 0
+        }
         //this makes the palyer look at the cursor when its on screen
         //creating hit and ray variables
         RaycastHit hit;
