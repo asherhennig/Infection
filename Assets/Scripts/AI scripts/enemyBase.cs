@@ -33,25 +33,25 @@ public class enemyBase : MonoBehaviour
     // update is called every frame
     void Update()
     {
-        ////if the health of a enemy is equal or lesss than 0 it dies
-        //if (health <= 0)
-        //{
-        //    //Die();
-        //    Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
-        //    //create a random chance for drop 
-        //    chance = Random.Range(0, 10);
-        //    //if it is the low chance of 5 gum loot drop is that
-        //    if (chance >= 8)
-        //    {
-        //        Instantiate(currencyprefab2, this.transform.position, Quaternion.identity);
-        //    }
-        //    //other wise it is normal drop
-        //    else
-        //    {
-        //        Instantiate(currencyprefab, this.transform.position, Quaternion.identity);
-        //    }
-           
-        //}
+        //if the health of a enemy is equal or lesss than 0 it dies
+        if (health <= 0)
+        {
+            //Die();
+            Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
+            //create a random chance for drop 
+            chance = Random.Range(0, 10);
+            //if it is the low chance of 5 gum loot drop is that
+            if (chance >= 8)
+            {
+                Instantiate(currencyprefab2, this.transform.position, Quaternion.identity);
+            }
+            //other wise it is normal drop
+            else
+            {
+                Instantiate(currencyprefab, this.transform.position, Quaternion.identity);
+            }
+
+        }
     }
 
     // LateUpdate for physics
@@ -70,24 +70,24 @@ public class enemyBase : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        if (target != null)
-        {
-            anim.SetBool("IsMoving", true);
-        }
-        else
-        {
-            anim.SetBool("IsMoving", false);
-        }
-    }
-
-    //public void Die()
+    //void FixedUpdate()
     //{
-    //    Destroy(gameObject);
-    //    onDestroy.Invoke();
-    //    onDestroy.RemoveAllListeners();
+    //    if (target != null)
+    //    {
+    //        anim.SetBool("IsMoving", true);
+    //    }
+    //    else
+    //    {
+    //        anim.SetBool("IsMoving", false);
+    //    }
     //}
+
+    public void Die()
+    {
+        Destroy(gameObject);
+        onDestroy.Invoke();
+        onDestroy.RemoveAllListeners();
+    }
 
     //this has calculates the players new health post damage
     public void takeDamage(int damTaken)
