@@ -18,6 +18,7 @@ public class shotGun : Gun
     }
     void fireBullet()
     {
+        ammo.ConsumeAmmo(tag);
         for(int i = 0; i < pelletsPerShot; i++)
         {
             pellets[i] = Random.rotation;

@@ -13,6 +13,7 @@ public class Grenade : MonoBehaviour
     public LayerMask LayerMask;
     Vector3 direction;
     GameObject tossedGrenade;
+    public Ammo ammo;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,16 @@ public class Grenade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        throwGrenade();
+        if(ammo.HasAmmo(tag))
+        {
+            gameObject.SetActive(true);
+            throwGrenade();
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+
 
         if (tossed && tossedGrenade != null)
         {
@@ -52,6 +62,7 @@ public class Grenade : MonoBehaviour
     //throws grenade
     void toss()
     {
+        ammo.ConsumeAmmo(tag);
         //spawns grenade we want thrown
         tossedGrenade = Instantiate(grenade) as GameObject;
         //spawns it at set throw point
