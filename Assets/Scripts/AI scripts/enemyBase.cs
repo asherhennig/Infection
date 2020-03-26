@@ -10,9 +10,9 @@ public class enemyBase : MonoBehaviour
     public float accuracy = 0.5f;      //enemy accuracy to player before enemy stops moving
     public Transform target;             //goal is hero/player
     public UnityEvent onDestroy;
-    public int health = 5;
+    public int ehealth = 5;
 
-    private int newHealth;
+    private int newehealth;
     public GameObject currencyprefab;
     int chance;
     public GameObject currencyprefab2;
@@ -31,8 +31,8 @@ public class enemyBase : MonoBehaviour
 
     void Start()
     {
-        setHealth();
-
+        sethealth();
+        Debug.Log("on start" + ehealth);
         audioManager = AudioManager.instance;
         if (audioManager == null)
         {
@@ -43,8 +43,9 @@ public class enemyBase : MonoBehaviour
     // update is called every frame
     void Update()
     {
-        //if the health of a enemy is equal or lesss than 0 it dies
-        if (health <= 0)
+        Debug.Log(ehealth);
+        //if the ehealth of a enemy is equal or lesss than 0 it dies
+        if (ehealth <= 0)
         {
             Die();
             Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
@@ -105,12 +106,12 @@ public class enemyBase : MonoBehaviour
         onDestroy.RemoveAllListeners();
     }
 
-    //this has calculates the players new health post damage
+    //this has calculates the players new ehealth post damage
     public void takeDamage(int damTaken)
     {
-        health -= damTaken;
+        ehealth -= damTaken;
         Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
-        Destroy(hitPrefab, hitPrefab.GetComponent<ParticleSystem>().duration);
+        //Destroy(hitPrefab, hitPrefab.GetComponent<ParticleSystem>().duration);
     }
 
     public void setDiff(float DiffMod)
@@ -118,8 +119,8 @@ public class enemyBase : MonoBehaviour
         diffMod = DiffMod;
     }
 
-    public void setHealth()
+    public void sethealth()
     {
-        health = (int)(health * diffMod);
+        ehealth = (int)(ehealth * diffMod);
     }
 }
