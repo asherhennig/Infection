@@ -2226,7 +2226,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 93fd97a2ffe0b4245a34d3739d6eadf2, type: 3}
+  m_Texture: {fileID: 2800000, guid: a3c9669296c950d488172ef519d16df8, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -5425,6 +5425,24 @@ PrefabInstance:
       propertyPath: miniGun
       value: 
       objectReference: {fileID: 1720588257}
+    - target: {fileID: 8105099349774420256, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+        type: 3}
+      propertyPath: shotgun
+      value: 
+      objectReference: {fileID: 179884741893322542, guid: ebeca8ea42470c044a92dfa9c7d2d6bc,
+        type: 3}
+    - target: {fileID: 8105099349774420256, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+        type: 3}
+      propertyPath: fragGrenade
+      value: 
+      objectReference: {fileID: 5526541897191183552, guid: 4fe536aefb656e7488337cf9e6d0cc77,
+        type: 3}
+    - target: {fileID: 8105099349774420256, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+        type: 3}
+      propertyPath: lureGrenade
+      value: 
+      objectReference: {fileID: 2499105395947668361, guid: 563d79a9c9227ed44a9bc775b9a9f38d,
+        type: 3}
     - target: {fileID: 400002, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -7469,7 +7487,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: a3c9669296c950d488172ef519d16df8, type: 3}
+  m_Texture: {fileID: 2800000, guid: 93fd97a2ffe0b4245a34d3739d6eadf2, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

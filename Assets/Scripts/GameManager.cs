@@ -8,11 +8,12 @@ public class GameManager : MonoBehaviour
     //game objects that will be needed in the script
     public GameObject player;
     private Player player1;
+    private Ammo ammo;
+    private GunEquipper gunEquipper;
     public GameObject[] itemSpawnPoints;
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
     public GameObject[] pickUpPrefab;
-    private GunEquipper gunEquipper;
     GameObject[] buyShotgun;
     GameObject[] buyShells;
     GameObject[] buyNade;
@@ -60,6 +61,8 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         player1 = GameObject.FindObjectOfType<Player>();
+        gunEquipper = GetComponent<GunEquipper>();
+        ammo = GetComponent<Ammo>();
     }
     // Start is called before the first frame update
     void Start()
@@ -67,7 +70,6 @@ public class GameManager : MonoBehaviour
         singleton = this;
         actualPickUpTime = Random.Range(pickUpMaxSpawnTime - 3.0f, pickUpMaxSpawnTime);
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
-        gunEquipper = GetComponent<GunEquipper>();
         Time.timeScale = 1;
         restTimer = 0;
         StartCoroutine("updatedRestTimer");
@@ -292,7 +294,7 @@ public class GameManager : MonoBehaviour
             }
             else if (itemID == 2)
             {
-
+                ammo.shotgunAmmo = ammo.shotgunAmmo + 5;
             }
             else if (itemID == 3)
             {
