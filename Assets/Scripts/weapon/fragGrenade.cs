@@ -19,7 +19,7 @@ public class fragGrenade : MonoBehaviour
     void Update()
     {
     }
-    //explodes the grenade on contact with an enemy
+    //explodes the granade on contact with an enemy
     void exploOnContact(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy" && IsInvoking("explode"))
@@ -60,6 +60,6 @@ public class fragGrenade : MonoBehaviour
         //this will be used for when the particle system for the grenade is ready
         //grenade.GetComponent<ParticleSystem>().Play();
         //Destroy(gameObject, grenade.GetComponent<ParticleSystem>().duration);
-        //Destroy(gameObject); // this was causing the prefab to be destroyed while switching weapons which was causing problems
+        Destroy(gameObject);
     }
 }

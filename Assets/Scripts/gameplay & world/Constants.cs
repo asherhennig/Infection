@@ -7,8 +7,7 @@ public class Constants
     //Weapon Types
     public const string Pistol = "Pistol";
     public const string Shotgun = "Shotgun";
-    public const string Grenade = "Grenade";
-    public const string lureGrenade = "lureGrenade";
+    public const string Granade = "Granade";
     public const string miniGun = "miniGun";
 
     // Pick-ups
