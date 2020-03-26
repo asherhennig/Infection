@@ -105,12 +105,7 @@ public class enemyBase : MonoBehaviour
     public void takeDamage(int damTaken)
     {
         Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
-
-        
-        Debug.Log("Pistol damage after shot is:" + damTaken);
         health -= damTaken;
-        Debug.Log("damage after shot is:" + damTaken);
-        Debug.Log("health is:" + health);
     }
 
     public void setDiff(float DiffMod)

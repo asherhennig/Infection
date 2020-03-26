@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
     public int weaponDam;
     public GameObject bulletPrefab;
     public Transform firePosition;
+    public Ammo ammo;
     public float fireSpeed = 0.75f;
     public float bulletSpeed = 10.0f;
     bool miniFire = false;
@@ -25,15 +26,14 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fire();
+            fire();
     }
 
     public void fire()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Pistol update:" + weaponDam);
-            if (!IsInvoking("fireBullet"))
+            if (!IsInvoking("fireBullet") && ammo.HasAmmo(tag))
             {
                 InvokeRepeating("fireBullet", 0f, fireSpeed);
             }
