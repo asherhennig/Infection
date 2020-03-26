@@ -19,7 +19,7 @@ public class enemyBase : MonoBehaviour
     public GameObject hitPrefab;
     public GameObject enemyDeathPrefab;
 
-    public Animator anim;
+    private Animator Head;
 
 
     public float diffMod;
@@ -70,17 +70,17 @@ public class enemyBase : MonoBehaviour
         }
     }
 
-    //void FixedUpdate()
-    //{
-    //    if (target != null)
-    //    {
-    //        anim.SetBool("IsMoving", true);
-    //    }
-    //    else
-    //    {
-    //        anim.SetBool("IsMoving", false);
-    //    }
-    //}
+    void FixedUpdate()
+    {
+        if (target != null)
+        {
+            Head.SetBool("IsMoving", true);
+        }
+        else
+        {
+            Head.SetBool("IsMoving", false);
+        }
+    }
 
     public void Die()
     {
