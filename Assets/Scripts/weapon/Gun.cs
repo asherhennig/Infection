@@ -49,6 +49,7 @@ public class Gun : MonoBehaviour
 
     public void fireBullet()
     {   // 1   
+        Debug.Log(ammo.GetAmmo(tag));
         GameObject bullet = Instantiate(bulletPrefab) as GameObject;
         // 2   
         bullet.transform.position = firePosition.position;
