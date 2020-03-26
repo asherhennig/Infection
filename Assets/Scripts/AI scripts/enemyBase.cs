@@ -19,8 +19,8 @@ public class enemyBase : MonoBehaviour
     public GameObject hitPrefab;
     public GameObject enemyDeathPrefab;
 
+    private Animator Head;
 
-    public Animator anim;
 
 
     private AudioManager audioManager;
@@ -82,17 +82,17 @@ public class enemyBase : MonoBehaviour
         }
     }
 
-    //void FixedUpdate()
-    //{
-    //    if (target != null)
-    //    {
-    //        anim.SetBool("IsMoving", true);
-    //    }
-    //    else
-    //    {
-    //        anim.SetBool("IsMoving", false);
-    //    }
-    //}
+    void FixedUpdate()
+    {
+        if (target != null)
+        {
+            Head.SetBool("IsMoving", true);
+        }
+        else
+        {
+            Head.SetBool("IsMoving", false);
+        }
+    }
 
     public void Die()
     {
