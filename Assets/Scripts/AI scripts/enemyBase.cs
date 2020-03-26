@@ -46,7 +46,7 @@ public class enemyBase : MonoBehaviour
         //if the health of a enemy is equal or lesss than 0 it dies
         if (health <= 0)
         {
-            //Die();
+            Die();
             Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
             // Play sound
             audioManager.PlaySound("RobotDeathSound");
@@ -64,6 +64,7 @@ public class enemyBase : MonoBehaviour
             }
 
         }
+
     }
 
     // LateUpdate for physics
@@ -76,23 +77,26 @@ public class enemyBase : MonoBehaviour
             Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
 
             if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
+            {
+                this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in global space
+                audioManager.PlaySound("RobotSound");
+            }
+        }                                                                                              
 
-                this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in
-                                                                                                            //in global space
-        }
+
     }
 
-    void FixedUpdate()
-    {
-        if (target != null)
-        {
-            Head.SetBool("IsMoving", true);
-        }
-        else
-        {
-            Head.SetBool("IsMoving", false);
-        }
-    }
+    //void FixedUpdate()
+    //{
+    //    if (target != null)
+    //    {
+    //        Head.SetBool("IsMoving", true);
+    //    }
+    //    else
+    //    {
+    //        Head.SetBool("IsMoving", false);
+    //    }
+    //}
 
     public void Die()
     {
@@ -104,8 +108,9 @@ public class enemyBase : MonoBehaviour
     //this has calculates the players new health post damage
     public void takeDamage(int damTaken)
     {
-        Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
         health -= damTaken;
+        Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
+        Destroy(hitPrefab, hitPrefab.GetComponent<ParticleSystem>().duration);
     }
 
     public void setDiff(float DiffMod)

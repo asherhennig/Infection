@@ -31,7 +31,7 @@ public class SceneMusic : MonoBehaviour
         {
             audioManager.PlaySound("MenuBGM");
         }
-        else if (sceneName == "Humza's Scene") // Change when lab scene if finished
+        else if (sceneName == "Lab") // Change when lab scene if finished
         {
             audioManager.PlaySound("LabBGM");
         }
