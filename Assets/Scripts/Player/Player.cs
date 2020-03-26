@@ -180,9 +180,10 @@ public class Player : MonoBehaviour
         //fires ray from camera and returns hit
         if (Physics.Raycast(ray, out hit, 1000, layerMask, QueryTriggerInteraction.Ignore))
         {
+
             if (hit.point != currentLookTarget)
             {
-
+                Debug.Log("player not rotating");
             }
         }
 

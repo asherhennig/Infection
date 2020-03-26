@@ -247,7 +247,7 @@ public class GameManager : MonoBehaviour
 
     public void Buyable()
     {
-        if (bubblegum >= price) ;
+        if (bubblegum >= price);
     }
 
     public float setDifficulty(int difficulty)

@@ -19,7 +19,11 @@ public class enemyBase : MonoBehaviour
     public GameObject hitPrefab;
     public GameObject enemyDeathPrefab;
 
+
     public Animator anim;
+
+
+    private AudioManager audioManager;
 
 
     public float diffMod;
@@ -28,6 +32,12 @@ public class enemyBase : MonoBehaviour
     void Start()
     {
         setHealth();
+
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found!!!");
+        }
     }
 
     // update is called every frame
@@ -38,6 +48,8 @@ public class enemyBase : MonoBehaviour
         {
             //Die();
             Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
+            // Play sound
+            audioManager.PlaySound("RobotDeathSound");
             //create a random chance for drop 
             chance = Random.Range(0, 10);
             //if it is the low chance of 5 gum loot drop is that
