@@ -46,7 +46,7 @@ public class enemyBase : MonoBehaviour
         //if the health of a enemy is equal or lesss than 0 it dies
         if (health <= 0)
         {
-            //Die();
+            Die();
             Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
             // Play sound
             audioManager.PlaySound("RobotDeathSound");
@@ -82,17 +82,17 @@ public class enemyBase : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        if (target != null)
-        {
-            Head.SetBool("IsMoving", true);
-        }
-        else
-        {
-            Head.SetBool("IsMoving", false);
-        }
-    }
+    //void FixedUpdate()
+    //{
+    //    if (target != null)
+    //    {
+    //        Head.SetBool("IsMoving", true);
+    //    }
+    //    else
+    //    {
+    //        Head.SetBool("IsMoving", false);
+    //    }
+    //}
 
     public void Die()
     {
@@ -104,8 +104,9 @@ public class enemyBase : MonoBehaviour
     //this has calculates the players new health post damage
     public void takeDamage(int damTaken)
     {
-        Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
         health -= damTaken;
+        Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
+        Destroy(hitPrefab, hitPrefab.GetComponent<ParticleSystem>().duration);
     }
 
     public void setDiff(float DiffMod)
