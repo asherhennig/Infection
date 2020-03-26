@@ -46,7 +46,7 @@ public class enemyBase : MonoBehaviour
         //if the health of a enemy is equal or lesss than 0 it dies
         if (health <= 0)
         {
-            //Die();
+            Die();
             Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
             // Play sound
             audioManager.PlaySound("RobotDeathSound");

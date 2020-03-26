@@ -700,6 +700,10 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 1d64e52eed62d324ea49681054cd3eda, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d64e52eed62d324ea49681054cd3eda, type: 3}
 --- !u!1001 &841151173
@@ -907,7 +911,6 @@ MonoBehaviour:
     type: 3}
   enemyDeathPrefab: {fileID: 6511216531592707412, guid: 3bc2e2e87bb3c254ea86d9ea4f214dc8,
     type: 3}
-  anim: {fileID: 0}
   diffMod: 0
 --- !u!195 &1659324008
 NavMeshAgent:
