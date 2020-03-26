@@ -58,6 +58,7 @@ public class enemyBase : MonoBehaviour
             }
            
         }
+
     }
 
     // LateUpdate for physics
@@ -70,9 +71,11 @@ public class enemyBase : MonoBehaviour
             Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
 
             if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
-
-                this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in 
-        }                                                                                              // global space
+            {
+                this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in global space
+                audioManager.PlaySound("RobotSound");
+            }
+        }                                                                                              
 
 
     }
