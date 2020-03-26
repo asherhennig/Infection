@@ -8,7 +8,7 @@ public class Jun_MultiLanguageText : MonoBehaviour
 {
     public Jun_LanguageSettingType settingType = Jun_LanguageSettingType.Custom;
 
-	public Jun_MultiLanguage multiLanguage = new Jun_MultiLanguage();
+    public Jun_MultiLanguage multiLanguage;// = new Jun_MultiLanguage();
 	Text uiText;
 
     [HideInInspector] [SerializeField] Jun_MultiLanguagePool m_languagePool;
