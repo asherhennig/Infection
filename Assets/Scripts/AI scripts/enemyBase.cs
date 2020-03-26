@@ -10,7 +10,7 @@ public class enemyBase : MonoBehaviour
     public float accuracy = 0.5f;      //enemy accuracy to player before enemy stops moving
     public Transform target;             //goal is hero/player
     public UnityEvent onDestroy;
-    public int health = 10;
+    public int health = 5;
 
     private int newHealth;
     public GameObject currencyprefab;
@@ -82,17 +82,17 @@ public class enemyBase : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        if (target != null)
-        {
-            Head.SetBool("IsMoving", true);
-        }
-        else
-        {
-            Head.SetBool("IsMoving", false);
-        }
-    }
+    //void FixedUpdate()
+    //{
+    //    if (target != null)
+    //    {
+    //        Head.SetBool("IsMoving", true);
+    //    }
+    //    else
+    //    {
+    //        Head.SetBool("IsMoving", false);
+    //    }
+    //}
 
     public void Die()
     {
