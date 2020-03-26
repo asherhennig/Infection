@@ -68,12 +68,6 @@ public class AudioManager : MonoBehaviour
             if (sounds[i].name == soundName)
             {
                 sounds[i].Play();
-
-                if (sounds[i].name == "MenuBGM" || sounds[i].name == "LabBGM" || sounds[i].name == "ForestBGM" || sounds[i].name == "LaunchpadBGM")
-                {
-                    sounds[i].source.loop = true;
-                }
-
                 return;
             }
         }
@@ -87,6 +81,17 @@ public class AudioManager : MonoBehaviour
         for (int i = 0; i < sounds.Length; i++)
         {
             sounds[i].SetVolume(slider.value);
+        }
+    }
+
+    public void Loop()
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name == "MenuBGM" || sounds[i].name == "LabBGM" || sounds[i].name == "ForestBGM" || sounds[i].name == "LaunchpadBGM")
+            {
+                sounds[i].source.loop = true;
+            }
         }
     }
 }
