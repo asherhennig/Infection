@@ -4,23 +4,38 @@ using UnityEngine;
 using UnityEngine.AI;
 //using Panda;
 
+    /*ai BEHAVIOR class*/
+
 public class ShoulderShooter : MonoBehaviour
 {
     public int damage;
-    public Transform target;    //so ZAR knows where player is
+    public Transform target;             //so ZAR knows where player is
     public GameObject bulletprefab;
     public Vector3 destination;
     public Vector3 stoppingDistance;
     public float shotRange;
-
-
-    NavMeshAgent shooterZar;
+    public enemyBase shooterZar;            //replaces "protected Agent agent;
 
     void Start()
     {
         shooterZar = this.GetComponent<NavMeshAgent>();
         shooterZar.stoppingDistance = shotRange;        //setting up a minimum line of sight
 
+    }
+
+    public virtual void Awake()
+    {
+        shooterZar = gameObject.GetComponent<Lure>;
+    }
+
+    public virtual void Update()
+    {
+        shooterZar.SetDistraction(GetDistract());
+    }
+
+    public virtual Distraction GetDistraction()
+    {
+        return new Distract();
     }
 
     private void OnCollisionEnter(Collision collision)
