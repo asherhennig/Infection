@@ -7,7 +7,7 @@ public class enemyBase : MonoBehaviour
 
 {
     public float speed = 3.0f;
-    public float accuracy = 0.09f;      //enemy accuracy to player before enemy stops moving
+    public float accuracy = 0.5f;      //enemy accuracy to player before enemy stops moving
     public Transform target;             //goal is hero/player
     public UnityEvent onDestroy;
     public int health = 5;
@@ -19,6 +19,12 @@ public class enemyBase : MonoBehaviour
     public GameObject hitPrefab;
     public GameObject enemyDeathPrefab;
 
+    private Animator Head;
+
+
+
+    private AudioManager audioManager;
+
 
     public float diffMod;
     
@@ -26,6 +32,12 @@ public class enemyBase : MonoBehaviour
     void Start()
     {
         setHealth();
+
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found!!!");
+        }
     }
 
     // update is called every frame
@@ -34,8 +46,10 @@ public class enemyBase : MonoBehaviour
         //if the health of a enemy is equal or lesss than 0 it dies
         if (health <= 0)
         {
-            Die();
+            //Die();
             Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
+            // Play sound
+            audioManager.PlaySound("RobotDeathSound");
             //create a random chance for drop 
             chance = Random.Range(0, 10);
             //if it is the low chance of 5 gum loot drop is that
@@ -48,7 +62,7 @@ public class enemyBase : MonoBehaviour
             {
                 Instantiate(currencyprefab, this.transform.position, Quaternion.identity);
             }
-           
+
         }
     }
 
@@ -58,15 +72,26 @@ public class enemyBase : MonoBehaviour
         if (target != null)
         {
             this.transform.LookAt(target.position);                               //Enemy faces player
-            Vector3 direction = target.position - this.transform.position;        //enemy direction: where its going MINUS where it is
+            Vector3 direction = target.position- this.transform.position;        //enemy direction: where its going MINUS where it is
             Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
 
             if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
 
-                this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in 
-        }                                                                                              // global space
+                this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in
+                                                                                                            //in global space
+        }
+    }
 
-
+    void FixedUpdate()
+    {
+        if (target != null)
+        {
+            Head.SetBool("IsMoving", true);
+        }
+        else
+        {
+            Head.SetBool("IsMoving", false);
+        }
     }
 
     public void Die()
@@ -75,7 +100,7 @@ public class enemyBase : MonoBehaviour
         onDestroy.Invoke();
         onDestroy.RemoveAllListeners();
     }
-    
+
     //this has calculates the players new health post damage
     public void takeDamage(int damTaken)
     {

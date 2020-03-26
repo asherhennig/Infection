@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class shotGun : Gun
 {
+    private AudioManager audioManager;
     public int pelletsPerShot;
     public float spread;
     List<Quaternion> pellets;
@@ -15,7 +16,14 @@ public class shotGun : Gun
         {
             pellets.Add(Quaternion.Euler(Vector3.zero)); 
         }
+
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found!!!");
+        }
     }
+
     void fireBullet()
     {
         ammo.ConsumeAmmo(tag);
@@ -26,6 +34,8 @@ public class shotGun : Gun
             pellet.transform.rotation = new Quaternion(pellet.transform.rotation.x, pellet.transform.rotation.y, Quaternion.RotateTowards(pellet.transform.rotation, pellets[i], spread).z, pellet.transform.rotation.w);
             pellet.GetComponent<Rigidbody>().AddForce(pellet.transform.forward * bulletSpeed);
             bulletPrefab.GetComponent<bullet>().damage = weaponDam;
+            // Play sound
+            audioManager.PlaySound("ShotgunSound");
         }
     }
 
