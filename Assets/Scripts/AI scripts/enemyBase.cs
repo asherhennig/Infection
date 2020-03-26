@@ -10,7 +10,7 @@ public class enemyBase : MonoBehaviour
     public float accuracy = 0.5f;      //enemy accuracy to player before enemy stops moving
     public Transform target;             //goal is hero/player
     public UnityEvent onDestroy;
-    public int health = 5;
+    public int health = 10;
 
     private int newHealth;
     public GameObject currencyprefab;
@@ -104,13 +104,9 @@ public class enemyBase : MonoBehaviour
     //this has calculates the players new health post damage
     public void takeDamage(int damTaken)
     {
-        Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
-
-        
-        Debug.Log("Pistol damage after shot is:" + damTaken);
         health -= damTaken;
-        Debug.Log("damage after shot is:" + damTaken);
-        Debug.Log("health is:" + health);
+        Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
+        Destroy(hitPrefab, hitPrefab.GetComponent<ParticleSystem>().duration);
     }
 
     public void setDiff(float DiffMod)
