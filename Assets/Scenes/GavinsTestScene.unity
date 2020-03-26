@@ -933,6 +933,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2499105395947668361, guid: 563d79a9c9227ed44a9bc775b9a9f38d,
+        type: 3}
+      propertyPath: m_TagString
+      value: lureGrenade
+      objectReference: {fileID: 0}
     - target: {fileID: 218070079036574127, guid: 563d79a9c9227ed44a9bc775b9a9f38d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1118,10 +1123,11 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5140865809544023471, guid: 37b87dd2f52d24c4aa0583b89ecf21c9,
     type: 3}
   firePosition: {fileID: 1908097324}
+  ammo: {fileID: 1714767203}
   fireSpeed: 0.75
-  bulletSpeed: 100
+  bulletSpeed: 500
   pelletsPerShot: 3
-  spread: 45
+  spread: 90
 --- !u!1 &746162425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,6 +1399,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5140865809544023471, guid: 37b87dd2f52d24c4aa0583b89ecf21c9,
     type: 3}
   firePosition: {fileID: 832502818}
+  ammo: {fileID: 1714767203}
   fireSpeed: 0.75
   bulletSpeed: 25
 --- !u!1 &1503034012
@@ -1523,6 +1530,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1799712734480006750}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1714767203 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1714767209, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1799712734480006750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714767202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a19d338c6d4b141835584f545a85dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1714767211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1799712733756462197, guid: 1326f778db9e0ba4394892a9d5c99a7a,
@@ -1694,6 +1713,7 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 1
+  ammo: {fileID: 1714767203}
 --- !u!1 &1908097323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,6 +2016,7 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
+  ammo: {fileID: 1714767203}
 --- !u!4 &1958888490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4838649873824408042, guid: 563d79a9c9227ed44a9bc775b9a9f38d,
@@ -2628,10 +2649,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4722771334808089688, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shotgun
+      objectReference: {fileID: 0}
     - target: {fileID: 1799712733052666980, guid: 1326f778db9e0ba4394892a9d5c99a7a,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799712733052666980, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pistol
       objectReference: {fileID: 0}
     - target: {fileID: 4855795765548409092, guid: 1326f778db9e0ba4394892a9d5c99a7a,
         type: 3}
@@ -2742,6 +2773,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1639777525937123376, guid: 13eabd9dd3a545d439bc399b4cc34dc2,
         type: 3}
+    - target: {fileID: 1714767209, guid: 1326f778db9e0ba4394892a9d5c99a7a, type: 3}
+      propertyPath: shotgunAmmo
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2254429116726674681, guid: 1326f778db9e0ba4394892a9d5c99a7a,
         type: 3}
       propertyPath: m_IsActive
@@ -2762,15 +2797,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1799712733052666982, guid: 1326f778db9e0ba4394892a9d5c99a7a,
+    - target: {fileID: 5210626811733590223, guid: 1326f778db9e0ba4394892a9d5c99a7a,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799712733052666986, guid: 1326f778db9e0ba4394892a9d5c99a7a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_TagString
+      value: Grenade
       objectReference: {fileID: 0}
     - target: {fileID: 4554211020422133698, guid: 1326f778db9e0ba4394892a9d5c99a7a,
         type: 3}

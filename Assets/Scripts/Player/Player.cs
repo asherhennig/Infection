@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
         healthBar.setMaxHealth(maxHealth);
-        currency = GetComponent<GameManager>().bubblegum;
+        //currency = GetComponent<GameManager>().bubblegum;
     }
 
     //added takeDamage function
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     {
         int healthDamage = 1;
         curHealth -= healthDamage;
-        healthBar.setHealth(curHealth);
+        //healthBar.setHealth(curHealth);
         Debug.Log("you've been hurt, health is: " + curHealth + " out of: " + maxHealth);
         if(curHealth <= 0)
         {
@@ -134,6 +134,8 @@ public class Player : MonoBehaviour
         Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"),
                                             0, Input.GetAxis("Vertical"));
         characterController.SimpleMove(moveDirection * speed);
+
+
         //gives the player some I frames after being hit, we can adjust how long
         if(isHit)
         {
@@ -152,6 +154,24 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
+        ////Player direction controls
+        //Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"),
+        //                                    0, Input.GetAxis("Vertical"));
+
+
+        //if (moveDirection == Vector3.zero)
+        //{
+        //    bodyAnimator.SetBool("IsMoving", false);        //Set Animator to not moving if character vector = 0
+        //}
+
+        //else
+        //{
+        //    head.AddForce(transform.right * 150, ForceMode.Acceleration);            //head bobble functionality
+
+        //    bodyAnimator.SetBool("IsMoving", true);         //Set Animator to moving if character vector != 0
+        //}
+
+
         //this makes the palyer look at the cursor when its on screen
         //creating hit and ray variables
         RaycastHit hit;
@@ -160,9 +180,10 @@ public class Player : MonoBehaviour
         //fires ray from camera and returns hit
         if (Physics.Raycast(ray, out hit, 1000, layerMask, QueryTriggerInteraction.Ignore))
         {
+
             if (hit.point != currentLookTarget)
             {
-
+                Debug.Log("player not rotating");
             }
         }
 
