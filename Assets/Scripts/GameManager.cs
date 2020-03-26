@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
     //game objects that will be needed in the script
     public GameObject player;
     private Player player1;
-    private Ammo ammo;
-    private GunEquipper gunEquipper;
     public GameObject[] itemSpawnPoints;
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
@@ -56,13 +54,10 @@ public class GameManager : MonoBehaviour
     //Difficulty
     public int curDifficulty = 1;
     public float difficultyMod = 1.0f;
-    private int itemID;
 
     void Awake()
     {
         player1 = GameObject.FindObjectOfType<Player>();
-        gunEquipper = GetComponent<GunEquipper>();
-        ammo = GetComponent<Ammo>();
     }
     // Start is called before the first frame update
     void Start()
@@ -73,14 +68,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         restTimer = 0;
         StartCoroutine("updatedRestTimer");
-        buyShotgun = GameObject.FindGameObjectsWithTag("BuyShotgun");
-        buyShells = GameObject.FindGameObjectsWithTag("BuyShells");
-        buyNade = GameObject.FindGameObjectsWithTag("BuyNade");
-        buyHealth = GameObject.FindGameObjectsWithTag("BuyHealth");
-        buyMax = GameObject.FindGameObjectsWithTag("BuyMax");
-        buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
-        purchase = GameObject.FindGameObjectsWithTag("Purchase");
-        HidePurchase();
+
     }
 
     // Update is called once per frame
@@ -204,22 +192,11 @@ public class GameManager : MonoBehaviour
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
     }
-    public void Prices()
-    {
-        foreach (GameObject g in buyShells)
-        {
-            price = 1000;
-            itemID = 1;
-            Debug.Log("Testing1");
-        }
-    }
-
-    public void Prices1()
+        public void Prices1()
     {
         foreach (GameObject g in buyShells)
         {
             price = 200;
-            itemID = 2;
             Debug.Log("Testing1");
         }
     }
@@ -229,7 +206,6 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyNade)
         {
             price = 3000;
-            itemID = 3;
             Debug.Log("Testing2");
         }
     }
@@ -237,8 +213,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject g in buyHealth)
         {
-            price = 1500;
-            itemID = 4;
+            price = 2500;
             Debug.Log("Testing3");
         }
        
@@ -249,7 +224,6 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyMax)
         {
             price = 5000;
-            itemID = 5;
             Debug.Log("Testing4");
         }
     }
@@ -258,15 +232,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyBrain)
         {
             price = 3500;
-            itemID = 6;
             Debug.Log("Testing5");
-        }
-    }
-    public void Purchase()
-    {
-        foreach (GameObject g in purchase)
-        {
-            g.SetActive(true);
         }
     }
 
@@ -281,38 +247,7 @@ public class GameManager : MonoBehaviour
 
     public void Buyable()
     {
-
-        if (bubblegum >= price)
-        {
-            canPurchase = true;
-            bubblegum = bubblegum - price;
-            gameUI.SetMoneyText(bubblegum);
-            Debug.Log("Item Purchased");
-            if (itemID == 1)
-            {
-                gunEquipper.shotgun.SetActive(true);
-            }
-            else if (itemID == 2)
-            {
-                ammo.shotgunAmmo = ammo.shotgunAmmo + 5;
-            }
-            else if (itemID == 3)
-            {
-                gunEquipper.fragGrenade.SetActive(true);
-            }
-            else if (itemID == 4)
-            {
-                player1.curHealth ++;
-            }
-            else if (itemID == 5)
-            {
-                player1.curHealth = player1.maxHealth;
-            }
-            else if (itemID == 6)
-            {
-                gunEquipper.lureGrenade.SetActive(true);
-            }
-        }
+        if (bubblegum >= price);
     }
 
     public float setDifficulty(int difficulty)

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Ammo : MonoBehaviour
 {
@@ -14,14 +13,7 @@ public class Ammo : MonoBehaviour
    
     public int shotgunAmmo = 25;
 
-    Text shotgunAmmoCounter;
-
     public Dictionary<string, int> tagToAmmo;
-
-    void Start()
-    {
-        shotgunAmmoCounter = GetComponent<Text>();
-    }
 
     private void Awake()
     {
@@ -70,10 +62,5 @@ public class Ammo : MonoBehaviour
         }
         Debug.Log("current ammo: " + (GetAmmo(tag)-1));
         return tagToAmmo[tag]--;
-    }
-
-    void Update()
-    {
-        shotgunAmmoCounter.text = "Shotgun Ammo: " + shotgunAmmo;
     }
 }

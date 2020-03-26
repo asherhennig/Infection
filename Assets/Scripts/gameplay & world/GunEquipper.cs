@@ -32,6 +32,7 @@ public class GunEquipper : MonoBehaviour
         fragGrenade.SetActive(false);
         lureGrenade.SetActive(false);
         miniGun.SetActive(false);
+
         weapon.SetActive(true);
         activeGun = weapon;
     }
