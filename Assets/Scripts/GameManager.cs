@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
     public GameObject[] pickUpPrefab;
+    private GunEquipper gunEquipper;
     GameObject[] buyShotgun;
     GameObject[] buyShells;
     GameObject[] buyNade;
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
     //Difficulty
     public int curDifficulty = 1;
     public float difficultyMod = 1.0f;
+    private int itemID;
 
     void Awake()
     {
@@ -65,10 +67,18 @@ public class GameManager : MonoBehaviour
         singleton = this;
         actualPickUpTime = Random.Range(pickUpMaxSpawnTime - 3.0f, pickUpMaxSpawnTime);
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
+        gunEquipper = GetComponent<GunEquipper>();
         Time.timeScale = 1;
         restTimer = 0;
         StartCoroutine("updatedRestTimer");
-
+        buyShotgun = GameObject.FindGameObjectsWithTag("BuyShotgun");
+        buyShells = GameObject.FindGameObjectsWithTag("BuyShells");
+        buyNade = GameObject.FindGameObjectsWithTag("BuyNade");
+        buyHealth = GameObject.FindGameObjectsWithTag("BuyHealth");
+        buyMax = GameObject.FindGameObjectsWithTag("BuyMax");
+        buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
+        purchase = GameObject.FindGameObjectsWithTag("Purchase");
+        HidePurchase();
     }
 
     // Update is called once per frame
@@ -192,11 +202,22 @@ public class GameManager : MonoBehaviour
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
     }
-        public void Prices1()
+    public void Prices()
+    {
+        foreach (GameObject g in buyShells)
+        {
+            price = 1000;
+            itemID = 1;
+            Debug.Log("Testing1");
+        }
+    }
+
+    public void Prices1()
     {
         foreach (GameObject g in buyShells)
         {
             price = 200;
+            itemID = 2;
             Debug.Log("Testing1");
         }
     }
@@ -206,6 +227,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyNade)
         {
             price = 3000;
+            itemID = 3;
             Debug.Log("Testing2");
         }
     }
@@ -213,7 +235,8 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject g in buyHealth)
         {
-            price = 2500;
+            price = 1500;
+            itemID = 4;
             Debug.Log("Testing3");
         }
        
@@ -224,6 +247,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyMax)
         {
             price = 5000;
+            itemID = 5;
             Debug.Log("Testing4");
         }
     }
@@ -232,7 +256,15 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyBrain)
         {
             price = 3500;
+            itemID = 6;
             Debug.Log("Testing5");
+        }
+    }
+    public void Purchase()
+    {
+        foreach (GameObject g in purchase)
+        {
+            g.SetActive(true);
         }
     }
 
@@ -247,16 +279,39 @@ public class GameManager : MonoBehaviour
 
     public void Buyable()
     {
-<<<<<<< HEAD
+
         if (bubblegum >= price)
         {
             canPurchase = true;
             bubblegum = bubblegum - price;
             gameUI.SetMoneyText(bubblegum);
             Debug.Log("Item Purchased");
+            if (itemID == 1)
+            {
+                gunEquipper.shotgun.SetActive(true);
+            }
+            else if (itemID == 2)
+            {
+
+            }
+            else if (itemID == 3)
+            {
+                gunEquipper.fragGrenade.SetActive(true);
+            }
+            else if (itemID == 4)
+            {
+                player1.curHealth ++;
+            }
+            else if (itemID == 5)
+            {
+                player1.curHealth = player1.maxHealth;
+            }
+            else if (itemID == 6)
+            {
+                gunEquipper.lureGrenade.SetActive(true);
+            }
         }
-=======
->>>>>>> f79f98a8c0b584744e8486f67474e855ae45796a
+
     }
 
     public float setDifficulty(int difficulty)

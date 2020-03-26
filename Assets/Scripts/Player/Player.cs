@@ -30,12 +30,8 @@ public class Player : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
-<<<<<<< HEAD
         healthBar.setMaxHealth(maxHealth);
-=======
-        healthBar.setMaxHealth(maxHealth);
-        currency = GetComponent<GameManager>().bubblegum;
->>>>>>> f79f98a8c0b584744e8486f67474e855ae45796a
+        //currency = GetComponent<GameManager>().bubblegum;
     }
 
     //added takeDamage function
