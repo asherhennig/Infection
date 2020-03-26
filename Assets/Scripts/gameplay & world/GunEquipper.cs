@@ -59,22 +59,22 @@ public class GunEquipper : MonoBehaviour
         if (Input.GetKeyDown("1"))
         {
             loadWeapons(pistol);
-            //activeWeaponType = Constants.Pistol;
+            activeWeaponType = Constants.Pistol;
         }
         else if (Input.GetKeyDown("2"))
         {
             loadWeapons(shotgun);
-            //activeWeaponType = Constants.Shotgun;
+            activeWeaponType = Constants.Shotgun;
         }
         else if (Input.GetKeyDown("3"))
         {
             loadWeapons(fragGrenade);
-            //activeWeaponType = Constants.Grenade;
+            activeWeaponType = Constants.Grenade;
         }
         else if (Input.GetKeyDown("4"))
         {
             loadWeapons(lureGrenade);
-            //activeWeaponType = Constants.lureGrenade;
+            activeWeaponType = Constants.lureGrenade;
         }
     }
 }
