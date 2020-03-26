@@ -313,7 +313,6 @@ public class GameManager : MonoBehaviour
                 gunEquipper.lureGrenade.SetActive(true);
             }
         }
-
     }
 
     public float setDifficulty(int difficulty)

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDam: 0
   bulletPrefab: {fileID: 0}
-  player: {fileID: 0}
   firePosition: {fileID: 0}
   fireSpeed: 0.75
+  bulletSpeed: 10
 --- !u!1 &1799712733756462201
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,7 +32,6 @@ GameObject:
   - component: {fileID: 270948471}
   - component: {fileID: 8105099349774420256}
   - component: {fileID: 1714767210}
-  - component: {fileID: 2875393455211431359}
   - component: {fileID: 1714767209}
   m_Layer: 0
   m_Name: Player
@@ -150,7 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pistol: {fileID: 1799712733052666980}
   shotgun: {fileID: 4722771334808089688}
-  granade: {fileID: 5210626811733590223}
+  fragGrenade: {fileID: 0}
+  lureGrenade: {fileID: 0}
   miniGun: {fileID: 0}
 --- !u!114 &1714767210
 MonoBehaviour:
@@ -166,8 +166,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curHealth: 5
   maxHealth: 5
-  currency: 0
-  numKills: 0
   speed: 10
   rotSpeed: 5
   timeBetweenHits: 0
@@ -175,22 +173,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   miniGun: {fileID: 0}
+  PlayerHitPrefab: {fileID: 0}
+  currency: 0
   isDead: 0
-  isactive: 0
---- !u!114 &2875393455211431359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799712733756462201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e161cdb1042a28e478f5bce830e02dd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerDeathPrefab: {fileID: 6511216531592707412, guid: 3bc2e2e87bb3c254ea86d9ea4f214dc8,
-    type: 3}
+  healthBar: {fileID: 0}
 --- !u!114 &1714767209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,9 +205,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDam: 0
   bulletPrefab: {fileID: 0}
-  player: {fileID: 0}
   firePosition: {fileID: 0}
   fireSpeed: 0.75
+  bulletSpeed: 10
 --- !u!1 &4118891439438473365
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,12 +586,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563d79a9c9227ed44a9bc775b9a9f38d, type: 3}
---- !u!1 &5210626811733590223 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2499105395947668361, guid: 563d79a9c9227ed44a9bc775b9a9f38d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7701514248378696518}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3010392515467682476 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4838649873824408042, guid: 563d79a9c9227ed44a9bc775b9a9f38d,
