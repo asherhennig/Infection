@@ -15,19 +15,14 @@ public class GunEquipper : MonoBehaviour
 
     Ammo Ammo;
 
-    Animator heroAnim;
-
     //GameObject gameObject;
     GameObject activeGun;
 
     // Start is called before the first frame update
     void Start()
     {
-        heroAnim = GetComponent<Animator>();
         activeWeaponType = Constants.Pistol;
         activeGun = pistol;
-
-        heroAnim.SetBool("SetActive_pistol", true);
     }
 
     private void loadWeapons(GameObject weapon)
@@ -48,18 +43,13 @@ public class GunEquipper : MonoBehaviour
         loadWeapons(miniGun);
         //set active gun to mini gun
         activeWeaponType = Constants.miniGun;
-
-        heroAnim.SetBool("SetActive_miniGun", true);
-
+       
     }
 
     public void deactiveMiniGun()
     {
         loadWeapons(pistol);
         activeWeaponType = Constants.Pistol;
-        heroAnim.SetBool("SetActive_miniGun", false);
-        heroAnim.SetBool("SetActive_pistol", true);
-
     }
 
     
@@ -70,17 +60,11 @@ public class GunEquipper : MonoBehaviour
         {
             loadWeapons(pistol);
             activeWeaponType = Constants.Pistol;
-            heroAnim.SetBool("SetActive_pistol", true);
-            heroAnim.SetBool("SetActive_shotgun", false);
-
         }
         else if (Input.GetKeyDown("2"))
         {
             loadWeapons(shotgun);
             activeWeaponType = Constants.Shotgun;
-            heroAnim.SetBool("SetActive_pistol", false);
-            heroAnim.SetBool("SetActive_shotgun", true);
-
         }
         else if (Input.GetKeyDown("3"))
         {
