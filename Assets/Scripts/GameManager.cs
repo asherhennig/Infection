@@ -116,12 +116,14 @@ public class GameManager : MonoBehaviour
         }
         if (activeWave)
         {
+            Debug.Log("hi1");
             //checks if its time to spawn
             if (curSpawnedWave < MaxPerWave)
             {
-               // Debug.Log("hi");
+                Debug.Log("hi2");
                 if (enemiesPerSpawn > 0 && enemiesOnScreen < MaxPerWave)
                 {
+                    Debug.Log("hi3");
                     List<int> previousSpawnLocations = new List<int>();
                     if (enemiesPerSpawn > enemySpawnPoints.Length)
                     {
@@ -138,7 +140,7 @@ public class GameManager : MonoBehaviour
                             int spawnPoint = -1;
                             while (spawnPoint == -1)
                             {
-                                int randNum = Random.Range(0, enemySpawnPoints.Length - 1);
+                                int randNum = Random.Range(0, enemySpawnPoints.Length);
                                 if (!previousSpawnLocations.Contains(randNum))
                                 {
                                     previousSpawnLocations.Add(randNum);
