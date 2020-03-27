@@ -37,6 +37,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeartModel Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddc30fcede2d8324b979347d3c2d1447, type: 3}
+      propertyPath: m_TagString
+      value: Pick-Up
+      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: ddc30fcede2d8324b979347d3c2d1447, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
