@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     {
         int healthDamage = 1;
         curHealth -= healthDamage;
-        //healthBar.setHealth(curHealth);
+        healthBar.setHealth(curHealth);
         Debug.Log("you've been hurt, health is: " + curHealth + " out of: " + maxHealth);
         if(curHealth <= 0)
         {
