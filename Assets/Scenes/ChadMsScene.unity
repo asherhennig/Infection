@@ -318,7 +318,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4989640917928454003, guid: 27eacdb2aa9ffc84980368584d3deb21,
     type: 3}
   firePosition: {fileID: 362906852}
-  ammo: {fileID: 0}
   fireSpeed: 0.1
   bulletSpeed: 10
 --- !u!1 &49615720 stripped
@@ -357,10 +356,6 @@ MonoBehaviour:
   - {fileID: 2085492883978391239, guid: 2b874bf9c936f224bbb3f8e494bff2a8, type: 3}
   - {fileID: 7106424366926364555, guid: 225a666908dd5c54e86170d4b85dafbe, type: 3}
   - {fileID: 5341088506673595396, guid: 1812ffa029a1b1744b59d89b9d4d61f8, type: 3}
-  gameUI: {fileID: 0}
-  score: 0
-  bubblegum: 0
-  isGameOver: 0
   maxEnemiesOnScreen: 5
   enemiesPerSpawn: 1
   restTimer: 0
@@ -1985,36 +1980,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555692893}
   m_CullTransparentMesh: 0
---- !u!1 &564727389
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 564727390}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &564727390
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564727389}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1388334, y: -0.047023296, z: 4.680767}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &595412220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4855795765548409092, guid: 1326f778db9e0ba4394892a9d5c99a7a,
@@ -2191,7 +2156,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4989640917928454003, guid: 27eacdb2aa9ffc84980368584d3deb21,
     type: 3}
   firePosition: {fileID: 595412220}
-  ammo: {fileID: 0}
   fireSpeed: 0.75
   bulletSpeed: 10
 --- !u!1 &690365404

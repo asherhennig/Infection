@@ -25,12 +25,9 @@ public class Player : MonoBehaviour
     private float timeSinceHit = 0;
     private GunEquipper gunEquipper;
 
-    public Animator heroAnim;
-
     // Start is called before the first frame update
     void Start()
     {
-        heroAnim = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
         healthBar.setMaxHealth(maxHealth);
@@ -138,17 +135,9 @@ public class Player : MonoBehaviour
                                             0, Input.GetAxis("Vertical"));
         characterController.SimpleMove(moveDirection * speed);
 
-        if (moveDirection == Vector3.zero)
-        {
-            heroAnim.SetBool("IsMoving", false);        //Set Animator to not moving if character vector = 0
-        }
-        else
-        {
-            heroAnim.SetBool("IsMoving", true);
-        }
-        
+
         //gives the player some I frames after being hit, we can adjust how long
-        if (isHit)
+        if(isHit)
         {
             timeSinceHit += Time.deltaTime;
             if(timeSinceHit>timeBetweenHits)

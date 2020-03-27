@@ -111,7 +111,7 @@ public class enemyBase : MonoBehaviour
     {
         ehealth -= damTaken;
         Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
-        Destroy(hitPrefab, hitPrefab.GetComponent<ParticleSystem>().duration);
+        //Destroy(hitPrefab, hitPrefab.GetComponent<ParticleSystem>().duration);
     }
 
     public void setDiff(float DiffMod)
