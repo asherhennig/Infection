@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
                             int spawnPoint = -1;
                             while (spawnPoint == -1)
                             {
-                                int randNum = Random.Range(0, enemySpawnPoints.Length - 1);
+                                int randNum = Random.Range(0, enemySpawnPoints.Length);
                                 if (!previousSpawnLocations.Contains(randNum))
                                 {
                                     previousSpawnLocations.Add(randNum);
