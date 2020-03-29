@@ -25,6 +25,14 @@ public class enemyBase : MonoBehaviour
 
     private int newHealth;
     public GameObject currencyprefab;
+    public Transform target;             //target is hero/player
+    public UnityEvent onDestroy;
+    public int health = 5;
+    public GameObject grenade;          //Enemy Class can recognize the grenade
+    NavMeshAgent enemy;                 //AI navigate
+
+    private int newHealth;
+    public GameObject currencyprefab;
    
 
     void Start()
@@ -35,11 +43,12 @@ public class enemyBase : MonoBehaviour
  
     }
 
-    public void SetDistraction(Lure lure)    //pg.4 for grenade
+    public void SetDistraction(Lure lure)    
     {
-        this.lure = lure;   //new lure?
-        NavMeshAgent.ResetPath(); 
+        this.lure = lure;
+        NavMeshAgent.Grenade();
     }
+
 
     // update is called every frame
     void Update()
@@ -55,7 +64,6 @@ public class enemyBase : MonoBehaviour
             currencyprefab.transform.position = this.transform.position;
         }
 
-    
     }
 
     // LateUpdate for physics
