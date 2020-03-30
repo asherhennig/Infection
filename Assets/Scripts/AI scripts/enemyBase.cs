@@ -80,7 +80,11 @@ public class enemyBase : MonoBehaviour
             if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
             {
                 this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in global space
-                audioManager.PlaySound("RobotSound");
+
+                if (Time.timeScale > 0)
+                {
+                    audioManager.PlaySound("RobotSound");
+                }
             }
         }                                                                                              
 
