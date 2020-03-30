@@ -14,7 +14,7 @@ public class ShoulderShooter : MonoBehaviour
     public Vector3 destination;
     public Vector3 stoppingDistance;
     public float shotRange;
-    public enemyBase shooterZar;            //replaces "protected Agent agent;
+    public enemyBase shooterZar;            //EX to protected Agent agent;
 
     void Start()
     {
