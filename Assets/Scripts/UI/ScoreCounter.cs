@@ -9,6 +9,8 @@ public class ScoreCounter : MonoBehaviour
     private Text scoreText;
     [SerializeField]
     private Text bubblegumText;
+    [SerializeField]
+    private Text waveText;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,10 @@ public class ScoreCounter : MonoBehaviour
     public void SetMoneyText(int bubblegum)
     {
         bubblegumText.text = "Bubblegum: " + bubblegum;
+    }
+    public void SetWaveText(int wave)
+    {
+        waveText.text = "Wave: " + wave;
     }
     // Update is called once per frame
     void Update()

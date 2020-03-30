@@ -172,10 +172,12 @@ public class GameManager : MonoBehaviour
                 curSpawnedWave = 0;
                 Debug.Log("rest period");
                 wave++;
+                gameUI.SetWaveText(wave);
                 MaxPerWave++;
                 maxEnemiesOnScreen++;
-                score += 500;
-             
+                score = score + 500;
+                gameUI.SetScoreText(score);
+
             }
         }
     }
@@ -196,17 +198,17 @@ public class GameManager : MonoBehaviour
         //int gumChance = Random.Range(0, 10);
         enemiesOnScreen -= 1;
         //give gum and score on kill(testing score and bubblegum counters)
-        bubblegum += 5;
-        //gameUI.SetMoneyText(bubblegum);
-        score += 100;
-        //gameUI.SetScoreText(score);
+        bubblegum = bubblegum + 5;
+        gameUI.SetMoneyText(bubblegum);
+        score = score + 100;
+        gameUI.SetScoreText(score);
         
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
     }
     public void Prices()
     {
-        foreach (GameObject g in buyShells)
+        foreach (GameObject g in buyShotgun)
         {
             price = 1000;
             itemID = 1;
