@@ -25,7 +25,7 @@ public class ShoulderShooter : MonoBehaviour
 
     public virtual void Awake()
     {
-        shooterZar = gameObject.GetComponent<Lure>;
+        shooterZar = gameObject.GetComponents<Lure>;
     }
 
     public virtual void Update()

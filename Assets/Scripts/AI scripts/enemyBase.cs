@@ -25,14 +25,6 @@ public class enemyBase : MonoBehaviour
 
     private int newHealth;
     public GameObject currencyprefab;
-    public Transform target;             //target is hero/player
-    public UnityEvent onDestroy;
-    public int health = 5;
-    public GameObject grenade;          //Enemy Class can recognize the grenade
-    NavMeshAgent enemy;                 //AI navigate
-
-    private int newHealth;
-    public GameObject currencyprefab;
    
 
     void Start()

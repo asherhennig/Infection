@@ -17,7 +17,7 @@ public class Lure : MonoBehaviour
     public float detectionRadius;
     public float chase;
 
-    public void Distraction() //Distraction will replace the "Steering METHOD" on pg 3
+    public void Distraction() 
     {
         /*NPC Movement and Rotation*/
         angular = 20.0f;
