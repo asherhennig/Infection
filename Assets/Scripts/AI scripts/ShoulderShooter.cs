@@ -11,29 +11,24 @@ public class ShoulderShooter : MonoBehaviour
     public int damage;
     public Transform target;             //so ZAR knows where player is
     public GameObject bulletprefab;
-    public Vector3 destination;
-    public Vector3 stoppingDistance;
+    public Vector3 destination;    //proximity before stopping to aim, fire
     public float shotRange;
     public enemyBase shooterZar;            //EX to protected Agent agent;
 
     void Start()
     {
         shooterZar = this.GetComponent<NavMeshAgent>();
-        shooterZar.stoppingDistance = shotRange;        //setting up a minimum line of sight
+        shooterZar.stoppingDistance - GameObject.position<target> = shotRange;        //setting up a minimum line of sight before the Shooting AI stops to aim & shoot
 
     }
 
-    public virtual void Awake()
-    {
-        shooterZar = gameObject.GetComponents<Lure>;
-    }
 
     public virtual void Update()
     {
         shooterZar.SetDistraction(GetDistract());
     }
 
-    public virtual Distraction GetDistraction()
+    public virtual void GetDistraction()
     {
         return new Distract();
     }

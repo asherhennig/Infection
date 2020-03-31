@@ -17,7 +17,7 @@ public class Lure : MonoBehaviour
     public float detectionRadius;
     public float chase;
 
-    public void Distraction() 
+    public virtual void Distraction() 
     {
         /*NPC Movement and Rotation*/
         angular = 20.0f;
@@ -37,7 +37,19 @@ public class Lure : MonoBehaviour
         }
 
 
+
     }
+
+    public void Distraction(Lure lure)
+    {
+
+
+        if (GameObject.Find("grenade"))
+        {
+            Debug.Log("nomnomnom");
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

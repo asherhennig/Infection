@@ -16,6 +16,7 @@ public class enemyBase : MonoBehaviour
     public float orientation;
     public float rotation = 0.0f;
     public Transform target;             //target is hero/player
+    public Vector3 stoppingDistance;
     public UnityEvent onDestroy;
     public int health = 5;
     public GameObject grenade;          //EnemyBase can recognize the grenade
@@ -33,12 +34,6 @@ public class enemyBase : MonoBehaviour
         enemy = this.GetComponent<NavMeshAgent>();
 
  
-    }
-
-    public void SetDistraction(Lure lure)    
-    {
-        this.lure = lure;
-        NavMeshAgent.Grenade();
     }
 
 
