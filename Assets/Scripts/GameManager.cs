@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         restTimer = 0;
         StartCoroutine("updatedRestTimer");
+        setDifficulty(curDifficulty);
 
     }
 
@@ -121,7 +122,6 @@ public class GameManager : MonoBehaviour
                     {
                         if (curSpawnedWave < MaxPerWave + wave && enemiesOnScreen < maxEnemiesOnScreen)
                         {
-                            Debug.Log("here");
                             enemiesOnScreen += 1;
                             int spawnPoint = -1;
                             while (spawnPoint == -1)
@@ -136,7 +136,6 @@ public class GameManager : MonoBehaviour
                             GameObject spawnLocation = enemySpawnPoints[spawnPoint];
                             GameObject newEnemy = Instantiate(enemy) as GameObject;
                             curSpawnedWave++;
-                            Debug.Log("Enemy Spawned");
                             newEnemy.transform.position = spawnLocation.transform.position;
                             enemyBase enemyScript = newEnemy.GetComponent<enemyBase>();
                             newEnemy.GetComponent<enemyBase>().setDiff(difficultyMod);
@@ -159,9 +158,13 @@ public class GameManager : MonoBehaviour
                 restTimer = 10;
                 curSpawnedWave = 0;
                 Debug.Log("rest period");
+                //ups difficulty for next round
+                roundDiffUpdate();
                 wave++;
-                MaxPerWave++;
+                //sets the max enemies
+                MaxPerWave = (int)(MaxPerWave + (10 * difficultyMod));
                 maxEnemiesOnScreen++;
+                
                 score += 500;
              
             }
@@ -250,7 +253,7 @@ public class GameManager : MonoBehaviour
         if (bubblegum >= price);
     }
 
-    public float setDifficulty(int difficulty)
+    public void setDifficulty(int difficulty)
     {
         if(difficulty == 1)
         {
@@ -264,6 +267,10 @@ public class GameManager : MonoBehaviour
         {
             difficultyMod = 2.0f;
         }
-        return difficultyMod;
+    }
+
+    public void roundDiffUpdate()
+    {
+        difficultyMod += 0.5f;
     }
 }

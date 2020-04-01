@@ -25,14 +25,14 @@ public class enemyBase : MonoBehaviour
 
     private AudioManager audioManager;
 
-
+    //this is used to modify the enemies stats later on
     public float diffMod;
     
 
     void Start()
     {
-        setHealth();
-
+        //call to init the enemies stats
+        setEnemyStats();
         audioManager = AudioManager.instance;
         if (audioManager == null)
         {
@@ -114,8 +114,12 @@ public class enemyBase : MonoBehaviour
         diffMod = DiffMod;
     }
 
-    public void setHealth()
+      //this sets the enemies health and speed
+    public void setEnemyStats()
     {
+        //health has to be recast as a int because its a float and int multiplied which is a float and health is only an int
         health = (int)(health * diffMod);
+        //speed luckily can stay as a float
+        speed = speed * diffMod;
     }
 }
