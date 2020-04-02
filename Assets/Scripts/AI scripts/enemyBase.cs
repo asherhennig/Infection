@@ -10,9 +10,7 @@ public class enemyBase : MonoBehaviour
     public float accuracy = 0.5f;      //enemy accuracy to player before enemy stops moving
     public Transform target;             //goal is hero/player
     public UnityEvent onDestroy;
-    public int ehealth = 5;
-
-    private int newehealth;
+    public int health = 5;
     public GameObject currencyprefab;
     int chance;
     public GameObject currencyprefab2;
@@ -43,9 +41,9 @@ public class enemyBase : MonoBehaviour
     // update is called every frame
     void Update()
     {
-        Debug.Log(ehealth);
+        Debug.Log(health);
         //if the ehealth of a enemy is equal or lesss than 0 it dies
-        if (ehealth <= 0)
+        if (health <= 0)
         {
             Die();
             Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
@@ -109,7 +107,7 @@ public class enemyBase : MonoBehaviour
     //this has calculates the players new ehealth post damage
     public void takeDamage(int damTaken)
     {
-        ehealth -= damTaken;
+        health -= damTaken;
         Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
         //Destroy(hitPrefab, hitPrefab.GetComponent<ParticleSystem>().duration);
     }
