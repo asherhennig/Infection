@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     public GameObject miniGun;
     public GameObject PlayerHitPrefab;
     public int currency;
+
+    public Animator heroAnim;
+
     //so get componet can access the minigun
     public bool isDead = false;
     public HealthBar healthBar;
@@ -135,9 +138,17 @@ public class Player : MonoBehaviour
                                             0, Input.GetAxis("Vertical"));
         characterController.SimpleMove(moveDirection * speed);
 
+        if (moveDirection == Vector3.zero)
+        {
+            heroAnim.SetBool("IsMoving", false);        //Set Animator to not moving if character vector = 0
+        }
+        else
+        {
+            heroAnim.SetBool("IsMoving", true);
+        }
 
         //gives the player some I frames after being hit, we can adjust how long
-        if(isHit)
+        if (isHit)
         {
             timeSinceHit += Time.deltaTime;
             if(timeSinceHit>timeBetweenHits)
@@ -159,10 +170,7 @@ public class Player : MonoBehaviour
         //                                    0, Input.GetAxis("Vertical"));
 
 
-        //if (moveDirection == Vector3.zero)
-        //{
-        //    bodyAnimator.SetBool("IsMoving", false);        //Set Animator to not moving if character vector = 0
-        //}
+
 
         //else
         //{
