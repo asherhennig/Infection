@@ -23,14 +23,14 @@ public class enemyBase : MonoBehaviour
 
     private AudioManager audioManager;
 
-
+    //this is used to modify the enemies stats later on
     public float diffMod;
     
 
     void Start()
     {
-        sethealth();
-        Debug.Log("on start" + ehealth);
+        //call to init the enemies stats
+        setEnemyStats();
         audioManager = AudioManager.instance;
         if (audioManager == null)
         {
@@ -63,7 +63,6 @@ public class enemyBase : MonoBehaviour
             }
 
         }
-
     }
 
     // LateUpdate for physics
@@ -76,13 +75,10 @@ public class enemyBase : MonoBehaviour
             Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
 
             if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
-            {
-                this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in global space
-                audioManager.PlaySound("RobotSound");
-            }
-        }                                                                                              
 
-
+                this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in
+                                                                                                            //in global space
+        }
     }
 
     //void FixedUpdate()
@@ -117,8 +113,12 @@ public class enemyBase : MonoBehaviour
         diffMod = DiffMod;
     }
 
-    public void sethealth()
+      //this sets the enemies health and speed
+    public void setEnemyStats()
     {
-        ehealth = (int)(ehealth * diffMod);
+        //health has to be recast as a int because its a float and int multiplied which is a float and health is only an int
+        health = (int)(health * diffMod);
+        //speed luckily can stay as a float
+        speed = speed * diffMod;
     }
 }
