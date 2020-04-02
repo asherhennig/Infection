@@ -7,6 +7,7 @@ public class shotGun : Gun
     private AudioManager audioManager;
     public int pelletsPerShot;
     public float spread;
+    public bool isPurchased;
     List<Quaternion> pellets;
 
     void Awake()

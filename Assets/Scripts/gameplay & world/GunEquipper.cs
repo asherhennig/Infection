@@ -62,7 +62,7 @@ public class GunEquipper : MonoBehaviour
             loadWeapons(pistol);
             activeWeaponType = Constants.Pistol;
         }
-        else if (Input.GetKeyDown("2"))
+        else if (Input.GetKeyDown("2") && shotgun.GetComponent<shotGun>().isPurchased == true)
         {
             loadWeapons(shotgun);
             activeWeaponType = Constants.Shotgun;

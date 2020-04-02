@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     public float minSpawnTime;
     public float maxSpawnTime;
     public float pickUpMaxSpawnTime = 20.0f;
-    public int wave=0;
+    public int wave = 0;
 
     //private data for keeping track of enemies on screen and time
     // between spawns of enemies and pick-ups
@@ -63,12 +63,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         singleton = this;
-        actualPickUpTime = Random.Range(pickUpMaxSpawnTime - 3.0f, pickUpMaxSpawnTime);
-        actualPickUpTime = Mathf.Abs(actualPickUpTime);
+
         Time.timeScale = 1;
         restTimer = 0;
         StartCoroutine("updatedRestTimer");
         setDifficulty(curDifficulty);
+        actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
+        actualPickUpTime = Mathf.Abs(actualPickUpTime);
 
     }
 
@@ -81,104 +82,30 @@ public class GameManager : MonoBehaviour
         //checks if the current spawn time is more than the upgrade spawn time and that one isnt spawned
         if (pickUpPrefab.Length > 0)
         {
-            if (currentPickUpTime > actualPickUpTime && !spawnedPickUp)
-            {
-                pickUpNum = Random.Range(0, 2);
-                //generates a random number based on the number of spawn points we have and
-                //assigns one to be the spawn, finally it spawns a pickup
-                int randnum = Random.Range(0, itemSpawnPoints.Length - 1);
-                GameObject spawnLocation = itemSpawnPoints[randnum];
-                pickUp = Instantiate(pickUpPrefab[pickUpNum]) as GameObject;
-                pickUp.transform.position = spawnLocation.transform.position;
-                spawnedPickUp = true;
-                actualPickUpTime = Random.Range(pickUpMaxSpawnTime - 3.0f, pickUpMaxSpawnTime);
-                actualPickUpTime = Mathf.Abs(actualPickUpTime);
-                Debug.Log("Spawned");
-            }
-            //checks if the pick up has been picked up
-            if (pickUp == null && spawnedPickUp == true)
-            {
-                currentPickUpTime = 0;
-                spawnedPickUp = false;
-                Debug.Log("deactive");
-            }
+            spawnItems();
         }
         if (activeWave)
         {
             //checks if its time to spawn
             if (curSpawnedWave < MaxPerWave)
             {
-               // Debug.Log("hi");
-                if (enemiesPerSpawn > 0 && enemiesOnScreen < MaxPerWave)
-                {
-                    List<int> previousSpawnLocations = new List<int>();
-                    if (enemiesPerSpawn > enemySpawnPoints.Length)
-                    {
-                        enemiesPerSpawn = enemySpawnPoints.Length - 1;
-                    }
-
-                    enemiesPerSpawn = (enemiesPerSpawn > MaxPerWave) ? enemiesPerSpawn - MaxPerWave : enemiesPerSpawn;
-                    for (int i = 0; i < enemiesPerSpawn; i++)
-                    {
-                        if (curSpawnedWave < MaxPerWave + wave && enemiesOnScreen < maxEnemiesOnScreen)
-                        {
-                            enemiesOnScreen += 1;
-                            int spawnPoint = -1;
-                            while (spawnPoint == -1)
-                            {
-                                int randNum = Random.Range(0, enemySpawnPoints.Length - 1);
-                                if (!previousSpawnLocations.Contains(randNum))
-                                {
-                                    previousSpawnLocations.Add(randNum);
-                                    spawnPoint = randNum;
-                                }
-                            }
-                            GameObject spawnLocation = enemySpawnPoints[spawnPoint];
-                            GameObject newEnemy = Instantiate(enemy) as GameObject;
-                            curSpawnedWave++;
-                            newEnemy.transform.position = spawnLocation.transform.position;
-                            enemyBase enemyScript = newEnemy.GetComponent<enemyBase>();
-                            newEnemy.GetComponent<enemyBase>().setDiff(difficultyMod);
-                            if (player != null)
-                            {
-                                enemyScript.target = player.transform;
-                                Vector3 targetRotation = new Vector3(player.transform.position.x,
-                                       newEnemy.transform.position.y, player.transform.position.z);
-                                newEnemy.transform.LookAt(targetRotation);
-                            }
-                            enemyScript.onDestroy.AddListener(enemyDestroyed);
-                        }
-                    }
-                }
-
+                spawnWave();
             }
             else if (curSpawnedWave == MaxPerWave && enemiesOnScreen == 0)
             {
-                activeWave = false;
-                restTimer = 10;
-                curSpawnedWave = 0;
-                Debug.Log("rest period");
-                //ups difficulty for next round
-                roundDiffUpdate();
-                wave++;
-                //sets the max enemies
-                MaxPerWave = (int)(MaxPerWave + (10 * difficultyMod));
-                maxEnemiesOnScreen++;
-                
-                score += 500;
-             
+                endWave();
             }
         }
     }
 
     private IEnumerator updatedRestTimer()
     {
-        if(!activeWave)
+        if (!activeWave)
         {
             Debug.Log("hello?");
             yield return new WaitForSeconds(10);
-                activeWave = true;
-            
+            activeWave = true;
+
         }
     }
 
@@ -191,11 +118,11 @@ public class GameManager : MonoBehaviour
         //gameUI.SetMoneyText(bubblegum);
         score += 100;
         //gameUI.SetScoreText(score);
-        
+
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
     }
-        public void Prices1()
+    public void Prices1()
     {
         foreach (GameObject g in buyShells)
         {
@@ -219,7 +146,7 @@ public class GameManager : MonoBehaviour
             price = 2500;
             Debug.Log("Testing3");
         }
-       
+
     }
 
     public void Prices4()
@@ -255,7 +182,7 @@ public class GameManager : MonoBehaviour
 
     public void setDifficulty(int difficulty)
     {
-        if(difficulty == 1)
+        if (difficulty == 1)
         {
             difficultyMod = 0.5f;
         }
@@ -272,5 +199,89 @@ public class GameManager : MonoBehaviour
     public void roundDiffUpdate()
     {
         difficultyMod += 0.5f;
+    }
+
+    public void spawnWave()
+    {
+        if (enemiesPerSpawn > 0 && enemiesOnScreen < MaxPerWave)
+        {
+            List<int> previousSpawnLocations = new List<int>();
+            if (enemiesPerSpawn > enemySpawnPoints.Length)
+            {
+                enemiesPerSpawn = enemySpawnPoints.Length - 1;
+            }
+
+            enemiesPerSpawn = (enemiesPerSpawn > MaxPerWave) ? enemiesPerSpawn - MaxPerWave : enemiesPerSpawn;
+            for (int i = 0; i < enemiesPerSpawn; i++)
+            {
+                if (curSpawnedWave < MaxPerWave + wave && enemiesOnScreen < maxEnemiesOnScreen)
+                {
+                    enemiesOnScreen += 1;
+                    int spawnPoint = -1;
+                    while (spawnPoint == -1)
+                    {
+                        int randNum = Random.Range(0, enemySpawnPoints.Length - 1);
+                        if (!previousSpawnLocations.Contains(randNum))
+                        {
+                            previousSpawnLocations.Add(randNum);
+                            spawnPoint = randNum;
+                        }
+                    }
+                    GameObject spawnLocation = enemySpawnPoints[spawnPoint];
+                    GameObject newEnemy = Instantiate(enemy) as GameObject;
+                    curSpawnedWave++;
+                    newEnemy.transform.position = spawnLocation.transform.position;
+                    enemyBase enemyScript = newEnemy.GetComponent<enemyBase>();
+                    newEnemy.GetComponent<enemyBase>().setDiff(difficultyMod);
+                    if (player != null)
+                    {
+                        enemyScript.target = player.transform;
+                        Vector3 targetRotation = new Vector3(player.transform.position.x,
+                               newEnemy.transform.position.y, player.transform.position.z);
+                        newEnemy.transform.LookAt(targetRotation);
+                    }
+                    enemyScript.onDestroy.AddListener(enemyDestroyed);
+                }
+            }
+        }
+    }
+
+    public void endWave()
+    {
+        activeWave = false;
+        restTimer = 10;
+        curSpawnedWave = 0;
+        Debug.Log("rest period");
+        //ups difficulty for next round
+        roundDiffUpdate();
+        wave++;
+        //sets the max enemies
+        MaxPerWave = (int)(MaxPerWave + (10 * difficultyMod));
+        maxEnemiesOnScreen++;
+        score += 500;
+    }
+    public void spawnItems()
+    {
+        if (currentPickUpTime > actualPickUpTime && !spawnedPickUp)
+        {
+            pickUpNum = Random.Range(0, 2);
+            //generates a random number based on the number of spawn points we have and
+            //assigns one to be the spawn, finally it spawns a pickup
+            int randnum = Random.Range(0, itemSpawnPoints.Length - 1);
+            GameObject spawnLocation = itemSpawnPoints[randnum];
+            pickUp = Instantiate(pickUpPrefab[pickUpNum]) as GameObject;
+            pickUp.transform.position = spawnLocation.transform.position;
+            spawnedPickUp = true;
+            actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
+            actualPickUpTime = Mathf.Abs(actualPickUpTime);
+            Debug.Log("Spawned");
+        }
+        //checks if the pick up has been picked up
+        if (pickUp == null && spawnedPickUp == true)
+        {
+            currentPickUpTime = 0;
+            spawnedPickUp = false;
+            Debug.Log("deactive");
+        }
     }
 }
