@@ -2,28 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Player : MonoBehaviour
 {
     //initialized current health and max health and other public vars
     public int curHealth;
     public int maxHealth;
-    public int currency = 0;
-    public int numKills = 0;
     public float speed = 10;
     public float rotSpeed = 1.0f;
     public float timeBetweenHits = 0;
     public LayerMask layerMask;
     public GameObject miniGun;
+    public GameObject PlayerHitPrefab;
+    public int currency;
     //so get componet can access the minigun
     public bool isDead = false;
-    public bool isactive = false;
+    public HealthBar healthBar;
 
     //private init
-
     private CharacterController characterController;
     private Vector3 currentLookTarget = Vector3.zero;
-    
     private bool isHit = false;
     private float timeSinceHit = 0;
     private GunEquipper gunEquipper;
@@ -33,18 +30,20 @@ public class Player : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
-        miniGun = GameObject.FindGameObjectWithTag("miniGun");
+        healthBar.setMaxHealth(maxHealth);
+        //currency = GetComponent<GameManager>().bubblegum;
     }
+
     //added takeDamage function
     public void takeDamage()
     {
         int healthDamage = 1;
         curHealth -= healthDamage;
+        healthBar.setHealth(curHealth);
         Debug.Log("you've been hurt, health is: " + curHealth + " out of: " + maxHealth);
         if(curHealth <= 0)
         {
             isDead = true;
-            
         }
     }
 
@@ -74,21 +73,18 @@ public class Player : MonoBehaviour
 
     public void pickUp1Curr()
     {
-        currency++;
+        currency += 1; 
     }
 
     public void picUp5Curr()
     {
-        currency = currency + 5;
+        currency += 5;
     }
-
-
 
     public void pickUpMiniGun()
     {
         StartCoroutine("fireMiniGun");
     }
-        
     //checks which pickup we got to know its effect
     public void PickUpItem(int pickupItem)
     {
@@ -119,7 +115,6 @@ public class Player : MonoBehaviour
 
             //pick up the mini gun and start shooting
             case Constants.miniGunPickUp:
-                gunEquipper.activeMiniGun();
                 pickUpMiniGun();
                 break;
 
@@ -139,6 +134,8 @@ public class Player : MonoBehaviour
         Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"),
                                             0, Input.GetAxis("Vertical"));
         characterController.SimpleMove(moveDirection * speed);
+
+
         //gives the player some I frames after being hit, we can adjust how long
         if(isHit)
         {
@@ -157,6 +154,24 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
+        ////Player direction controls
+        //Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"),
+        //                                    0, Input.GetAxis("Vertical"));
+
+
+        //if (moveDirection == Vector3.zero)
+        //{
+        //    bodyAnimator.SetBool("IsMoving", false);        //Set Animator to not moving if character vector = 0
+        //}
+
+        //else
+        //{
+        //    head.AddForce(transform.right * 150, ForceMode.Acceleration);            //head bobble functionality
+
+        //    bodyAnimator.SetBool("IsMoving", true);         //Set Animator to moving if character vector != 0
+        //}
+
+
         //this makes the palyer look at the cursor when its on screen
         //creating hit and ray variables
         RaycastHit hit;
@@ -165,9 +180,10 @@ public class Player : MonoBehaviour
         //fires ray from camera and returns hit
         if (Physics.Raycast(ray, out hit, 1000, layerMask, QueryTriggerInteraction.Ignore))
         {
+
             if (hit.point != currentLookTarget)
             {
-
+                Debug.Log("player not rotating");
             }
         }
 
@@ -188,34 +204,41 @@ public class Player : MonoBehaviour
             //checks if were not already hit
             if(!isHit)
             {
+                Instantiate(PlayerHitPrefab, this.transform.position, Quaternion.identity);
                 takeDamage();
             }
         }
     }
 
+    private IEnumerator fireMiniGun()
+    {
+        
+            //200 is the num of bulets fired when powered up
+            for (int i = -0; i < 200; i++)
+                
+            {
+               //minigun is checking if a minigun GO is there
+               miniGun = GameObject.FindGameObjectWithTag("miniGun"); 
+
+
+
+                //gets the fire bulet function from the mini gun in gun script and calls it
+                miniGun.GetComponent<Gun>().fireBullet(); 
+
+               //call againg in half a second
+              yield return new WaitForSeconds(1 / 2);
+            }
+                
+
+            //deactivate the mini gun and reactivate pistol
+            gunEquipper.deactiveMiniGun();
+
+        
+    }
     //this is where eventually well do everything that happens when the player dies here
     public void Die()
     {
         Debug.Log("GameOver");
         Destroy(gameObject);
-        
-    }
-
-    private IEnumerator fireMiniGun()
-    {
-        //200 is the num of bulets fired when powered up
-        for(int i = -0; i<200;i++)
-        {
-            //minigun is checking if a minigun GO is there
-            miniGun = GameObject.FindGameObjectWithTag("miniGun");
-
-            //gets the fire bulet function from the mini gun in gun script and calls it
-            miniGun.GetComponent<Gun>().fireBullet();
-            //call againg in half a second
-            yield return new WaitForSeconds(1/2);
-        }
-            //deactivate the mini gun and reactivate pistol
-            gunEquipper.deactiveMiniGun();
-        
     }
 }

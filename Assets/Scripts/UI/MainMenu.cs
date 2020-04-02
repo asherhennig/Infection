@@ -13,12 +13,12 @@ public class MainMenu : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
     public void PlayButton()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Lab");
     }
-
-
+    
     public void quit()
     {
         Debug.Log("QUIT");
