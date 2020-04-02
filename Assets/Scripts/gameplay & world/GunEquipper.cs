@@ -23,6 +23,7 @@ public class GunEquipper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        heroAnim = GetComponent<Animator>();
         activeWeaponType = Constants.Pistol;
         activeGun = pistol;
         heroAnim.SetBool("SetActive_pistol", true);

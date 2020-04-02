@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
         healthBar.setMaxHealth(maxHealth);
+
+        heroAnim = GetComponent<Animator>();
         //currency = GetComponent<GameManager>().bubblegum;
     }
 
