@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     GameObject[] buyMax;
     GameObject[] buyBrain;
     GameObject[] purchase;
+    GameObject[] Continue;
+    GameObject[] ContinueButton;
     public ScoreCounter gameUI;
     public int score;
     public int bubblegum;
@@ -63,6 +65,7 @@ public class GameManager : MonoBehaviour
         player1 = GameObject.FindObjectOfType<Player>();
         gunEquipper = GetComponent<GunEquipper>();
         ammo = GetComponent<Ammo>();
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -80,6 +83,8 @@ public class GameManager : MonoBehaviour
         buyMax = GameObject.FindGameObjectsWithTag("BuyMax");
         buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
         purchase = GameObject.FindGameObjectsWithTag("Purchase");
+        Continue = GameObject.FindGameObjectsWithTag("Continue");
+        ContinueButton = GameObject.FindGameObjectsWithTag("ContinueButton");
         HidePurchase();
     }
 
@@ -205,6 +210,18 @@ public class GameManager : MonoBehaviour
         
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
+    }
+
+    public void Continues()
+    {
+        foreach (GameObject g in ContinueButton)
+        {
+            g.SetActive(false);
+        }
+        foreach (GameObject g in Continue)
+        {
+            g.SetActive(true);
+        }
     }
     public void Prices()
     {
