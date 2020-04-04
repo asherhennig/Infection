@@ -7,7 +7,7 @@ public class enemyBase : MonoBehaviour
 
 {
     public float speed = 3.0f;
-    public float accuracy = 0.5f;      //enemy accuracy to player before enemy stops moving
+    public float accuracy;      //enemy accuracy to player before enemy stops moving
     public Transform target;             //goal is hero/player
     public UnityEvent onDestroy;
     public int health = 5;
@@ -17,7 +17,7 @@ public class enemyBase : MonoBehaviour
     public GameObject hitPrefab;
     public GameObject enemyDeathPrefab;
 
-    private Animator Head;
+    public Animator head;
 
 
 
@@ -29,8 +29,14 @@ public class enemyBase : MonoBehaviour
 
     void Start()
     {
+        head = GetComponent<Animator>();
+
+        sethealth();
+        Debug.Log("on start" + ehealth);
+
         //call to init the enemies stats
         setEnemyStats();
+
         audioManager = AudioManager.instance;
         if (audioManager == null)
         {
@@ -63,6 +69,15 @@ public class enemyBase : MonoBehaviour
             }
 
         }
+
+        if (target != null)
+        {
+            head.SetBool("IsMoving", true);
+        }
+        else
+        {
+            head.SetBool("IsMoving", false);
+        }
     }
 
     // LateUpdate for physics
@@ -71,27 +86,24 @@ public class enemyBase : MonoBehaviour
         if (target != null)
         {
             this.transform.LookAt(target.position);                               //Enemy faces player
-            Vector3 direction = target.position- this.transform.position;        //enemy direction: where its going MINUS where it is
+            Vector3 direction;
+            direction = new Vector3(target.position.x, 0.0f, target.position.z) - new Vector3(this.transform.position.x, 0, this.transform.position.z);
             Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
 
             if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
+            {
 
-                this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in
-                                                                                                            //in global space
+                this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in global space
+                audioManager.PlaySound("RobotSound");
+
+                head.SetBool("InRange", false);
+            }
+            else
+            {
+                head.SetBool("InRange", true);
+            }                                                                                             
         }
     }
-
-    //void FixedUpdate()
-    //{
-    //    if (target != null)
-    //    {
-    //        Head.SetBool("IsMoving", true);
-    //    }
-    //    else
-    //    {
-    //        Head.SetBool("IsMoving", false);
-    //    }
-    //}
 
     public void Die()
     {
