@@ -201,7 +201,7 @@ public class Player : MonoBehaviour
 
             if (hit.point != currentLookTarget)
             {
-                Debug.Log("player not rotating");
+                //Debug.Log("player not rotating");
             }
         }
 

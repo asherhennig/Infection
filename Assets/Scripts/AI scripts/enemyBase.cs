@@ -10,9 +10,7 @@ public class enemyBase : MonoBehaviour
     public float accuracy;      //enemy accuracy to player before enemy stops moving
     public Transform target;             //goal is hero/player
     public UnityEvent onDestroy;
-    public int ehealth = 5;
-
-    private int newehealth;
+    public int health = 5;
     public GameObject currencyprefab;
     int chance;
     public GameObject currencyprefab2;
@@ -25,7 +23,7 @@ public class enemyBase : MonoBehaviour
 
     private AudioManager audioManager;
 
-
+    //this is used to modify the enemies stats later on
     public float diffMod;
     
 
@@ -35,6 +33,10 @@ public class enemyBase : MonoBehaviour
 
         sethealth();
         Debug.Log("on start" + ehealth);
+
+        //call to init the enemies stats
+        setEnemyStats();
+
         audioManager = AudioManager.instance;
         if (audioManager == null)
         {
@@ -45,9 +47,9 @@ public class enemyBase : MonoBehaviour
     // update is called every frame
     void Update()
     {
-        Debug.Log(ehealth);
+        Debug.Log(health);
         //if the ehealth of a enemy is equal or lesss than 0 it dies
-        if (ehealth <= 0)
+        if (health <= 0)
         {
             Die();
             Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
@@ -76,7 +78,6 @@ public class enemyBase : MonoBehaviour
         {
             head.SetBool("IsMoving", false);
         }
-
     }
 
     // LateUpdate for physics
@@ -100,10 +101,8 @@ public class enemyBase : MonoBehaviour
             else
             {
                 head.SetBool("InRange", true);
-            }
-        }                                                                                              
-
-
+            }                                                                                             
+        }
     }
 
     public void Die()
@@ -116,7 +115,7 @@ public class enemyBase : MonoBehaviour
     //this has calculates the players new ehealth post damage
     public void takeDamage(int damTaken)
     {
-        ehealth -= damTaken;
+        health -= damTaken;
         Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
         //Destroy(hitPrefab, hitPrefab.GetComponent<ParticleSystem>().duration);
     }
@@ -126,8 +125,12 @@ public class enemyBase : MonoBehaviour
         diffMod = DiffMod;
     }
 
-    public void sethealth()
+      //this sets the enemies health and speed
+    public void setEnemyStats()
     {
-        ehealth = (int)(ehealth * diffMod);
+        //health has to be recast as a int because its a float and int multiplied which is a float and health is only an int
+        health = (int)(health * diffMod);
+        //speed luckily can stay as a float
+        speed = speed * diffMod;
     }
 }
