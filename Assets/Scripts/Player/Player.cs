@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //initialized current health and max health and other public vars
-    public int curHealth;
+    public int curHealth = 5;
     public int maxHealth;
     public float speed = 10;
     public float rotSpeed = 1.0f;
@@ -15,7 +15,11 @@ public class Player : MonoBehaviour
     public GameObject PlayerHitPrefab;
     public int currency;
 
+    enemyBase enemy;
+
     public Animator heroAnim;
+    Animator head;
+
 
     //so get componet can access the minigun
     public bool isDead = false;
@@ -36,6 +40,8 @@ public class Player : MonoBehaviour
         healthBar.setMaxHealth(maxHealth);
 
         heroAnim = GetComponent<Animator>();
+        head = enemy.GetComponent<Animator>();
+
         //currency = GetComponent<GameManager>().bubblegum;
     }
 
@@ -159,8 +165,10 @@ public class Player : MonoBehaviour
                 timeSinceHit = 0;
             }
         }
+
+
         //if youre dead you die... lol
-        if(isDead)
+        if (isDead)
         {
             Die();
         }
@@ -209,6 +217,7 @@ public class Player : MonoBehaviour
     {
         //checks if its and enemy by seeing if it has the FollowFood script
         enemyBase enemy = other.gameObject.GetComponent<enemyBase>();
+
         if (enemy != null)
         {
             //checks if were not already hit
