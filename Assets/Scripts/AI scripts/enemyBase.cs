@@ -9,9 +9,9 @@ public class enemyBase : MonoBehaviour
     public float speed = 3.0f;
     public float accuracy = 0.5f;      //enemy accuracy to player before enemy stops moving
     public Transform target;             //goal is hero/player
+    public Transform target2;
     public UnityEvent onDestroy;
     public int ehealth = 5;
-
     private int newehealth;
     public GameObject currencyprefab;
     int chance;
@@ -43,7 +43,6 @@ public class enemyBase : MonoBehaviour
     // update is called every frame
     void Update()
     {
-        Debug.Log(ehealth);
         //if the ehealth of a enemy is equal or lesss than 0 it dies
         if (ehealth <= 0)
         {
@@ -70,16 +69,30 @@ public class enemyBase : MonoBehaviour
     // LateUpdate for physics
     void LateUpdate()
     {
-        if (target != null)
+        if (target && target2 != null)
         {
-            this.transform.LookAt(target.position);                               //Enemy faces player
-            Vector3 direction = target.position- this.transform.position;        //enemy direction: where its going MINUS where it is
-            Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
+            if (target2 != null)
+            {
+                this.transform.LookAt(target2.position);                               //Enemy faces player
+                Vector3 direction = target2.position - this.transform.position;        //enemy direction: where its going MINUS where it is
+                Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
 
-            if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
+                if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
 
-                this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in
-                                                                                                            //in global space
+                    this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in
+                                                                                                                //in global space
+            }
+            else
+            {
+                this.transform.LookAt(target.position);                               //Enemy faces player
+                Vector3 direction = target.position - this.transform.position;        //enemy direction: where its going MINUS where it is
+                Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
+
+                if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
+
+                    this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in
+                                                                                                                //in global space
+            }
         }
     }
 
@@ -119,7 +132,7 @@ public class enemyBase : MonoBehaviour
     public void setEnemyStats()
     {
         //health has to be recast as a int because its a float and int multiplied which is a float and health is only an int
-        health = (int)(health * diffMod);
+        ehealth = (int)(ehealth * diffMod);
         //speed luckily can stay as a float
         speed = speed * diffMod;
     }
