@@ -14,6 +14,13 @@ public class Player : MonoBehaviour
     public GameObject miniGun;
     public GameObject PlayerHitPrefab;
     public int currency;
+
+    enemyBase enemy;
+
+    public Animator heroAnim;
+    Animator head;
+
+
     //so get componet can access the minigun
     public bool isDead = false;
     public HealthBar healthBar;
@@ -31,6 +38,10 @@ public class Player : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
         healthBar.setMaxHealth(maxHealth);
+
+        heroAnim = GetComponent<Animator>();
+        head = enemy.GetComponent<Animator>();
+
         //currency = GetComponent<GameManager>().bubblegum;
     }
 
@@ -135,9 +146,17 @@ public class Player : MonoBehaviour
                                             0, Input.GetAxis("Vertical"));
         characterController.SimpleMove(moveDirection * speed);
 
+        if (moveDirection == Vector3.zero)
+        {
+            heroAnim.SetBool("IsMoving", false);        //Set Animator to not moving if character vector = 0
+        }
+        else
+        {
+            heroAnim.SetBool("IsMoving", true);
+        }
 
         //gives the player some I frames after being hit, we can adjust how long
-        if(isHit)
+        if (isHit)
         {
             timeSinceHit += Time.deltaTime;
             if(timeSinceHit>timeBetweenHits)
@@ -146,8 +165,10 @@ public class Player : MonoBehaviour
                 timeSinceHit = 0;
             }
         }
+
+
         //if youre dead you die... lol
-        if(isDead)
+        if (isDead)
         {
             Die();
         }
@@ -159,10 +180,7 @@ public class Player : MonoBehaviour
         //                                    0, Input.GetAxis("Vertical"));
 
 
-        //if (moveDirection == Vector3.zero)
-        //{
-        //    bodyAnimator.SetBool("IsMoving", false);        //Set Animator to not moving if character vector = 0
-        //}
+
 
         //else
         //{
@@ -183,7 +201,7 @@ public class Player : MonoBehaviour
 
             if (hit.point != currentLookTarget)
             {
-                Debug.Log("player not rotating");
+                //Debug.Log("player not rotating");
             }
         }
 
@@ -199,6 +217,7 @@ public class Player : MonoBehaviour
     {
         //checks if its and enemy by seeing if it has the FollowFood script
         enemyBase enemy = other.gameObject.GetComponent<enemyBase>();
+
         if (enemy != null)
         {
             //checks if were not already hit

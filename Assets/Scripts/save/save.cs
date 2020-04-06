@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Save : MonoBehaviour
+public class SaveSystem : MonoBehaviour
 {
-    GameObject Player;
-    GameObject[] Ammo;
+    public GameObject Player;
+    public GameObject[] Ammo;
     //variables to save
     int health;
     int shotgunAmmo;
@@ -18,17 +18,17 @@ public class Save : MonoBehaviour
     {
         //find the game objects with the tags so you can access the variables in the ammo and player script
         Player = GameObject.FindGameObjectWithTag("Player");
-        //Ammo = GameObject.FindGameObjectsWithTag("");
-        // sets variables in the save script to be the variables in other scripts wanting to save
-        int health = GetComponent<Player>().curHealth;
-        int shotgunAmmo = GetComponent<Ammo>().shotgunAmmo;
-        int grenadeAmmo = GetComponent<Ammo>().grenadeAmmo;
+        Ammo = GameObject.FindGameObjectsWithTag("Gun");
+        //sets variables in the save script to be the variables in other scripts wanting to save
+        int health = Player.GetComponent<Player>().curHealth;
+        int shotgunAmmo = Ammo[0].GetComponent<Ammo>().shotgunAmmo;
+        int grenadeAmmo = Ammo[1].GetComponent<Ammo>().grenadeAmmo;
         int score = GetComponent<GameManager>().score;
         int money = GetComponent<GameManager>().bubblegum;
-        int maxHealth = GetComponent<Player>().maxHealth;
+        //int maxHealth = Player.GetComponent<Player>().maxHealth;
     }
 
-    public void load()
+    public void gameLoad()
     {
         //load previous player prefs
         PlayerPrefs.GetInt("health");
@@ -40,10 +40,10 @@ public class Save : MonoBehaviour
 
     }
 
-    public void save()
+    public void gameSave()
     {
         //set player prefs for current state of the game
-        PlayerPrefs.SetInt("health",health);
+        PlayerPrefs.SetInt("health", health);
         PlayerPrefs.SetInt("shot gun ammo", shotgunAmmo);
         PlayerPrefs.SetInt("gernade", grenadeAmmo);
         PlayerPrefs.SetInt("score", score);
@@ -51,3 +51,5 @@ public class Save : MonoBehaviour
         PlayerPrefs.SetInt("max health", maxHealth);
     }
 }
+
+

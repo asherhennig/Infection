@@ -1442,8 +1442,8 @@ MonoBehaviour:
         m_MethodName: MuteSFXButton
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 543834150}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2099,7 +2099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 453.5, y: 81.5}
+  m_AnchoredPosition: {x: 453.5, y: 70.8}
   m_SizeDelta: {x: 177.6, y: 41.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &681091880
@@ -3192,7 +3192,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 51bce961de20d134c825d55d51e7bb37, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 84a4109488052cf4299bd228290abe73, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4082,7 +4082,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 453.5, y: 133}
+  m_AnchoredPosition: {x: 453.5, y: 105.3}
   m_SizeDelta: {x: 177.6, y: 41.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1956601547
@@ -4206,6 +4206,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2229594137745025537, guid: 035089ad17756284e8d3da8d4ef52ec8,
+        type: 3}
+      propertyPath: toggle
+      value: 
+      objectReference: {fileID: 543834150}
+    - target: {fileID: 2229594137745025537, guid: 035089ad17756284e8d3da8d4ef52ec8,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 2078724803}
     - target: {fileID: 5348682790860439361, guid: 035089ad17756284e8d3da8d4ef52ec8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4468,7 +4478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 453.5, y: 179}
+  m_AnchoredPosition: {x: 453.5, y: 164.7}
   m_SizeDelta: {x: 177.6, y: 41.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2135928522
