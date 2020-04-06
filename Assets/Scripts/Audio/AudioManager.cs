@@ -28,11 +28,7 @@ public class Sound
     public void Play()
     {
         source.volume = volume;
-
-        if (!source.isPlaying)
-        {
-            source.Play();
-        }
+        source.Play();
     }
 }
 
@@ -40,9 +36,6 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    public Toggle toggle;
-    public Slider slider;
-    
     [SerializeField]
     Sound[] sounds;
 
@@ -66,12 +59,6 @@ public class AudioManager : MonoBehaviour
             go.transform.SetParent(this.transform);
             sounds[i].SetSource(go.AddComponent<AudioSource>());
         }
-
-        toggle.GetComponent<Toggle>();
-        slider.GetComponent<Slider>();
-
-        toggle.isOn = false;
-        slider.value = 1;
     }
 
     public void PlaySound(string soundName)
@@ -97,27 +84,9 @@ public class AudioManager : MonoBehaviour
 
     public void SetVolume(Slider slider)
     {
-        if (toggle.isOn)
-        {
-            slider.value = 0;
-        }
-        else
-        {
-            toggle.isOn = false;
-
-            for (int i = 0; i < sounds.Length; i++)
-            {
-                sounds[i].SetVolume(slider.value);
-            }
-        }
-    }
-
-    public void MuteButton(Toggle toggle)
-    {
         for (int i = 0; i < sounds.Length; i++)
         {
-            sounds[i].SetVolume(0);
-            slider.value = 0;
+            sounds[i].SetVolume(slider.value);
         }
     }
 }

@@ -36,6 +36,7 @@ public class GunEquipper : MonoBehaviour
         fragGrenade.SetActive(false);
         lureGrenade.SetActive(false);
         miniGun.SetActive(false);
+
         weapon.SetActive(true);
         activeGun = weapon;
     }
@@ -73,7 +74,7 @@ public class GunEquipper : MonoBehaviour
             heroAnim.SetBool("SetActive_pistol", true);
             heroAnim.SetBool("SetActive_shotgun", false);
         }
-        else if (Input.GetKeyDown("2"))
+        else if (Input.GetKeyDown("2") && shotgun.GetComponent<shotGun>().isPurchased == true)
         {
             loadWeapons(shotgun);
             activeWeaponType = Constants.Shotgun;
