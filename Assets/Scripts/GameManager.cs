@@ -182,7 +182,8 @@ public class GameManager : MonoBehaviour
                 maxEnemiesOnScreen++;
                 score = score + 500;
                 gameUI.SetScoreText(score);
-
+                bubblegum = bubblegum + 250;
+                gameUI.SetMoneyText(bubblegum);
             }
         }
     }
