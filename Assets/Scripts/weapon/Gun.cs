@@ -6,24 +6,34 @@ public class Gun : MonoBehaviour
 {
     public int weaponDam;
     public GameObject bulletPrefab;
-    //so the gun gets the components off of player
-    public GameObject player;
     public Transform firePosition;
+    public Ammo ammo;
     public float fireSpeed = 0.75f;
+    public float bulletSpeed = 10.0f;
     bool miniFire = false;
+    private AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found!!!");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+            fire();
+    }
+
+    public void fire()
+    {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Pistol update:" + weaponDam);
-            if (!IsInvoking("fireBullet"))
+            if (!IsInvoking("fireBullet") && ammo.HasAmmo(tag))
             {
                 InvokeRepeating("fireBullet", 0f, fireSpeed);
             }
@@ -35,6 +45,7 @@ public class Gun : MonoBehaviour
         }
     }
 
+ 
 
    public void miniGunFire()
     {
@@ -47,21 +58,19 @@ public class Gun : MonoBehaviour
     }
 
     public void fireBullet()
-    {
-        Debug.Log("Firing");
-        // 1   
+    {   // 1   
         GameObject bullet = Instantiate(bulletPrefab) as GameObject;
         // 2   
         bullet.transform.position = firePosition.position;
         bullet.transform.rotation = firePosition.rotation;
         // 3   
         bullet.GetComponent<Rigidbody>().velocity =
-            transform.forward * 10;
+            transform.forward * bulletSpeed;
         //4
         bullet.GetComponent<bullet>().damage = weaponDam;
-        Debug.Log("fire");
-    }
 
- 
+        // Play audio when bullet is fired
+        audioManager.PlaySound("LaserSound");
+    }
 
 }

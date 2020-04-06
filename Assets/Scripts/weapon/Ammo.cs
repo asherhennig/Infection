@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
-    [SerializeField]
-    private int grenadeAmmo = 5;
-    [SerializeField]
-    private int shotgunAmmo = 25;
+    public int pistolAmmo = 1; //this is needed to fire the pistol bc it "needs" ammo but is never ticked down so
+    //its still infinite
+
+    public int grenadeAmmo = 5;
+
+    public int lureAmmo = 5;
+   
+    public int shotgunAmmo = 25;
 
     public Dictionary<string, int> tagToAmmo;
 
@@ -15,14 +19,11 @@ public class Ammo : MonoBehaviour
     {
         tagToAmmo = new Dictionary<string, int>
         {
-            {Constants.Granade, grenadeAmmo},
-            {Constants.Shotgun, shotgunAmmo}
+            {Constants.Pistol, pistolAmmo},
+            {Constants.Grenade, grenadeAmmo},
+            {Constants.Shotgun, shotgunAmmo},
+            {Constants.lureGrenade, lureAmmo}
         };
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
     }
 
     public void AddAmmo(string tag, int ammo)
@@ -59,12 +60,7 @@ public class Ammo : MonoBehaviour
         {
             Debug.LogError("Unrecognized gun type passed: " + tag);
         }
+        Debug.Log("ammo is going down");
         return tagToAmmo[tag]--;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
