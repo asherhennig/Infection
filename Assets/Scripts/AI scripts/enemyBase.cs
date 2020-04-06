@@ -99,17 +99,14 @@ public class enemyBase : MonoBehaviour
                 {
                     audioManager.PlaySound("RobotSound");
                 }
-            }
-        }                                                                                              
-
 
                 head.SetBool("InRange", false);
             }
             else
             {
                 head.SetBool("InRange", true);
-            }                                                                                             
-        }
+            }
+        }    
     }
 
     public void Die()
