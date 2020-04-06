@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3771373586742839184}
   - component: {fileID: 3771373586750630000}
-  - component: {fileID: 3619220805071560891}
-  - component: {fileID: 3230642030795309811}
+  - component: {fileID: 6861670798396551196}
+  - component: {fileID: 1936403309506536452}
   m_Layer: 0
   m_Name: BubbleGum
   m_TagString: Pick-Up
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3771373586743204784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3690938, y: 0.04741019, z: 19.835205}
+  m_LocalPosition: {x: 1.012, y: 0.04741019, z: 19.835205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3771373586742839186}
@@ -55,7 +55,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3619220805071560891
+--- !u!136 &6861670798396551196
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3771373586743204784}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.7
+  m_Height: 0.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0.1}
+--- !u!114 &1936403309506536452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,19 +82,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
---- !u!135 &3230642030795309811
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3771373586743204784}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0.1, z: -0.1}
 --- !u!1 &3771373586743204786
 GameObject:
   m_ObjectHideFlags: 0

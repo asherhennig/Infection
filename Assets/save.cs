@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveSystem : MonoBehaviour
+public class Save : MonoBehaviour
 {
-    public GameObject Player;
-    public GameObject[] Ammo;
+    GameObject Player;
+    GameObject[] Ammo;
     //variables to save
     int health;
     int shotgunAmmo;
@@ -18,17 +18,17 @@ public class SaveSystem : MonoBehaviour
     {
         //find the game objects with the tags so you can access the variables in the ammo and player script
         Player = GameObject.FindGameObjectWithTag("Player");
-        Ammo = GameObject.FindGameObjectsWithTag("Gun");
-        //sets variables in the save script to be the variables in other scripts wanting to save
-        int health = Player.GetComponent<Player>().curHealth;
-        int shotgunAmmo = Ammo[0].GetComponent<Ammo>().shotgunAmmo;
-        int grenadeAmmo = Ammo[1].GetComponent<Ammo>().grenadeAmmo;
+        Ammo = GameObject.FindGameObjectsWithTag("");
+        // sets variables in the save script to be the variables in other scripts wanting to save
+        int health = GetComponent<Player>().curHealth;
+        int shotgunAmmo = GetComponent<Ammo>().shotgunAmmo;
+        int grenadeAmmo = GetComponent<Ammo>().grenadeAmmo;
         int score = GetComponent<GameManager>().score;
         int money = GetComponent<GameManager>().bubblegum;
-        //int maxHealth = Player.GetComponent<Player>().maxHealth;
+        int maxHealth = GetComponent<Player>().maxHealth;
     }
 
-    public void gameLoad()
+    public void load()
     {
         //load previous player prefs
         PlayerPrefs.GetInt("health");
@@ -40,7 +40,7 @@ public class SaveSystem : MonoBehaviour
 
     }
 
-    public void gameSave()
+    public void save()
     {
         //set player prefs for current state of the game
         PlayerPrefs.SetInt("health", health);
@@ -51,5 +51,4 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetInt("max health", maxHealth);
     }
 }
-
 
