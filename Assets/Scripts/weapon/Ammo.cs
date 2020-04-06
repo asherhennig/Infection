@@ -60,7 +60,7 @@ public class Ammo : MonoBehaviour
         {
             Debug.LogError("Unrecognized gun type passed: " + tag);
         }
-        Debug.Log("ammo is going down");
+        Debug.Log("current ammo: " + (GetAmmo(tag)-1));
         return tagToAmmo[tag]--;
     }
 }

@@ -13059,10 +13059,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7339956823340273495}
   - component: {fileID: 7339956823332495503}
-  - component: {fileID: 1812533273}
   - component: {fileID: 1812533272}
-  - component: {fileID: 1812533271}
   - component: {fileID: 1812533274}
+  - component: {fileID: 9179297828203138657}
+  - component: {fileID: 4783150378638995131}
+  - component: {fileID: 869016855665813098}
   m_Layer: 0
   m_Name: head
   m_TagString: Enemy
@@ -13201,7 +13202,7 @@ Animator:
   m_GameObject: {fileID: 7339956823339914039}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 1d64e52eed62d324ea49681054cd3eda, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a6b789f3fe21064c903f62e9c18fe62, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -13210,22 +13211,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!54 &1812533273
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7339956823339914039}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!136 &1812533272
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13240,7 +13225,67 @@ CapsuleCollider:
   m_Height: 8
   m_Direction: 1
   m_Center: {x: 0, y: 4, z: 0}
---- !u!195 &1812533271
+--- !u!114 &1812533274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339956823339914039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd463e62d03cc04c9c186d3757cdb85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  accuracy: 2
+  target: {fileID: 0}
+  onDestroy:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  ehealth: 6
+  currencyprefab: {fileID: 3771373586743204784, guid: 92fa12cd89386e245bed23b8fe353e38,
+    type: 3}
+  currencyprefab2: {fileID: 3102185765845371050, guid: 131c1f1ea077ae74ca9d312296c3128c,
+    type: 3}
+  hitPrefab: {fileID: 6511216531592707412, guid: d7c08a461f9b0b146b65fda2f7c94349,
+    type: 3}
+  enemyDeathPrefab: {fileID: 1261324267469164459, guid: 2158086796f7a0346a90df483ae8ae85,
+    type: 3}
+  head: {fileID: 0}
+  diffMod: 1
+--- !u!65 &9179297828203138657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339956823339914039}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 5, y: 1, z: 2}
+  m_Center: {x: 0, y: 1, z: 1.6}
+--- !u!54 &4783150378638995131
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339956823339914039}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 3
+--- !u!195 &869016855665813098
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13258,39 +13303,10 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 3
-  m_BaseOffset: -1
+  m_Height: 2
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1812533274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7339956823339914039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd463e62d03cc04c9c186d3757cdb85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  accuracy: 0.09
-  target: {fileID: 0}
-  onDestroy:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  ehealth: 6
-  currencyprefab: {fileID: 100000, guid: 2af8473cbfeb17b499d129163cb2ca4e, type: 3}
-  currencyprefab2: {fileID: 3102185765845371050, guid: 131c1f1ea077ae74ca9d312296c3128c,
-    type: 3}
-  hitPrefab: {fileID: 6511216531592707412, guid: d7c08a461f9b0b146b65fda2f7c94349,
-    type: 3}
-  enemyDeathPrefab: {fileID: 6511216531592707412, guid: 3bc2e2e87bb3c254ea86d9ea4f214dc8,
-    type: 3}
-  diffMod: 1
 --- !u!1 &7339956823339914041
 GameObject:
   m_ObjectHideFlags: 0

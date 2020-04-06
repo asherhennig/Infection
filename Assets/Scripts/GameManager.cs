@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<SaveSystem>().gameLoad();
         singleton = this;
         actualPickUpTime = Random.Range(pickUpMaxSpawnTime - 3.0f, pickUpMaxSpawnTime);
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
@@ -91,6 +92,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (wave == 2)
+        {
+            GetComponent<SaveSystem>().gameSave();  
+        }
         StartCoroutine("updatedRestTimer");
         //updating pick up spawn time
         currentPickUpTime += Time.deltaTime;
@@ -334,7 +339,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
+ 
     public float setDifficulty(int difficulty)
     {
         if(difficulty == 1)
