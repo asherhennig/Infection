@@ -1266,7 +1266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 216789586}
   - component: {fileID: 216789587}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2267,7 +2267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 554091727}
   - component: {fileID: 554091728}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6227,6 +6227,11 @@ PrefabInstance:
       propertyPath: timeBetweenHits
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 8987159954114576610, guid: f10e0a83eb4a70a4abe3a9d927247e9a,
+        type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 51
+      objectReference: {fileID: 0}
     - target: {fileID: 4855193567306156316, guid: f10e0a83eb4a70a4abe3a9d927247e9a,
         type: 3}
       propertyPath: m_Controller
@@ -7232,6 +7237,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3672746551092151350, guid: c5bfb11248ef4e843ab04800d8064095,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3672746551092189206, guid: c5bfb11248ef4e843ab04800d8064095,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7311,6 +7321,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672746551092151344, guid: c5bfb11248ef4e843ab04800d8064095,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672746551092151346, guid: c5bfb11248ef4e843ab04800d8064095,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672746551092151348, guid: c5bfb11248ef4e843ab04800d8064095,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672746551092151352, guid: c5bfb11248ef4e843ab04800d8064095,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672746551092151354, guid: c5bfb11248ef4e843ab04800d8064095,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672746551092151356, guid: c5bfb11248ef4e843ab04800d8064095,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672746551092151358, guid: c5bfb11248ef4e843ab04800d8064095,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5bfb11248ef4e843ab04800d8064095, type: 3}
