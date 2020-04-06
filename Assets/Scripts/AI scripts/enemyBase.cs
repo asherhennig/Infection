@@ -94,7 +94,14 @@ public class enemyBase : MonoBehaviour
             {
 
                 this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in global space
-                audioManager.PlaySound("RobotSound");
+
+                if (Time.timeScale > 0)
+                {
+                    audioManager.PlaySound("RobotSound");
+                }
+            }
+        }                                                                                              
+
 
                 head.SetBool("InRange", false);
             }
