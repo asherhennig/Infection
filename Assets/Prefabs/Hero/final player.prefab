@@ -1227,7 +1227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4855193567315557070}
   m_LocalRotation: {x: -1.1641532e-10, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 83.1, y: 31.5, z: 20.5}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 4855193567315715824}
@@ -1377,7 +1377,7 @@ Animator:
   m_GameObject: {fileID: 4855193567315557072}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8a0c49773fb095b4681c93280a08e87c, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6fcb3c413bfa5714983a241a109f3632, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1445,7 +1445,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4855193567315557072}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 1.5
   m_Height: 10
@@ -1502,16 +1502,18 @@ MonoBehaviour:
   maxHealth: 5
   speed: 10
   rotSpeed: 5
-  timeBetweenHits: 0
+  timeBetweenHits: 120
   layerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   miniGun: {fileID: 0}
-  PlayerHitPrefab: {fileID: 0}
+  PlayerHitPrefab: {fileID: 6511216531592707412, guid: d7c08a461f9b0b146b65fda2f7c94349,
+    type: 3}
   currency: 0
-  heroAnim: {fileID: 0}
+  heroAnim: {fileID: 4855193567306156316}
   isDead: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1639777525937123376, guid: 13eabd9dd3a545d439bc399b4cc34dc2,
+    type: 3}
 --- !u!114 &1059642453986150165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1766,7 +1768,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5140865809544023471, guid: 37b87dd2f52d24c4aa0583b89ecf21c9,
     type: 3}
   firePosition: {fileID: 2893223036259295239}
-  ammo: {fileID: 0}
+  ammo: {fileID: 1059642453986150165}
   fireSpeed: 5
   bulletSpeed: 10
 --- !u!1001 &7010410639036418495
@@ -1779,6 +1781,10 @@ PrefabInstance:
     - target: {fileID: 100014, guid: b1b4e04f08890064b90903d8a99cde1e, type: 3}
       propertyPath: m_Name
       value: RayGun.1.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: b1b4e04f08890064b90903d8a99cde1e, type: 3}
+      propertyPath: m_TagString
+      value: Pistol
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: b1b4e04f08890064b90903d8a99cde1e, type: 3}
       propertyPath: m_LocalPosition.x
