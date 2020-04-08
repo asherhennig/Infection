@@ -13063,7 +13063,7 @@ GameObject:
   - component: {fileID: 1812533274}
   - component: {fileID: 9179297828203138657}
   - component: {fileID: 4783150378638995131}
-  - component: {fileID: 869016855665813098}
+  - component: {fileID: 9018614155674064558}
   m_Layer: 0
   m_Name: head
   m_TagString: Enemy
@@ -13283,9 +13283,9 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 36
   m_CollisionDetection: 3
---- !u!195 &869016855665813098
+--- !u!195 &9018614155674064558
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13294,7 +13294,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7339956823339914039}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.5
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
