@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -54,9 +55,10 @@ public class GameManager : MonoBehaviour
     //this lets us know if a wave is active
     public bool activeWave = true;
     //Difficulty
-    public int curDifficulty = 1;
+    public int curDifficulty;
     public float difficultyMod = 1.0f;
-    private int itemID;
+    //text mesh for dificulty selector
+    public TextMeshProUGUI output;
 
     void Awake()
     {
@@ -277,9 +279,20 @@ public class GameManager : MonoBehaviour
 
     public void HidePurchase()
     {
-        foreach (GameObject g in purchase)
+        if (difficulty == 0)
         {
-            g.SetActive(false);
+            difficultyMod = 0.5f;
+            Debug.Log("Easy selected");
+        }
+        else if (difficulty == 1)
+        {
+            difficultyMod = 1.0f;
+            Debug.Log("Medium selected");
+        }
+        else if (difficulty == 2)
+        {
+            difficultyMod = 2.0f;
+            Debug.Log("Hard selected");
         }
         Debug.Log("purchase:" + purchase.Length);
     }
