@@ -9,7 +9,7 @@ public class Sound
     public string name;
     public AudioClip clip;
     
-    private float volume = 0.7f;
+    private float volume = 1f;
 
     public AudioSource source;
 
@@ -36,11 +36,6 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    public Toggle SFXtoggle;
-    public Slider SFXslider;
-    public Toggle BGMtoggle;
-    public Slider BGMslider;
-
     [SerializeField]
     Sound[] sounds;
 
@@ -64,18 +59,6 @@ public class AudioManager : MonoBehaviour
             go.transform.SetParent(this.transform);
             sounds[i].SetSource(go.AddComponent<AudioSource>());
         }
-
-        SFXtoggle.GetComponent<Toggle>();
-        SFXslider.GetComponent<Slider>();
-
-        SFXtoggle.isOn = false;
-        SFXslider.value = 1;
-
-        BGMtoggle.GetComponent<Toggle>();
-        BGMslider.GetComponent<Slider>();
-
-        BGMtoggle.isOn = false;
-        BGMslider.value = 1;
     }
 
     public void PlaySound(string soundName)
@@ -99,67 +82,11 @@ public class AudioManager : MonoBehaviour
         Debug.Log("AudioManager: Sound not found in list, " + soundName);
     }
 
-    public void SetSFXVolume(Slider slider)
-    {
-        if (SFXtoggle.isOn)
-        {
-            slider.value = 0;
-        }
-        else
-        {
-            SFXtoggle.isOn = false;
-
-            for (int i = 0; i < sounds.Length; i++)
-            {
-                if (sounds[i].name != "MenuBGM" && sounds[i].name != "LabBGM" && sounds[i].name != "ForestBGM" && sounds[i].name != "LaunchpadBGM")
-                {
-                    sounds[i].SetVolume(slider.value);
-                }
-            }
-        }
-    }
-
-    public void MuteSFXButton(Toggle toggle)
+    public void SetVolume(Slider slider)
     {
         for (int i = 0; i < sounds.Length; i++)
         {
-            if (sounds[i].name != "MenuBGM" && sounds[i].name != "LabBGM" && sounds[i].name != "ForestBGM" && sounds[i].name != "LaunchpadBGM")
-            {
-                sounds[i].SetVolume(0);
-                SFXslider.value = 0;
-            }
-        }
-    }
-
-    public void SetBGMVolume(Slider slider)
-    {
-        if (BGMtoggle.isOn)
-        {
-            slider.value = 0;
-        }
-        else
-        {
-            BGMtoggle.isOn = false;
-
-            for (int i = 0; i < sounds.Length; i++)
-            {
-                if (sounds[i].name == "MenuBGM" || sounds[i].name == "LabBGM" || sounds[i].name == "ForestBGM" || sounds[i].name == "LaunchpadBGM")
-                {
-                    sounds[i].SetVolume(slider.value);
-                }
-            }
-        }
-    }
-
-    public void MuteBGMButton(Toggle toggle)
-    {
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            if (sounds[i].name == "MenuBGM" || sounds[i].name == "LabBGM" || sounds[i].name == "ForestBGM" || sounds[i].name == "LaunchpadBGM")
-            {
-                sounds[i].SetVolume(0);
-                BGMslider.value = 0;
-            }
+            sounds[i].SetVolume(slider.value);
         }
     }
 }
