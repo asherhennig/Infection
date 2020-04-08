@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -61,6 +62,24 @@ public class GameManager : MonoBehaviour
     //text mesh for dificulty selector
     public TextMeshProUGUI output;
 
+    public GameObject tutorialCanvas;
+    public Text tutorialText;
+    int arrayPos;
+    string[] textArray = { "Well hello there!",
+                           "I didn't realize anyone was still around.",
+                           "I see you were sleeping, you've missed quite a bit",
+                           "I'll keep it short",
+                           "I need you to get the cure off this planet to save the universe.",
+                           "But before you begin, I should teach you some things...",
+                           "This is an item that heals you for a bit of health",
+                           "This item fully heals you",
+                           "This next one is a minigun! cool, right? It can help you get out of sticky situations",
+                           "Also, if you find any bubblegum, I would appreciate it if you could give them to me",
+                           "Not for free, of course. I'll trade in some items of your choosing",
+                           "To begin with, here is a laser gun, free of charge",
+                           "Oh no! There's an enemy spotted ahead.",
+                           "Use the left stick to move and the right stick to turn and shoot" };
+
     void Awake()
     {
         player1 = GameObject.FindObjectOfType<Player>();
@@ -74,7 +93,7 @@ public class GameManager : MonoBehaviour
         singleton = this;
         actualPickUpTime = Random.Range(pickUpMaxSpawnTime - 3.0f, pickUpMaxSpawnTime);
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
-        Time.timeScale = 1;
+        Time.timeScale = 0; // It's 0 so the tutorial can play without enemies spawning
         restTimer = 0;
         StartCoroutine("updatedRestTimer");
         buyShotgun = GameObject.FindGameObjectsWithTag("BuyShotgun");
@@ -85,11 +104,16 @@ public class GameManager : MonoBehaviour
         buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
         purchase = GameObject.FindGameObjectsWithTag("Purchase");
         HidePurchase();
+
+        tutorialCanvas.SetActive(true);
+        arrayPos = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Tutorial(); // plays tutorial
+
         if (wave == 2)
         {
             GetComponent<SaveSystem>().gameSave();  
@@ -349,5 +373,23 @@ public class GameManager : MonoBehaviour
             difficultyMod = 2.0f;
         }
         return difficultyMod;
+    }
+
+    void Tutorial()
+    {
+        tutorialText.text = textArray[arrayPos];
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (arrayPos >= textArray.Length - 1)
+            {
+                tutorialCanvas.SetActive(false);
+                Time.timeScale = 1;
+            }
+            else
+            {
+                arrayPos++;
+            }
+        }
     }
 }
