@@ -13,6 +13,7 @@ public class SaveSystem : MonoBehaviour
     int score;
     int money;
     int maxHealth;
+    int difficulty;
 
     void Start()
     {
@@ -26,16 +27,18 @@ public class SaveSystem : MonoBehaviour
          score = GetComponent<GameManager>().score;
          money = GetComponent<GameManager>().bubblegum;
          maxHealth = Player.GetComponent<Player>().maxHealth;
+        difficulty = GetComponent<GameManager>().curDifficulty;
     }
 
     public void gameLoad()
     {
         //load previous player prefs
         PlayerPrefs.GetInt("health");
-        //PlayerPrefs.GetInt("shot gun ammo");
+        PlayerPrefs.GetInt("shot gun ammo");
         PlayerPrefs.GetInt("score");
         PlayerPrefs.GetInt("bubblegum");
         PlayerPrefs.GetInt("max health");
+        PlayerPrefs.GetInt("difficulty");
         Debug.Log(health);
 
     }
@@ -49,6 +52,7 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetInt("score", score);
         PlayerPrefs.SetInt("bubblegum", money);
         PlayerPrefs.SetInt("max health", maxHealth);
+        PlayerPrefs.SetInt("difficulty", difficulty);
         Debug.Log(health);
         Debug.Log(money);
     }
