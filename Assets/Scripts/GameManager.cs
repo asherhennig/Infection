@@ -54,8 +54,8 @@ public class GameManager : MonoBehaviour
     //this lets us know if a wave is active
     public bool activeWave = true;
     //Difficulty
-    public int curDifficulty = 1;
-    public float difficultyMod = 1.0f;
+    public int curDifficulty;
+    public float difficultyMod;
     private int itemID;
 
     void Awake()

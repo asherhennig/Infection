@@ -13,6 +13,7 @@ public class Grenade : MonoBehaviour
     public Ammo ammo;
     float gravity = 60f;
     public MeshRenderer inHand;
+    public bool isPurchased;
 
 
     // Start is called before the first frame update

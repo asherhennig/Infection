@@ -405,7 +405,7 @@ PrefabInstance:
     - target: {fileID: 5348682790860439361, guid: 035089ad17756284e8d3da8d4ef52ec8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5348682790860439361, guid: 035089ad17756284e8d3da8d4ef52ec8,
         type: 3}
@@ -618,7 +618,7 @@ Transform:
   - {fileID: 536968056}
   - {fileID: 1809224166}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &446998020
 PrefabInstance:
@@ -916,6 +916,11 @@ PrefabInstance:
       propertyPath: miniGun
       value: 
       objectReference: {fileID: 662704753}
+    - target: {fileID: 5751648005244308286, guid: f10e0a83eb4a70a4abe3a9d927247e9a,
+        type: 3}
+      propertyPath: pistol
+      value: 
+      objectReference: {fileID: 1322254087}
     - target: {fileID: 8987159954114576610, guid: f10e0a83eb4a70a4abe3a9d927247e9a,
         type: 3}
       propertyPath: heroAnim
@@ -947,6 +952,11 @@ PrefabInstance:
       propertyPath: ammo
       value: 
       objectReference: {fileID: 1875288566}
+    - target: {fileID: 1059642453986150165, guid: f10e0a83eb4a70a4abe3a9d927247e9a,
+        type: 3}
+      propertyPath: grenadeAmmo
+      value: 999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f10e0a83eb4a70a4abe3a9d927247e9a, type: 3}
 --- !u!1001 &583258559
@@ -1458,7 +1468,7 @@ Transform:
   - {fileID: 364805771}
   - {fileID: 334435569}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &977930347
 GameObject:
@@ -1514,9 +1524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7fd5f4e0afff045bb8e660068094f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grenade: {fileID: 8306860473056259481, guid: 664985dcdc12e774d8ef80587479f474, type: 3}
+  grenade: {fileID: 5526541897191183552, guid: a915d0d6e09e53b4c9ee45148b524288, type: 3}
   tossPos: {fileID: 1322524625}
-  throwPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
   throwSpeed: 0.1
   TOF: 1
   LayerMask:
@@ -1716,6 +1726,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1289223973}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1322254087 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7010410639036452625, guid: f10e0a83eb4a70a4abe3a9d927247e9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 552453733}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1322524624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,6 +1891,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: lureGrenade
       objectReference: {fileID: 0}
+    - target: {fileID: 218070079036574127, guid: 563d79a9c9227ed44a9bc775b9a9f38d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8e2bae3968f3d9479426441c8bd6995, type: 2}
     - target: {fileID: 4838649873824408042, guid: 563d79a9c9227ed44a9bc775b9a9f38d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1945,11 +1966,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 218070079036574127, guid: 563d79a9c9227ed44a9bc775b9a9f38d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c8e2bae3968f3d9479426441c8bd6995, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563d79a9c9227ed44a9bc775b9a9f38d, type: 3}
 --- !u!1 &1503034012
@@ -2070,7 +2086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grenade: {fileID: 5526541897191183552, guid: 4fe536aefb656e7488337cf9e6d0cc77, type: 3}
   tossPos: {fileID: 2025123274}
-  throwPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
   throwSpeed: 0.1
   TOF: 5
   LayerMask:
@@ -2273,7 +2289,7 @@ PrefabInstance:
     - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
         type: 3}
@@ -2292,7 +2308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: itemSpawnPoints.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: enemySpawnPoints.Array.size
@@ -2305,7 +2321,7 @@ PrefabInstance:
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1875288565}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: itemSpawnPoints.Array.data[4]
       value: 
@@ -2329,15 +2345,15 @@ PrefabInstance:
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: itemSpawnPoints.Array.data[2]
       value: 
-      objectReference: {fileID: 1719973870}
+      objectReference: {fileID: 1032476087}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: itemSpawnPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1918605222}
+      objectReference: {fileID: 1719973870}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: itemSpawnPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1918605222}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: enemySpawnPoints.Array.data[12]
       value: 
