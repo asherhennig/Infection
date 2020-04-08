@@ -9,7 +9,7 @@ public class Sound
     public string name;
     public AudioClip clip;
     
-    private float volume = 0.7f;
+    private float volume = 1f;
 
     public AudioSource source;
 
