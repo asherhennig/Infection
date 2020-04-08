@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -58,6 +59,23 @@ public class GameManager : MonoBehaviour
     //text mesh for dificulty selector
     public TextMeshProUGUI output;
 
+    public GameObject tutorialCanvas; //need a reference to set it active and inactive
+    public Text tutorialText;
+    //all the text for the tutorial
+    string[] textArray = { "Well hello there!",
+                           "I didn't realize anyone was still around",
+                           "I see you were sleeping. We don't have much time so I'll make it short",
+                           "We need you to procure the cure off this planet and save the universe!",
+                           "Some simple things before you start...",
+                           "This is an item that heals you for a little bit of your health.",
+                           "This item fully heals you.",
+                           "This next one is a minigun! cool right? It can help you get out of some sticky situations.",
+                           "Also, if you find some bubblegum, I could really use it...",
+                           "I'll trade something for it of course.",
+                           "Here is a laser gun, you can use it to kill enemies, free of charge!",
+                           "Oh no! There's an enemy! Use the left stick to move and the right stick to rotate and shoot." };
+    int arrayPos = 1;
+
     void Awake()
     {
         player1 = GameObject.FindObjectOfType<Player>();
@@ -67,18 +85,21 @@ public class GameManager : MonoBehaviour
     {
         singleton = this;
 
-        Time.timeScale = 1;
+        tutorialCanvas.SetActive(true);
+
+        Time.timeScale = 0; //0 while the tutorial plays
         restTimer = 0;
         StartCoroutine("updatedRestTimer");
         setDifficulty(curDifficulty);
         actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Start the tutorial
+        Tutorial();
         StartCoroutine("updatedRestTimer");
         //updating pick up spawn time
         currentPickUpTime += Time.deltaTime;
@@ -288,6 +309,23 @@ public class GameManager : MonoBehaviour
             currentPickUpTime = 0;
             spawnedPickUp = false;
             Debug.Log("deactive");
+        }
+    }
+
+    void Tutorial()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            tutorialText.text = textArray[arrayPos];
+            if (arrayPos >= textArray.Length - 1)
+            {
+                tutorialCanvas.SetActive(false);
+                Time.timeScale = 1;
+            }
+            else
+            {
+                arrayPos++;
+            }
         }
     }
 }
