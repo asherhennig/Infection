@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5300d0b607310a340bae8ca842046f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SFXtoggle: {fileID: 0}
+  SFXslider: {fileID: 0}
+  BGMtoggle: {fileID: 0}
+  BGMslider: {fileID: 0}
   sounds:
   - name: MenuBGM
     clip: {fileID: 8300000, guid: be3b21f969dfbe146b94cc0266fa073d, type: 3}
@@ -86,9 +90,6 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: WaveClearSound
     clip: {fileID: 8300000, guid: 95cbf38c7ffe35d47a0cd29d0b17e81c, type: 3}
-    source: {fileID: 0}
-  - name: DoorSound
-    clip: {fileID: 8300000, guid: f1003126972dea3459c4d013f6134a10, type: 3}
     source: {fileID: 0}
 --- !u!114 &1718510779
 MonoBehaviour:
