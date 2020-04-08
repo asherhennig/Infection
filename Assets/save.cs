@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveSystem : MonoBehaviour
+public class Save : MonoBehaviour
 {
-    public GameObject Player;
-  
+    GameObject Player;
+    GameObject[] Ammo;
     //variables to save
     int health;
     int shotgunAmmo;
@@ -13,24 +13,22 @@ public class SaveSystem : MonoBehaviour
     int score;
     int money;
     int maxHealth;
-    int difficulty;
 
     void Start()
     {
         //find the game objects with the tags so you can access the variables in the ammo and player script
         Player = GameObject.FindGameObjectWithTag("Player");
-       
-        //sets variables in the save script to be the variables in other scripts wanting to save
-         health = Player.GetComponent<Player>().curHealth;
-        int shotgunAmmo = Player.GetComponent<Ammo>().shotgunAmmo;
-        int grenadeAmmo = Player.GetComponent<Ammo>().grenadeAmmo;
-         score = GetComponent<GameManager>().score;
-         money = GetComponent<GameManager>().bubblegum;
-         maxHealth = Player.GetComponent<Player>().maxHealth;
-        difficulty = GetComponent<GameManager>().curDifficulty;
+        Ammo = GameObject.FindGameObjectsWithTag("");
+        // sets variables in the save script to be the variables in other scripts wanting to save
+        int health = GetComponent<Player>().curHealth;
+        int shotgunAmmo = GetComponent<Ammo>().shotgunAmmo;
+        int grenadeAmmo = GetComponent<Ammo>().grenadeAmmo;
+        int score = GetComponent<GameManager>().score;
+        int money = GetComponent<GameManager>().bubblegum;
+        int maxHealth = GetComponent<Player>().maxHealth;
     }
 
-    public void gameLoad()
+    public void load()
     {
         //load previous player prefs
         PlayerPrefs.GetInt("health");
@@ -38,12 +36,11 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.GetInt("score");
         PlayerPrefs.GetInt("bubblegum");
         PlayerPrefs.GetInt("max health");
-        PlayerPrefs.GetInt("difficulty");
-        Debug.Log(health);
+
 
     }
 
-    public void gameSave()
+    public void save()
     {
         //set player prefs for current state of the game
         PlayerPrefs.SetInt("health", health);
@@ -52,10 +49,6 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetInt("score", score);
         PlayerPrefs.SetInt("bubblegum", money);
         PlayerPrefs.SetInt("max health", maxHealth);
-        PlayerPrefs.SetInt("difficulty", difficulty);
-        Debug.Log(health);
-        Debug.Log(money);
     }
 }
-
 
