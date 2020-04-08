@@ -17,21 +17,11 @@ public class ShoulderShooter : MonoBehaviour
 
     void Start()
     {
-        shooterZar = this.GetComponent<NavMeshAgent>();
-        shooterZar.stoppingDistance - GameObject.position<target> = shotRange;        //setting up a minimum line of sight before the Shooting AI stops to aim & shoot
+        //shooterZar = this.GetComponent<NavMeshAgent>();
+        //shooterZar.stoppingDistance - GameObject.position<target> = shotRange;        //setting up a minimum line of sight before the Shooting AI stops to aim & shoot
 
     }
 
-
-    public virtual void Update()
-    {
-        shooterZar.SetDistraction(GetDistract());
-    }
-
-    public virtual void GetDistraction()
-    {
-        return new Distract();
-    }
 
     private void OnCollisionEnter(Collision collision)
     {

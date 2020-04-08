@@ -28,7 +28,6 @@ public class enemyBase : MonoBehaviour
     public int ehealth = 5;
 
     private int newehealth;
-    public GameObject currencyprefab;
     int chance;
     public GameObject currencyprefab2;
     public GameObject hitPrefab;
