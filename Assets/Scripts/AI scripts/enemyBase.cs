@@ -9,6 +9,7 @@ public class enemyBase : MonoBehaviour
     public float speed = 3.0f;
     public float accuracy;      //enemy accuracy to player before enemy stops moving
     public Transform target;             //goal is hero/player
+    public Transform target2;
     public UnityEvent onDestroy;
     public int ehealth = 5;
     public GameObject currencyprefab;
@@ -47,7 +48,6 @@ public class enemyBase : MonoBehaviour
     // update is called every frame
     void Update()
     {
-        Debug.Log(ehealth);
         //if the ehealth of a enemy is equal or lesss than 0 it dies
         if (ehealth <= 0)
         {
@@ -83,25 +83,50 @@ public class enemyBase : MonoBehaviour
     // LateUpdate for physics
     void LateUpdate()
     {
-        if (target != null)
+        if (target && target2 != null)
         {
-            this.transform.LookAt(target.position);                               //Enemy faces player
-            Vector3 direction;
-            direction = new Vector3(target.position.x, 0.0f, target.position.z) - new Vector3(this.transform.position.x, 0, this.transform.position.z);
-            Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
-
-            if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
+            if (target2 != null)
             {
+                this.transform.LookAt(target2.position);                               //Enemy faces player
+                Vector3 direction = target2.position - this.transform.position;        //enemy direction: where its going MINUS where it is
+                Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
 
-                this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in global space
-                audioManager.PlaySound("RobotSound");
-
-                head.SetBool("InRange", false);
+                if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
+                {
+                    this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in
+                                                                                                                //in global space
+                    if (Time.timeScale > 0)
+                    {
+                        audioManager.PlaySound("RobotSound");
+                    }
+                    head.SetBool("InRange", false);
+                }
+                else
+                {
+                    head.SetBool("InRange", true);
+                }
             }
             else
             {
-                head.SetBool("InRange", true);
-            }                                                                                             
+                this.transform.LookAt(target.position);                               //Enemy faces player
+                Vector3 direction = target.position - this.transform.position;        //enemy direction: where its going MINUS where it is
+                Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
+
+                if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
+                {
+                    this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in
+                                                                                                                //in global space
+                    if (Time.timeScale > 0)
+                    {
+                        audioManager.PlaySound("RobotSound");
+                    }
+                    head.SetBool("InRange", false);
+                }
+                else
+                {
+                    head.SetBool("InRange", true);
+                }
+            }
         }
     }
 
