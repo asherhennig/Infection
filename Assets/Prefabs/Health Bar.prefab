@@ -232,7 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639777525937123377}
   - component: {fileID: 1639777525937123379}
-  - component: {fileID: 1639777525937123376}
+  - component: {fileID: 2776549455608714409}
   m_Layer: 5
   m_Name: Health Bar
   m_TagString: Untagged
@@ -313,7 +313,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1639777525937123376
+--- !u!114 &2776549455608714409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639777525937123382}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ede486e4d6c638c479fb76bd9e4cc5d5, type: 3}
+  m_Script: {fileID: 11500000, guid: fd445c04105c89145b30f6ddd01542a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1639777525937123379}
