@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
         Continue = GameObject.FindGameObjectsWithTag("Continue");
         ContinueButton = GameObject.FindGameObjectsWithTag("ContinueButton");
         HidePurchase();
+        NoContinue();
     }
 
     // Update is called once per frame
@@ -217,13 +218,16 @@ public class GameManager : MonoBehaviour
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
     }
-
-    public void Continues()
+    public void NoContinue()
     {
-        foreach (GameObject g in ContinueButton)
+        foreach (GameObject g in Continue)
         {
             g.SetActive(false);
         }
+    }
+
+    public void Continues()
+    {
         foreach (GameObject g in Continue)
         {
             g.SetActive(true);
