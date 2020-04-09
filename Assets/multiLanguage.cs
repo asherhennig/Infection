@@ -16,7 +16,7 @@ public class multiLanguage : MonoBehaviour
         list.Add(new Dropdown.OptionData("English", null));
         list.Add(new Dropdown.OptionData("Français", null));
         list.Add(new Dropdown.OptionData("German", null));
-        dropdown.AddOptions(list);
+        //dropdown.AddOptions(list);
         dropdown.onValueChanged.AddListener(OnValueChange);
         toggle.onValueChanged.AddListener(OnAutoLanguage);
 

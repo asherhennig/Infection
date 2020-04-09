@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     private static GameManager singleton;
-    public int level = 0;
+    public int level = 1;
     //game objects that will be needed in the script
     public GameObject player;
     private Player player1;
@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
     public GameObject[] pickUpPrefab;
+    public GameObject[] statScreen;
     GameObject[] buyShotgun;
     GameObject[] buyShells;
     GameObject[] buyNade;
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
         tutorialCanvas.SetActive(true);
         arrayPos = 0;
 
-        GetComponent<SaveSystem>().gameLoad();
+        
         singleton = this;
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
         restTimer = 0;
@@ -105,38 +106,50 @@ public class GameManager : MonoBehaviour
         HidePurchase();
         setDifficulty(curDifficulty);
         actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
+        GetComponent<SaveSystem>().gameLoad();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Tutorial(); // plays tutorial
-
-        if (wave == 2)
+        if(level ==1)
         {
-            GetComponent<SaveSystem>().gameSave();  
+            Tutorial(); // plays tutorial
         }
+
         StartCoroutine("updatedRestTimer");
         //updating pick up spawn time
         currentPickUpTime += Time.deltaTime;
-        //checks if the current spawn time is more than the upgrade spawn time and that one isnt spawned
-        if (pickUpPrefab.Length > 0)
+        if (wave <= 5)
         {
-            spawnItems();
-        }
-        if (activeWave)
-        {
-            //checks if its time to spawn
-            if (curSpawnedWave < MaxPerWave)
+            //checks if the current spawn time is more than the upgrade spawn time and that one isnt spawned
+            if (pickUpPrefab.Length > 0)
             {
-                spawnWave();
+                spawnItems();
             }
-            else if (curSpawnedWave == MaxPerWave && enemiesOnScreen == 0)
+            if (activeWave)
             {
-                endWave();
+                //checks if its time to spawn
+                if (curSpawnedWave < MaxPerWave)
+                {
+                    spawnWave();
+                }
+                else if (curSpawnedWave == MaxPerWave && enemiesOnScreen == 0)
+                {
+                    endWave();
+                    for (int i = 0; i < statScreen.Length; i++)
+                    {
+                        statScreen[i].SetActive(true);
+                    }
+                    Time.timeScale = 0;
+                    //load shop menu here
+                    GetComponent<SaveSystem>().gameSave();
+                }
             }
+        
         }
+        
     }
 
     private IEnumerator updatedRestTimer()

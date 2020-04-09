@@ -970,6 +970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768c8fb0e24b5e446a466ddcb2a38aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
 --- !u!114 &400582457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4427,7 +4428,7 @@ GameObject:
   - component: {fileID: 1931567132}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: gameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4444,7 +4445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad1a7097fd072343b5bf2b79678ed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
+  level: 1
   player: {fileID: 0}
   itemSpawnPoints: []
   enemySpawnPoints: []
