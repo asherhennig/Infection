@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //initialized current health and max health and other public vars
-    public int curHealth = 5;
+    public int curHealth;
     public int maxHealth;
     public float speed = 10;
     public float rotSpeed = 1.0f;
