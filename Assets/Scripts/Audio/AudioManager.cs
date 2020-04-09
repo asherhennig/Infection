@@ -27,8 +27,11 @@ public class Sound
 
     public void Play()
     {
-        source.volume = volume;
-        source.Play();
+        if (source.isPlaying == false)
+        {
+            source.volume = volume;
+            source.Play();
+        }
     }
 }
 
