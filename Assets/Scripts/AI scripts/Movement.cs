@@ -24,18 +24,18 @@ public class Movement : MonoBehaviour
     }
 
 
-    private void StrikeTarget()
-    {
-        while (ShooterZar.Search)
-        if (ShooterZar.stoppingDistance <= distanceToTarget)
-        {
-            PursueTarget();  //is ChaseTarget()
-        }
-        if (ShooterZar.stoppingDistance <= distanceToTarget)
-        {
-            ZapTarget();    //is AttackTarget()
-        }
-    }
+    //private void StrikeTarget()
+    //{
+    //    while (ShooterZar.Search)
+    //    if (ShooterZar.stoppingDistance <= distanceToTarget)
+    //    {
+    //        PursueTarget();  //is ChaseTarget()
+    //    }
+    //    if (ShooterZar.stoppingDistance <= distanceToTarget)
+    //    {
+    //        ZapTarget();    //is AttackTarget()
+    //    }
+    //}
 
     private void PursueTarget()
     {
@@ -60,7 +60,7 @@ public class Movement : MonoBehaviour
         
         if (seeTarget)
         {
-            StrikeTarget();
+            //StrikeTarget();
             //is EngageTarget();
         }
         else if (chaseRange >= distanceToTarget)
