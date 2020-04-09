@@ -6,6 +6,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     private static GameManager singleton;
+    public int level = 0;
     //game objects that will be needed in the script
     public GameObject player;
     private Player player1;
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
     public float maxSpawnTime;
     public float pickUpMaxSpawnTime = 20.0f;
     public int wave = 0;
-
+     
     //private data for keeping track of enemies on screen and time
     // between spawns of enemies and pick-ups
     private int enemiesOnScreen = 0;
