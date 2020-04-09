@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public static Gun instance;
     public int weaponDam;
     public GameObject bulletPrefab;
     public Transform firePosition;
@@ -16,6 +17,8 @@ public class Gun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+
         audioManager = AudioManager.instance;
         if (audioManager == null)
         {
@@ -26,14 +29,14 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            fire();
+        //fire();
     }
 
     public void fire()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (!IsInvoking("fireBullet") && ammo.HasAmmo(tag))
+            //if (!IsInvoking("fireBullet") && ammo.HasAmmo(tag))
             {
                 InvokeRepeating("fireBullet", 0f, fireSpeed);
             }
@@ -44,9 +47,7 @@ public class Gun : MonoBehaviour
             CancelInvoke("fireBullet");
         }
     }
-
- 
-
+    
    public void miniGunFire()
     {
         //acrtivate mini gun
@@ -73,5 +74,4 @@ public class Gun : MonoBehaviour
         // Play audio when bullet is fired
         audioManager.PlaySound("LaserSound");
     }
-
 }

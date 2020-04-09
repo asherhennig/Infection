@@ -198,20 +198,11 @@ public class Player : MonoBehaviour
         //this makes the palyer look at the cursor when its on screen
         //creating hit and ray variables
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        //fires ray from camera and returns hit
-        if (Physics.Raycast(ray, out hit, 1000, layerMask, QueryTriggerInteraction.Ignore))
-        {
-
-            if (hit.point != currentLookTarget)
-            {
-                //Debug.Log("player not rotating");
-            }
-        }
+        Vector3 MouseAxis = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
         //sets where we want to turn to
-        Vector3 targetPositon = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+        Vector3 targetPositon = new Vector3(transform.position.x + MouseAxis.x * 10, transform.position.y, transform.position.z + MouseAxis.y * 10);
         //gives smooth roation
         Quaternion rotation = Quaternion.LookRotation(targetPositon - transform.position);
         //turns to cursor 
