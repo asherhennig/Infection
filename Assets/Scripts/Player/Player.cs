@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         healthBar.setMaxHealth(maxHealth);
 
         heroAnim = GetComponent<Animator>();
-        head = enemy.GetComponent<Animator>();
+       // head = enemy.GetComponent<Animator>();
 
         //currency = GetComponent<GameManager>().bubblegum;
     }

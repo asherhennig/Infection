@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private int price;
     private bool canPurchase = false;
     public bool isGameOver = false;
+    private int itemID;
 
     //public vars so we can modify them as we need
     public int maxEnemiesOnScreen;
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
     //this lets us know if a wave is active
     public bool activeWave = true;
     //Difficulty
-    public int curDifficulty;
+    public int difficulty;
     public float difficultyMod = 1.0f;
     //text mesh for dificulty selector
     public TextMeshProUGUI output;
