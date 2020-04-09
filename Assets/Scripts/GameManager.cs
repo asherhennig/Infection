@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
         buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
         purchase = GameObject.FindGameObjectsWithTag("Purchase");
         HidePurchase();
+
     }
 
     // Update is called once per frame
