@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager singleton;
     public int level = 1;
+    public int shotGunactive = 0;
     //game objects that will be needed in the script
     public GameObject player;
     private Player player1;
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
     public float difficultyMod = 1.0f;
     //text mesh for dificulty selector
     public TextMeshProUGUI output;
-
+    public Ammo ammo;
     public GameObject tutorialCanvas;
     public Text tutorialText;
     int arrayPos;
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         player1 = GameObject.FindObjectOfType<Player>();
+        ammo = GetComponent<Ammo>();
     }
     // Start is called before the first frame update
     void Start()
@@ -231,9 +233,38 @@ public class GameManager : MonoBehaviour
 
     public void Buyable()
     {
-        if (bubblegum >= price);
+        if (bubblegum >= price)
+        {
+            canPurchase = true;
+            bubblegum = bubblegum - price;
+            gameUI.SetMoneyText(bubblegum);
+            Debug.Log("Item Purchased");
+            if (itemID == 1)
+            {
+                shotGunactive = 1;
+            }
+            else if (itemID == 2)
+            {
+                ammo.shotgunAmmo = ammo.shotgunAmmo + 5;
+            }
+            else if (itemID == 3)
+            {
+                ammo.GetComponent<Ammo>().grenadeAmmo ++;
+            }
+            else if (itemID == 4)
+            {
+                player1.curHealth++;
+            }
+            else if (itemID == 5)
+            {
+                player1.curHealth = player1.maxHealth;
+            }
+            else if (itemID == 6)
+            {
+                ammo.GetComponent<Ammo>().lureAmmo++;
+            }
+        }
     }
-
     public void setDifficulty(int difficulty)
     {
         if (difficulty == 0)
