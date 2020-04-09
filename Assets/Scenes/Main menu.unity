@@ -178,8 +178,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 275537887}
-  - {fileID: 1539647698}
   - {fileID: 1759583338}
   m_Father: {fileID: 1896156313}
   m_RootOrder: 1
@@ -227,7 +225,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 144686249}
   m_Template: {fileID: 1759583338}
-  m_CaptionText: {fileID: 275537888}
+  m_CaptionText: {fileID: 0}
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 1468708136}
   m_ItemImage: {fileID: 0}
@@ -3094,6 +3092,42 @@ MonoBehaviour:
     type: 3}
   m_languageKey: Play
   m_languageID: 0
+--- !u!1 &1117595679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1117595680}
+  m_Layer: 0
+  m_Name: Handle Slide Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1117595680
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117595679}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 245306746}
+  m_Father: {fileID: 977641907}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1270030670
 GameObject:
   m_ObjectHideFlags: 0
@@ -3194,8 +3228,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 428498298}
+  m_Children: []
   m_Father: {fileID: 1663030415}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3235,7 +3268,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2092671054}
-  m_RootOrder: 1
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3312,42 +3345,6 @@ MonoBehaviour:
     type: 3}
   m_languageKey: Play
   m_languageID: 0
---- !u!1 &1117595679
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1117595680}
-  m_Layer: 0
-  m_Name: Handle Slide Area
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1117595680
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117595679}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 245306746}
-  m_Father: {fileID: 977641907}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1422586341
 GameObject:
   m_ObjectHideFlags: 0
@@ -3786,7 +3783,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 84a4109488052cf4299bd228290abe73, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26b0e44c539ed074ea3b7b8bbf54767f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4325,8 +4322,8 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 428498299}
-  m_HandleRect: {fileID: 428498298}
+  m_TargetGraphic: {fileID: 0}
+  m_HandleRect: {fileID: 0}
   m_Direction: 2
   m_Value: 0
   m_Size: 0.2
@@ -4555,7 +4552,7 @@ RectTransform:
   - {fileID: 2050667136}
   - {fileID: 1663030415}
   m_Father: {fileID: 144686247}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -4631,25 +4628,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759583337}
   m_CullTransparentMesh: 0
---- !u!95 &1695545209
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695545204}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bed58477fa00042488d027ec9309fa3c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1803916344
 GameObject:
   m_ObjectHideFlags: 0
@@ -4938,9 +4916,11 @@ MonoBehaviour:
   wave: 0
   MaxPerWave: 5
   activeWave: 1
-  curDifficulty: 1
+  difficulty: 0
   difficultyMod: 1
   output: {fileID: 0}
+  tutorialCanvas: {fileID: 0}
+  tutorialText: {fileID: 0}
 --- !u!4 &1931567133
 Transform:
   m_ObjectHideFlags: 0
@@ -5326,16 +5306,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2229594137745025537, guid: 035089ad17756284e8d3da8d4ef52ec8,
-        type: 3}
-      propertyPath: toggle
-      value: 
-      objectReference: {fileID: 543834150}
-    - target: {fileID: 2229594137745025537, guid: 035089ad17756284e8d3da8d4ef52ec8,
-        type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 2078724803}
     - target: {fileID: 5348682790860439361, guid: 035089ad17756284e8d3da8d4ef52ec8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5391,6 +5361,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2229594137745025537, guid: 035089ad17756284e8d3da8d4ef52ec8,
+        type: 3}
+      propertyPath: toggle
+      value: 
+      objectReference: {fileID: 543834150}
+    - target: {fileID: 2229594137745025537, guid: 035089ad17756284e8d3da8d4ef52ec8,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 2078724803}
     - target: {fileID: 2229594137745025537, guid: 035089ad17756284e8d3da8d4ef52ec8,
         type: 3}
       propertyPath: toggle
@@ -5558,6 +5538,7 @@ Transform:
   - {fileID: 977641907}
   - {fileID: 659125365}
   - {fileID: 681091879}
+  - {fileID: 1400078928}
   m_Father: {fileID: 400582455}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
