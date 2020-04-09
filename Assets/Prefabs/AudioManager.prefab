@@ -44,10 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5300d0b607310a340bae8ca842046f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SFXtoggle: {fileID: 0}
-  SFXslider: {fileID: 0}
-  BGMtoggle: {fileID: 0}
-  BGMslider: {fileID: 0}
   sounds:
   - name: MenuBGM
     clip: {fileID: 8300000, guid: be3b21f969dfbe146b94cc0266fa073d, type: 3}
@@ -100,6 +96,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6522407077695208051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 528720b3a5e4bd549b288abdb63aa1e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 779f5617cb22829459cd69a81fecd4e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
