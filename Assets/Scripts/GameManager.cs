@@ -89,11 +89,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 0; // It's 0 so the tutorial can play without enemies spawning
+        tutorialCanvas.SetActive(true);
+        arrayPos = 0;
+
         GetComponent<SaveSystem>().gameLoad();
         singleton = this;
         actualPickUpTime = Random.Range(pickUpMaxSpawnTime - 3.0f, pickUpMaxSpawnTime);
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
-        Time.timeScale = 0; // It's 0 so the tutorial can play without enemies spawning
         restTimer = 0;
         StartCoroutine("updatedRestTimer");
         buyShotgun = GameObject.FindGameObjectsWithTag("BuyShotgun");
@@ -104,9 +107,6 @@ public class GameManager : MonoBehaviour
         buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
         purchase = GameObject.FindGameObjectsWithTag("Purchase");
         HidePurchase();
-
-        tutorialCanvas.SetActive(true);
-        arrayPos = 0;
     }
 
     // Update is called once per frame
