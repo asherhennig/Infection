@@ -138,19 +138,16 @@ public class GameManager : MonoBehaviour
                 else if (curSpawnedWave == MaxPerWave && enemiesOnScreen == 0)
                 {
                     endWave();
+                    for (int i = 0; i < statScreen.Length; i++)
+                    {
+                        statScreen[i].SetActive(true);
+                    }
+                    Time.timeScale = 0;
                     //load shop menu here
                     GetComponent<SaveSystem>().gameSave();
                 }
             }
-            else
-            {
-                endWave();
-                for (int i = 0; i < statScreen.Length; i++)
-                {
-                    statScreen[i].SetActive(true);
-                }
-                Time.timeScale = 0;
-            }
+        
         }
         
     }
