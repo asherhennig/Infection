@@ -2220,7 +2220,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 1:56
+  m_Text: 
 --- !u!222 &453031512
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3210,7 +3210,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 16
+  m_Text: 
 --- !u!222 &754328770
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4705,6 +4705,18 @@ PrefabInstance:
       propertyPath: statScreen.Array.data[7]
       value: 
       objectReference: {fileID: 687202486}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 453031511}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: bubbleGumText
+      value: 
+      objectReference: {fileID: 754328769}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1130515674}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
 --- !u!1 &1128723629
@@ -4798,7 +4810,7 @@ GameObject:
   - component: {fileID: 1130515675}
   - component: {fileID: 1130515674}
   m_Layer: 5
-  m_Name: Kill Counter
+  m_Name: Score Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4856,7 +4868,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 
 --- !u!222 &1130515675
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5870,7 +5882,7 @@ GameObject:
   - component: {fileID: 1431687227}
   - component: {fileID: 1431687226}
   m_Layer: 5
-  m_Name: Kills
+  m_Name: score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5928,7 +5940,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Kills: '
+  m_Text: 'Score:'
 --- !u!222 &1431687227
 CanvasRenderer:
   m_ObjectHideFlags: 0

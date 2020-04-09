@@ -61,6 +61,9 @@ public class GameManager : MonoBehaviour
     public float difficultyMod = 1.0f;
     //text mesh for dificulty selector
     public TextMeshProUGUI output;
+    public Text timerText;
+    public Text bubbleGumText;
+    public Text scoreText;
 
     public GameObject tutorialCanvas;
     public Text tutorialText;
@@ -113,6 +116,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        updateStatText();
+
         if(level ==1)
         {
             Tutorial(); // plays tutorial
@@ -358,5 +363,12 @@ public class GameManager : MonoBehaviour
                 arrayPos++;
             }
         }
+    }
+
+    void updateStatText()
+    {
+        timerText.text = restTimer.ToString();
+        bubbleGumText.text = bubblegum.ToString();
+        scoreText.text = score.ToString();
     }
 }
