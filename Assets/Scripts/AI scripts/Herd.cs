@@ -5,8 +5,8 @@ using UnityEngine;
 public class Herd : MonoBehaviour
 {
 
-    public HerdManager herdsManager;       //linking the FlockManager
-    float speed;
+    public HerdManager herdsManager;       //linking the HerdManager
+    public float speed;
     bool turning = false;
 
 

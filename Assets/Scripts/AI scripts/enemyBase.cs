@@ -2,24 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.AI;       //for AI mechs like navmesh
+
+
+/*AGENT class - makes use of behaviors from SHOULDERSHOOTER to create intelligence choices*/
 
 public class enemyBase : MonoBehaviour
 
 {
     public float speed = 3.0f;
-    public float accuracy;      //enemy accuracy to player before enemy stops moving
-    public Transform target;             //goal is hero/player
-    public Transform target2;
+    public float accuracy = 0.09f;      //enemy accuracy to player before enemy stops moving
+    public float Accel = 5.0f;            //for speed, accuracy and SLERP to pick up breifly when grenade is tossed (SpeedMult)
+    public float orientation;
+    public float rotation = 0.0f;
+    public Transform target;             //target is hero/player
+    public Vector3 stoppingDistance;
+    public GameObject grenade;          //EnemyBase can recognize the grenade
+    NavMeshAgent enemy;                 //AI navigate
+    protected Lure lure;
+    public GameObject currencyprefab;
     public UnityEvent onDestroy;
     public int ehealth = 5;
-    public GameObject currencyprefab;
+    private int newehealth;
+    public Transform target2;
     int chance;
     public GameObject currencyprefab2;
     public GameObject hitPrefab;
     public GameObject enemyDeathPrefab;
 
     public Animator head;
-
 
 
     private AudioManager audioManager;
@@ -43,7 +54,9 @@ public class enemyBase : MonoBehaviour
         {
             Debug.LogError("AudioManager not found!!!");
         }
+
     }
+
 
     // update is called every frame
     void Update()
@@ -52,6 +65,10 @@ public class enemyBase : MonoBehaviour
         if (ehealth <= 0)
         {
             Die();
+
+            GameObject currency = Instantiate(currencyprefab) as GameObject;
+            currencyprefab.transform.position = this.transform.position;
+
             Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
             // Play sound
             audioManager.PlaySound("RobotDeathSound");

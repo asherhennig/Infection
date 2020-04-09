@@ -18,8 +18,6 @@ public class Paused : MonoBehaviour
     //Caled once when the game starts
     void Start()
     {
-        //Sets the game to running
-        Time.timeScale = 1;
         //Finds the Object Tags
         pauseMenu = GameObject.FindGameObjectsWithTag("ShowOnPause");
         pauseButton = GameObject.FindGameObjectsWithTag("HideOnPause");
