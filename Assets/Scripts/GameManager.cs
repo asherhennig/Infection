@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
     public GameObject[] pickUpPrefab;
+    public GameObject[] statScreen;
     GameObject[] buyShotgun;
     GameObject[] buyShells;
     GameObject[] buyNade;
@@ -143,7 +144,12 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                //load stat screen here
+                endWave();
+                for (int i = 0; i < statScreen.Length; i++)
+                {
+                    statScreen[i].SetActive(true);
+                }
+                Time.timeScale = 0;
             }
         }
         
