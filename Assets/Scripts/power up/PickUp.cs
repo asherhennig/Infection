@@ -9,11 +9,7 @@ public class PickUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        // if (audioManager == null)
-       // {
-
-        //}
+        //audioManager = AudioManager.instance;
         //if (audioManager == null)
         //{
         //    Debug.LogError("AudioManager not found!!!");
@@ -29,7 +25,7 @@ public class PickUp : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("destroyed");
             // Play sound
-            //audioManager.PlaySound("PickupSound");
+            audioManager.PlaySound("PickupSound");
         }
     }
     // Update is called once per frame

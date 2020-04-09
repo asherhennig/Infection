@@ -1345,7 +1345,7 @@ GameObject:
   - component: {fileID: 1059642453986150165}
   m_Layer: 0
   m_Name: final player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1509,6 +1509,7 @@ MonoBehaviour:
   miniGun: {fileID: 0}
   PlayerHitPrefab: {fileID: 0}
   currency: 0
+  heroAnim: {fileID: 0}
   isDead: 0
   healthBar: {fileID: 0}
 --- !u!114 &1059642453986150165

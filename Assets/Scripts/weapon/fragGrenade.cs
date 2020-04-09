@@ -30,12 +30,6 @@ public class fragGrenade : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Wall")
-        {
-            // this.gameObject.GetComponent<Rigidbody>().velocity = Vector3 (;
-            Destroy(gameObject);
-        }
-
         //explodes the grenade on contact with an enemy
         if (other.gameObject.tag == "Enemy" && IsInvoking("explode"))
         {
@@ -43,7 +37,6 @@ public class fragGrenade : MonoBehaviour
             // Play sound
             audioManager.PlaySound("GrenadeSound");
         }
-
     }
 
     //explode returns an int to be used as the damage to be applied to others

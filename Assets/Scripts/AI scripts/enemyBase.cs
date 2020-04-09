@@ -20,32 +20,36 @@ public class enemyBase : MonoBehaviour
     public GameObject grenade;          //EnemyBase can recognize the grenade
     NavMeshAgent enemy;                 //AI navigate
     protected Lure lure;
-  
-
-    private int newHealth;
     public GameObject currencyprefab;
     public UnityEvent onDestroy;
     public int ehealth = 5;
-
     private int newehealth;
+    public Transform target2;
+    public int ehealth = 5;
     int chance;
     public GameObject currencyprefab2;
     public GameObject hitPrefab;
     public GameObject enemyDeathPrefab;
 
-    private Animator Head;
+    public Animator head;
 
 
     private AudioManager audioManager;
 
-
+    //this is used to modify the enemies stats later on
     public float diffMod;
     
 
     void Start()
     {
+        head = GetComponent<Animator>();
+
         sethealth();
         Debug.Log("on start" + ehealth);
+
+        //call to init the enemies stats
+        setEnemyStats();
+
         audioManager = AudioManager.instance;
         if (audioManager == null)
         {
@@ -58,7 +62,6 @@ public class enemyBase : MonoBehaviour
     // update is called every frame
     void Update()
     {
-        Debug.Log(ehealth);
         //if the ehealth of a enemy is equal or lesss than 0 it dies
         if (ehealth <= 0)
         {
@@ -85,38 +88,62 @@ public class enemyBase : MonoBehaviour
 
         }
 
+        if (target != null)
+        {
+            head.SetBool("IsMoving", true);
+        }
+        else
+        {
+            head.SetBool("IsMoving", false);
+        }
     }
 
     // LateUpdate for physics
     void LateUpdate()
     {
-        if (target != null)
-        {
-            this.transform.LookAt(target.position);                               //Enemy faces player
-            Vector3 direction = target.position- this.transform.position;        //enemy direction: where its going MINUS where it is
-            Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
-
-            if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
+            if (target2 != null)
             {
-                this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in global space
-                audioManager.PlaySound("RobotSound");
+                this.transform.LookAt(target2.position);                               //Enemy faces player
+                Vector3 direction = target2.position - this.transform.position;        //enemy direction: where its going MINUS where it is
+                Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
+
+                if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
+                {
+                    this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in
+                                                                                                                //in global space
+                    if (Time.timeScale > 0)
+                    {
+                        audioManager.PlaySound("RobotSound");
+                    }
+                    head.SetBool("InRange", false);
+                }
+                else
+                {
+                    head.SetBool("InRange", true);
+                }
             }
-        }                                                                                              
+            else
+            {
+                this.transform.LookAt(target.position);                               //Enemy faces player
+                Vector3 direction = target.position - this.transform.position;        //enemy direction: where its going MINUS where it is
+                Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
 
-
+                if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
+                {
+                    this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in
+                                                                                                                //in global space
+                    if (Time.timeScale > 0)
+                    {
+                        audioManager.PlaySound("RobotSound");
+                    }
+                    head.SetBool("InRange", false);
+                }
+                else
+                {
+                    head.SetBool("InRange", true);
+                }
+            }
     }
-
-    //void FixedUpdate()
-    //{
-    //    if (target != null)
-    //    {
-    //        Head.SetBool("IsMoving", true);
-    //    }
-    //    else
-    //    {
-    //        Head.SetBool("IsMoving", false);
-    //    }
-    //}
 
     public void Die()
     {
@@ -138,8 +165,17 @@ public class enemyBase : MonoBehaviour
         diffMod = DiffMod;
     }
 
+      //this sets the enemies health and speed
+    public void setEnemyStats()
+    {
+        //health has to be recast as a int because its a float and int multiplied which is a float and health is only an int
+        ehealth = (int)(ehealth * diffMod);
+        //speed luckily can stay as a float
+        speed = speed * diffMod;
+    }
+
     public void sethealth()
     {
-        ehealth = (int)(ehealth * diffMod);
+        ehealth = (int)(ehealth * diffMod); 
     }
 }
