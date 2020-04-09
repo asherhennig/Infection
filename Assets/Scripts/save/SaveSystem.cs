@@ -5,7 +5,7 @@ using UnityEngine;
 public class SaveSystem : MonoBehaviour
 {
     public GameObject Player;
-    public GameObject[] Ammo;
+  
     //variables to save
     int health;
     int shotgunAmmo;
@@ -14,19 +14,20 @@ public class SaveSystem : MonoBehaviour
     int money;
     int maxHealth;
     int difficulty;
+    int level;
 
     void Start()
     {
         //find the game objects with the tags so you can access the variables in the ammo and player script
         Player = GameObject.FindGameObjectWithTag("Player");
-        Ammo = GameObject.FindGameObjectsWithTag("Gun");
+       
         //sets variables in the save script to be the variables in other scripts wanting to save
-         health = Player.GetComponent<Player>().curHealth;
-        int shotgunAmmo = Player.GetComponent<Ammo>().shotgunAmmo;
-        int grenadeAmmo = Player.GetComponent<Ammo>().grenadeAmmo;
-         score = GetComponent<GameManager>().score;
-         money = GetComponent<GameManager>().bubblegum;
-         maxHealth = Player.GetComponent<Player>().maxHealth;
+        health = Player.GetComponent<Player>().curHealth;
+        shotgunAmmo = Player.GetComponent<Ammo>().shotgunAmmo;
+        grenadeAmmo = Player.GetComponent<Ammo>().grenadeAmmo;
+        score = GetComponent<GameManager>().score;
+        money = GetComponent<GameManager>().bubblegum;
+        maxHealth = Player.GetComponent<Player>().maxHealth;
         difficulty = GetComponent<GameManager>().curDifficulty;
     }
 
@@ -39,6 +40,7 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.GetInt("bubblegum");
         PlayerPrefs.GetInt("max health");
         PlayerPrefs.GetInt("difficulty");
+        PlayerPrefs.GetInt("level");
         Debug.Log(health);
 
     }
@@ -53,6 +55,7 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetInt("bubblegum", money);
         PlayerPrefs.SetInt("max health", maxHealth);
         PlayerPrefs.SetInt("difficulty", difficulty);
+        PlayerPrefs.SetInt("level", level);
         Debug.Log(health);
         Debug.Log(money);
     }
