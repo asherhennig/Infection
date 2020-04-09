@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     //this lets us know if a wave is active
     public bool activeWave = true;
     //Difficulty
-    public int difficulty;
+    public int curDifficulty;
     public float difficultyMod = 1.0f;
     //text mesh for dificulty selector
     public TextMeshProUGUI output;
