@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     private static GameManager singleton;
-    public int level = 0;
+    public int level = 1;
     //game objects that will be needed in the script
     public GameObject player;
     private Player player1;
