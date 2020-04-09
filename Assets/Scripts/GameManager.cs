@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     private int price;
     private bool canPurchase = false;
     public bool isGameOver = false;
+    private int itemID;
 
     //public vars so we can modify them as we need
     public int maxEnemiesOnScreen;

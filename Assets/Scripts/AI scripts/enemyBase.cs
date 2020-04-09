@@ -83,8 +83,6 @@ public class enemyBase : MonoBehaviour
     // LateUpdate for physics
     void LateUpdate()
     {
-        if (target && target2 != null)
-        {
             if (target2 != null)
             {
                 this.transform.LookAt(target2.position);                               //Enemy faces player
@@ -127,7 +125,6 @@ public class enemyBase : MonoBehaviour
                     head.SetBool("InRange", true);
                 }
             }
-        }
     }
 
     public void Die()
