@@ -47,6 +47,16 @@ public class Gun : MonoBehaviour
 
  
 
+   public void miniGunFire()
+    {
+        //acrtivate mini gun
+        gameObject.GetComponent<GunEquipper>().activeMiniGun();
+        //start corutine to constantly fire
+        StartCoroutine("miniGunAttack");
+        //stop the firing
+        CancelInvoke("fireBullet");
+    }
+
     public void fireBullet()
     {   // 1   
         Debug.Log(ammo.GetAmmo(tag));

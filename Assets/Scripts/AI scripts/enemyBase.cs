@@ -2,23 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.AI;       //for AI mechs like navmesh
+
+
+/*AGENT class - makes use of behaviors from SHOULDERSHOOTER to create intelligence choices*/
 
 public class enemyBase : MonoBehaviour
 
 {
     public float speed = 3.0f;
-    public float accuracy;      //enemy accuracy to player before enemy stops moving
-    public Transform target;             //goal is hero/player
+    public float accuracy = 0.09f;      //enemy accuracy to player before enemy stops moving
+    public float Accel = 5.0f;            //for speed, accuracy and SLERP to pick up breifly when grenade is tossed (SpeedMult)
+    public float orientation;
+    public float rotation = 0.0f;
+    public Transform target;             //target is hero/player
+    public Vector3 stoppingDistance;
+    public GameObject grenade;          //EnemyBase can recognize the grenade
+    NavMeshAgent enemy;                 //AI navigate
+    protected Lure lure;
+    public GameObject currencyprefab;
     public UnityEvent onDestroy;
     public int ehealth = 5;
-    public GameObject currencyprefab;
+    private int newehealth;
+    public Transform target2;
     int chance;
     public GameObject currencyprefab2;
     public GameObject hitPrefab;
     public GameObject enemyDeathPrefab;
 
     public Animator head;
-
 
 
     private AudioManager audioManager;
@@ -42,16 +54,21 @@ public class enemyBase : MonoBehaviour
         {
             Debug.LogError("AudioManager not found!!!");
         }
+
     }
+
 
     // update is called every frame
     void Update()
     {
-        Debug.Log(ehealth);
         //if the ehealth of a enemy is equal or lesss than 0 it dies
         if (ehealth <= 0)
         {
             Die();
+
+            GameObject currency = Instantiate(currencyprefab) as GameObject;
+            currencyprefab.transform.position = this.transform.position;
+
             Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
             // Play sound
             audioManager.PlaySound("RobotDeathSound");
@@ -83,30 +100,48 @@ public class enemyBase : MonoBehaviour
     // LateUpdate for physics
     void LateUpdate()
     {
-        if (target != null)
-        {
-            this.transform.LookAt(target.position);                               //Enemy faces player
-            Vector3 direction;
-            direction = new Vector3(target.position.x, 0.0f, target.position.z) - new Vector3(this.transform.position.x, 0, this.transform.position.z);
-            Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
-
-            if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
+            if (target2 != null)
             {
+                this.transform.LookAt(target2.position);                               //Enemy faces player
+                Vector3 direction = target2.position - this.transform.position;        //enemy direction: where its going MINUS where it is
+                Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
 
-                this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in global space
-
-                if (Time.timeScale > 0)
+                if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
                 {
-                    audioManager.PlaySound("RobotSound");
+                    this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in
+                                                                                                                //in global space
+                    if (Time.timeScale > 0)
+                    {
+                        audioManager.PlaySound("RobotSound");
+                    }
+                    head.SetBool("InRange", false);
                 }
-
-                head.SetBool("InRange", false);
+                else
+                {
+                    head.SetBool("InRange", true);
+                }
             }
             else
             {
-                head.SetBool("InRange", true);
+                this.transform.LookAt(target.position);                               //Enemy faces player
+                Vector3 direction = target.position - this.transform.position;        //enemy direction: where its going MINUS where it is
+                Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
+
+                if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
+                {
+                    this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);       //..Then move towards the player in
+                                                                                                                //in global space
+                    if (Time.timeScale > 0)
+                    {
+                        audioManager.PlaySound("RobotSound");
+                    }
+                    head.SetBool("InRange", false);
+                }
+                else
+                {
+                    head.SetBool("InRange", true);
+                }
             }
-        }    
     }
 
     public void Die()

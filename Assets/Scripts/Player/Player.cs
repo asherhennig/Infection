@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //initialized current health and max health and other public vars
-    public int curHealth = 5;
+    public int curHealth;
     public int maxHealth;
     public float speed = 10;
     public float rotSpeed = 1.0f;
@@ -94,6 +94,11 @@ public class Player : MonoBehaviour
 
     public void pickUpMiniGun()
     {
+
+        //get component to fire the mini gun for 15 seconds
+        gameObject.GetComponent<Gun>().miniGunFire();
+        //deactivate the mini gun and reactivate pistol
+        gameObject.GetComponent<GunEquipper>().deactiveMiniGun();
         StartCoroutine("fireMiniGun");
     }
     //checks which pickup we got to know its effect
