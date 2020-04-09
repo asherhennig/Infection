@@ -15,6 +15,7 @@ public class SaveSystem : MonoBehaviour
     int maxHealth;
     int difficulty;
     int level;
+    float difficultymod;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class SaveSystem : MonoBehaviour
         money = GetComponent<GameManager>().bubblegum;
         maxHealth = Player.GetComponent<Player>().maxHealth;
         difficulty = GetComponent<GameManager>().curDifficulty;
+        difficultymod = GetComponent<GameManager>().difficultyMod;
     }
 
     public void gameLoad()
@@ -41,6 +43,7 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.GetInt("max health");
         PlayerPrefs.GetInt("difficulty");
         PlayerPrefs.GetInt("level");
+        PlayerPrefs.GetFloat("difMod");
         Debug.Log(health);
 
     }
@@ -56,6 +59,7 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetInt("max health", maxHealth);
         PlayerPrefs.SetInt("difficulty", difficulty);
         PlayerPrefs.SetInt("level", level);
+        PlayerPrefs.SetFloat("difMod", difficultymod);
         Debug.Log(health);
         Debug.Log(money);
     }
