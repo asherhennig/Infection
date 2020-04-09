@@ -35,10 +35,10 @@ public class SceneMusic : MonoBehaviour
         {
             audioManager.PlaySound("LabBGM");
         }
-        //else if (sceneName == "") // Add when there is a forest scene
-        //{
-        //    audioManager.PlaySound("ForestBGM");
-        //}
+        else if (sceneName == "Level2_Forest") // Add when there is a forest scene
+        {
+            audioManager.PlaySound("ForestBGM");
+        }
         //else if (sceneName == "") // Add when there is a launchpad scene
         //{
         //    audioManager.PlaySound("LaunchpadBGM");
