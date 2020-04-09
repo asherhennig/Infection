@@ -13240,6 +13240,7 @@ MonoBehaviour:
   speed: 1
   accuracy: 2
   target: {fileID: 0}
+  target2: {fileID: 0}
   onDestroy:
     m_PersistentCalls:
       m_Calls: []
@@ -13252,7 +13253,7 @@ MonoBehaviour:
     type: 3}
   hitPrefab: {fileID: 6511216531592707412, guid: d7c08a461f9b0b146b65fda2f7c94349,
     type: 3}
-  enemyDeathPrefab: {fileID: 1261324267469164459, guid: 2158086796f7a0346a90df483ae8ae85,
+  enemyDeathPrefab: {fileID: 1261324267469164459, guid: 69a7fab2c0617c44bbee74a49973d2e6,
     type: 3}
   head: {fileID: 0}
   diffMod: 1
