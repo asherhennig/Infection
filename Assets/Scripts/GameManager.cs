@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    Scene currentScene;
     private static GameManager singleton;
     public int level = 1;
     public int shotGunactive = 0;
@@ -94,7 +95,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 0; // It's 0 so the tutorial can play without enemies spawning
+        if (currentScene.name == "Lab.2")
+        {
+            Time.timeScale = 0; // It's 0 so the tutorial can play without enemies spawning
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
         tutorialCanvas.SetActive(true);
         arrayPos = 0;
 
