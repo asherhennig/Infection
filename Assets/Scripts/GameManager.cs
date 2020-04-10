@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -155,6 +156,11 @@ public class GameManager : MonoBehaviour
                     GetComponent<SaveSystem>().gameSave();
                 }
             }
+            if (wave > 5)
+            {
+                level++;
+                nextLevel();
+            }
         
         }
         
@@ -171,6 +177,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void nextLevel()
+    {
+        if (level == 1)
+        {
+            SceneManager.LoadScene("Lab.2");
+        }
+        else if (level == 2)
+        {
+            SceneManager.LoadScene("Level2_Forest");
+        }
+        else if (level == 3)
+        {
+            SceneManager.LoadScene("Level3_LaunchPad");
+        }
+    }
     public void enemyDestroyed()
     {
         //int gumChance = Random.Range(0, 10);
