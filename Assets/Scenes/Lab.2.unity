@@ -370,6 +370,12 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 1931514566}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &169288140 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4855193567315715824, guid: f10e0a83eb4a70a4abe3a9d927247e9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1931514566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &170671519
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +961,7 @@ PrefabInstance:
     - target: {fileID: 3517764563064767512, guid: a0aeb5b4d30b00a45b5f24caef485082,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3517764563064767512, guid: a0aeb5b4d30b00a45b5f24caef485082,
         type: 3}
@@ -1475,7 +1481,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 2, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &340670882
 GameObject:
@@ -1773,7 +1779,7 @@ PrefabInstance:
     - target: {fileID: 7110997855309831082, guid: 5391f74a5dfa1e446898048783748a7a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7110997855309831082, guid: 5391f74a5dfa1e446898048783748a7a,
         type: 3}
@@ -3670,9 +3676,9 @@ MonoBehaviour:
   Accel: 5
   orientation: 0
   rotation: 0
-  target: {fileID: 0}
+  target: {fileID: 169288140}
   stoppingDistance: {x: 0, y: 0, z: 0}
-  grenade: {fileID: 0}
+  grenade: {fileID: 1103918751852494524, guid: f3ba7ce77b9fedb4980f010d0b7a781c, type: 3}
   currencyprefab: {fileID: 0}
   onDestroy:
     m_PersistentCalls:
@@ -4586,7 +4592,7 @@ PrefabInstance:
     - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
         type: 3}
@@ -5100,7 +5106,7 @@ PrefabInstance:
     - target: {fileID: 224693947513766648, guid: fcfb3f8197299b04c9b8add4a2220e48,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 224693947513766648, guid: fcfb3f8197299b04c9b8add4a2220e48,
         type: 3}
@@ -6121,7 +6127,7 @@ PrefabInstance:
     - target: {fileID: 7110997855309831082, guid: 5391f74a5dfa1e446898048783748a7a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7110997855309831082, guid: 5391f74a5dfa1e446898048783748a7a,
         type: 3}
@@ -6381,7 +6387,7 @@ PrefabInstance:
     - target: {fileID: 7110997855309831082, guid: 5391f74a5dfa1e446898048783748a7a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7110997855309831082, guid: 5391f74a5dfa1e446898048783748a7a,
         type: 3}
@@ -6455,7 +6461,7 @@ PrefabInstance:
     - target: {fileID: 7110997855309831082, guid: 5391f74a5dfa1e446898048783748a7a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7110997855309831082, guid: 5391f74a5dfa1e446898048783748a7a,
         type: 3}
@@ -6847,7 +6853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3875218cdd716704c808d620962c360c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 1238664754}
+  Target: {fileID: 169288140}
   chaseRange: 10
 --- !u!114 &1742486869
 MonoBehaviour:
@@ -6868,13 +6874,14 @@ MonoBehaviour:
   rotation: 0
   target: {fileID: 1238664754}
   stoppingDistance: {x: 0, y: 0, z: 0}
-  grenade: {fileID: 0}
-  currencyprefab: {fileID: 0}
+  grenade: {fileID: 1103918751852494524, guid: f3ba7ce77b9fedb4980f010d0b7a781c, type: 3}
+  currencyprefab: {fileID: 3771373586743204784, guid: 92fa12cd89386e245bed23b8fe353e38,
+    type: 3}
   onDestroy:
     m_PersistentCalls:
       m_Calls: []
   ehealth: 5
-  target2: {fileID: 0}
+  target2: {fileID: 1103918751852061340, guid: f3ba7ce77b9fedb4980f010d0b7a781c, type: 3}
   currencyprefab2: {fileID: 0}
   hitPrefab: {fileID: 0}
   enemyDeathPrefab: {fileID: 0}
@@ -7050,7 +7057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: 939d9555b36755849b9de6850cf30f2e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: 939d9555b36755849b9de6850cf30f2e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7400,6 +7407,12 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 31.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5751648005244308286, guid: f10e0a83eb4a70a4abe3a9d927247e9a,
+        type: 3}
+      propertyPath: shotgun
+      value: 
+      objectReference: {fileID: 2770092862140750304, guid: a8d05c05a6850c446807099f6380c476,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f10e0a83eb4a70a4abe3a9d927247e9a, type: 3}
 --- !u!1001 &1933166770
@@ -7978,7 +7991,7 @@ Transform:
   m_LocalScale: {x: 9.3612, y: 1.5602, z: 9.3612}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2004077889
 GameObject:

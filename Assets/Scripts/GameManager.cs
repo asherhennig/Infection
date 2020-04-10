@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] itemSpawnPoints;
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
+    public GameObject enemy2;
+    public GameObject enemy3;
     public GameObject[] pickUpPrefab;
     GameObject[] buyShotgun;
     GameObject[] buyShells;
