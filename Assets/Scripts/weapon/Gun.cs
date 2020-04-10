@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public static Gun instance;
     public int weaponDam;
     public GameObject bulletPrefab;
     public Transform firePosition;
@@ -17,8 +16,6 @@ public class Gun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
-
         audioManager = AudioManager.instance;
         if (audioManager == null)
         {
@@ -29,23 +26,16 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //fire();
     }
 
     public void fire()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            //if (!IsInvoking("fireBullet") && ammo.HasAmmo(tag))
-            {
-                InvokeRepeating("fireBullet", 0f, fireSpeed);
-            }
-        }
+        InvokeRepeating("fireBullet", 0f, fireSpeed);
+    }
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            CancelInvoke("fireBullet");
-        }
+    public void stopFiring()
+    {
+        CancelInvoke("fireBullet");
     }
     
    public void miniGunFire()
