@@ -95,17 +95,15 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentScene = SceneManager.GetActiveScene();
+
         if (currentScene.name == "Lab.2")
         {
             Time.timeScale = 0; // It's 0 so the tutorial can play without enemies spawning
         }
-        else
-        {
-            Time.timeScale = 1;
-        }
+
         tutorialCanvas.SetActive(true);
         arrayPos = 0;
-
         
         singleton = this;
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
@@ -130,7 +128,7 @@ public class GameManager : MonoBehaviour
     {
         updateStatText();
 
-        if(level ==1)
+        if(level == 1)
         {
             Tutorial(); // plays tutorial
         }
