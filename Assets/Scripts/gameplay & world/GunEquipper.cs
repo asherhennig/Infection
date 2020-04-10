@@ -74,9 +74,10 @@ public class GunEquipper : MonoBehaviour
             heroAnim.SetBool("SetActive_pistol", true);
             heroAnim.SetBool("SetActive_shotgun", false);
         }
-        else if (Input.GetKeyDown("2") && shotgun.GetComponent<shotGun>().isPurchased == true)
+        else if (Input.GetKeyDown("2") && GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>().shotGunactive != 0)
         {
             loadWeapons(shotgun);
+          
             activeWeaponType = Constants.Shotgun;
 
             heroAnim.SetBool("SetActive_shotgun", true);
