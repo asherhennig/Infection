@@ -198,6 +198,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Level3_LaunchPad");
         }
     }
+
     public void enemyDestroyed()
     {
         //int gumChance = Random.Range(0, 10);
@@ -211,11 +212,23 @@ public class GameManager : MonoBehaviour
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
     }
+
+    public void Prices()
+    {
+        foreach (GameObject g in buyShotgun)
+        {
+            price = 1000;
+            itemID = 1;
+            Debug.Log("Testing");
+        }
+    }
+
     public void Prices1()
     {
         foreach (GameObject g in buyShells)
         {
             price = 200;
+            itemID = 2;
             Debug.Log("Testing1");
         }
     }
@@ -225,6 +238,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyNade)
         {
             price = 3000;
+            itemID = 3;
             Debug.Log("Testing2");
         }
     }
@@ -233,9 +247,9 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyHealth)
         {
             price = 2500;
+            itemID = 4;
             Debug.Log("Testing3");
         }
-
     }
 
     public void Prices4()
@@ -243,15 +257,26 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyMax)
         {
             price = 5000;
+            itemID = 5;
             Debug.Log("Testing4");
         }
     }
+
     public void Prices5()
     {
         foreach (GameObject g in buyBrain)
         {
             price = 3500;
+            itemID = 6;
             Debug.Log("Testing5");
+        }
+    }
+
+    public void Purchase()
+    {
+        foreach (GameObject g in purchase)
+        {
+            g.SetActive(true);
         }
     }
 
