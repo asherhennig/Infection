@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0; // It's 0 so the tutorial can play without enemies spawning
         tutorialCanvas.SetActive(true);
         arrayPos = 0;
-
+        wave = 0;
         
         singleton = this;
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
