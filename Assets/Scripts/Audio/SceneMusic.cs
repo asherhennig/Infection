@@ -31,11 +31,11 @@ public class SceneMusic : MonoBehaviour
         {
             audioManager.PlaySound("MenuBGM");
         }
-        else if (sceneName == "Lab.2") // Change when lab scene if finished
+        else if (sceneName == "Lab.2")
         {
             audioManager.PlaySound("LabBGM");
         }
-        else if (sceneName == "Level2_Forest") // Add when there is a forest scene
+        else if (sceneName == "Level2_Forest")
         {
             audioManager.PlaySound("ForestBGM");
         }

@@ -94,7 +94,6 @@ public class Player : MonoBehaviour
 
     public void pickUpMiniGun()
     {
-
         //get component to fire the mini gun for 15 seconds
         gameObject.GetComponent<Gun>().miniGunFire();
         //deactivate the mini gun and reactivate pistol
@@ -104,35 +103,44 @@ public class Player : MonoBehaviour
     //checks which pickup we got to know its effect
     public void PickUpItem(int pickupItem)
     {
-        
         switch (pickupItem)
         {
             //uses constant class to define the variables and set it to case 1, 2 .....ect.
 
             //heals 1 health point
             case Constants.healthPickUp1:
+            {
                 pickUpHealth();
                 break;
+            }
             
             //heals full
             case Constants.HealthPickUpFull:
+            {
                 maxUp();
                 break;
+            }
 
             //add one bubble gum to inventory
             case Constants.bubbleGum1:
+            { 
                 pickUp1Curr();
                 break;
+            }
 
             //add 5 bubble gum to inventory
             case Constants.bubbleGum5:
+            { 
                 picUp5Curr();
                 break;
+            }
 
             //pick up the mini gun and start shooting
             case Constants.miniGunPickUp:
+            {
                 pickUpMiniGun();
                 break;
+            }
 
             default:
                 //in case of bad pick up
@@ -140,9 +148,7 @@ public class Player : MonoBehaviour
                 break;
         }
     }
-
     
-
     // Update is called once per frame
     void Update()
     {
@@ -198,20 +204,11 @@ public class Player : MonoBehaviour
         //this makes the palyer look at the cursor when its on screen
         //creating hit and ray variables
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        //fires ray from camera and returns hit
-        if (Physics.Raycast(ray, out hit, 1000, layerMask, QueryTriggerInteraction.Ignore))
-        {
-
-            if (hit.point != currentLookTarget)
-            {
-                //Debug.Log("player not rotating");
-            }
-        }
+        Vector3 MouseAxis = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
         //sets where we want to turn to
-        Vector3 targetPositon = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+        Vector3 targetPositon = new Vector3(transform.position.x + MouseAxis.x * 10, transform.position.y, transform.position.z + MouseAxis.y * 10);
         //gives smooth roation
         Quaternion rotation = Quaternion.LookRotation(targetPositon - transform.position);
         //turns to cursor 

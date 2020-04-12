@@ -13,6 +13,9 @@ public class GunEquipper : MonoBehaviour
     public GameObject lureGrenade;
     public GameObject miniGun;
 
+    public GameObject pistolButton;
+    public GameObject shotgunButton;
+
     Animator heroAnim;
 
     Ammo Ammo;
@@ -61,37 +64,70 @@ public class GunEquipper : MonoBehaviour
 
         heroAnim.SetBool("SetActive_pistol", true);
     }
-
     
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("1"))
-        {
-            loadWeapons(pistol);
-            activeWeaponType = Constants.Pistol;
+        //if (Input.GetKeyDown("1"))
+        //{
+        //    loadWeapons(pistol);
+        //    activeWeaponType = Constants.Pistol;
 
-            heroAnim.SetBool("SetActive_pistol", true);
-            heroAnim.SetBool("SetActive_shotgun", false);
-        }
-        else if (Input.GetKeyDown("2") && GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>().shotGunactive != 0)
-        {
-            loadWeapons(shotgun);
+        //    heroAnim.SetBool("SetActive_pistol", true);
+        //    heroAnim.SetBool("SetActive_shotgun", false);
+        //}
+        //else if (Input.GetKeyDown("2") && GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>().shotGunactive != 0)
+        //{
+        //    loadWeapons(shotgun);
           
-            activeWeaponType = Constants.Shotgun;
+        //    activeWeaponType = Constants.Shotgun;
 
-            heroAnim.SetBool("SetActive_shotgun", true);
-            heroAnim.SetBool("SetActive_pistol", false);
-        }
-        else if (Input.GetKeyDown("3"))
-        {
-            loadWeapons(fragGrenade);
-            activeWeaponType = Constants.Grenade;
-        }
-        else if (Input.GetKeyDown("4"))
-        {
-            loadWeapons(lureGrenade);
-            activeWeaponType = Constants.lureGrenade;
-        }
+        //    heroAnim.SetBool("SetActive_shotgun", true);
+        //    heroAnim.SetBool("SetActive_pistol", false);
+        //}
+        //else if (Input.GetKeyDown("3"))
+        //{
+        //    loadWeapons(fragGrenade);
+        //    activeWeaponType = Constants.Grenade;
+        //}
+        //else if (Input.GetKeyDown("4"))
+        //{
+        //    loadWeapons(lureGrenade);
+        //    activeWeaponType = Constants.lureGrenade;
+        //}
+    }
+
+    public void usingPistol()
+    {
+        loadWeapons(pistol);
+        activeWeaponType = Constants.Pistol;
+        pistolButton.SetActive(true);
+        shotgunButton.SetActive(false);
+
+        heroAnim.SetBool("SetActive_pistol", true);
+        heroAnim.SetBool("SetActive_shotgun", false);
+    }
+
+    public void usingShotgun()
+    {
+        loadWeapons(shotgun);
+        activeWeaponType = Constants.Shotgun;
+        pistolButton.SetActive(false);
+        shotgunButton.SetActive(true);
+
+        heroAnim.SetBool("SetActive_shotgun", true);
+        heroAnim.SetBool("SetActive_pistol", false);
+    }
+
+    public void usingGrenade()
+    {
+        loadWeapons(fragGrenade);
+        activeWeaponType = Constants.Grenade;
+    }
+
+    public void usingBGrenade()
+    {
+        loadWeapons(lureGrenade);
+        activeWeaponType = Constants.lureGrenade;
     }
 }

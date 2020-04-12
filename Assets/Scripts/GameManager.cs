@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    Scene currentScene;
     private static GameManager singleton;
     public int level = 1;
     public int shotGunactive = 0;
@@ -94,7 +95,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 0; // It's 0 so the tutorial can play without enemies spawning
+        currentScene = SceneManager.GetActiveScene();
+
+        if (currentScene.name == "Lab.2")
+        {
+            Time.timeScale = 0; // It's 0 so the tutorial can play without enemies spawning
+        }
+
         tutorialCanvas.SetActive(true);
         arrayPos = 0;
         wave = 0;
@@ -122,7 +129,7 @@ public class GameManager : MonoBehaviour
     {
         updateStatText();
 
-        if(level ==1)
+        if(level == 1)
         {
             Tutorial(); // plays tutorial
         }
@@ -192,6 +199,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Level3_LaunchPad");
         }
     }
+
     public void enemyDestroyed()
     {
         //int gumChance = Random.Range(0, 10);
@@ -205,11 +213,23 @@ public class GameManager : MonoBehaviour
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
     }
+
+    public void Prices()
+    {
+        foreach (GameObject g in buyShotgun)
+        {
+            price = 1000;
+            itemID = 1;
+            Debug.Log("Testing");
+        }
+    }
+
     public void Prices1()
     {
         foreach (GameObject g in buyShells)
         {
             price = 200;
+            itemID = 2;
             Debug.Log("Testing1");
         }
     }
@@ -219,6 +239,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyNade)
         {
             price = 3000;
+            itemID = 3;
             Debug.Log("Testing2");
         }
     }
@@ -227,9 +248,9 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyHealth)
         {
             price = 2500;
+            itemID = 4;
             Debug.Log("Testing3");
         }
-
     }
 
     public void Prices4()
@@ -237,15 +258,26 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyMax)
         {
             price = 5000;
+            itemID = 5;
             Debug.Log("Testing4");
         }
     }
+
     public void Prices5()
     {
         foreach (GameObject g in buyBrain)
         {
             price = 3500;
+            itemID = 6;
             Debug.Log("Testing5");
+        }
+    }
+
+    public void Purchase()
+    {
+        foreach (GameObject g in purchase)
+        {
+            g.SetActive(true);
         }
     }
 

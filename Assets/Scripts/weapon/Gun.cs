@@ -26,27 +26,18 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            fire();
     }
 
     public void fire()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (!IsInvoking("fireBullet") && ammo.HasAmmo(tag))
-            {
-                InvokeRepeating("fireBullet", 0f, fireSpeed);
-            }
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            CancelInvoke("fireBullet");
-        }
+        InvokeRepeating("fireBullet", 0f, fireSpeed);
     }
 
- 
-
+    public void stopFiring()
+    {
+        CancelInvoke("fireBullet");
+    }
+    
    public void miniGunFire()
     {
         //acrtivate mini gun
@@ -73,5 +64,4 @@ public class Gun : MonoBehaviour
         // Play audio when bullet is fired
         audioManager.PlaySound("LaserSound");
     }
-
 }

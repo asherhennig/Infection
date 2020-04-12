@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1355346988739301370
 Transform:
   m_ObjectHideFlags: 0
@@ -106,9 +106,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grenade: {fileID: 938636838649551590, guid: 5dc70ac9ebc62a0418d85041fa3063c1, type: 3}
   tossPos: {fileID: 0}
-  throwPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
   throwSpeed: 0.1
   TOF: 1
   LayerMask:
     serializedVersion: 2
     m_Bits: 0
+  ammo: {fileID: 0}
+  inHand: {fileID: 0}
+  isPurchased: 0
+  fuseTime: 10
