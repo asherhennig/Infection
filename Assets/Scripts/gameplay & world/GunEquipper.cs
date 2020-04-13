@@ -61,7 +61,7 @@ public class GunEquipper : MonoBehaviour
     {
         loadWeapons(pistol);
         activeWeaponType = Constants.Pistol;
-
+        heroAnim.SetBool("SetActive_miniGun", false);
         heroAnim.SetBool("SetActive_pistol", true);
     }
     
