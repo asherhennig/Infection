@@ -12,7 +12,7 @@ public class Shoulders : MonoBehaviour
     [SerializeField]
     Transform Target;   //player location
     [SerializeField]
-    public float chaseRange = 10.0f;
+    public float chaseRange = 10.0f;    //flee to player within this radius
     NavMeshAgent ShooterZar;
 
     float distanceToTarget = Mathf.Infinity;    // if Initialized at 0, Enemy AI will head straight for player                                            
@@ -65,8 +65,13 @@ public class Shoulders : MonoBehaviour
 
     }
 
-    [Task]
-
+    //[Task]
+    //public bool ViewTarget()
+    //{
+    //    Vector3 Distance = Target.transform.position - this.transform.position;
+    //    RaycastHit hit;
+    //    Debug.DrawRay(this.transform.position, Distance, Color.red);
+    //}
 
 
 
