@@ -39,6 +39,11 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
+    public Toggle SFXtoggle;
+    public Slider SFXslider;
+    public Toggle BGMtoggle;
+    public Slider BGMslider;
+
     [SerializeField]
     Sound[] sounds;
 
@@ -62,6 +67,18 @@ public class AudioManager : MonoBehaviour
             go.transform.SetParent(this.transform);
             sounds[i].SetSource(go.AddComponent<AudioSource>());
         }
+
+        SFXtoggle.GetComponent<Toggle>();
+        SFXslider.GetComponent<Slider>();
+
+        SFXtoggle.isOn = GetBool("SFXToggle");
+        SFXslider.value = PlayerPrefs.GetFloat("SFXSlider");
+
+        BGMtoggle.GetComponent<Toggle>();
+        BGMslider.GetComponent<Slider>();
+
+        BGMtoggle.isOn = GetBool("BGMToggle");
+        BGMslider.value = PlayerPrefs.GetFloat("BGMSlider");
     }
 
     public void PlaySound(string soundName)
@@ -85,11 +102,98 @@ public class AudioManager : MonoBehaviour
         Debug.Log("AudioManager: Sound not found in list, " + soundName);
     }
 
-    public void SetVolume(Slider slider)
+    public void SetSFXVolume()
+    {
+        if (SFXtoggle.isOn)
+        {
+            SFXslider.value = 0;
+            PlayerPrefs.SetFloat("SFXSlider", SFXslider.value);
+            SetBool("SFXToggle", true);
+        }
+        else
+        {
+            SFXtoggle.isOn = false;
+            SetBool("SFXToggle", false);
+
+            for (int i = 0; i < sounds.Length; i++)
+            {
+                if (sounds[i].name != "MenuBGM" && sounds[i].name != "LabBGM" && sounds[i].name != "ForestBGM" && sounds[i].name != "LaunchpadBGM")
+                {
+                    sounds[i].SetVolume(SFXslider.value);
+                    PlayerPrefs.SetFloat("SFXSlider", SFXslider.value);
+                }
+            }
+        }
+    }
+
+    public void MuteSFXButton()
     {
         for (int i = 0; i < sounds.Length; i++)
         {
-            sounds[i].SetVolume(slider.value);
+            if (sounds[i].name != "MenuBGM" && sounds[i].name != "LabBGM" && sounds[i].name != "ForestBGM" && sounds[i].name != "LaunchpadBGM")
+            {
+                sounds[i].SetVolume(0);
+                SFXslider.value = 0;
+                PlayerPrefs.SetFloat("SFXSlider", SFXslider.value);
+                SetBool("SFXToggle", true);
+            }
+        }
+    }
+
+    public void SetBGMVolume()
+    {
+        if (BGMtoggle.isOn)
+        {
+            BGMslider.value = 0;
+            PlayerPrefs.SetFloat("BGMSlider", BGMslider.value);
+            SetBool("BGMToggle", true);
+        }
+        else
+        {
+            BGMtoggle.isOn = false;
+            SetBool("BGMToggle", false);
+
+            for (int i = 0; i < sounds.Length; i++)
+            {
+                if (sounds[i].name == "MenuBGM" || sounds[i].name == "LabBGM" || sounds[i].name == "ForestBGM" || sounds[i].name == "LaunchpadBGM")
+                {
+                    sounds[i].SetVolume(BGMslider.value);
+                    PlayerPrefs.SetFloat("BGMSlider", BGMslider.value);
+                }
+            }
+        }
+    }
+
+    public void MuteBGMButton()
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name == "MenuBGM" || sounds[i].name == "LabBGM" || sounds[i].name == "ForestBGM" || sounds[i].name == "LaunchpadBGM")
+            {
+                sounds[i].SetVolume(0);
+                BGMslider.value = 0;
+                PlayerPrefs.SetFloat("BGMSlider", BGMslider.value);
+                SetBool("BGMToggle", true);
+            }
+        }
+    }
+
+    public static void SetBool(string key, bool state)
+    {
+        PlayerPrefs.SetInt(key, state ? 1 : 0);
+    }
+
+    public static bool GetBool(string key)
+    {
+        int value = PlayerPrefs.GetInt(key);
+
+        if (value == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
