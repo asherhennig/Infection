@@ -12,8 +12,7 @@ public class Grenade : MonoBehaviour
     public LayerMask LayerMask;
     public Ammo ammo;
     float gravity = 60f;
-    public MeshRenderer inHandp1;
-    public MeshRenderer inHandp2;
+    public MeshRenderer inHand;
     public bool isPurchased;
 
 
@@ -22,7 +21,7 @@ public class Grenade : MonoBehaviour
     {
     }
 
-    IEnumerator thrownGrenade()
+    IEnumerator myCoroutine()
     {
         ammo.ConsumeAmmo(tag);
         //spawns grenade we want thrown
@@ -87,16 +86,14 @@ public class Grenade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ammo.HasAmmo(tag) == true)
+        if(ammo.HasAmmo(tag))
         {
-            inHandp1.enabled = true;
-            inHandp2.enabled = false;
+            inHand.enabled = true;
             throwGrenade();
         }
         else
         {
-            inHandp1.enabled = false;
-            inHandp2.enabled = false;
+            inHand.enabled = false;
         }
     }
     void throwGrenade()
@@ -118,6 +115,6 @@ public class Grenade : MonoBehaviour
     //throws grenade
     void toss()
     {
-        StartCoroutine(thrownGrenade());
+        StartCoroutine(myCoroutine());
     }
 }
