@@ -110,33 +110,24 @@ public class GunEquipper : MonoBehaviour
 
     public void usingShotgun()
     {
-        if (GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>().shotGunactive != 0)
-        {
-            loadWeapons(shotgun);
-            activeWeaponType = Constants.Shotgun;
-            pistolButton.SetActive(false);
-            shotgunButton.SetActive(true);
+        loadWeapons(shotgun);
+        activeWeaponType = Constants.Shotgun;
+        pistolButton.SetActive(false);
+        shotgunButton.SetActive(true);
 
-            heroAnim.SetBool("SetActive_shotgun", true);
-            heroAnim.SetBool("SetActive_pistol", false);
-        }
+        heroAnim.SetBool("SetActive_shotgun", true);
+        heroAnim.SetBool("SetActive_pistol", false);
     }
 
     public void usingGrenade()
     {
-        if (GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>().fragActive != 0)
-        {
-            loadWeapons(fragGrenade);
-            activeWeaponType = Constants.Grenade;
-        }
+        loadWeapons(fragGrenade);
+        activeWeaponType = Constants.Grenade;
     }
 
     public void usingBGrenade()
     {
-        if (GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>().lureActive != 0)
-        {
-            loadWeapons(lureGrenade);
-            activeWeaponType = Constants.lureGrenade;
-        }
+        loadWeapons(lureGrenade);
+        activeWeaponType = Constants.lureGrenade;
     }
 }
