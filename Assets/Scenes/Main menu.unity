@@ -501,8 +501,8 @@ RectTransform:
   m_Father: {fileID: 1301731088}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1665,10 +1665,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1487188802}
         m_MethodName: MuteSFXButton
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 543834150}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2896,10 +2896,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1487188802}
         m_MethodName: SetBGMVolume
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1022458013}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: MenuBGM
@@ -3976,7 +3976,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5060,10 +5060,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1487188802}
         m_MethodName: MuteBGMButton
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1875580023}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5087,7 +5087,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1896156313
 Transform:
   m_ObjectHideFlags: 0
@@ -5163,6 +5163,8 @@ MonoBehaviour:
   timerText: {fileID: 0}
   bubbleGumText: {fileID: 0}
   scoreText: {fileID: 0}
+  AudManager: {fileID: 6522407077695208051, guid: 035089ad17756284e8d3da8d4ef52ec8,
+    type: 3}
   tutorialCanvas: {fileID: 0}
   tutorialText: {fileID: 0}
 --- !u!4 &1931567133
@@ -5550,26 +5552,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2229594137745025537, guid: 035089ad17756284e8d3da8d4ef52ec8,
+    - target: {fileID: 6522407077695208051, guid: 035089ad17756284e8d3da8d4ef52ec8,
         type: 3}
-      propertyPath: toggle
-      value: 
-      objectReference: {fileID: 543834150}
-    - target: {fileID: 2229594137745025537, guid: 035089ad17756284e8d3da8d4ef52ec8,
-        type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 2078724803}
-    - target: {fileID: 2229594137745025537, guid: 035089ad17756284e8d3da8d4ef52ec8,
-        type: 3}
-      propertyPath: toggle
-      value: 
-      objectReference: {fileID: 543834150}
-    - target: {fileID: 2229594137745025537, guid: 035089ad17756284e8d3da8d4ef52ec8,
-        type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 2078724803}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2229594137745025537, guid: 035089ad17756284e8d3da8d4ef52ec8,
         type: 3}
       propertyPath: SFXtoggle
@@ -5584,12 +5571,12 @@ PrefabInstance:
         type: 3}
       propertyPath: BGMtoggle
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1875580023}
     - target: {fileID: 2229594137745025537, guid: 035089ad17756284e8d3da8d4ef52ec8,
         type: 3}
       propertyPath: BGMslider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1022458013}
     - target: {fileID: 5348682790860439361, guid: 035089ad17756284e8d3da8d4ef52ec8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5735,10 +5722,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1487188802}
         m_MethodName: SetSFXVolume
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2078724803}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: MenuBGM
@@ -5761,7 +5748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2092671054
 Transform:
   m_ObjectHideFlags: 0
