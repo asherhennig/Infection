@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
 
     public void fire()
     {
-        InvokeRepeating("fireBullet", 0f, fireSpeed);
+            InvokeRepeating("fireBullet", 0f, fireSpeed);
     }
 
     public void stopFiring()
