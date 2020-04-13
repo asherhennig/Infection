@@ -311,7 +311,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
@@ -370,8 +370,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 170, y: 150}
-  m_SizeDelta: {x: 83, y: 83}
+  m_AnchoredPosition: {x: 215, y: 200}
+  m_SizeDelta: {x: 170, y: 170}
   m_Pivot: {x: 0.5, y: 0.607}
 --- !u!222 &222594308287443014
 CanvasRenderer:
@@ -434,11 +434,11 @@ MonoBehaviour:
   KnobBackground: {fileID: 114789735911289512}
   knobBackgroundFollowKnob: 1
   AnchoredAreaBounds:
-    m_Center: {x: 47.33809, y: 65.36789, z: 0}
-    m_Extent: {x: 96.4697, y: 85.36789, z: 0}
+    m_Center: {x: 71.39707, y: 117.66213, z: 0}
+    m_Extent: {x: 145.49918, y: 153.6622, z: 0}
   NormalizedAnchoredAreaBounds:
-    m_Center: {x: 0.037111744, y: 0.10894648, z: 0}
-    m_Extent: {x: 0.07562956, y: 0.14227982, z: 0}
+    m_Center: {x: 0.037111748, y: 0.10894642, z: 0}
+    m_Extent: {x: 0.075629555, y: 0.14227982, z: 0}
   MinScreenAreaBounds: {x: 0, y: 0}
   MaxScreenAreaBounds: {x: 0, y: 0}
   ScreenCenterAreaBounds: {x: 0, y: 0}
@@ -559,7 +559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1995357660738152858
 RectTransform:
   m_ObjectHideFlags: 0
@@ -839,8 +839,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -158, y: 150}
-  m_SizeDelta: {x: 83, y: 83}
+  m_AnchoredPosition: {x: -215, y: 200}
+  m_SizeDelta: {x: 170, y: 170}
   m_Pivot: {x: 0.5, y: 0.607}
 --- !u!222 &6754513915039684150
 CanvasRenderer:
@@ -894,7 +894,7 @@ MonoBehaviour:
   HorizontalAxis: Mouse X
   VerticalAxis: Mouse Y
   clampMode: 0
-  TurnLimit: 100
+  TurnLimit: NaN
   ReturnSpeed: 10
   autoHide: 0
   fadeInDuration: 0.25
@@ -903,11 +903,11 @@ MonoBehaviour:
   KnobBackground: {fileID: 114789735911289512}
   knobBackgroundFollowKnob: 1
   AnchoredAreaBounds:
-    m_Center: {x: -33.395702, y: 65.32637, z: 0}
-    m_Extent: {x: 75.52542, y: 75.52542, z: 0}
+    m_Center: {x: NaN, y: NaN, z: 0}
+    m_Extent: {x: NaN, y: NaN, z: 0}
   NormalizedAnchoredAreaBounds:
-    m_Center: {x: -0.031245977, y: 0.10887729, z: 0}
-    m_Extent: {x: 0.07066375, y: 0.1258757, z: 0}
+    m_Center: {x: NaN, y: NaN, z: 0}
+    m_Extent: {x: NaN, y: NaN, z: 0}
   MinScreenAreaBounds: {x: 0, y: 0}
   MaxScreenAreaBounds: {x: 0, y: 0}
   ScreenCenterAreaBounds: {x: 0, y: 0}
