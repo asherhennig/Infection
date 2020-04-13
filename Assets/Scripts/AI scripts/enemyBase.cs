@@ -165,7 +165,7 @@ public class enemyBase : MonoBehaviour
     public void setEnemyStats()
     {
         //health has to be recast as a int because its a float and int multiplied which is a float and health is only an int
-        ehealth = (int)((ehealth * diffMod) -1);
+        ehealth = (int)((ehealth * diffMod));
         //speed luckily can stay as a float
         speed = speed * diffMod;
     }
