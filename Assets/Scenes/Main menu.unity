@@ -5137,10 +5137,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   shotGunactive: 0
+  lureActive: 0
+  fragActive: 0
   player: {fileID: 0}
   itemSpawnPoints: []
   enemySpawnPoints: []
   enemy: {fileID: 0}
+  enemy2: {fileID: 0}
+  enemy3: {fileID: 0}
   pickUpPrefab: []
   statScreen: []
   gameUI: {fileID: 0}
