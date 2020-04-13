@@ -22,7 +22,7 @@ public class Grenade : MonoBehaviour
     {
     }
 
-    IEnumerator myCoroutine()
+    IEnumerator thrownGrenade()
     {
         ammo.ConsumeAmmo(tag);
         //spawns grenade we want thrown
@@ -118,6 +118,6 @@ public class Grenade : MonoBehaviour
     //throws grenade
     void toss()
     {
-        StartCoroutine(myCoroutine());
+        StartCoroutine(thrownGrenade());
     }
 }
