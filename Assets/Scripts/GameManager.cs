@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     //these are for the spawning of pickups
     private bool spawnedPickUp = false;
     private float actualPickUpTime = 0;
-    private float currentPickUpTime = 0;
+    private float currentPickUpTime = 10;
     //number for a random pick up in array
     int pickUpNum;
     //these are for enemy spawns
@@ -415,7 +415,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentPickUpTime > actualPickUpTime && !spawnedPickUp)
         {
-            pickUpNum = Random.Range(0, 2);
+            pickUpNum = Random.Range(0, 5);
             //generates a random number based on the number of spawn points we have and
             //assigns one to be the spawn, finally it spawns a pickup
             int randnum = Random.Range(0, itemSpawnPoints.Length - 1);
@@ -423,7 +423,7 @@ public class GameManager : MonoBehaviour
             pickUp = Instantiate(pickUpPrefab[pickUpNum]) as GameObject;
             pickUp.transform.position = spawnLocation.transform.position;
             spawnedPickUp = true;
-            actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
+            actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) + 50.0f , (pickUpMaxSpawnTime * difficultyMod));
             actualPickUpTime = Mathf.Abs(actualPickUpTime);
             Debug.Log("Spawned");
         }
