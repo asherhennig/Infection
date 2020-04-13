@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour
     public Text bubbleGumText;
     public Text scoreText;
 
+    private AudioManager audioManager;
+
     public GameObject tutorialCanvas;
     public Text tutorialText;
     int arrayPos;
@@ -95,6 +97,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = AudioManager.instance;
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found!!!");
+        }
+
         currentScene = SceneManager.GetActiveScene();
 
         if (currentScene.name == "Lab.2")
@@ -128,7 +136,7 @@ public class GameManager : MonoBehaviour
     {
         updateStatText();
 
-        if(level == 1)
+        if (currentScene.name == "Lab.2")
         {
             Tutorial(); // plays tutorial
         }
@@ -394,6 +402,7 @@ public class GameManager : MonoBehaviour
 
     public void endWave()
     {
+        audioManager.PlaySound("WaveClearSound");
         activeWave = false;
         restTimer = 10;
         curSpawnedWave = 0;
