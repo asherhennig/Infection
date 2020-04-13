@@ -31,14 +31,14 @@ public class SceneMusic : MonoBehaviour
         {
             audioManager.PlaySound("MenuBGM");
         }
-        else if (sceneName == "Humza's Scene") // Change when lab scene if finished
+        else if (sceneName == "Lab.2")
         {
             audioManager.PlaySound("LabBGM");
         }
-        //else if (sceneName == "") // Add when there is a forest scene
-        //{
-        //    audioManager.PlaySound("ForestBGM");
-        //}
+        else if (sceneName == "Level2_Forest")
+        {
+            audioManager.PlaySound("ForestBGM");
+        }
         //else if (sceneName == "") // Add when there is a launchpad scene
         //{
         //    audioManager.PlaySound("LaunchpadBGM");

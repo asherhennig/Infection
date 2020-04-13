@@ -9,15 +9,29 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject game;
+
     void Start()
     {
         Time.timeScale = 1;
+        game = GameObject.FindGameObjectWithTag("gameManager");
     }
 
     public void PlayButton()
     {
-
-        SceneManager.LoadScene("Lab");
+        if (game.GetComponent<GameManager>().level == 1)
+        {
+            SceneManager.LoadScene("Lab.2");
+        }
+        else if(game.GetComponent<GameManager>().level == 2)
+        {
+            SceneManager.LoadScene("Level2_Forest");
+        }
+        else if (game.GetComponent<GameManager>().level == 3)
+        {
+            SceneManager.LoadScene("Level3_LaunchPad");
+        }
+                
     }
     
     public void quit()

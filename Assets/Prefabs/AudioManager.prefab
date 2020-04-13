@@ -81,14 +81,8 @@ MonoBehaviour:
   - name: PickupSound
     clip: {fileID: 8300000, guid: 48fb2ceea9ff8b1449393f357b491a01, type: 3}
     source: {fileID: 0}
-  - name: PowerupSound
-    clip: {fileID: 8300000, guid: 370ba73bf9b9f9c428b0dc4977fd8eaa, type: 3}
-    source: {fileID: 0}
   - name: WaveClearSound
     clip: {fileID: 8300000, guid: 95cbf38c7ffe35d47a0cd29d0b17e81c, type: 3}
-    source: {fileID: 0}
-  - name: DoorSound
-    clip: {fileID: 8300000, guid: f1003126972dea3459c4d013f6134a10, type: 3}
     source: {fileID: 0}
 --- !u!114 &1718510779
 MonoBehaviour:
@@ -99,6 +93,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6522407077695208051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 528720b3a5e4bd549b288abdb63aa1e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 779f5617cb22829459cd69a81fecd4e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

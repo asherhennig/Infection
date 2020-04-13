@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    Scene currentScene;
     private static GameManager singleton;
-    public int level = 0;
+    public int level = 1;
+    public int shotGunactive = 0;
+    public int lureActive = 0;
+    public int fragActive = 0;
     //game objects that will be needed in the script
     public GameObject player;
     private Player player1;
@@ -16,6 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject enemy2;
     public GameObject enemy3;
     public GameObject[] pickUpPrefab;
+    public GameObject[] statScreen;
     GameObject[] buyShotgun;
     GameObject[] buyShells;
     GameObject[] buyNade;
@@ -61,48 +68,112 @@ public class GameManager : MonoBehaviour
     public float difficultyMod = 1.0f;
     //text mesh for dificulty selector
     public TextMeshProUGUI output;
+    public Ammo ammo;
+    public Text timerText;
+    public Text bubbleGumText;
+    public Text scoreText;
+
+    public GameObject tutorialCanvas;
+    public Text tutorialText;
+    int arrayPos;
+    string[] textArray = { "Well hello there!",
+                           "I didn't realize anyone was still around.",
+                           "I see you were sleeping, you've missed quite a bit",
+                           "I'll keep it short",
+                           "I need you to get the cure off this planet to save the universe.",
+                           "But before you begin, I should teach you some things...",
+                           "This is an item that heals you for a bit of health",
+                           "This item fully heals you",
+                           "This next one is a minigun! cool, right? It can help you get out of sticky situations",
+                           "Also, if you find any bubblegum, I would appreciate it if you could give them to me",
+                           "Not for free, of course. I'll trade in some items of your choosing",
+                           "To begin with, here is a laser gun, free of charge",
+                           "Oh no! There's an enemy spotted ahead.",
+                           "Use the left stick to move and the right stick to turn and shoot" };
 
     void Awake()
     {
         player1 = GameObject.FindObjectOfType<Player>();
+        ammo = GetComponent<Ammo>();
     }
     // Start is called before the first frame update
     void Start()
     {
-        singleton = this;
+        currentScene = SceneManager.GetActiveScene();
 
-        Time.timeScale = 1;
+        if (currentScene.name == "Lab.2")
+        {
+            Time.timeScale = 0; // It's 0 so the tutorial can play without enemies spawning
+        }
+
+        tutorialCanvas.SetActive(true);
+        arrayPos = 0;
+        
+        singleton = this;
+        actualPickUpTime = Mathf.Abs(actualPickUpTime);
         restTimer = 0;
         StartCoroutine("updatedRestTimer");
+        buyShotgun = GameObject.FindGameObjectsWithTag("BuyShotgun");
+        buyShells = GameObject.FindGameObjectsWithTag("BuyShells");
+        buyNade = GameObject.FindGameObjectsWithTag("BuyNade");
+        buyHealth = GameObject.FindGameObjectsWithTag("BuyHealth");
+        buyMax = GameObject.FindGameObjectsWithTag("BuyMax");
+        buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
+        purchase = GameObject.FindGameObjectsWithTag("Purchase");
+        HidePurchase();
         setDifficulty(curDifficulty);
         actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
-        actualPickUpTime = Mathf.Abs(actualPickUpTime);
+        GetComponent<SaveSystem>().gameLoad();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        updateStatText();
+
+        if(level == 1)
+        {
+            Tutorial(); // plays tutorial
+        }
+
         StartCoroutine("updatedRestTimer");
         //updating pick up spawn time
         currentPickUpTime += Time.deltaTime;
-        //checks if the current spawn time is more than the upgrade spawn time and that one isnt spawned
-        if (pickUpPrefab.Length > 0)
+        if (wave <= 5)
         {
-            spawnItems();
-        }
-        if (activeWave)
-        {
-            //checks if its time to spawn
-            if (curSpawnedWave < MaxPerWave)
+            //checks if the current spawn time is more than the upgrade spawn time and that one isnt spawned
+            if (pickUpPrefab.Length > 0)
             {
-                spawnWave();
+                spawnItems();
             }
-            else if (curSpawnedWave == MaxPerWave && enemiesOnScreen == 0)
+            if (activeWave)
             {
-                endWave();
+                //checks if its time to spawn
+                if (curSpawnedWave < MaxPerWave)
+                {
+                    spawnWave();
+                }
+                else if (curSpawnedWave == MaxPerWave && enemiesOnScreen == 0)
+                {
+                    endWave();
+                    for (int i = 0; i < statScreen.Length; i++)
+                    {
+                        statScreen[i].SetActive(true);
+                    }
+                    Time.timeScale = 0;
+                    //load shop menu here
+                    GetComponent<SaveSystem>().gameSave();
+                }
             }
+            if (wave > 5)
+            {
+                level++;
+                nextLevel();
+            }
+        
         }
+        
     }
 
     private IEnumerator updatedRestTimer()
@@ -113,6 +184,22 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(10);
             activeWave = true;
 
+        }
+    }
+
+    void nextLevel()
+    {
+        if (level == 1)
+        {
+            SceneManager.LoadScene("Lab.2");
+        }
+        else if (level == 2)
+        {
+            SceneManager.LoadScene("Level2_Forest");
+        }
+        else if (level == 3)
+        {
+            SceneManager.LoadScene("Level3_LaunchPad");
         }
     }
 
@@ -129,11 +216,23 @@ public class GameManager : MonoBehaviour
         //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
         Debug.Log("enemy destroyed");
     }
+
+    public void Prices()
+    {
+        foreach (GameObject g in buyShotgun)
+        {
+            price = 1000;
+            itemID = 1;
+            Debug.Log("Testing");
+        }
+    }
+
     public void Prices1()
     {
         foreach (GameObject g in buyShells)
         {
             price = 200;
+            itemID = 2;
             Debug.Log("Testing1");
         }
     }
@@ -143,6 +242,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyNade)
         {
             price = 3000;
+            itemID = 3;
             Debug.Log("Testing2");
         }
     }
@@ -151,9 +251,9 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyHealth)
         {
             price = 2500;
+            itemID = 4;
             Debug.Log("Testing3");
         }
-
     }
 
     public void Prices4()
@@ -161,15 +261,26 @@ public class GameManager : MonoBehaviour
         foreach (GameObject g in buyMax)
         {
             price = 5000;
+            itemID = 5;
             Debug.Log("Testing4");
         }
     }
+
     public void Prices5()
     {
         foreach (GameObject g in buyBrain)
         {
             price = 3500;
+            itemID = 6;
             Debug.Log("Testing5");
+        }
+    }
+
+    public void Purchase()
+    {
+        foreach (GameObject g in purchase)
+        {
+            g.SetActive(true);
         }
     }
 
@@ -184,9 +295,40 @@ public class GameManager : MonoBehaviour
 
     public void Buyable()
     {
-        if (bubblegum >= price);
+        if (bubblegum >= price)
+        {
+            canPurchase = true;
+            bubblegum = bubblegum - price;
+            gameUI.SetMoneyText(bubblegum);
+            Debug.Log("Item Purchased");
+            if (itemID == 1)
+            {
+                shotGunactive = 1;
+            }
+            else if (itemID == 2)
+            {
+                ammo.shotgunAmmo = ammo.shotgunAmmo + 5;
+            }
+            else if (itemID == 3)
+            {
+                fragActive = 1;
+                ammo.GetComponent<Ammo>().grenadeAmmo ++;
+            }
+            else if (itemID == 4)
+            {
+                player1.curHealth++;
+            }
+            else if (itemID == 5)
+            {
+                player1.curHealth = player1.maxHealth;
+            }
+            else if (itemID == 6)
+            {
+                lureActive = 1;
+                ammo.GetComponent<Ammo>().lureAmmo++;
+            }
+        }
     }
-
     public void setDifficulty(int difficulty)
     {
         if (difficulty == 0)
@@ -293,5 +435,30 @@ public class GameManager : MonoBehaviour
             spawnedPickUp = false;
             Debug.Log("deactive");
         }
+    }
+
+    void Tutorial()
+    {
+        tutorialText.text = textArray[arrayPos];
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (arrayPos >= textArray.Length - 1)
+            {
+                tutorialCanvas.SetActive(false);
+                Time.timeScale = 1;
+            }
+            else
+            {
+                arrayPos++;
+            }
+        }
+    }
+
+    void updateStatText()
+    {
+        //timerText.text = restTimer.ToString();
+        bubbleGumText.text = bubblegum.ToString();
+        scoreText.text = score.ToString();
     }
 }
