@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    Scene currentScene;
     private static GameManager singleton;
     public int level = 1;
     public int shotGunactive = 0;
@@ -71,24 +70,6 @@ public class GameManager : MonoBehaviour
 
     private AudioManager audioManager;
 
-    public GameObject tutorialCanvas;
-    public Text tutorialText;
-    int arrayPos;
-    string[] textArray = { "Well hello there!",
-                           "I didn't realize anyone was still around.",
-                           "I see you were sleeping, you've missed quite a bit",
-                           "I'll keep it short",
-                           "I need you to get the cure off this planet to save the universe.",
-                           "But before you begin, I should teach you some things...",
-                           "This is an item that heals you for a bit of health",
-                           "This item fully heals you",
-                           "This next one is a minigun! cool, right? It can help you get out of sticky situations",
-                           "Also, if you find any bubblegum, I would appreciate it if you could give them to me",
-                           "Not for free, of course. I'll trade in some items of your choosing",
-                           "To begin with, here is a laser gun, free of charge",
-                           "Oh no! There's an enemy spotted ahead.",
-                           "Use the left stick to move and the right stick to turn and shoot" };
-
     void Awake()
     {
         player1 = GameObject.FindObjectOfType<Player>();
@@ -102,17 +83,9 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("AudioManager not found!!!");
         }
-
-        currentScene = SceneManager.GetActiveScene();
-
-        if (currentScene.name == "Lab.2")
-        {
-            Time.timeScale = 0; // It's 0 so the tutorial can play without enemies spawning
-        }
-
-        tutorialCanvas.SetActive(true);
-        arrayPos = 0;
         
+        Time.timeScale = 1; // It's 0 so the tutorial can play without enemies spawning
+
         singleton = this;
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
         restTimer = 0;
@@ -135,15 +108,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         updateStatText();
-
-        if (currentScene.name == "Lab.2")
-        {
-            Tutorial(); // plays tutorial
-        }
-
+        
         StartCoroutine("updatedRestTimer");
         //updating pick up spawn time
         currentPickUpTime += Time.deltaTime;
+
         if (wave <= 5)
         {
             //checks if the current spawn time is more than the upgrade spawn time and that one isnt spawned
@@ -175,9 +144,7 @@ public class GameManager : MonoBehaviour
                 level++;
                 nextLevel();
             }
-        
         }
-        
     }
 
     private IEnumerator updatedRestTimer()
@@ -440,27 +407,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Tutorial()
-    {
-        tutorialText.text = textArray[arrayPos];
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (arrayPos >= textArray.Length - 1)
-            {
-                tutorialCanvas.SetActive(false);
-                Time.timeScale = 1;
-            }
-            else
-            {
-                arrayPos++;
-            }
-        }
-    }
-
     void updateStatText()
     {
-        //timerText.text = restTimer.ToString();
+        timerText.text = restTimer.ToString();
         bubbleGumText.text = bubblegum.ToString();
         scoreText.text = score.ToString();
     }
