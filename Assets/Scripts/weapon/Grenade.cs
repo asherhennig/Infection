@@ -87,7 +87,7 @@ public class Grenade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ammo.HasAmmo(tag))
+        if(ammo.HasAmmo(tag) == true)
         {
             inHandp1.enabled = true;
             inHandp2.enabled = false;
