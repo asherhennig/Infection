@@ -71,14 +71,14 @@ public class AudioManager : MonoBehaviour
         SFXtoggle.GetComponent<Toggle>();
         SFXslider.GetComponent<Slider>();
 
-        SFXtoggle.isOn = false;
-        SFXslider.value = 1;
+        SFXtoggle.isOn = GetBool("SFXToggle");
+        SFXslider.value = PlayerPrefs.GetFloat("SFXSlider");
 
         BGMtoggle.GetComponent<Toggle>();
         BGMslider.GetComponent<Slider>();
 
-        BGMtoggle.isOn = false;
-        BGMslider.value = 1;
+        BGMtoggle.isOn = GetBool("BGMToggle");
+        BGMslider.value = PlayerPrefs.GetFloat("BGMSlider");
     }
 
     public void PlaySound(string soundName)
@@ -107,16 +107,20 @@ public class AudioManager : MonoBehaviour
         if (SFXtoggle.isOn)
         {
             SFXslider.value = 0;
+            PlayerPrefs.SetFloat("SFXSlider", SFXslider.value);
+            SetBool("SFXToggle", true);
         }
         else
         {
             SFXtoggle.isOn = false;
+            SetBool("SFXToggle", false);
 
             for (int i = 0; i < sounds.Length; i++)
             {
                 if (sounds[i].name != "MenuBGM" && sounds[i].name != "LabBGM" && sounds[i].name != "ForestBGM" && sounds[i].name != "LaunchpadBGM")
                 {
                     sounds[i].SetVolume(SFXslider.value);
+                    PlayerPrefs.SetFloat("SFXSlider", SFXslider.value);
                 }
             }
         }
@@ -130,6 +134,8 @@ public class AudioManager : MonoBehaviour
             {
                 sounds[i].SetVolume(0);
                 SFXslider.value = 0;
+                PlayerPrefs.SetFloat("SFXSlider", SFXslider.value);
+                SetBool("SFXToggle", true);
             }
         }
     }
@@ -139,16 +145,20 @@ public class AudioManager : MonoBehaviour
         if (BGMtoggle.isOn)
         {
             BGMslider.value = 0;
+            PlayerPrefs.SetFloat("BGMSlider", BGMslider.value);
+            SetBool("BGMToggle", true);
         }
         else
         {
             BGMtoggle.isOn = false;
+            SetBool("BGMToggle", false);
 
             for (int i = 0; i < sounds.Length; i++)
             {
                 if (sounds[i].name == "MenuBGM" || sounds[i].name == "LabBGM" || sounds[i].name == "ForestBGM" || sounds[i].name == "LaunchpadBGM")
                 {
                     sounds[i].SetVolume(BGMslider.value);
+                    PlayerPrefs.SetFloat("BGMSlider", BGMslider.value);
                 }
             }
         }
@@ -162,7 +172,28 @@ public class AudioManager : MonoBehaviour
             {
                 sounds[i].SetVolume(0);
                 BGMslider.value = 0;
+                PlayerPrefs.SetFloat("BGMSlider", BGMslider.value);
+                SetBool("BGMToggle", true);
             }
+        }
+    }
+
+    public static void SetBool(string key, bool state)
+    {
+        PlayerPrefs.SetInt(key, state ? 1 : 0);
+    }
+
+    public static bool GetBool(string key)
+    {
+        int value = PlayerPrefs.GetInt(key);
+
+        if (value == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
