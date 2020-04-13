@@ -252,7 +252,6 @@ public class Player : MonoBehaviour
 
         
     }
-
     //this is where eventually well do everything that happens when the player dies here
     public void Die()
     {

@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     private static GameManager singleton;
     public int level = 1;
     public int shotGunactive = 0;
+    public int lureActive = 0;
+    public int fragActive = 0;
     //game objects that will be needed in the script
     public GameObject player;
     private Player player1;
@@ -69,8 +71,6 @@ public class GameManager : MonoBehaviour
     public Text bubbleGumText;
     public Text scoreText;
 
-    private AudioManager audioManager;
-
     public GameObject tutorialCanvas;
     public Text tutorialText;
     int arrayPos;
@@ -97,12 +97,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("AudioManager not found!!!");
-        }
-
         currentScene = SceneManager.GetActiveScene();
 
         if (currentScene.name == "Lab.2")
@@ -137,7 +131,7 @@ public class GameManager : MonoBehaviour
     {
         updateStatText();
 
-        if (currentScene.name == "Lab.2")
+        if(level == 1)
         {
             Tutorial(); // plays tutorial
         }
@@ -316,6 +310,7 @@ public class GameManager : MonoBehaviour
             }
             else if (itemID == 3)
             {
+                fragActive = 1;
                 ammo.GetComponent<Ammo>().grenadeAmmo ++;
             }
             else if (itemID == 4)
@@ -328,6 +323,7 @@ public class GameManager : MonoBehaviour
             }
             else if (itemID == 6)
             {
+                lureActive = 1;
                 ammo.GetComponent<Ammo>().lureAmmo++;
             }
         }
@@ -403,7 +399,6 @@ public class GameManager : MonoBehaviour
 
     public void endWave()
     {
-        audioManager.PlaySound("WaveClearSound");
         activeWave = false;
         restTimer = 10;
         curSpawnedWave = 0;

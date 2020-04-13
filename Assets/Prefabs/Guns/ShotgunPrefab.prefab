@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353945760}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0838, y: 0, z: -0.0002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 179884741893810958}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &179884741893322528
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,11 +583,11 @@ GameObject:
   - component: {fileID: 1903344923}
   m_Layer: 0
   m_Name: ShotgunPrefab
-  m_TagString: Shotgun
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &179884741893810958
 Transform:
   m_ObjectHideFlags: 0
@@ -673,8 +673,8 @@ MonoBehaviour:
     type: 3}
   firePosition: {fileID: 1353945761}
   ammo: {fileID: 0}
-  fireSpeed: 1
-  bulletSpeed: 500
+  fireSpeed: 0.75
+  bulletSpeed: 10
   pelletsPerShot: 3
   spread: 90
   isPurchased: 0
