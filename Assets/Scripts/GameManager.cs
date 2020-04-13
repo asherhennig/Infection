@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("AudioManager not found!!!");
         }
         
-        Time.timeScale = 1; // It's 0 so the tutorial can play without enemies spawning
+        Time.timeScale = 1;
 
         singleton = this;
         actualPickUpTime = Mathf.Abs(actualPickUpTime);

@@ -84,12 +84,10 @@ public class Tutorial : MonoBehaviour
 
                     if (arrayPos == textArray.Length)
                     {
-                        Debug.Log("Switching Scenese");
                         SceneManager.LoadScene("Lab.2");
                     }
                 }
             }
-
         }
         else
         {
