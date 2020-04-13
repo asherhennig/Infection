@@ -12,7 +12,8 @@ public class Grenade : MonoBehaviour
     public LayerMask LayerMask;
     public Ammo ammo;
     float gravity = 60f;
-    public MeshRenderer inHand;
+    public MeshRenderer inHandp1;
+    public MeshRenderer inHandp2;
     public bool isPurchased;
 
 
@@ -86,14 +87,16 @@ public class Grenade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ammo.HasAmmo(tag))
+        if(ammo.HasAmmo(tag) == true)
         {
-            inHand.enabled = true;
+            inHandp1.enabled = true;
+            inHandp2.enabled = false;
             throwGrenade();
         }
         else
         {
-            inHand.enabled = false;
+            inHandp1.enabled = false;
+            inHandp2.enabled = false;
         }
     }
     void throwGrenade()

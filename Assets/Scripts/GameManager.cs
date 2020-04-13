@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     private static GameManager singleton;
     public int level = 1;
     public int shotGunactive = 0;
+    public int lureActive = 0;
+    public int fragActive = 0;
     //game objects that will be needed in the script
     public GameObject player;
     private Player player1;
@@ -307,6 +309,7 @@ public class GameManager : MonoBehaviour
             }
             else if (itemID == 3)
             {
+                fragActive = 1;
                 ammo.GetComponent<Ammo>().grenadeAmmo ++;
             }
             else if (itemID == 4)
@@ -319,6 +322,7 @@ public class GameManager : MonoBehaviour
             }
             else if (itemID == 6)
             {
+                lureActive = 1;
                 ammo.GetComponent<Ammo>().lureAmmo++;
             }
         }
