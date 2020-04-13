@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
     public float fireSpeed = 0.75f;
     public float bulletSpeed = 10.0f;
     bool miniFire = false;
-    private AudioManager audioManager;
+    public AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()

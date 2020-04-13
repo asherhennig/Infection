@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class shotGun : Gun
 {
-    private AudioManager audioManager;
+    //private AudioManager audioManager;
     public int pelletsPerShot;
     public float spread;
     public bool isPurchased;
