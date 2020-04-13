@@ -1,0 +1,15 @@
+tree("Root")
+	Succeed
+tree("LookAround")
+	while not SeePlayer
+		sequence
+			random
+				Turn(90.0)
+				Turn(-90.0)
+				Turn(135.0)
+				Turn(-135.0)
+			LookAtTarget
+			WaitRandom(1.0,3.0)
+			random
+				Fail
+				Succeed
