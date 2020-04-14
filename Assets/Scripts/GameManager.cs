@@ -78,14 +78,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
+
         audioManager = AudioManager.instance;
         if (audioManager == null)
         {
             Debug.LogError("AudioManager not found!!!");
         }
         
-        Time.timeScale = 1;
-
         singleton = this;
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
         restTimer = 0;
@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
                     {
                         statScreen[i].SetActive(true);
                     }
-                    Time.timeScale = 0;
+                    //Time.timeScale = 0;
                     //load shop menu here
                     GetComponent<SaveSystem>().gameSave();
                 }
@@ -409,7 +409,7 @@ public class GameManager : MonoBehaviour
 
     void updateStatText()
     {
-        timerText.text = restTimer.ToString();
+        //timerText.text = restTimer.ToString();
         bubbleGumText.text = bubblegum.ToString();
         scoreText.text = score.ToString();
     }
