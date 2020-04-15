@@ -33,7 +33,7 @@ public class HerdManager : MonoBehaviour
                                                                 Random.Range(-barrierLimits.y, barrierLimits.y),
                                                                 Random.Range(-barrierLimits.z, barrierLimits.z));
             allEnemy[i] = (GameObject)Instantiate(enemyPrefab, location, Quaternion.identity);
-            allEnemy[i].GetComponent<Herd>().herdsManager = this;           //now linking to Herd.cs for effective movement around the middle pod
+            allEnemy[i].GetComponent<Herd>().zarsManager = this;           //now linking to Herd.cs for effective movement around the middle pod
         }
 
         targetPos = this.transform.position;

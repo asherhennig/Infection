@@ -5,7 +5,7 @@ using UnityEngine;
 public class Herd : MonoBehaviour
 {
 
-    public HerdManager herdsManager;       //linking the HerdManager
+    public HerdManager zarsManager;       //linking the HerdManager
     public float speed;
     bool turning = false;
 
@@ -15,7 +15,7 @@ public class Herd : MonoBehaviour
     void Start()
     {
         //speed is set inbetween a random range of the min and max speed settings
-        speed = Random.Range(herdsManager.minSpeed, herdsManager.maxSpeed);
+        speed = Random.Range(zarsManager.minSpeed, zarsManager.maxSpeed);
     }
 
     // Update is called once per frame
@@ -23,9 +23,9 @@ public class Herd : MonoBehaviour
     {
         HerdFlow();
 
-        Bounds b = new Bounds(herdsManager.transform.position, herdsManager.barrierLimits * 2);
+        Bounds b = new Bounds(zarsManager.transform.position, zarsManager.barrierLimits * 2);
         RaycastHit hit;
-        Vector3 direction = herdsManager.transform.position - transform.position;
+        Vector3 direction = zarsManager.transform.position - transform.position;
 
         if (!b.Contains(transform.position))
         {
@@ -43,13 +43,13 @@ public class Herd : MonoBehaviour
         if (turning)
         {
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), herdsManager.rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), zarsManager.rotationSpeed * Time.deltaTime);
         }
         else
         {
 
             if (Random.Range(0, 100) < 10)
-                speed = Random.Range(herdsManager.minSpeed, herdsManager.maxSpeed);
+                speed = Random.Range(zarsManager.minSpeed, zarsManager.maxSpeed);
             if (Random.Range(0, 100) < 20)
                 HerdFlow();
         }
@@ -60,7 +60,7 @@ public class Herd : MonoBehaviour
     void HerdFlow()
     {
         GameObject[] Zars;              //Holder getting a hold of all the ZARs in the current herd
-        Zars = herdsManager.allEnemy;
+        Zars = zarsManager.allEnemy;
 
         Vector3 avCenter = Vector3.zero; //AV center of the group
         Vector3 avAvoid = Vector3.zero;
@@ -73,7 +73,7 @@ public class Herd : MonoBehaviour
             if (go != this.gameObject)
             {
                 neighDistance = Vector3.Distance(go.transform.position, this.transform.position);
-                if (neighDistance <= herdsManager.neighbourDist)
+                if (neighDistance <= zarsManager.neighbourDist)
                 {
                     avCenter += go.transform.position;
                     grpSize++;
@@ -91,13 +91,13 @@ public class Herd : MonoBehaviour
         }
         if (grpSize < 0)
         {
-            avCenter = avCenter / grpSize + (herdsManager.targetPos - this.transform.position);     //average position (the goals pos minus fishes current pos.
+            avCenter = avCenter / grpSize + (zarsManager.targetPos - this.transform.position);     //average position (the goals pos minus fishes current pos.
             speed = globalSpeed / grpSize;
 
                     //Slerp code for smooth animation turning once we have enemies with legs
             Vector3 direction = (avCenter + avAvoid) - transform.position;
             if (direction != Vector3.zero)
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), herdsManager.rotationSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), zarsManager.rotationSpeed * Time.deltaTime);
         }
     }
 }
