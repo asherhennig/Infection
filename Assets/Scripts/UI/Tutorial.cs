@@ -11,6 +11,9 @@ public class Tutorial : MonoBehaviour
     public GameObject minigun;
     public GameObject bubblegum;
     public GameObject enemy;
+    public GameObject continuePanel;
+    public GameObject continueButton;
+    public GameObject image;
     GameObject clone;
     bool enemyDead = false;
     bool enemyAlive = false;
@@ -34,11 +37,7 @@ public class Tutorial : MonoBehaviour
                            "Great job!",
                            "I think you're ready for the real thing now",
                            "Good luck!"};
-
-    string[] textArray2 = { "Great job!",
-                            "I think you're ready for the real thing now",
-                            "Good luck!" };
-
+    
     void Start()
     {
         Time.timeScale = 0;
@@ -73,7 +72,6 @@ public class Tutorial : MonoBehaviour
 
                 if (enemyDead == true)
                 {
-                    Time.timeScale = 0;
                     tutorialCanvas.SetActive(true);
                     tutorialText.text = textArray[arrayPos];
 
@@ -84,7 +82,8 @@ public class Tutorial : MonoBehaviour
 
                     if (arrayPos == textArray.Length)
                     {
-                        SceneManager.LoadScene("Lab.2");
+                        image.SetActive(false);
+                        continuePanel.SetActive(true);
                     }
                 }
             }
@@ -129,5 +128,21 @@ public class Tutorial : MonoBehaviour
         {
             Destroy(clone);
         }
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Lab.2");
+    }
+
+    public void ContinuePractice()
+    {
+        continuePanel.SetActive(false);
+        continueButton.SetActive(true);
+    }
+
+    public void ContinuePanel()
+    {
+        continuePanel.SetActive(true);
     }
 }
