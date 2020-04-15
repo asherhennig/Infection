@@ -23,7 +23,7 @@ public class Herd : MonoBehaviour
     {
         HerdFlow();
 
-        Bounds b = new Bounds(herdsManager.transform.position, herdsManager.limpLimits * 2);
+        Bounds b = new Bounds(herdsManager.transform.position, herdsManager.barrierLimits * 2);
         RaycastHit hit;
         Vector3 direction = herdsManager.transform.position - transform.position;
 
