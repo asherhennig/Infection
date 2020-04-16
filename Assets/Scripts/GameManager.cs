@@ -97,7 +97,6 @@ public class GameManager : MonoBehaviour
         buyMax = GameObject.FindGameObjectsWithTag("BuyMax");
         buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
         purchase = GameObject.FindGameObjectsWithTag("Purchase");
-        HidePurchase();
         setDifficulty(curDifficulty);
         actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
         GetComponent<SaveSystem>().gameLoad();
@@ -243,24 +242,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Testing5");
         }
     }
-
-    public void Purchase()
-    {
-        foreach (GameObject g in purchase)
-        {
-            g.SetActive(true);
-        }
-    }
-
-    public void HidePurchase()
-    {
-        foreach (GameObject g in purchase)
-        {
-            g.SetActive(false);
-        }
-        Debug.Log("purchase:" + purchase.Length);
-    }
-
+    
     public void Buyable()
     {
         if (bubblegum >= price)
@@ -295,6 +277,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
     public void setDifficulty(int difficulty)
     {
         if (difficulty == 0)
