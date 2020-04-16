@@ -112,48 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 399088a75ac0d4a4189fbb27ccbb8100, type: 2}
---- !u!1 &6311883
+--- !u!1 &6311883 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9208815265047552748, guid: d1e148f3be4aeb24aa85764057d16443,
     type: 3}
   m_PrefabInstance: {fileID: 5727870502726068538}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &22202600 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 537054676501825648, guid: d1e148f3be4aeb24aa85764057d16443,
-    type: 3}
-  m_PrefabInstance: {fileID: 5727870502726068538}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22202599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5a19d338c6d4b141835584f545a85dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 4
-    m_MaxSize: 50
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Well hello there!
-
-'
 --- !u!222 &6311886
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -162,12 +126,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6311883}
   m_CullTransparentMesh: 0
---- !u!1 &22202599 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9208815265047552748, guid: d1e148f3be4aeb24aa85764057d16443,
+--- !u!114 &22202600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 537054676501825648, guid: d1e148f3be4aeb24aa85764057d16443,
     type: 3}
   m_PrefabInstance: {fileID: 5727870502726068538}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6311883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a19d338c6d4b141835584f545a85dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &32776637 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 702378081175345548, guid: 5391f74a5dfa1e446898048783748a7a,
@@ -1054,7 +1024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d86d81becb35a4d8e042b39d86ffe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followTarget: {fileID: 22202599}
+  followTarget: {fileID: 6311883}
   moveSpeed: 5
 --- !u!4 &273781063
 Transform:
@@ -4039,7 +4009,7 @@ PrefabInstance:
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 22202599}
+      objectReference: {fileID: 6311883}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: enemy
       value: 
@@ -6091,7 +6061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd910f5e968223343b48fe87122b16fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 22202599}
+  Player: {fileID: 0}
 --- !u!1 &1894357947 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 390e146341a390b44b4497cac258e6fb,
@@ -7800,6 +7770,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2041790299}
+    - target: {fileID: 2003295803186987573, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pistol
+      objectReference: {fileID: 0}
     - target: {fileID: 9022750278204639450, guid: d1e148f3be4aeb24aa85764057d16443,
         type: 3}
       propertyPath: m_IsActive
@@ -8057,6 +8032,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686626793707957478, guid: 670bd3a3ed8b86142b8ba5b0f230e064,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 670bd3a3ed8b86142b8ba5b0f230e064, type: 3}
