@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     private static GameManager singleton;
     public int level = 1;
     public int shotGunactive = 0;
+    public int lureActive = 0;
+    public int fragActive = 0;
     //game objects that will be needed in the script
     public GameObject player;
     private Player player1;
@@ -49,7 +51,7 @@ public class GameManager : MonoBehaviour
     //these are for the spawning of pickups
     private bool spawnedPickUp = false;
     private float actualPickUpTime = 0;
-    private float currentPickUpTime = 0;
+    private float currentPickUpTime = 10;
     //number for a random pick up in array
     int pickUpNum;
     //these are for enemy spawns
@@ -68,8 +70,6 @@ public class GameManager : MonoBehaviour
     public Text timerText;
     public Text bubbleGumText;
     public Text scoreText;
-
-    private AudioManager audioManager;
 
     public GameObject tutorialCanvas;
     public Text tutorialText;
@@ -97,12 +97,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("AudioManager not found!!!");
-        }
-
         currentScene = SceneManager.GetActiveScene();
 
         if (currentScene.name == "Lab.2")
@@ -112,6 +106,7 @@ public class GameManager : MonoBehaviour
 
         tutorialCanvas.SetActive(true);
         arrayPos = 0;
+        wave = 0;
         
         singleton = this;
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
@@ -136,7 +131,7 @@ public class GameManager : MonoBehaviour
     {
         updateStatText();
 
-        if (currentScene.name == "Lab.2")
+        if(level == 1)
         {
             Tutorial(); // plays tutorial
         }
@@ -315,6 +310,7 @@ public class GameManager : MonoBehaviour
             }
             else if (itemID == 3)
             {
+                fragActive = 1;
                 ammo.GetComponent<Ammo>().grenadeAmmo ++;
             }
             else if (itemID == 4)
@@ -327,6 +323,7 @@ public class GameManager : MonoBehaviour
             }
             else if (itemID == 6)
             {
+                lureActive = 1;
                 ammo.GetComponent<Ammo>().lureAmmo++;
             }
         }
@@ -402,7 +399,6 @@ public class GameManager : MonoBehaviour
 
     public void endWave()
     {
-        audioManager.PlaySound("WaveClearSound");
         activeWave = false;
         restTimer = 10;
         curSpawnedWave = 0;
@@ -419,7 +415,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentPickUpTime > actualPickUpTime && !spawnedPickUp)
         {
-            pickUpNum = Random.Range(0, 2);
+            pickUpNum = Random.Range(0, 5);
             //generates a random number based on the number of spawn points we have and
             //assigns one to be the spawn, finally it spawns a pickup
             int randnum = Random.Range(0, itemSpawnPoints.Length - 1);
@@ -427,7 +423,7 @@ public class GameManager : MonoBehaviour
             pickUp = Instantiate(pickUpPrefab[pickUpNum]) as GameObject;
             pickUp.transform.position = spawnLocation.transform.position;
             spawnedPickUp = true;
-            actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
+            actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) + 50.0f , (pickUpMaxSpawnTime * difficultyMod));
             actualPickUpTime = Mathf.Abs(actualPickUpTime);
             Debug.Log("Spawned");
         }
