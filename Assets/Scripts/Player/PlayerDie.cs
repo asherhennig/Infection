@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerDie : MonoBehaviour
 {
+    Animator heroAnim;
 
     public GameObject playerDeathPrefab;
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class PlayerDie : MonoBehaviour
     {
         if (GetComponent<Player>().isDead == true)
         {
+            heroAnim.SetBool("Dead", true);
             Instantiate(playerDeathPrefab, this.transform.position, Quaternion.identity);
         }
 
