@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5074350883280776118}
   - component: {fileID: 49615721}
+  - component: {fileID: 1869377511}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: gameManager
@@ -44,24 +45,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
+  shotGunactive: 1
   player: {fileID: 0}
-  itemSpawnPoints: []
-  enemySpawnPoints: []
-  enemy: {fileID: 6655332630351602138, guid: fec5e9872afd82345a4a1f0ba07ba9f8, type: 3}
-  pickUpPrefab: []
+  itemSpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemySpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemy: {fileID: 7339956823339914039, guid: 491564f37ea011243b3caf8ef9bfe8fc, type: 3}
+  pickUpPrefab:
+  - {fileID: 2085492883978391239, guid: 2b874bf9c936f224bbb3f8e494bff2a8, type: 3}
+  - {fileID: 199283796997392061, guid: e5a1ac00b3a1ef74fad6260786f3ffd3, type: 3}
+  statScreen:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   gameUI: {fileID: 0}
   score: 0
   bubblegum: 0
   isGameOver: 0
-  maxEnemiesOnScreen: 100
-  enemiesPerSpawn: 2
-  restTimer: 10
-  minSpawnTime: 5
-  maxSpawnTime: 10
-  pickUpMaxSpawnTime: 30
+  maxEnemiesOnScreen: 10
+  enemiesPerSpawn: 1
+  restTimer: 0
+  minSpawnTime: 600
+  maxSpawnTime: 10000
+  pickUpMaxSpawnTime: 3
   wave: 0
   MaxPerWave: 5
   activeWave: 1
   curDifficulty: 1
   difficultyMod: 1
   output: {fileID: 0}
+  ammo: {fileID: 0}
+  timerText: {fileID: 0}
+  bubbleGumText: {fileID: 0}
+  scoreText: {fileID: 0}
+--- !u!114 &1869377511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572682468469873867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd910f5e968223343b48fe87122b16fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}

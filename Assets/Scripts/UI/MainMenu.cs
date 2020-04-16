@@ -9,7 +9,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject game;
+    private GameObject game;
+    public GameObject tutorialPanel;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class MainMenu : MonoBehaviour
     {
         if (game.GetComponent<GameManager>().level == 1)
         {
-            SceneManager.LoadScene("Lab.2");
+            tutorialPanel.SetActive(true);
         }
         else if(game.GetComponent<GameManager>().level == 2)
         {
@@ -32,6 +33,16 @@ public class MainMenu : MonoBehaviour
             SceneManager.LoadScene("Level3_LaunchPad");
         }
                 
+    }
+
+    public void playTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    public void playGame()
+    {
+        SceneManager.LoadScene("Lab.2");
     }
     
     public void quit()
