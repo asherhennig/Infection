@@ -1469,11 +1469,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Project Manager
-
-
-
-    Team Lead
+  m_Text: 'Team Lead
 
 
 
@@ -2784,8 +2780,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Imran\n\n\nNick Harrison \n\n\nChad McGillivray\nChad Bissonette\n\nNick
-    Harrison\nGavin\n\nHumza Khan\n\n\nAsher Hennig\n\n\nSophia\n"
+  m_Text: "Nick Harrison \n\n\nChad McGillivray\nChad Bissonette\n\nNick Harrison\nGavin\n\nHumza
+    Khan\n\n\nAsher Hennig\n\n\nSophia Pineda\n"
 --- !u!222 &818564589
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5598,7 +5594,7 @@ MonoBehaviour:
   enemySpawnPoints: []
   enemy: {fileID: 0}
   pickUpPrefab: []
-  statScreen: []
+  statScreen: {fileID: 0}
   gameUI: {fileID: 0}
   score: 0
   bubblegum: 0

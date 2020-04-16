@@ -1383,9 +1383,10 @@ GameObject:
   - component: {fileID: 3720982207686164700}
   - component: {fileID: 3529006698873507767}
   - component: {fileID: 537054676501825648}
+  - component: {fileID: 6311886}
   m_Layer: 0
   m_Name: Bucky.1.4
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1577,6 +1578,14 @@ MonoBehaviour:
   grenadeAmmo: 5
   lureAmmo: 5
   shotgunAmmo: 5
+--- !u!222 &6311886
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9208815265047552748}
+  m_CullTransparentMesh: 0
 --- !u!1 &9208815265047552750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1989,6 +1998,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brain-inHand
       objectReference: {fileID: 0}
+    - target: {fileID: 3293219025790825075, guid: dccafe104fc3e044dbfe8c1092f0c2fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3293219025791118931, guid: dccafe104fc3e044dbfe8c1092f0c2fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2161,6 +2175,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frag-inHand
       objectReference: {fileID: 0}
+    - target: {fileID: 3606539957908349895, guid: 7b7529bdb92a5704b8e1c037f8feeb0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3606539957908717543, guid: 7b7529bdb92a5704b8e1c037f8feeb0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2242,6 +2261,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiniGun.0
       objectReference: {fileID: 0}
+    - target: {fileID: 5411784921952390501, guid: e902acd005230074a87cc3125b51d812,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5411784921952686341, guid: e902acd005230074a87cc3125b51d812,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2322,6 +2346,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShotgunPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 179884741893322542, guid: ebeca8ea42470c044a92dfa9c7d2d6bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 179884741893810958, guid: ebeca8ea42470c044a92dfa9c7d2d6bc,
         type: 3}

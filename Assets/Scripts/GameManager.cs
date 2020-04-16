@@ -159,15 +159,15 @@ public class GameManager : MonoBehaviour
     {
         if (level == 1)
         {
-            SceneManager.LoadScene("Lab.2");
+            SceneManager.LoadScene("Lab");
         }
         else if (level == 2)
         {
-            SceneManager.LoadScene("Level2_Forest");
+            SceneManager.LoadScene("Forest");
         }
         else if (level == 3)
         {
-            SceneManager.LoadScene("Level3_LaunchPad");
+            SceneManager.LoadScene("LaunchPad");
         }
     }
 

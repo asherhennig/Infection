@@ -48,7 +48,6 @@ public class Tutorial : MonoBehaviour
     void Update()
     {
         playTutorial();
-        Debug.Log("Array Position = " + arrayPos);
 
     }
 
@@ -132,7 +131,7 @@ public class Tutorial : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Lab.2");
+        SceneManager.LoadScene("Lab");
     }
 
     public void ContinuePractice()
