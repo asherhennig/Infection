@@ -26,11 +26,11 @@ public class MainMenu : MonoBehaviour
         }
         else if(game.GetComponent<GameManager>().level == 2)
         {
-            SceneManager.LoadScene("Level2_Forest");
+            SceneManager.LoadScene("Forest");
         }
         else if (game.GetComponent<GameManager>().level == 3)
         {
-            SceneManager.LoadScene("Level3_LaunchPad");
+            SceneManager.LoadScene("LaunchPad");
         }
                 
     }
@@ -42,7 +42,7 @@ public class MainMenu : MonoBehaviour
 
     public void playGame()
     {
-        SceneManager.LoadScene("Lab.2");
+        SceneManager.LoadScene("Lab");
     }
     
     public void quit()

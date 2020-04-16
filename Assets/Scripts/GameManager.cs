@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemySpawnPoints;
     public GameObject enemy;
     public GameObject[] pickUpPrefab;
-    public GameObject[] statScreen;
+    public GameObject statScreen;
     GameObject[] buyShotgun;
     GameObject[] buyShells;
     GameObject[] buyNade;
@@ -130,11 +130,8 @@ public class GameManager : MonoBehaviour
                 else if (curSpawnedWave == MaxPerWave && enemiesOnScreen == 0)
                 {
                     endWave();
-                    for (int i = 0; i < statScreen.Length; i++)
-                    {
-                        statScreen[i].SetActive(true);
-                    }
-                    //Time.timeScale = 0;
+                    statScreen.SetActive(true);
+                    Time.timeScale = 0;
                     //load shop menu here
                     GetComponent<SaveSystem>().gameSave();
                 }
@@ -162,15 +159,15 @@ public class GameManager : MonoBehaviour
     {
         if (level == 1)
         {
-            SceneManager.LoadScene("Lab.2");
+            SceneManager.LoadScene("Lab");
         }
         else if (level == 2)
         {
-            SceneManager.LoadScene("Level2_Forest");
+            SceneManager.LoadScene("Forest");
         }
         else if (level == 3)
         {
-            SceneManager.LoadScene("Level3_LaunchPad");
+            SceneManager.LoadScene("LaunchPad");
         }
     }
 
@@ -412,5 +409,10 @@ public class GameManager : MonoBehaviour
         //timerText.text = restTimer.ToString();
         bubbleGumText.text = bubblegum.ToString();
         scoreText.text = score.ToString();
+    }
+
+    public void continueTime()
+    {
+        Time.timeScale = 1;
     }
 }

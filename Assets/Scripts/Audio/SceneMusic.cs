@@ -31,17 +31,17 @@ public class SceneMusic : MonoBehaviour
         {
             audioManager.PlaySound("MenuBGM");
         }
-        else if (sceneName == "Lab.2")
+        else if (sceneName == "Lab")
         {
             audioManager.PlaySound("LabBGM");
         }
-        else if (sceneName == "Level2_Forest")
+        else if (sceneName == "Forest")
         {
             audioManager.PlaySound("ForestBGM");
         }
-        //else if (sceneName == "") // Add when there is a launchpad scene
-        //{
-        //    audioManager.PlaySound("LaunchpadBGM");
-        //}
+        else if (sceneName == "Launchpad")
+        {
+            audioManager.PlaySound("LaunchpadBGM");
+        }
     }
 }
