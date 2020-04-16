@@ -13064,7 +13064,6 @@ GameObject:
   - component: {fileID: 9179297828203138657}
   - component: {fileID: 4783150378638995131}
   - component: {fileID: 869016855665813098}
-  - component: {fileID: 5443641602953469918}
   m_Layer: 0
   m_Name: head
   m_TagString: Enemy
@@ -13240,21 +13239,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   accuracy: 2
-  Accel: 5
-  orientation: 0
-  rotation: 0
   target: {fileID: 0}
-  stoppingDistance: {x: 0, y: 0, z: 0}
-  grenade: {fileID: 0}
-  currencyprefab: {fileID: 3771373586743204784, guid: 92fa12cd89386e245bed23b8fe353e38,
-    type: 3}
+  target2: {fileID: 0}
   onDestroy:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   ehealth: 6
-  target2: {fileID: 0}
+  currencyprefab: {fileID: 3771373586743204784, guid: 92fa12cd89386e245bed23b8fe353e38,
+    type: 3}
   currencyprefab2: {fileID: 3102185765845371050, guid: 131c1f1ea077ae74ca9d312296c3128c,
     type: 3}
   hitPrefab: {fileID: 6511216531592707412, guid: d7c08a461f9b0b146b65fda2f7c94349,
@@ -13314,20 +13308,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5443641602953469918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7339956823339914039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b5290d88a36ac43a549d84bfa2a028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  herdsManager: {fileID: 0}
-  speed: 0
 --- !u!1 &7339956823339914041
 GameObject:
   m_ObjectHideFlags: 0
