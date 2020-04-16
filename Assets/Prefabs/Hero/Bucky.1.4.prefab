@@ -2000,6 +2000,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3293219025790825075, guid: dccafe104fc3e044dbfe8c1092f0c2fd,
         type: 3}
+      propertyPath: m_TagString
+      value: lureGrenade
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293219025790825075, guid: dccafe104fc3e044dbfe8c1092f0c2fd,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -2058,6 +2063,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1683446546101471618, guid: dccafe104fc3e044dbfe8c1092f0c2fd,
+        type: 3}
+      propertyPath: ammo
+      value: 
+      objectReference: {fileID: 537054676501825648}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dccafe104fc3e044dbfe8c1092f0c2fd, type: 3}
 --- !u!1 &3345088270230723245 stripped
@@ -2177,6 +2187,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3606539957908349895, guid: 7b7529bdb92a5704b8e1c037f8feeb0a,
         type: 3}
+      propertyPath: m_TagString
+      value: Grenade
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606539957908349895, guid: 7b7529bdb92a5704b8e1c037f8feeb0a,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -2235,6 +2250,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 43413364707661939, guid: 7b7529bdb92a5704b8e1c037f8feeb0a,
+        type: 3}
+      propertyPath: ammo
+      value: 
+      objectReference: {fileID: 537054676501825648}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b7529bdb92a5704b8e1c037f8feeb0a, type: 3}
 --- !u!1 &7081618072764003318 stripped
@@ -2407,6 +2427,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1903344923, guid: ebeca8ea42470c044a92dfa9c7d2d6bc, type: 3}
+      propertyPath: ammo
+      value: 
+      objectReference: {fileID: 537054676501825648}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebeca8ea42470c044a92dfa9c7d2d6bc, type: 3}
 --- !u!1 &9022750278204639450 stripped
