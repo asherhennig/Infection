@@ -38,8 +38,13 @@ public class Player : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
         healthBar.setMaxHealth(maxHealth);
+
         heroAnim = GetComponent<Animator>();
-       
+       // head = enemy.GetComponent<Animator>();
+
+        //currency = GetComponent<GameManager>().bubblegum;
+
+        
     }
 
     //added takeDamage function
@@ -91,13 +96,11 @@ public class Player : MonoBehaviour
 
     public void pickUpMiniGun()
     {
-        gameObject.GetComponent<GunEquipper>().activeMiniGun();
-        StartCoroutine("fireMiniGun");
         //get component to fire the mini gun for 15 seconds
-        
-       
-        
-        
+        gameObject.GetComponent<Gun>().miniGunFire();
+        //deactivate the mini gun and reactivate pistol
+        gameObject.GetComponent<GunEquipper>().deactiveMiniGun();
+        StartCoroutine("fireMiniGun");
     }
     //checks which pickup we got to know its effect
     public void PickUpItem(int pickupItem)
@@ -184,7 +187,7 @@ public class Player : MonoBehaviour
         }
     }
     void FixedUpdate()
-    {   //need for pc version:
+    {
         ////Player direction controls
         //Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"),
         //                                    0, Input.GetAxis("Vertical"));
@@ -232,26 +235,30 @@ public class Player : MonoBehaviour
 
     private IEnumerator fireMiniGun()
     {
-        //minigun is checking if a minigun GO is there
-        miniGun = GameObject.FindGameObjectWithTag("miniGun");
-        //200 is the num of bulets fired when powered up
-        for (int i = -0; i < 600; i++)
+        
+            //200 is the num of bulets fired when powered up
+            for (int i = -0; i < 200; i++)
                 
             {
+               //minigun is checking if a minigun GO is there
+               miniGun = GameObject.FindGameObjectWithTag("miniGun"); 
+
+
 
                 //gets the fire bulet function from the mini gun in gun script and calls it
-                miniGun.GetComponent<Gun>().fire(); 
+                miniGun.GetComponent<Gun>().fireBullet(); 
 
                //call againg in half a second
-              yield return new WaitForSeconds(1/2);
+              yield return new WaitForSeconds(1 / 2);
             }
+                
 
-        miniGun.GetComponent<Gun>().stopFiring();
-        //deactivate the mini gun and reactivate pistol
-        gunEquipper.deactiveMiniGun();
+            //deactivate the mini gun and reactivate pistol
+            gunEquipper.deactiveMiniGun();
 
         
     }
+
     //this is where eventually well do everything that happens when the player dies here
     public void Die()
     {
