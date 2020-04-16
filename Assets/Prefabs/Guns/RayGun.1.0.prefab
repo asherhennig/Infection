@@ -384,8 +384,9 @@ MonoBehaviour:
     type: 3}
   firePosition: {fileID: 7764117780591215471}
   ammo: {fileID: 0}
-  fireSpeed: 5
-  bulletSpeed: 10
+  fireSpeed: 0.5
+  bulletSpeed: 15
+  audioManager: {fileID: 0}
 --- !u!1 &2508680557206596731
 GameObject:
   m_ObjectHideFlags: 0
