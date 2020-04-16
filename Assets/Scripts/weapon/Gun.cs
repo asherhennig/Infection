@@ -32,7 +32,7 @@ public class Gun : MonoBehaviour
 
     public void fire()
     {
-        InvokeRepeating("fireBullet", 0f, fireSpeed);
+            InvokeRepeating("fireBullet", 0f, fireSpeed);
     }
 
     public void stopFiring()
@@ -40,19 +40,11 @@ public class Gun : MonoBehaviour
         CancelInvoke("fireBullet");
     }
     
-   public void miniGunFire()
-    {
-        //acrtivate mini gun
-        gameObject.GetComponent<GunEquipper>().activeMiniGun();
-        //start corutine to constantly fire
-        StartCoroutine("miniGunAttack");
-        //stop the firing
-        CancelInvoke("fireBullet");
-    }
+   
 
     public void fireBullet()
     {   // 1   
-        Debug.Log(ammo.GetAmmo(tag));
+        //Debug.Log(ammo.GetAmmo(tag));
         GameObject bullet = Instantiate(bulletPrefab) as GameObject;
         // 2   
         bullet.transform.position = firePosition.position;
