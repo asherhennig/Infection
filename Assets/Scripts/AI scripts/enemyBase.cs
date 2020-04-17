@@ -67,6 +67,7 @@ public class enemyBase : MonoBehaviour
             currencyprefab.transform.position = this.transform.position;
 
             Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
+            
             // Play sound
             audioManager.PlaySound("RobotDeathSound");
             //create a random chance for drop 
@@ -80,6 +81,7 @@ public class enemyBase : MonoBehaviour
             else
             {
                 Instantiate(currencyprefab, this.transform.position, Quaternion.identity);
+               
             }
         }
         
@@ -152,7 +154,6 @@ public class enemyBase : MonoBehaviour
     {
         ehealth -= damTaken;
         Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
-        //Destroy(hitPrefab, hitPrefab.GetComponent<ParticleSystem>().duration);
     }
 
     public void setDiff(float DiffMod)
@@ -168,4 +169,7 @@ public class enemyBase : MonoBehaviour
         //speed luckily can stay as a float
         speed = speed * diffMod;
     }
+
+    
+   
 }

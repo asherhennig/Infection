@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
         setDifficulty(curDifficulty);
         actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
         GetComponent<SaveSystem>().gameLoad();
+        
         setDifficulty(curDifficulty);
 
     }
@@ -286,6 +287,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Hard selected");
         }
         gameObject.GetComponent<SaveSystem>().gameSave();
+        
     }
 
     public void roundDiffUpdate()
@@ -390,4 +392,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
+    
+
 }
