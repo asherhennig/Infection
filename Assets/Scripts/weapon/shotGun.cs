@@ -27,16 +27,19 @@ public class shotGun : Gun
 
     void fireBullet()
     {
-        ammo.ConsumeAmmo(tag);
-        for(int i = 0; i < pelletsPerShot; i++)
+        if (ammo.HasAmmo(tag) == true)
         {
-            pellets[i] = Random.rotation;
-            GameObject pellet = Instantiate(bulletPrefab, firePosition.position, firePosition.rotation);
-            pellet.transform.rotation = new Quaternion(pellet.transform.rotation.x, pellet.transform.rotation.y, Quaternion.RotateTowards(pellet.transform.rotation, pellets[i], spread).z, pellet.transform.rotation.w);
-            pellet.GetComponent<Rigidbody>().AddForce(pellet.transform.forward * bulletSpeed);
-            bulletPrefab.GetComponent<bullet>().damage = weaponDam;
-            // Play sound
-            audioManager.PlaySound("ShotgunSound");
+            ammo.ConsumeAmmo(tag);
+            for (int i = 0; i < pelletsPerShot; i++)
+            {
+                pellets[i] = Random.rotation;
+                GameObject pellet = Instantiate(bulletPrefab, firePosition.position, firePosition.rotation);
+                pellet.transform.rotation = new Quaternion(pellet.transform.rotation.x, pellet.transform.rotation.y, Quaternion.RotateTowards(pellet.transform.rotation, pellets[i], spread).z, pellet.transform.rotation.w);
+                pellet.GetComponent<Rigidbody>().AddForce(pellet.transform.forward * bulletSpeed);
+                bulletPrefab.GetComponent<bullet>().damage = weaponDam;
+                // Play sound
+                audioManager.PlaySound("ShotgunSound");
+            }
         }
     }
 
