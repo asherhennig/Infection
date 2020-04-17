@@ -27,8 +27,8 @@ public class enemyBase : MonoBehaviour
     public Transform target2;
     int chance;
     public GameObject currencyprefab2;
-    public static GameObject hitPrefab;
-    public static GameObject enemyDeathPrefab;
+    public GameObject hitPrefab;
+    public GameObject enemyDeathPrefab;
 
     public Animator head;
 
@@ -42,8 +42,7 @@ public class enemyBase : MonoBehaviour
     void Start()
     {
         head = GetComponent<Animator>();
-
-        sethealth();
+        
         Debug.Log("on start" + ehealth);
 
         //call to init the enemies stats
@@ -85,9 +84,7 @@ public class enemyBase : MonoBehaviour
                 Instantiate(currencyprefab, this.transform.position, Quaternion.identity);
             }
         }
-
-        StartCoroutine("destroyBlood");
-
+        
         if (target != null)
         {
             head.SetBool("IsMoving", true);
@@ -172,10 +169,5 @@ public class enemyBase : MonoBehaviour
         ehealth = (int)(ehealth * diffMod);
         //speed luckily can stay as a float
         speed = speed * diffMod;
-    }
-
-    public void sethealth()
-    {
-        ehealth = (int)(ehealth * diffMod); 
-    }
+    } 
 }
