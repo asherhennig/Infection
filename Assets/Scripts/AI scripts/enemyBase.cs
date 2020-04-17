@@ -42,8 +42,7 @@ public class enemyBase : MonoBehaviour
     void Start()
     {
         head = GetComponent<Animator>();
-
-        sethealth();
+        
         Debug.Log("on start" + ehealth);
 
         //call to init the enemies stats
@@ -84,9 +83,8 @@ public class enemyBase : MonoBehaviour
             {
                 Instantiate(currencyprefab, this.transform.position, Quaternion.identity);
             }
-
         }
-
+        
         if (target != null)
         {
             head.SetBool("IsMoving", true);
@@ -171,10 +169,5 @@ public class enemyBase : MonoBehaviour
         ehealth = (int)(ehealth * diffMod);
         //speed luckily can stay as a float
         speed = speed * diffMod;
-    }
-
-    public void sethealth()
-    {
-        ehealth = (int)(ehealth * diffMod); 
-    }
+    } 
 }
