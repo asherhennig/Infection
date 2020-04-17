@@ -54,6 +54,7 @@ public class GunEquipper : MonoBehaviour
 
         heroAnim.SetBool("SetActive_miniGun", true);
         heroAnim.SetBool("SetActive_shotgun", false);
+        heroAnim.SetBool("SetActive_throw", false);
         heroAnim.SetBool("SetActive_pistol", false);
     }
 
