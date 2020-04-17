@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     public bool activeWave = true;
     //Difficulty
     public int curDifficulty;
-    public float difficultyMod = 1.0f;
+    public float difficultyMod;
     //text mesh for dificulty selector
     public TextMeshProUGUI output;
     public Ammo ammo;
@@ -97,10 +97,11 @@ public class GameManager : MonoBehaviour
         buyMax = GameObject.FindGameObjectsWithTag("BuyMax");
         buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
         purchase = GameObject.FindGameObjectsWithTag("Purchase");
-        HidePurchase();
+        //HidePurchase();
         setDifficulty(curDifficulty);
         actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
         GetComponent<SaveSystem>().gameLoad();
+        setDifficulty(curDifficulty);
 
     }
 
@@ -243,24 +244,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Testing5");
         }
     }
-
-    public void Purchase()
-    {
-        foreach (GameObject g in purchase)
-        {
-            g.SetActive(true);
-        }
-    }
-
-    public void HidePurchase()
-    {
-        foreach (GameObject g in purchase)
-        {
-            g.SetActive(false);
-        }
-        Debug.Log("purchase:" + purchase.Length);
-    }
-
+    
     public void Buyable()
     {
         if (bubblegum >= price)
@@ -295,23 +279,28 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
     public void setDifficulty(int difficulty)
     {
         if (difficulty == 0)
         {
             difficultyMod = 0.5f;
+            curDifficulty = 0;
             Debug.Log("Easy selected");
         }
         else if (difficulty == 1)
         {
             difficultyMod = 1.0f;
+            curDifficulty = 1;
             Debug.Log("Medium selected");
         }
         else if (difficulty == 2)
         {
             difficultyMod = 2.0f;
+            curDifficulty = 2;
             Debug.Log("Hard selected");
         }
+        gameObject.GetComponent<SaveSystem>().gameSave();
     }
 
     public void roundDiffUpdate()

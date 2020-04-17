@@ -81,9 +81,8 @@ public class enemyBase : MonoBehaviour
             {
                 Instantiate(currencyprefab, this.transform.position, Quaternion.identity);
             }
-
         }
-
+        
         if (target != null)
         {
             head.SetBool("IsMoving", true);
