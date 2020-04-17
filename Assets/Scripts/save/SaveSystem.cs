@@ -31,19 +31,20 @@ public class SaveSystem : MonoBehaviour
         maxHealth = Player.GetComponent<Player>().maxHealth;
         difficulty = GetComponent<GameManager>().curDifficulty;
         difficultymod = GetComponent<GameManager>().difficultyMod;
+        level = GetComponent<GameManager>().level;
     }
 
     public void gameLoad()
     {
         //load previous player prefs
-        PlayerPrefs.GetInt("health");
-        PlayerPrefs.GetInt("shot gun ammo");
-        PlayerPrefs.GetInt("score");
-        PlayerPrefs.GetInt("bubblegum");
-        PlayerPrefs.GetInt("max health");
-        PlayerPrefs.GetInt("difficulty");
-        PlayerPrefs.GetInt("level");
-        PlayerPrefs.GetFloat("difMod");
+        health = PlayerPrefs.GetInt("health");
+        shotgunAmmo = PlayerPrefs.GetInt("shot gun ammo");
+        score = PlayerPrefs.GetInt("score");
+        money = PlayerPrefs.GetInt("bubblegum");
+        maxHealth = PlayerPrefs.GetInt("max health");
+        difficulty = PlayerPrefs.GetInt("difficulty");
+        level = PlayerPrefs.GetInt("level");
+        difficultymod = PlayerPrefs.GetFloat("difMod");
         Debug.Log(health);
 
     }

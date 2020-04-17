@@ -4094,6 +4094,16 @@ PrefabInstance:
       propertyPath: statScreen
       value: 
       objectReference: {fileID: 170671519}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: pickUpPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 2664944982967585469, guid: 9416ac75bab616743aca81b47489868a,
+        type: 3}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: pickUpPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 2664944982967585469, guid: 9416ac75bab616743aca81b47489868a,
+        type: 3}
     - target: {fileID: 1869377511, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: Player
       value: 
@@ -7223,6 +7233,12 @@ PrefabInstance:
       propertyPath: shotgunButton
       value: 
       objectReference: {fileID: 1289421303}
+    - target: {fileID: 3720982207686164700, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: miniGun
+      value: 
+      objectReference: {fileID: 5411784921952390501, guid: e902acd005230074a87cc3125b51d812,
+        type: 3}
     - target: {fileID: 9208815265047723724, guid: d1e148f3be4aeb24aa85764057d16443,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7283,6 +7299,36 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2041790299}
+    - target: {fileID: 4239532805298201436, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239532805298437948, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239532805298437948, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239532805298437948, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239532805298437948, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239532805298437948, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1e148f3be4aeb24aa85764057d16443, type: 3}
 --- !u!114 &6910512002402052095 stripped
