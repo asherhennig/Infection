@@ -27,8 +27,8 @@ public class enemyBase : MonoBehaviour
     public Transform target2;
     int chance;
     public GameObject currencyprefab2;
-    public GameObject hitPrefab;
-    public GameObject enemyDeathPrefab;
+    public static GameObject hitPrefab;
+    public static GameObject enemyDeathPrefab;
 
     public Animator head;
 
@@ -84,8 +84,9 @@ public class enemyBase : MonoBehaviour
             {
                 Instantiate(currencyprefab, this.transform.position, Quaternion.identity);
             }
-
         }
+
+        StartCoroutine("destroyBlood");
 
         if (target != null)
         {

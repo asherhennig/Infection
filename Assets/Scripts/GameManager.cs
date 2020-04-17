@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine("updatedRestTimer");
         //updating pick up spawn time
         currentPickUpTime += Time.deltaTime;
+        StartCoroutine("destroyBlood");
 
         if (wave <= 5)
         {
@@ -397,5 +398,20 @@ public class GameManager : MonoBehaviour
     public void continueTime()
     {
         Time.timeScale = 1;
+    }
+
+    IEnumerator destroyBlood()
+    {
+        if (enemyBase.enemyDeathPrefab != null)
+        {
+            yield return new WaitForSeconds(2);
+            Destroy(enemyBase.enemyDeathPrefab.gameObject);
+        }
+
+        if (enemyBase.hitPrefab != null)
+        {
+            yield return new WaitForSeconds(2);
+            Destroy(enemyBase.hitPrefab.gameObject);
+        }
     }
 }
