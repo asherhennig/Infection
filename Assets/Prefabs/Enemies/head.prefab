@@ -13061,7 +13061,6 @@ GameObject:
   - component: {fileID: 7339956823332495503}
   - component: {fileID: 1812533272}
   - component: {fileID: 1812533274}
-  - component: {fileID: 9179297828203138657}
   - component: {fileID: 4783150378638995131}
   - component: {fileID: 869016855665813098}
   m_Layer: 0
@@ -13239,16 +13238,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   accuracy: 2
+  Accel: 5
+  orientation: 0
+  rotation: 0
   target: {fileID: 0}
-  target2: {fileID: 0}
+  stoppingDistance: {x: 0, y: 0, z: 0}
+  grenade: {fileID: 0}
+  currencyprefab: {fileID: 3771373586743204784, guid: 92fa12cd89386e245bed23b8fe353e38,
+    type: 3}
   onDestroy:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   ehealth: 6
-  currencyprefab: {fileID: 3771373586743204784, guid: 92fa12cd89386e245bed23b8fe353e38,
-    type: 3}
+  target2: {fileID: 0}
   currencyprefab2: {fileID: 3102185765845371050, guid: 131c1f1ea077ae74ca9d312296c3128c,
     type: 3}
   hitPrefab: {fileID: 6511216531592707412, guid: d7c08a461f9b0b146b65fda2f7c94349,
@@ -13257,19 +13261,6 @@ MonoBehaviour:
     type: 3}
   head: {fileID: 0}
   diffMod: 1
---- !u!65 &9179297828203138657
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7339956823339914039}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 5, y: 1, z: 2}
-  m_Center: {x: 0, y: 1, z: 1.6}
 --- !u!54 &4783150378638995131
 Rigidbody:
   m_ObjectHideFlags: 0
