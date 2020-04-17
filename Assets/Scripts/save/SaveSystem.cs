@@ -23,7 +23,7 @@ public class SaveSystem : MonoBehaviour
         GetComponent<GameManager>().score = PlayerPrefs.GetInt("score");
         GetComponent<GameManager>().bubblegum = PlayerPrefs.GetInt("bubblegum");
         Player.GetComponent<Player>().maxHealth = PlayerPrefs.GetInt("max health");
-       // GetComponent<GameManager>().curDifficulty = PlayerPrefs.GetInt("difficulty");
+        GetComponent<GameManager>().curDifficulty = PlayerPrefs.GetInt("difficulty");
         GetComponent<GameManager>().level = PlayerPrefs.GetInt("level");
         GetComponent<GameManager>().difficultyMod = PlayerPrefs.GetFloat("difMod");
         Player.GetComponent<Ammo>().grenadeAmmo = PlayerPrefs.GetInt("gernade");
@@ -48,7 +48,7 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetInt("score", GetComponent<GameManager>().score);
         PlayerPrefs.SetInt("bubblegum", GetComponent<GameManager>().bubblegum);
         PlayerPrefs.SetInt("max health", Player.GetComponent<Player>().maxHealth);
-        //PlayerPrefs.SetInt("difficulty", GetComponent<GameManager>().curDifficulty);
+        PlayerPrefs.SetInt("difficulty", GetComponent<GameManager>().curDifficulty);
         PlayerPrefs.SetInt("level", GetComponent<GameManager>().level);
         PlayerPrefs.SetFloat("difMod", GetComponent<GameManager>().difficultyMod);
         PlayerPrefs.Save();
