@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        GetComponent<SaveSystem>().gameLoad();
         player1 = GameObject.FindObjectOfType<Player>();
         ammo = Ammo.instance;
     }
@@ -105,7 +106,7 @@ public class GameManager : MonoBehaviour
         //HidePurchase();
         setDifficulty(curDifficulty);
         actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
-        GetComponent<SaveSystem>().gameLoad();
+        
         
         setDifficulty(curDifficulty);
 
