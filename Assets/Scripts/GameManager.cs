@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     public Text timerText;
     public Text bubbleGumText;
     public Text scoreText;
+    public Text shopBubbleGumText;
 
     private AudioManager audioManager;
 
@@ -77,7 +78,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         player1 = GameObject.FindObjectOfType<Player>();
-        ammo = GetComponent<Ammo>();
+        ammo = Ammo.instance;
     }
     // Start is called before the first frame update
     void Start()
@@ -181,7 +182,7 @@ public class GameManager : MonoBehaviour
         //int gumChance = Random.Range(0, 10);
         enemiesOnScreen -= 1;
         //give gum and score on kill(testing score and bubblegum counters)
-        bubblegum += 500;
+        bubblegum += 50;
         //gameUI.SetMoneyText(bubblegum);
         score += 100;
         //gameUI.SetScoreText(score);
@@ -237,24 +238,16 @@ public class GameManager : MonoBehaviour
             if (itemID == 1)
             {
                 shotGunactive = 1;
-
-                if (!shotgunHUD.interactable)
-                {
-                    shotgunHUD.interactable = true;
-                }
+                shotgunHUD.interactable = true;
             }
             else if (itemID == 2)
             {
-                ammo.shotgunAmmo = ammo.shotgunAmmo + 5;
+                ammo.AddAmmo("Shotgun", 3);
             }
             else if (itemID == 3)
             {
-                ammo.GetComponent<Ammo>().grenadeAmmo ++;
-
-                if (!grenadeHUD.interactable)
-                {
-                    grenadeHUD.interactable = true;
-                }
+                ammo.grenadeAmmo ++;
+                grenadeHUD.interactable = true;
             }
             else if (itemID == 4)
             {
@@ -267,11 +260,7 @@ public class GameManager : MonoBehaviour
             else if (itemID == 6)
             {
                 ammo.GetComponent<Ammo>().lureAmmo++;
-
-                if (!brainadeHUD.interactable)
-                {
-                    brainadeHUD.interactable = true;
-                }
+                brainadeHUD.interactable = true;
             }
         }
     }
@@ -394,6 +383,7 @@ public class GameManager : MonoBehaviour
         //timerText.text = restTimer.ToString();
         bubbleGumText.text = bubblegum.ToString();
         scoreText.text = score.ToString();
+        shopBubbleGumText.text = "Bubblegum:\n" + bubblegum.ToString();
     }
 
     public void continueTime()

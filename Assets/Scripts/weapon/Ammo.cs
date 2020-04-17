@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
+    public static Ammo instance;
+
     public int pistolAmmo = 1; //this is needed to fire the pistol bc it "needs" ammo but is never ticked down so
     //its still infinite
 
@@ -24,6 +26,8 @@ public class Ammo : MonoBehaviour
             {Constants.Shotgun, shotgunAmmo},
             {Constants.lureGrenade, lureAmmo}
         };
+
+        instance = this;
     }
 
     public void AddAmmo(string tag, int ammo)
