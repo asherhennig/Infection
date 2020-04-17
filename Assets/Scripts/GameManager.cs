@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
         buyMax = GameObject.FindGameObjectsWithTag("BuyMax");
         buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
         purchase = GameObject.FindGameObjectsWithTag("Purchase");
-        HidePurchase();
+        //HidePurchase();
         setDifficulty(curDifficulty);
         actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
         GetComponent<SaveSystem>().gameLoad();
