@@ -63,6 +63,7 @@ public class GunEquipper : MonoBehaviour
         activeWeaponType = Constants.Pistol;
 
         heroAnim.SetBool("SetActive_pistol", true);
+        heroAnim.SetBool("SetActive_miniGun", false);
     }
     
     // Update is called once per frame
