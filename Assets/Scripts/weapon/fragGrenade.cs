@@ -5,7 +5,7 @@ using UnityEngine;
 public class fragGrenade : MonoBehaviour
 {
     private AudioManager audioManager;
-    public float exploRadius = 2.5f;
+    public float exploRadius = 5;
     public float fuseTime = 3.0f;
     public int baseDamage = 5;
     private int expDam;
