@@ -13,9 +13,6 @@ public class GunEquipper : MonoBehaviour
     public GameObject lureGrenade;
     public GameObject miniGun;
 
-    public GameObject pistolButton;
-    public GameObject shotgunButton;
-
     Animator heroAnim;
 
     Ammo Ammo;
@@ -103,8 +100,6 @@ public class GunEquipper : MonoBehaviour
     {
         loadWeapons(pistol);
         activeWeaponType = Constants.Pistol;
-        pistolButton.SetActive(true);
-        shotgunButton.SetActive(false);
 
         heroAnim.SetBool("SetActive_pistol", true);
         heroAnim.SetBool("SetActive_shotgun", false);
@@ -115,8 +110,6 @@ public class GunEquipper : MonoBehaviour
     {
         loadWeapons(shotgun);
         activeWeaponType = Constants.Shotgun;
-        pistolButton.SetActive(false);
-        shotgunButton.SetActive(true);
 
         heroAnim.SetBool("SetActive_shotgun", true);
         heroAnim.SetBool("SetActive_pistol", false);
