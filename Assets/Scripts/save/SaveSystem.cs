@@ -16,7 +16,7 @@ public class SaveSystem : MonoBehaviour
     public void gameLoad()
     {
         //find the game objects with the tags so you can access the variables in the ammo and player script
-        Player = GameObject.FindGameObjectWithTag("Player");
+        //Player = GameObject.FindGameObjectWithTag("Player");
         //load previous player prefs
         Player.GetComponent<Player>().curHealth = PlayerPrefs.GetInt("health");
         Player.GetComponent<Ammo>().shotgunAmmo = PlayerPrefs.GetInt("shot gun ammo");
@@ -38,7 +38,7 @@ public class SaveSystem : MonoBehaviour
     public void gameSave()
     {
         //find the game objects with the tags so you can access the variables in the ammo and player script
-        Player = GameObject.FindGameObjectWithTag("Player");
+        //Player = GameObject.FindGameObjectWithTag("Player");
 
         
         //set player prefs for current state of the game

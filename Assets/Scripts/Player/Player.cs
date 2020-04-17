@@ -234,7 +234,7 @@ public class Player : MonoBehaviour
         
 
             //200 is the num of bulets fired when powered up
-           for (int i = -0; i < 200; i++)   
+           for (int i = 0; i < 30; i++)   
            {
 
            
@@ -244,7 +244,7 @@ public class Player : MonoBehaviour
             miniGun.GetComponent<Gun>().fire();
 
             //call againg in half a second
-            yield return new WaitForSeconds(1 / 2);
+            yield return new WaitForSeconds(1/2);
            }
                 
 
