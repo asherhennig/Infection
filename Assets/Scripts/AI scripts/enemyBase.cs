@@ -42,8 +42,6 @@ public class enemyBase : MonoBehaviour
     void Start()
     {
         head = GetComponent<Animator>();
-        
-        Debug.Log("on start" + ehealth);
 
         //call to init the enemies stats
         setEnemyStats();
@@ -169,5 +167,5 @@ public class enemyBase : MonoBehaviour
         ehealth = (int)(ehealth * diffMod);
         //speed luckily can stay as a float
         speed = speed * diffMod;
-    } 
+    }
 }
