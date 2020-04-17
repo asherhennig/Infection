@@ -300,16 +300,19 @@ public class GameManager : MonoBehaviour
         if (difficulty == 0)
         {
             difficultyMod = 0.5f;
+            curDifficulty = 0;
             Debug.Log("Easy selected");
         }
         else if (difficulty == 1)
         {
             difficultyMod = 1.0f;
+            curDifficulty = 1;
             Debug.Log("Medium selected");
         }
         else if (difficulty == 2)
         {
             difficultyMod = 2.0f;
+            curDifficulty = 2;
             Debug.Log("Hard selected");
         }
         gameObject.GetComponent<SaveSystem>().gameSave();
