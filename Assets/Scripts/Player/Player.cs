@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public LayerMask layerMask;
     public GameObject miniGun;
     public GameObject PlayerHitPrefab;
-    public int currency;
+    public GameObject gameManager;
 
     enemyBase enemy;
 
@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     private bool isHit = false;
     private float timeSinceHit = 0;
     private GunEquipper gunEquipper;
+    private int currency;
 
     // Start is called before the first frame update
     void Start()
@@ -40,11 +41,9 @@ public class Player : MonoBehaviour
         healthBar.setMaxHealth(maxHealth);
 
         heroAnim = GetComponent<Animator>();
-       // head = enemy.GetComponent<Animator>();
+        // head = enemy.GetComponent<Animator>();
 
-        //currency = GetComponent<GameManager>().bubblegum;
-
-        
+        currency = gameManager.GetComponent<GameManager>().bubblegum;
     }
 
     //added takeDamage function
@@ -86,7 +85,7 @@ public class Player : MonoBehaviour
 
     public void pickUp1Curr()
     {
-        currency += 10; 
+        currency += 10;
     }
 
     public void picUp5Curr()
@@ -231,27 +230,18 @@ public class Player : MonoBehaviour
 
     private IEnumerator fireMiniGun()
     {
-        
-
-            //200 is the num of bulets fired when powered up
-           for (int i = -0; i < 200; i++)   
-           {
-
-           
-
-
+        //200 is the num of bulets fired when powered up
+        for (int i = -0; i < 200; i++)   
+        {
             //gets the fire bulet function from the mini gun in gun script and calls it
             miniGun.GetComponent<Gun>().fire();
 
             //call againg in half a second
             yield return new WaitForSeconds(1 / 2);
-           }
-                
+        }
 
-            //deactivate the mini gun and reactivate pistol
-            gunEquipper.deactiveMiniGun();
-
-        
+        //deactivate the mini gun and reactivate pistol
+        gunEquipper.deactiveMiniGun();
     }
 
     //this is where eventually well do everything that happens when the player dies here

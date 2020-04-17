@@ -29,7 +29,7 @@ public class enemyBase : MonoBehaviour
     public GameObject currencyprefab2;
     public GameObject hitPrefab;
     public GameObject enemyDeathPrefab;
-
+    GameObject clone;
     public Animator head;
 
 
@@ -66,7 +66,9 @@ public class enemyBase : MonoBehaviour
             GameObject currency = Instantiate(currencyprefab) as GameObject;
             currencyprefab.transform.position = this.transform.position;
 
-            Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
+            clone = Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
+            Destroy(clone, 2f);
+
             // Play sound
             audioManager.PlaySound("RobotDeathSound");
             //create a random chance for drop 
@@ -151,8 +153,8 @@ public class enemyBase : MonoBehaviour
     public void takeDamage(int damTaken)
     {
         ehealth -= damTaken;
-        Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
-        //Destroy(hitPrefab, hitPrefab.GetComponent<ParticleSystem>().duration);
+        clone = Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
+        Destroy(clone, 2f);
     }
 
     public void setDiff(float DiffMod)

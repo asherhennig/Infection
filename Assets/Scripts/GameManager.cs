@@ -55,7 +55,6 @@ public class GameManager : MonoBehaviour
     public int MaxPerWave = 5;
     private int curSpawnedWave = 0;
     GameObject pickUp;
-    GameObject currency;
     //this lets us know if a wave is active
     public bool activeWave = true;
     //Difficulty
@@ -74,6 +73,7 @@ public class GameManager : MonoBehaviour
     public Button shotgunHUD;
     public Button grenadeHUD;
     public Button brainadeHUD;
+    public Button shotgunButton;
 
     void Awake()
     {
@@ -179,15 +179,11 @@ public class GameManager : MonoBehaviour
 
     public void enemyDestroyed()
     {
-        //int gumChance = Random.Range(0, 10);
         enemiesOnScreen -= 1;
         //give gum and score on kill(testing score and bubblegum counters)
         bubblegum += 5000;
-        //gameUI.SetMoneyText(bubblegum);
         score += 100;
-        //gameUI.SetScoreText(score);
-
-        //currency = Instantiate(bubbleGum[gumChance]) as GameObject;
+        
         Debug.Log("enemy destroyed");
     }
 
@@ -233,12 +229,12 @@ public class GameManager : MonoBehaviour
         {
             canPurchase = true;
             bubblegum = bubblegum - price;
-            //gameUI.SetMoneyText(bubblegum);
-            Debug.Log("Item Purchased");
+
             if (itemID == 1)
             {
                 shotGunactive = 1;
                 shotgunHUD.interactable = true;
+                shotgunButton.interactable = false;
             }
             else if (itemID == 2)
             {
@@ -246,7 +242,7 @@ public class GameManager : MonoBehaviour
             }
             else if (itemID == 3)
             {
-                ammo.grenadeAmmo ++;
+                ammo.AddAmmo("Grenade", 1);
                 grenadeHUD.interactable = true;
             }
             else if (itemID == 4)
@@ -259,7 +255,7 @@ public class GameManager : MonoBehaviour
             }
             else if (itemID == 6)
             {
-                ammo.GetComponent<Ammo>().lureAmmo++;
+                ammo.AddAmmo("lureGrenade", 1);
                 brainadeHUD.interactable = true;
             }
         }
