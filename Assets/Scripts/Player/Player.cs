@@ -234,22 +234,18 @@ public class Player : MonoBehaviour
         
 
             //200 is the num of bulets fired when powered up
-           for (int i = 0; i < 30; i++)   
+           for (int i = 0; i < 200; i++)
            {
-
-           
-
-
             //gets the fire bulet function from the mini gun in gun script and calls it
             miniGun.GetComponent<Gun>().fire();
 
             //call againg in half a second
             yield return new WaitForSeconds(1/2);
            }
-                
 
+        miniGun.GetComponent<Gun>().stopFiring();
             //deactivate the mini gun and reactivate pistol
-            gunEquipper.deactiveMiniGun();
+        gunEquipper.deactiveMiniGun();
 
         
     }
