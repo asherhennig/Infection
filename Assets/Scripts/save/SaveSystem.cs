@@ -6,63 +6,54 @@ public class SaveSystem : MonoBehaviour
 {
     public GameObject Player;
   
-    //variables to save
-    int health;
-    int shotgunAmmo;
-    int grenadeAmmo;
-    int score;
-    int money;
-    int maxHealth;
-    int difficulty;
-    int level;
-    float difficultymod;
+ 
 
     void Start()
     {
-        //find the game objects with the tags so you can access the variables in the ammo and player script
-        Player = GameObject.FindGameObjectWithTag("Player");
-       
-        //sets variables in the save script to be the variables in other scripts wanting to save
-        health = Player.GetComponent<Player>().curHealth;
-        shotgunAmmo = Player.GetComponent<Ammo>().shotgunAmmo;
-        grenadeAmmo = Player.GetComponent<Ammo>().grenadeAmmo;
-        score = GetComponent<GameManager>().score;
-        money = GetComponent<GameManager>().bubblegum;
-        maxHealth = Player.GetComponent<Player>().maxHealth;
-        difficulty = GetComponent<GameManager>().curDifficulty;
-        difficultymod = GetComponent<GameManager>().difficultyMod;
-        level = GetComponent<GameManager>().level;
+
     }
 
     public void gameLoad()
     {
+        //find the game objects with the tags so you can access the variables in the ammo and player script
+        Player = GameObject.FindGameObjectWithTag("Player");
         //load previous player prefs
-        health = PlayerPrefs.GetInt("health");
-        shotgunAmmo = PlayerPrefs.GetInt("shot gun ammo");
-        score = PlayerPrefs.GetInt("score");
-        money = PlayerPrefs.GetInt("bubblegum");
-        maxHealth = PlayerPrefs.GetInt("max health");
-        difficulty = PlayerPrefs.GetInt("difficulty");
-        level = PlayerPrefs.GetInt("level");
-        difficultymod = PlayerPrefs.GetFloat("difMod");
-        Debug.Log(health);
+        Player.GetComponent<Player>().curHealth = PlayerPrefs.GetInt("health");
+        Player.GetComponent<Ammo>().shotgunAmmo = PlayerPrefs.GetInt("shot gun ammo");
+        GetComponent<GameManager>().score = PlayerPrefs.GetInt("score");
+        GetComponent<GameManager>().bubblegum = PlayerPrefs.GetInt("bubblegum");
+        Player.GetComponent<Player>().maxHealth = PlayerPrefs.GetInt("max health");
+        GetComponent<GameManager>().curDifficulty = PlayerPrefs.GetInt("difficulty");
+        GetComponent<GameManager>().level = PlayerPrefs.GetInt("level");
+        GetComponent<GameManager>().difficultyMod = PlayerPrefs.GetFloat("difMod");
+        Player.GetComponent<Ammo>().grenadeAmmo = PlayerPrefs.GetInt("gernade");
+     
+        Debug.Log("diffmod:" + GetComponent<GameManager>().difficultyMod);
+     
+
+      
 
     }
 
     public void gameSave()
     {
+        //find the game objects with the tags so you can access the variables in the ammo and player script
+        Player = GameObject.FindGameObjectWithTag("Player");
+
+        
         //set player prefs for current state of the game
-        PlayerPrefs.SetInt("health", health);
-        PlayerPrefs.SetInt("shot gun ammo", shotgunAmmo);
-        PlayerPrefs.SetInt("gernade", grenadeAmmo);
-        PlayerPrefs.SetInt("score", score);
-        PlayerPrefs.SetInt("bubblegum", money);
-        PlayerPrefs.SetInt("max health", maxHealth);
-        PlayerPrefs.SetInt("difficulty", difficulty);
-        PlayerPrefs.SetInt("level", level);
-        PlayerPrefs.SetFloat("difMod", difficultymod);
-        Debug.Log(health);
-        Debug.Log(money);
+        PlayerPrefs.SetInt("health", Player.GetComponent<Player>().curHealth);
+        PlayerPrefs.SetInt("shot gun ammo", Player.GetComponent<Ammo>().shotgunAmmo);
+        PlayerPrefs.SetInt("gernade", Player.GetComponent<Ammo>().grenadeAmmo);
+        PlayerPrefs.SetInt("score", GetComponent<GameManager>().score);
+        PlayerPrefs.SetInt("bubblegum", GetComponent<GameManager>().bubblegum);
+        PlayerPrefs.SetInt("max health", Player.GetComponent<Player>().maxHealth);
+        PlayerPrefs.SetInt("difficulty", GetComponent<GameManager>().curDifficulty);
+        PlayerPrefs.SetInt("level", GetComponent<GameManager>().level);
+        PlayerPrefs.SetFloat("difMod", GetComponent<GameManager>().difficultyMod);
+        PlayerPrefs.Save();
+       
+        Debug.Log("diffmod:"+ GetComponent<GameManager>().difficultyMod);
     }
 }
 
