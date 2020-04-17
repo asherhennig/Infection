@@ -824,20 +824,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bucky.1.4
       objectReference: {fileID: 0}
-    - target: {fileID: 3720982207686164700, guid: d1e148f3be4aeb24aa85764057d16443,
-        type: 3}
-      propertyPath: pistolButton
-      value: 
-      objectReference: {fileID: 1587164150}
-    - target: {fileID: 3720982207686164700, guid: d1e148f3be4aeb24aa85764057d16443,
-        type: 3}
-      propertyPath: shotgunButton
-      value: 
-      objectReference: {fileID: 1587164149}
     - target: {fileID: 9208815265047723724, guid: d1e148f3be4aeb24aa85764057d16443,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.7621284
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9208815265047723724, guid: d1e148f3be4aeb24aa85764057d16443,
         type: 3}
@@ -847,7 +837,7 @@ PrefabInstance:
     - target: {fileID: 9208815265047723724, guid: d1e148f3be4aeb24aa85764057d16443,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.372086
+      value: -1.6
       objectReference: {fileID: 0}
     - target: {fileID: 9208815265047723724, guid: d1e148f3be4aeb24aa85764057d16443,
         type: 3}
@@ -889,6 +879,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3720982207686164700, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: pistolButton
+      value: 
+      objectReference: {fileID: 1587164150}
+    - target: {fileID: 3720982207686164700, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: shotgunButton
+      value: 
+      objectReference: {fileID: 1587164149}
     - target: {fileID: 3529006698873507767, guid: d1e148f3be4aeb24aa85764057d16443,
         type: 3}
       propertyPath: healthBar
@@ -2601,6 +2601,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4372389632194758660, guid: d5fac6ee21c8be34097cb911b36ac56c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2778027914157095179, guid: d5fac6ee21c8be34097cb911b36ac56c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2946,11 +2951,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 4372389632194758660, guid: d5fac6ee21c8be34097cb911b36ac56c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5fac6ee21c8be34097cb911b36ac56c, type: 3}
 --- !u!1 &1342069920 stripped
@@ -3004,7 +3004,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359028954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.64, y: 1.35, z: 17.53}
+  m_LocalPosition: {x: 0.3778715, y: 1.35, z: -3.4420853}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 369251255}
@@ -4236,6 +4236,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2568128135377425170, guid: 0a75508cbfa52f44f8ba7052035e3df6,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 716593468}
+    - target: {fileID: 2568128135377425170, guid: 0a75508cbfa52f44f8ba7052035e3df6,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MuteSFXButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2106691695059354028, guid: 0a75508cbfa52f44f8ba7052035e3df6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4361,11 +4371,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3597747442123819345, guid: 0a75508cbfa52f44f8ba7052035e3df6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3597747442473011404, guid: 0a75508cbfa52f44f8ba7052035e3df6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4421,11 +4426,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Exit
       objectReference: {fileID: 0}
-    - target: {fileID: 4071831739774208324, guid: 0a75508cbfa52f44f8ba7052035e3df6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4071831740308331595, guid: 0a75508cbfa52f44f8ba7052035e3df6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4440,16 +4440,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2568128135377425170, guid: 0a75508cbfa52f44f8ba7052035e3df6,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 716593468}
-    - target: {fileID: 2568128135377425170, guid: 0a75508cbfa52f44f8ba7052035e3df6,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MuteSFXButton
       objectReference: {fileID: 0}
     - target: {fileID: 4817561746578296647, guid: 0a75508cbfa52f44f8ba7052035e3df6,
         type: 3}
@@ -4530,6 +4520,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597747442123819345, guid: 0a75508cbfa52f44f8ba7052035e3df6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071831739774208324, guid: 0a75508cbfa52f44f8ba7052035e3df6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a75508cbfa52f44f8ba7052035e3df6, type: 3}

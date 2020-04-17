@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager singleton;
     public int level = 1;
-    public int shotGunactive = 0;
+    public static int shotGunactive = 0;
     //game objects that will be needed in the script
     public GameObject player;
     private Player player1;
@@ -67,13 +67,18 @@ public class GameManager : MonoBehaviour
     public Text timerText;
     public Text bubbleGumText;
     public Text scoreText;
+    public Text shopBubbleGumText;
 
     private AudioManager audioManager;
+
+    public Button shotgunHUD;
+    public Button grenadeHUD;
+    public Button brainadeHUD;
 
     void Awake()
     {
         player1 = GameObject.FindObjectOfType<Player>();
-        ammo = GetComponent<Ammo>();
+        ammo = Ammo.instance;
     }
     // Start is called before the first frame update
     void Start()
@@ -178,7 +183,7 @@ public class GameManager : MonoBehaviour
         //int gumChance = Random.Range(0, 10);
         enemiesOnScreen -= 1;
         //give gum and score on kill(testing score and bubblegum counters)
-        bubblegum += 5;
+        bubblegum += 50;
         //gameUI.SetMoneyText(bubblegum);
         score += 100;
         //gameUI.SetScoreText(score);
@@ -189,61 +194,38 @@ public class GameManager : MonoBehaviour
 
     public void Prices()
     {
-        foreach (GameObject g in buyShotgun)
-        {
-            price = 1000;
-            itemID = 1;
-            Debug.Log("Testing");
-        }
+        price = 1000;
+        itemID = 1;
     }
 
     public void Prices1()
     {
-        foreach (GameObject g in buyShells)
-        {
-            price = 200;
-            itemID = 2;
-            Debug.Log("Testing1");
-        }
+        price = 200;
+        itemID = 2;
     }
 
     public void Prices2()
     {
-        foreach (GameObject g in buyNade)
-        {
-            price = 3000;
-            itemID = 3;
-            Debug.Log("Testing2");
-        }
+        price = 3000;
+        itemID = 3;
     }
+
     public void Prices3()
     {
-        foreach (GameObject g in buyHealth)
-        {
-            price = 2500;
-            itemID = 4;
-            Debug.Log("Testing3");
-        }
+        price = 2500;
+        itemID = 4;
     }
 
     public void Prices4()
     {
-        foreach (GameObject g in buyMax)
-        {
-            price = 5000;
-            itemID = 5;
-            Debug.Log("Testing4");
-        }
+        price = 5000;
+        itemID = 5;
     }
 
     public void Prices5()
     {
-        foreach (GameObject g in buyBrain)
-        {
-            price = 3500;
-            itemID = 6;
-            Debug.Log("Testing5");
-        }
+        price = 3500;
+        itemID = 6;
     }
     
     public void Buyable()
@@ -252,19 +234,21 @@ public class GameManager : MonoBehaviour
         {
             canPurchase = true;
             bubblegum = bubblegum - price;
-            gameUI.SetMoneyText(bubblegum);
+            //gameUI.SetMoneyText(bubblegum);
             Debug.Log("Item Purchased");
             if (itemID == 1)
             {
                 shotGunactive = 1;
+                shotgunHUD.interactable = true;
             }
             else if (itemID == 2)
             {
-                ammo.shotgunAmmo = ammo.shotgunAmmo + 5;
+                ammo.AddAmmo("Shotgun", 3);
             }
             else if (itemID == 3)
             {
-                ammo.GetComponent<Ammo>().grenadeAmmo ++;
+                ammo.grenadeAmmo ++;
+                grenadeHUD.interactable = true;
             }
             else if (itemID == 4)
             {
@@ -277,6 +261,7 @@ public class GameManager : MonoBehaviour
             else if (itemID == 6)
             {
                 ammo.GetComponent<Ammo>().lureAmmo++;
+                brainadeHUD.interactable = true;
             }
         }
     }
@@ -400,6 +385,7 @@ public class GameManager : MonoBehaviour
         //timerText.text = restTimer.ToString();
         bubbleGumText.text = bubblegum.ToString();
         scoreText.text = score.ToString();
+        shopBubbleGumText.text = "Bubblegum:\n" + bubblegum.ToString();
     }
 
     public void continueTime()
