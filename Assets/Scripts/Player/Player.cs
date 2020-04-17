@@ -86,12 +86,12 @@ public class Player : MonoBehaviour
 
     public void pickUp1Curr()
     {
-        currency += 1; 
+        currency += 10; 
     }
 
     public void picUp5Curr()
     {
-        currency += 5;
+        currency += 50;
     }
 
     public void pickUpMiniGun()

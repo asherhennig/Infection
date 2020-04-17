@@ -107,6 +107,7 @@ public class GunEquipper : MonoBehaviour
 
         heroAnim.SetBool("SetActive_pistol", true);
         heroAnim.SetBool("SetActive_shotgun", false);
+        heroAnim.SetBool("SetActive_throw", false);
     }
 
     public void usingShotgun()
@@ -118,17 +119,26 @@ public class GunEquipper : MonoBehaviour
 
         heroAnim.SetBool("SetActive_shotgun", true);
         heroAnim.SetBool("SetActive_pistol", false);
+        heroAnim.SetBool("SetActive_throw", false);
     }
 
     public void usingGrenade()
     {
         loadWeapons(fragGrenade);
         activeWeaponType = Constants.Grenade;
+
+        heroAnim.SetBool("SetActive_throw", true);
+        heroAnim.SetBool("SetActive_pistol", false);
+        heroAnim.SetBool("SetActive_shotgun", false);
     }
 
     public void usingBGrenade()
     {
         loadWeapons(lureGrenade);
         activeWeaponType = Constants.lureGrenade;
+
+        heroAnim.SetBool("SetActive_throw", true);
+        heroAnim.SetBool("SetActive_pistol", false);
+        heroAnim.SetBool("SetActive_shotgun", false);
     }
 }

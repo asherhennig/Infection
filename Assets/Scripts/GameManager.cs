@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
         //int gumChance = Random.Range(0, 10);
         enemiesOnScreen -= 1;
         //give gum and score on kill(testing score and bubblegum counters)
-        bubblegum += 50;
+        bubblegum += 5000;
         //gameUI.SetMoneyText(bubblegum);
         score += 100;
         //gameUI.SetScoreText(score);

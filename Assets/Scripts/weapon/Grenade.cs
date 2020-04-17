@@ -15,10 +15,12 @@ public class Grenade : MonoBehaviour
     public MeshRenderer inHand;
     public bool isPurchased;
 
+    Animator heroAnim;
 
     // Start is called before the first frame update
     void Start()
     {
+        heroAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
     IEnumerator myCoroutine()
@@ -93,6 +95,7 @@ public class Grenade : MonoBehaviour
         }
         else
         {
+            heroAnim.SetBool("Throw", false);
             inHand.enabled = false;
         }
     }
@@ -100,6 +103,8 @@ public class Grenade : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            heroAnim.SetBool("Throw", true);
+
             if (!IsInvoking("toss"))
             {
                 Invoke("toss", 0f);
@@ -108,6 +113,7 @@ public class Grenade : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
+            heroAnim.SetBool("Throw", false);
             CancelInvoke("toss");
         }
     }
