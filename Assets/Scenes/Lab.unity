@@ -1579,6 +1579,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16e3b2a3014a59b4d9d58134eb0d96b5, type: 3}
+--- !u!1 &407320870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4239532805298201436, guid: d1e148f3be4aeb24aa85764057d16443,
+    type: 3}
+  m_PrefabInstance: {fileID: 5727870502726068538}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &412037812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7143,8 +7149,7 @@ PrefabInstance:
         type: 3}
       propertyPath: miniGun
       value: 
-      objectReference: {fileID: 5411784921952390501, guid: e902acd005230074a87cc3125b51d812,
-        type: 3}
+      objectReference: {fileID: 407320870}
     - target: {fileID: 9208815265047723724, guid: d1e148f3be4aeb24aa85764057d16443,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7205,6 +7210,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2041790299}
+    - target: {fileID: 3529006698873507767, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: miniGun
+      value: 
+      objectReference: {fileID: 407320870}
     - target: {fileID: 4239532805298201436, guid: d1e148f3be4aeb24aa85764057d16443,
         type: 3}
       propertyPath: m_IsActive

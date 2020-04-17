@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     public bool activeWave = true;
     //Difficulty
     public int curDifficulty;
-    public float difficultyMod = 1.0f;
+    public float difficultyMod;
     //text mesh for dificulty selector
     public TextMeshProUGUI output;
     public Ammo ammo;
@@ -98,9 +98,9 @@ public class GameManager : MonoBehaviour
         buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
         purchase = GameObject.FindGameObjectsWithTag("Purchase");
         HidePurchase();
-        setDifficulty(curDifficulty);
         actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
         GetComponent<SaveSystem>().gameLoad();
+        setDifficulty(curDifficulty);
 
     }
 
@@ -312,6 +312,7 @@ public class GameManager : MonoBehaviour
             difficultyMod = 2.0f;
             Debug.Log("Hard selected");
         }
+        gameObject.GetComponent<SaveSystem>().gameSave();
     }
 
     public void roundDiffUpdate()

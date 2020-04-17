@@ -61,6 +61,7 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetInt("difficulty", difficulty);
         PlayerPrefs.SetInt("level", level);
         PlayerPrefs.SetFloat("difMod", difficultymod);
+        PlayerPrefs.Save();
         Debug.Log(health);
         Debug.Log(money);
     }
