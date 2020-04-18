@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     GameObject[] purchase;
     public ScoreCounter gameUI;
     public int score;
-    public int bubblegum;
+    public int bubblegum = Player.currency;
     private int price;
     private bool canPurchase = false;
     public bool isGameOver = false;
@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        GetComponent<SaveSystem>().gameLoad();
         player1 = GameObject.FindObjectOfType<Player>();
         ammo = Ammo.instance;
     }
@@ -105,7 +106,8 @@ public class GameManager : MonoBehaviour
         //HidePurchase();
         setDifficulty(curDifficulty);
         actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
-        GetComponent<SaveSystem>().gameLoad();
+        
+        
         setDifficulty(curDifficulty);
 
     }
@@ -113,6 +115,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         updateStatText();
         
         StartCoroutine("updatedRestTimer");
@@ -282,6 +285,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Hard selected");
         }
         gameObject.GetComponent<SaveSystem>().gameSave();
+        
     }
 
     public void roundDiffUpdate()
@@ -386,4 +390,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
+    
+
 }

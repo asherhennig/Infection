@@ -82,6 +82,7 @@ public class enemyBase : MonoBehaviour
             else
             {
                 Instantiate(currencyprefab, this.transform.position, Quaternion.identity);
+               
             }
         }
         
@@ -170,4 +171,7 @@ public class enemyBase : MonoBehaviour
         //speed luckily can stay as a float
         speed = speed * diffMod;
     }
+
+    
+   
 }

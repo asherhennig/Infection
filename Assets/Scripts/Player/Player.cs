@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public GameObject miniGun;
     public GameObject PlayerHitPrefab;
     public GameObject gameManager;
+    public static int currency;
 
     enemyBase enemy;
 
@@ -237,8 +238,10 @@ public class Player : MonoBehaviour
             miniGun.GetComponent<Gun>().fire();
 
             //call againg in half a second
-            yield return new WaitForSeconds(1 / 2);
-        }
+            yield return new WaitForSeconds(1/2);
+           }
+
+        miniGun.GetComponent<Gun>().stopFiring();
 
         //deactivate the mini gun and reactivate pistol
         gunEquipper.deactiveMiniGun();
