@@ -52,7 +52,7 @@ public class Gun : MonoBehaviour
         }
         else
         {
-            Destroy(bullet, 4f)
+            Destroy(bullet, 4f);
         }
         // 2   
         bullet.transform.position = firePosition.position;
