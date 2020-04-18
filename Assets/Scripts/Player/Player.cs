@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public LayerMask layerMask;
     public GameObject miniGun;
     public GameObject PlayerHitPrefab;
+    public GameObject gameManager;
     public static int currency;
 
     enemyBase enemy;
@@ -31,6 +32,9 @@ public class Player : MonoBehaviour
     private bool isHit = false;
     private float timeSinceHit = 0;
     private GunEquipper gunEquipper;
+    private AudioManager audioManager;
+    public GameObject pistolButton;
+    public GameObject shotgunButton;
 
     // Start is called before the first frame update
     void Start()
@@ -40,11 +44,10 @@ public class Player : MonoBehaviour
         healthBar.setMaxHealth(maxHealth);
 
         heroAnim = GetComponent<Animator>();
-       // head = enemy.GetComponent<Animator>();
 
-        //currency = GetComponent<GameManager>().bubblegum;
+        audioManager = AudioManager.instance;
 
-        
+        currency = gameManager.GetComponent<GameManager>().bubblegum;
     }
 
     //added takeDamage function
@@ -86,13 +89,11 @@ public class Player : MonoBehaviour
 
     public void pickUp1Curr()
     {
-        
-        currency += 10; 
+        currency += 10;
     }
 
     public void picUp5Curr()
     {
-        
         currency += 50;
     }
 
@@ -233,23 +234,26 @@ public class Player : MonoBehaviour
 
     private IEnumerator fireMiniGun()
     {
-        
+        //200 is the num of bulets fired when powered up
+        for (int i = -0; i < 100; i++)   
+        {
+            pistolButton.SetActive(false);
+            shotgunButton.SetActive(false);
 
-            //200 is the num of bulets fired when powered up
-           for (int i = 0; i < 100; i++)
-           {
             //gets the fire bulet function from the mini gun in gun script and calls it
             miniGun.GetComponent<Gun>().fire();
+            audioManager.PlaySound("MinigunSound");
 
             //call againg in half a second
             yield return new WaitForSeconds(1/2);
-           }
+        }
 
         miniGun.GetComponent<Gun>().stopFiring();
-            //deactivate the mini gun and reactivate pistol
-        gunEquipper.deactiveMiniGun();
 
-        
+        pistolButton.SetActive(true);
+
+        //deactivate the mini gun and reactivate pistol
+        gunEquipper.deactiveMiniGun();
     }
 
     //this is where eventually well do everything that happens when the player dies here

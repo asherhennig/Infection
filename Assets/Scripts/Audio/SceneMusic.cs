@@ -39,7 +39,7 @@ public class SceneMusic : MonoBehaviour
         {
             audioManager.PlaySound("ForestBGM");
         }
-        else if (sceneName == "Launchpad")
+        else if (sceneName == "LaunchPad")
         {
             audioManager.PlaySound("LaunchpadBGM");
         }
