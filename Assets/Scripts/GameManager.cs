@@ -18,19 +18,9 @@ public class GameManager : MonoBehaviour
     public GameObject enemy;
     public GameObject[] pickUpPrefab;
     public GameObject statScreen;
-    GameObject[] buyShotgun;
-    GameObject[] buyShells;
-    GameObject[] buyNade;
-    GameObject[] buyHealth;
-    GameObject[] buyMax;
-    GameObject[] buyBrain;
-    GameObject[] purchase;
-    public ScoreCounter gameUI;
     public int score;
     public int bubblegum;
     private int price;
-    private bool canPurchase = false;
-    public bool isGameOver = false;
     private int itemID;
 
     //public vars so we can modify them as we need
@@ -74,16 +64,14 @@ public class GameManager : MonoBehaviour
     public Button grenadeHUD;
     public Button brainadeHUD;
     public Button shotgunButton;
-
-    public GameObject bubblegumPrefab;
-    public GameObject candyPrefab;
+    
+    public static int totalBubblegum;
 
     void Awake()
     {
         GetComponent<SaveSystem>().gameLoad();
         player1 = GameObject.FindObjectOfType<Player>();
         ammo = Ammo.instance;
-        bubblegum = Player.currency;
     }
     // Start is called before the first frame update
     void Start()
@@ -100,26 +88,18 @@ public class GameManager : MonoBehaviour
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
         restTimer = 0;
         StartCoroutine("updatedRestTimer");
-        buyShotgun = GameObject.FindGameObjectsWithTag("BuyShotgun");
-        buyShells = GameObject.FindGameObjectsWithTag("BuyShells");
-        buyNade = GameObject.FindGameObjectsWithTag("BuyNade");
-        buyHealth = GameObject.FindGameObjectsWithTag("BuyHealth");
-        buyMax = GameObject.FindGameObjectsWithTag("BuyMax");
-        buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
-        purchase = GameObject.FindGameObjectsWithTag("Purchase");
-        //HidePurchase();
+
         setDifficulty(curDifficulty);
         actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
         
-        
         setDifficulty(curDifficulty);
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        bubblegum = totalBubblegum;
+        Debug.Log(bubblegum);
         updateStatText();
         
         StartCoroutine("updatedRestTimer");
@@ -188,7 +168,8 @@ public class GameManager : MonoBehaviour
     {
         enemiesOnScreen -= 1;
         //give gum and score on kill(testing score and bubblegum counters)
-        bubblegum += 50;
+        //bubblegum += 50;
+        totalBubblegum += 50;
         score += 100;
         
         Debug.Log("enemy destroyed");
@@ -232,10 +213,9 @@ public class GameManager : MonoBehaviour
     
     public void Buyable()
     {
-        if (bubblegum >= price)
+        if (totalBubblegum >= price)
         {
-            canPurchase = true;
-            bubblegum = bubblegum - price;
+            totalBubblegum = totalBubblegum - price;
 
             if (itemID == 1)
             {
@@ -385,9 +365,9 @@ public class GameManager : MonoBehaviour
     void updateStatText()
     {
         //timerText.text = restTimer.ToString();
-        bubbleGumText.text = bubblegum.ToString();
+        bubbleGumText.text = totalBubblegum.ToString();
         scoreText.text = score.ToString();
-        shopBubbleGumText.text = "Bubblegum:\n" + bubblegum.ToString();
+        shopBubbleGumText.text = "Bubblegum:\n" + totalBubblegum.ToString();
     }
 
     public void continueTime()
