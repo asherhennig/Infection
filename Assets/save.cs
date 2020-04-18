@@ -24,7 +24,7 @@ public class Save : MonoBehaviour
         int shotgunAmmo = GetComponent<Ammo>().shotgunAmmo;
         int grenadeAmmo = GetComponent<Ammo>().grenadeAmmo;
         int score = GetComponent<GameManager>().score;
-        int money = GetComponent<GameManager>().bubblegum;
+        int money = GameManager.totalBubblegum;
         int maxHealth = GetComponent<Player>().maxHealth;
     }
 

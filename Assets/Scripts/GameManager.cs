@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     public GameObject[] pickUpPrefab;
     public GameObject statScreen;
     public int score;
-    public int bubblegum;
     private int price;
     private int itemID;
 
@@ -77,7 +76,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-
+        
         audioManager = AudioManager.instance;
         if (audioManager == null)
         {
@@ -98,8 +97,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bubblegum = totalBubblegum;
-        Debug.Log(bubblegum);
         updateStatText();
         
         StartCoroutine("updatedRestTimer");

@@ -5,8 +5,6 @@ using UnityEngine;
 public class SaveSystem : MonoBehaviour
 {
     public GameObject Player;
-  
- 
 
     void Start()
     {
@@ -21,7 +19,7 @@ public class SaveSystem : MonoBehaviour
         Player.GetComponent<Player>().curHealth = PlayerPrefs.GetInt("health");
         Player.GetComponent<Ammo>().shotgunAmmo = PlayerPrefs.GetInt("shot gun ammo");
         GetComponent<GameManager>().score = PlayerPrefs.GetInt("score");
-        GetComponent<GameManager>().bubblegum = PlayerPrefs.GetInt("bubblegum");
+        GameManager.totalBubblegum = PlayerPrefs.GetInt("bubblegum");
         Player.GetComponent<Player>().maxHealth = PlayerPrefs.GetInt("max health");
         GetComponent<GameManager>().curDifficulty = PlayerPrefs.GetInt("difficulty");
         GetComponent<GameManager>().level = PlayerPrefs.GetInt("level");
@@ -29,10 +27,6 @@ public class SaveSystem : MonoBehaviour
         Player.GetComponent<Ammo>().grenadeAmmo = PlayerPrefs.GetInt("gernade");
      
         Debug.Log("diffmod:" + GetComponent<GameManager>().difficultyMod);
-     
-
-      
-
     }
 
     public void gameSave()
@@ -46,7 +40,7 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetInt("shot gun ammo", Player.GetComponent<Ammo>().shotgunAmmo);
         PlayerPrefs.SetInt("gernade", Player.GetComponent<Ammo>().grenadeAmmo);
         PlayerPrefs.SetInt("score", GetComponent<GameManager>().score);
-        PlayerPrefs.SetInt("bubblegum", GetComponent<GameManager>().bubblegum);
+        PlayerPrefs.SetInt("bubblegum", GameManager.totalBubblegum);
         PlayerPrefs.SetInt("max health", Player.GetComponent<Player>().maxHealth);
         PlayerPrefs.SetInt("difficulty", GetComponent<GameManager>().curDifficulty);
         PlayerPrefs.SetInt("level", GetComponent<GameManager>().level);
