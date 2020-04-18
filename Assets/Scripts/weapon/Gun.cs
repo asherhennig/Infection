@@ -50,6 +50,10 @@ public class Gun : MonoBehaviour
         {
             Destroy(bullet, 1f);
         }
+        else
+        {
+            Destroy(bullet, 4f)
+        }
         // 2   
         bullet.transform.position = firePosition.position;
         bullet.transform.rotation = firePosition.rotation;
