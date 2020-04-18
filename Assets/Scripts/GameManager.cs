@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     GameObject[] purchase;
     public ScoreCounter gameUI;
     public int score;
-    public int bubblegum = Player.currency;
+    public int bubblegum;
     private int price;
     private bool canPurchase = false;
     public bool isGameOver = false;
@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
         GetComponent<SaveSystem>().gameLoad();
         player1 = GameObject.FindObjectOfType<Player>();
         ammo = Ammo.instance;
+        bubblegum = Player.currency;
     }
     // Start is called before the first frame update
     void Start()
