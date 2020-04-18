@@ -75,6 +75,9 @@ public class GameManager : MonoBehaviour
     public Button brainadeHUD;
     public Button shotgunButton;
 
+    public GameObject bubblegumPrefab;
+    public GameObject candyPrefab;
+
     void Awake()
     {
         GetComponent<SaveSystem>().gameLoad();
@@ -391,7 +394,4 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
     }
-
-    
-
 }
