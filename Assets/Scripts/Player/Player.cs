@@ -32,7 +32,6 @@ public class Player : MonoBehaviour
     private bool isHit = false;
     private float timeSinceHit = 0;
     private GunEquipper gunEquipper;
-    private int currency;
 
     // Start is called before the first frame update
     void Start()
