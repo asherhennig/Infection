@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     GameObject[] purchase;
     public ScoreCounter gameUI;
     public int score;
-    public int bubblegum;
+    public int bubblegum = Player.currency;
     private int price;
     private bool canPurchase = false;
     public bool isGameOver = false;
@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         updateStatText();
         
         StartCoroutine("updatedRestTimer");
