@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public LayerMask layerMask;
     public GameObject miniGun;
     public GameObject PlayerHitPrefab;
-    public int currency;
+    public static int currency;
 
     enemyBase enemy;
 
@@ -86,12 +86,14 @@ public class Player : MonoBehaviour
 
     public void pickUp1Curr()
     {
-        currency += 1; 
+        
+        currency += 10; 
     }
 
     public void picUp5Curr()
     {
-        currency += 5;
+        
+        currency += 50;
     }
 
     public void pickUpMiniGun()
@@ -234,7 +236,7 @@ public class Player : MonoBehaviour
         
 
             //200 is the num of bulets fired when powered up
-           for (int i = 0; i < 200; i++)
+           for (int i = 0; i < 100; i++)
            {
             //gets the fire bulet function from the mini gun in gun script and calls it
             miniGun.GetComponent<Gun>().fire();
