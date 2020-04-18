@@ -361,7 +361,6 @@ public class GameManager : MonoBehaviour
 
     void updateStatText()
     {
-        //timerText.text = restTimer.ToString();
         bubbleGumText.text = totalBubblegum.ToString();
         scoreText.text = score.ToString();
         shopBubbleGumText.text = "Bubblegum:\n" + totalBubblegum.ToString();
