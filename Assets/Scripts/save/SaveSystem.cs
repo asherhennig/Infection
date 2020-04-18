@@ -25,8 +25,6 @@ public class SaveSystem : MonoBehaviour
         GetComponent<GameManager>().level = PlayerPrefs.GetInt("level");
         GetComponent<GameManager>().difficultyMod = PlayerPrefs.GetFloat("difMod");
         Player.GetComponent<Ammo>().grenadeAmmo = PlayerPrefs.GetInt("gernade");
-     
-        Debug.Log("diffmod:" + GetComponent<GameManager>().difficultyMod);
     }
 
     public void gameSave()
@@ -46,8 +44,6 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetInt("level", GetComponent<GameManager>().level);
         PlayerPrefs.SetFloat("difMod", GetComponent<GameManager>().difficultyMod);
         PlayerPrefs.Save();
-       
-        Debug.Log("diffmod:"+ GetComponent<GameManager>().difficultyMod);
     }
 }
 

@@ -78,10 +78,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         
         audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("AudioManager not found!!!");
-        }
         
         singleton = this;
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
@@ -138,7 +134,6 @@ public class GameManager : MonoBehaviour
     {
         if (!activeWave)
         {
-            Debug.Log("hello?");
             yield return new WaitForSeconds(10);
             activeWave = true;
 
@@ -168,8 +163,6 @@ public class GameManager : MonoBehaviour
         //bubblegum += 50;
         totalBubblegum += 50;
         score += 100;
-        
-        Debug.Log("enemy destroyed");
     }
 
     public void Prices()
@@ -251,19 +244,16 @@ public class GameManager : MonoBehaviour
         {
             difficultyMod = 0.5f;
             curDifficulty = 0;
-            Debug.Log("Easy selected");
         }
         else if (difficulty == 1)
         {
             difficultyMod = 1.0f;
             curDifficulty = 1;
-            Debug.Log("Medium selected");
         }
         else if (difficulty == 2)
         {
             difficultyMod = 2.0f;
             curDifficulty = 2;
-            Debug.Log("Hard selected");
         }
         gameObject.GetComponent<SaveSystem>().gameSave();
         
@@ -325,7 +315,6 @@ public class GameManager : MonoBehaviour
         activeWave = false;
         restTimer = 10;
         curSpawnedWave = 0;
-        Debug.Log("rest period");
         //ups difficulty for next round
         roundDiffUpdate();
         wave++;
@@ -348,14 +337,12 @@ public class GameManager : MonoBehaviour
             spawnedPickUp = true;
             actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) + 60, (pickUpMaxSpawnTime * difficultyMod));
             actualPickUpTime = Mathf.Abs(actualPickUpTime);
-            Debug.Log("Spawned");
         }
         //checks if the pick up has been picked up
         if (pickUp == null && spawnedPickUp == true)
         {
             currentPickUpTime = 0;
             spawnedPickUp = false;
-            Debug.Log("deactive");
         }
     }
 

@@ -49,14 +49,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null)
-        {
-            Debug.LogError("More than one AudioManager in the scene.");
-        }
-        else
-        {
-            instance = this;
-        }
+        instance = this;
     }
 
     void Start()
@@ -97,9 +90,6 @@ public class AudioManager : MonoBehaviour
                 return;
             }
         }
-
-        // no sound with soundName
-        Debug.Log("AudioManager: Sound not found in list, " + soundName);
     }
 
     public void SetSFXVolume()

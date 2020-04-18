@@ -18,10 +18,6 @@ public class Gun : MonoBehaviour
     void Start()
     {
         audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("AudioManager not found!!!");
-        }
     }
 
     // Update is called once per frame

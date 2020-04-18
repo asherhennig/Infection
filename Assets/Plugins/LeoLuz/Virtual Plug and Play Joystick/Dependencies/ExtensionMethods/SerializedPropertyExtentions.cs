@@ -22,14 +22,12 @@ namespace LeoLuz.Extensions
 
             if (parent == null)
             {
-                Debug.Log("No Parent in serializedProperty: " + serializedProperty.name);
                 return null;
             }
 
             FieldInfo fieldToCheck = parent.GetType().GetField(serializedProperty.name);
             if (fieldToCheck == null)
             {
-                Debug.Log("No Field in serializedProperty: " + serializedProperty.name);
                 return null;
             }
             object obj = fieldToCheck.GetValue(parent);
@@ -86,10 +84,7 @@ namespace LeoLuz.Extensions
             var enumerable = values as IEnumerable;
             if (enumerable == null)
                 return null;
-            //
-            //       Debug.Log(enumerable.ToString());
             var enm = enumerable.GetEnumerator();
-            //     Debug.Log(enm.ToString());
             if (index >= values.Length)
                 return null;
 

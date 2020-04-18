@@ -142,7 +142,6 @@ namespace LeoLuz.PropertyAttributes
                 EditorGUI.PropertyField(position, property, label, true);
 
             }
-            //   Debug.Log(property.name+" - "+Time.time);  
             LastUpdate = Time.time;
             LastPosition = position.y;
         }

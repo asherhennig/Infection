@@ -47,11 +47,6 @@ public class enemyBase : MonoBehaviour
         setEnemyStats();
 
         audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("AudioManager not found!!!");
-        }
-
     }
 
 
@@ -102,8 +97,7 @@ public class enemyBase : MonoBehaviour
             if (target2 != null)
             {
                 this.transform.LookAt(target2.position);                               //Enemy faces player
-                Vector3 direction = target2.position - this.transform.position;        //enemy direction: where its going MINUS where it is
-                Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
+                Vector3 direction = target2.position - this.transform.position;        //enemy direction: where its going MINUS where it is for the intended path
 
                 if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
                 {
@@ -123,8 +117,7 @@ public class enemyBase : MonoBehaviour
             else
             {
                 this.transform.LookAt(target.position);                               //Enemy faces player
-                Vector3 direction = target.position - this.transform.position;        //enemy direction: where its going MINUS where it is
-                Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
+                Vector3 direction = target.position - this.transform.position;        //enemy direction: where its going MINUS where it is for the intended path
 
                 if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
                 {

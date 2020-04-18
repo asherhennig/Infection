@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         int healthDamage = 1;
         curHealth -= healthDamage;
         healthBar.setHealth(curHealth);
-        Debug.Log("you've been hurt, health is: " + curHealth + " out of: " + maxHealth);
+
         if(curHealth <= 0)
         {
             isDead = true;
@@ -72,7 +72,6 @@ public class Player : MonoBehaviour
     public void maxUp()
     {
         curHealth = maxHealth;
-        Debug.Log("health is: " + curHealth);
     }
 
     // added health pick up and it caps at max health
@@ -84,11 +83,6 @@ public class Player : MonoBehaviour
         {
             //wont go over max health
             curHealth = maxHealth;
-            Debug.Log("You're at max health!");
-        }
-        else
-        {
-            Debug.Log("Health Up! " + curHealth);
         }
     }
 
@@ -150,7 +144,6 @@ public class Player : MonoBehaviour
 
             default:
                 //in case of bad pick up
-                Debug.LogError("Bad pickup type passed" + pickupItem);
                 break;
         }
     }
@@ -266,7 +259,6 @@ public class Player : MonoBehaviour
     //this is where eventually well do everything that happens when the player dies here
     public void Die()
     {
-        Debug.Log("GameOver");
         Destroy(gameObject);
     }
 

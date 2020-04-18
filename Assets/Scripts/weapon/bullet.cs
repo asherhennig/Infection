@@ -25,7 +25,6 @@ public class bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Pistol damage before shot is:" + damage);
             collision.gameObject.GetComponent<enemyBase>().takeDamage(damage);
             Destroy(gameObject);
         }

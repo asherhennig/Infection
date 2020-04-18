@@ -50,10 +50,7 @@ public class Jun_EditorTools
 				return loadCom;
 			}
 		}
-		else
-		{
-			Debug.Log("GameObject is null in path:" + path);
-		}
+
 		return null;
 	}
 
