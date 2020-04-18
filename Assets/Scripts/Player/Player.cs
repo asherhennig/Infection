@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     public LayerMask layerMask;
     public GameObject miniGun;
     public GameObject PlayerHitPrefab;
-    public GameObject gameManager;
 
     enemyBase enemy;
 
@@ -47,7 +46,9 @@ public class Player : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
-        healthBar.setMaxHealth(maxHealth);
+
+        if(healthBar != null)
+            healthBar.setMaxHealth(maxHealth);
 
         heroAnim = GetComponent<Animator>();
 

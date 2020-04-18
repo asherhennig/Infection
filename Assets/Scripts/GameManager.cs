@@ -361,9 +361,12 @@ public class GameManager : MonoBehaviour
 
     void updateStatText()
     {
-        bubbleGumText.text = totalBubblegum.ToString();
-        scoreText.text = score.ToString();
-        shopBubbleGumText.text = "Bubblegum:\n" + totalBubblegum.ToString();
+        if (statScreen != null)
+        {
+            bubbleGumText.text = totalBubblegum.ToString();
+            scoreText.text = score.ToString();
+            shopBubbleGumText.text = "Bubblegum:\n" + totalBubblegum.ToString();
+        }
     }
 
     public void continueTime()
