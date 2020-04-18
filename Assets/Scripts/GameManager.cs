@@ -70,11 +70,11 @@ public class GameManager : MonoBehaviour
     {
         GetComponent<SaveSystem>().gameLoad();
         player1 = GameObject.FindObjectOfType<Player>();
-        ammo = Ammo.instance;
     }
     // Start is called before the first frame update
     void Start()
     {
+        ammo = Ammo.instance;
         Time.timeScale = 1;
         
         audioManager = AudioManager.instance;
