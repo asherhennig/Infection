@@ -16,10 +16,6 @@ public class fragGrenade : MonoBehaviour
         Invoke("explode", fuseTime);
 
         audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("AudioManager not found!!!");
-        }
     }
 
     // Update is called once per frame

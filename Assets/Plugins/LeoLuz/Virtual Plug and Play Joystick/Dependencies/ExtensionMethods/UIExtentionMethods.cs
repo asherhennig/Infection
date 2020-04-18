@@ -72,7 +72,6 @@ namespace LeoLuz.Extensions
 
         public static WaitForSecondsRealtime FadeIn(this CanvasGroup obj, float duration)
         {
-            Debug.Log("FadeIn canvas");
             obj.GetComponent<MonoBehaviour>().StartCoroutine(FadeInCo(obj, duration));
             return new WaitForSecondsRealtime(duration);
         }

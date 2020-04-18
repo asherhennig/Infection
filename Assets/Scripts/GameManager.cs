@@ -18,19 +18,8 @@ public class GameManager : MonoBehaviour
     public GameObject enemy;
     public GameObject[] pickUpPrefab;
     public GameObject statScreen;
-    GameObject[] buyShotgun;
-    GameObject[] buyShells;
-    GameObject[] buyNade;
-    GameObject[] buyHealth;
-    GameObject[] buyMax;
-    GameObject[] buyBrain;
-    GameObject[] purchase;
-    public ScoreCounter gameUI;
     public int score;
-    public int bubblegum;
     private int price;
-    private bool canPurchase = false;
-    public bool isGameOver = false;
     private int itemID;
 
     //public vars so we can modify them as we need
@@ -74,49 +63,36 @@ public class GameManager : MonoBehaviour
     public Button grenadeHUD;
     public Button brainadeHUD;
     public Button shotgunButton;
+    
+    public static int totalBubblegum;
 
     void Awake()
     {
         GetComponent<SaveSystem>().gameLoad();
         player1 = GameObject.FindObjectOfType<Player>();
-        ammo = Ammo.instance;
-        bubblegum = Player.currency;
     }
     // Start is called before the first frame update
     void Start()
     {
+        ammo = Ammo.instance;
         Time.timeScale = 1;
-
+        
         audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("AudioManager not found!!!");
-        }
         
         singleton = this;
         actualPickUpTime = Mathf.Abs(actualPickUpTime);
         restTimer = 0;
         StartCoroutine("updatedRestTimer");
-        buyShotgun = GameObject.FindGameObjectsWithTag("BuyShotgun");
-        buyShells = GameObject.FindGameObjectsWithTag("BuyShells");
-        buyNade = GameObject.FindGameObjectsWithTag("BuyNade");
-        buyHealth = GameObject.FindGameObjectsWithTag("BuyHealth");
-        buyMax = GameObject.FindGameObjectsWithTag("BuyMax");
-        buyBrain = GameObject.FindGameObjectsWithTag("BuyBrain");
-        purchase = GameObject.FindGameObjectsWithTag("Purchase");
-        //HidePurchase();
+
         setDifficulty(curDifficulty);
         actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) - 3.0f, (pickUpMaxSpawnTime * difficultyMod));
         
-        
         setDifficulty(curDifficulty);
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
         updateStatText();
         
         StartCoroutine("updatedRestTimer");
@@ -158,7 +134,6 @@ public class GameManager : MonoBehaviour
     {
         if (!activeWave)
         {
-            Debug.Log("hello?");
             yield return new WaitForSeconds(10);
             activeWave = true;
 
@@ -185,10 +160,9 @@ public class GameManager : MonoBehaviour
     {
         enemiesOnScreen -= 1;
         //give gum and score on kill(testing score and bubblegum counters)
-        bubblegum += 50;
+        //bubblegum += 50;
+        totalBubblegum += 50;
         score += 100;
-        
-        Debug.Log("enemy destroyed");
     }
 
     public void Prices()
@@ -229,10 +203,9 @@ public class GameManager : MonoBehaviour
     
     public void Buyable()
     {
-        if (bubblegum >= price)
+        if (totalBubblegum >= price)
         {
-            canPurchase = true;
-            bubblegum = bubblegum - price;
+            totalBubblegum = totalBubblegum - price;
 
             if (itemID == 1)
             {
@@ -271,19 +244,16 @@ public class GameManager : MonoBehaviour
         {
             difficultyMod = 0.5f;
             curDifficulty = 0;
-            Debug.Log("Easy selected");
         }
         else if (difficulty == 1)
         {
             difficultyMod = 1.0f;
             curDifficulty = 1;
-            Debug.Log("Medium selected");
         }
         else if (difficulty == 2)
         {
             difficultyMod = 2.0f;
             curDifficulty = 2;
-            Debug.Log("Hard selected");
         }
         gameObject.GetComponent<SaveSystem>().gameSave();
         
@@ -345,7 +315,6 @@ public class GameManager : MonoBehaviour
         activeWave = false;
         restTimer = 10;
         curSpawnedWave = 0;
-        Debug.Log("rest period");
         //ups difficulty for next round
         roundDiffUpdate();
         wave++;
@@ -368,30 +337,27 @@ public class GameManager : MonoBehaviour
             spawnedPickUp = true;
             actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) + 60, (pickUpMaxSpawnTime * difficultyMod));
             actualPickUpTime = Mathf.Abs(actualPickUpTime);
-            Debug.Log("Spawned");
         }
         //checks if the pick up has been picked up
         if (pickUp == null && spawnedPickUp == true)
         {
             currentPickUpTime = 0;
             spawnedPickUp = false;
-            Debug.Log("deactive");
         }
     }
 
     void updateStatText()
     {
-        //timerText.text = restTimer.ToString();
-        bubbleGumText.text = bubblegum.ToString();
-        scoreText.text = score.ToString();
-        shopBubbleGumText.text = "Bubblegum:\n" + bubblegum.ToString();
+        if (statScreen != null)
+        {
+            bubbleGumText.text = totalBubblegum.ToString();
+            scoreText.text = score.ToString();
+            shopBubbleGumText.text = "Bubblegum:\n" + totalBubblegum.ToString();
+        }
     }
 
     public void continueTime()
     {
         Time.timeScale = 1;
     }
-
-    
-
 }

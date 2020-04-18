@@ -13,10 +13,7 @@ public class lureGrenade : Grenade
         Invoke("explode", fuseTime);
 
         audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("AudioManager not found!!!");
-        }
+
         Collider[] Arround = Physics.OverlapSphere(transform.position, mapRadius);
 
         foreach (Collider inExp in Arround)

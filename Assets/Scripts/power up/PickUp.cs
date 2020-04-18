@@ -10,10 +10,6 @@ public class PickUp : MonoBehaviour
     void Start()
     {
         audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("AudioManager not found!!!");
-        }
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -23,7 +19,6 @@ public class PickUp : MonoBehaviour
         {
             collider.gameObject.GetComponent<Player>().PickUpItem(type);
             Destroy(gameObject);
-            Debug.Log("destroyed");
             // Play sound
             audioManager.PlaySound("PickupSound");
         }

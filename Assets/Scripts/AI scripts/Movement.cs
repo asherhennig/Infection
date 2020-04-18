@@ -46,13 +46,7 @@ public class Movement : MonoBehaviour
         //    ShooterZar();
         //}
     }
-
-    private void ZapTarget()
-    {
-        Debug.Log(" zap ..... zap");
-    }
-
-
+    
     // Update is called once per frame
     void Update()
     {

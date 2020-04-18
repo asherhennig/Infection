@@ -122,16 +122,8 @@ namespace LeoLuz.PlugAndPlayJoystick
 
             rectTransform = GetComponent<RectTransform>();
             imageUI = GetComponent<Image>();
-            if (rectTransform == null)
-            {
-                Debug.Log("Specify the object of the knob");
-            }
 
             Canvas canvas = GetComponentInParent<Canvas>();
-            if (canvas == null)
-            {
-                Debug.LogError("canvas not found, put this object as children of an canvas.");
-            }
 
             RectTransform CanvasRect = canvas.GetComponent<RectTransform>();
 
@@ -181,7 +173,6 @@ namespace LeoLuz.PlugAndPlayJoystick
 
 
 		void RecalculateLayout() {
-			Debug.Log ("Recalculating the layout");
 			Start();
 		}
         void Update()

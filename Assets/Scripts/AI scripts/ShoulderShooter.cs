@@ -37,7 +37,6 @@ public class ShoulderShooter : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Enemy is damaging our hero!!" + damage);
             collision.gameObject.GetComponent<Player>().takeDamage();
             Destroy(gameObject);        //or Destroy.Player
             //then invoke the player death, load Wave screen and stats -> constants
