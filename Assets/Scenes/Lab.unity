@@ -6443,6 +6443,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6311887}
+    - target: {fileID: 3611261559389087335, guid: 8426143429a63c74dbcb455e084183c7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1244350549}
+    - target: {fileID: 3611261559389087335, guid: 8426143429a63c74dbcb455e084183c7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611261559389087335, guid: 8426143429a63c74dbcb455e084183c7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 3394614462797879501}
+    - target: {fileID: 3611261559389087335, guid: 8426143429a63c74dbcb455e084183c7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 3611261558276169595, guid: 8426143429a63c74dbcb455e084183c7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6452,6 +6472,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interactable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611261558276169595, guid: 8426143429a63c74dbcb455e084183c7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1244350549}
+    - target: {fileID: 3611261558276169595, guid: 8426143429a63c74dbcb455e084183c7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611261558276169595, guid: 8426143429a63c74dbcb455e084183c7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 3394614462797879501}
+    - target: {fileID: 3611261558276169595, guid: 8426143429a63c74dbcb455e084183c7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 3611261559195195438, guid: 8426143429a63c74dbcb455e084183c7,
         type: 3}
@@ -6762,6 +6802,16 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 761168902}
+    - target: {fileID: 3529006698873507767, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: pistolButton
+      value: 
+      objectReference: {fileID: 1244350549}
+    - target: {fileID: 3529006698873507767, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: shotgunButton
+      value: 
+      objectReference: {fileID: 3394614462797879501}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1e148f3be4aeb24aa85764057d16443, type: 3}
 --- !u!114 &6910512002402052095 stripped

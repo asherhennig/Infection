@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
     private bool isHit = false;
     private float timeSinceHit = 0;
     private GunEquipper gunEquipper;
+    private AudioManager audioManager;
+    public GameObject pistolButton;
+    public GameObject shotgunButton;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +44,8 @@ public class Player : MonoBehaviour
         healthBar.setMaxHealth(maxHealth);
 
         heroAnim = GetComponent<Animator>();
-        // head = enemy.GetComponent<Animator>();
+
+        audioManager = AudioManager.instance;
 
         currency = gameManager.GetComponent<GameManager>().bubblegum;
     }
@@ -231,16 +235,22 @@ public class Player : MonoBehaviour
     private IEnumerator fireMiniGun()
     {
         //200 is the num of bulets fired when powered up
-        for (int i = -0; i < 200; i++)   
+        for (int i = -0; i < 100; i++)   
         {
+            pistolButton.SetActive(false);
+            shotgunButton.SetActive(false);
+
             //gets the fire bulet function from the mini gun in gun script and calls it
             miniGun.GetComponent<Gun>().fire();
+            audioManager.PlaySound("MinigunSound");
 
             //call againg in half a second
             yield return new WaitForSeconds(1/2);
-           }
+        }
 
         miniGun.GetComponent<Gun>().stopFiring();
+
+        pistolButton.SetActive(true);
 
         //deactivate the mini gun and reactivate pistol
         gunEquipper.deactiveMiniGun();

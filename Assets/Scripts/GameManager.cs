@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
     {
         enemiesOnScreen -= 1;
         //give gum and score on kill(testing score and bubblegum counters)
-        bubblegum += 5000;
+        bubblegum += 50;
         score += 100;
         
         Debug.Log("enemy destroyed");
