@@ -1696,7 +1696,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: 8c9887e476858b9489242f574fa0c13b, type: 3}
+  - {fileID: 2100000, guid: 959e446afdbea7a4887b8e4da13da90b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2104,16 +2104,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9208815265047723724}
     m_Modifications:
-    - target: {fileID: 2508680557206596729, guid: da7cfe92555228e42b9750538d292131,
-        type: 3}
-      propertyPath: m_Name
-      value: RayGun.1.0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2508680557206596729, guid: da7cfe92555228e42b9750538d292131,
-        type: 3}
-      propertyPath: m_TagString
-      value: Pistol
-      objectReference: {fileID: 0}
     - target: {fileID: 2508680557206827097, guid: da7cfe92555228e42b9750538d292131,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2168,6 +2158,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508680557206596729, guid: da7cfe92555228e42b9750538d292131,
+        type: 3}
+      propertyPath: m_Name
+      value: RayGun.1.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508680557206596729, guid: da7cfe92555228e42b9750538d292131,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pistol
       objectReference: {fileID: 0}
     - target: {fileID: 2346251002622480700, guid: da7cfe92555228e42b9750538d292131,
         type: 3}
