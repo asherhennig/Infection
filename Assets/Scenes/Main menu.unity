@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1931567132}
+      - m_Target: {fileID: 0}
         m_MethodName: setDifficulty
         m_Mode: 0
         m_Arguments:
@@ -941,6 +941,119 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334473507}
   m_CullTransparentMesh: 0
+--- !u!1001 &363836671
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6572682468469873867, guid: e1c7ed9f65770ff46823cf042493fd84,
+        type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.1388334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.047023296
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.680767
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074350883280776118, guid: e1c7ed9f65770ff46823cf042493fd84,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: enemySpawnPoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: itemSpawnPoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: maxEnemiesOnScreen
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: enemiesPerSpawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: minSpawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: maxSpawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: pickUpMaxSpawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: MaxPerWave
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: activeWave
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869377511, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 593906095}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
 --- !u!1 &384744460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,7 +1142,6 @@ GameObject:
   - component: {fileID: 400582453}
   - component: {fileID: 400582452}
   - component: {fileID: 400582456}
-  - component: {fileID: 400582457}
   m_Layer: 5
   m_Name: Main Menu canvas
   m_TagString: Untagged
@@ -1133,18 +1245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialPanel: {fileID: 41977884}
---- !u!114 &400582457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400582451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad5208d6fbf24f4a8cfab72fb50f2cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  gameManager: {fileID: 1224294674}
 --- !u!1 &414891748
 GameObject:
   m_ObjectHideFlags: 0
@@ -3787,6 +3888,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1224294674 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6572682468469873867, guid: e1c7ed9f65770ff46823cf042493fd84,
+    type: 3}
+  m_PrefabInstance: {fileID: 363836671}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1231195430
 GameObject:
   m_ObjectHideFlags: 0
@@ -5067,7 +5174,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -5716,92 +5823,6 @@ Transform:
   m_Father: {fileID: 400582455}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1931567131
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1931567133}
-  - component: {fileID: 1931567132}
-  - component: {fileID: 1931567134}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: gameManager
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1931567132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931567131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ad1a7097fd072343b5bf2b79678ed2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 1
-  player: {fileID: 0}
-  itemSpawnPoints: []
-  enemySpawnPoints: []
-  enemy: {fileID: 0}
-  pickUpPrefab: []
-  statScreen: {fileID: 0}
-  score: 0
-  maxEnemiesOnScreen: 0
-  enemiesPerSpawn: 0
-  restTimer: 0
-  minSpawnTime: 0
-  maxSpawnTime: 0
-  pickUpMaxSpawnTime: 20
-  wave: 0
-  MaxPerWave: 5
-  activeWave: 1
-  curDifficulty: 0
-  difficultyMod: 1
-  output: {fileID: 0}
-  ammo: {fileID: 0}
-  timerText: {fileID: 0}
-  bubbleGumText: {fileID: 0}
-  scoreText: {fileID: 0}
-  shopBubbleGumText: {fileID: 0}
-  shotgunHUD: {fileID: 0}
-  grenadeHUD: {fileID: 0}
-  brainadeHUD: {fileID: 0}
-  shotgunButton: {fileID: 0}
---- !u!4 &1931567133
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931567131}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 456.79794, y: 150.97609, z: 2.21875}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1931567134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931567131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd910f5e968223343b48fe87122b16fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 593906095}
 --- !u!1 &1956601545
 GameObject:
   m_ObjectHideFlags: 0
