@@ -11,24 +11,24 @@ public class MainMenu : MonoBehaviour
 {
     private GameObject game;
     public GameObject tutorialPanel;
+    public GameObject gameManager;
 
     void Start()
     {
         Time.timeScale = 1;
-        game = GameObject.FindGameObjectWithTag("gameManager");
     }
 
     public void PlayButton()
     {
-        if (game.GetComponent<GameManager>().level == 1)
+        if (gameManager.GetComponent<GameManager>().level == 1)
         {
             tutorialPanel.SetActive(true);
         }
-        else if(game.GetComponent<GameManager>().level == 2)
+        else if(gameManager.GetComponent<GameManager>().level == 2)
         {
             SceneManager.LoadScene("Forest");
         }
-        else if (game.GetComponent<GameManager>().level == 3)
+        else if (gameManager.GetComponent<GameManager>().level == 3)
         {
             SceneManager.LoadScene("LaunchPad");
         }

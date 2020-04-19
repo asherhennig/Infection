@@ -44,11 +44,11 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        maxHealth = 5;
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
-
-        if(healthBar != null)
-            healthBar.setMaxHealth(maxHealth);
+        
+        healthBar.setMaxHealth(maxHealth);
 
         heroAnim = GetComponent<Animator>();
 

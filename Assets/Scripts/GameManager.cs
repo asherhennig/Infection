@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager singleton;
-    public int level = 1;
+    public int level;
     public static int shotGunactive = 0;
     //game objects that will be needed in the script
     public GameObject player;
@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        level = 1;
         ammo = Ammo.instance;
         Time.timeScale = 1;
         
