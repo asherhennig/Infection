@@ -102,6 +102,7 @@ public class Grenade : MonoBehaviour
         {
             if (!IsInvoking("toss"))
             {
+
                 Invoke("toss", 0f);
             }
         }

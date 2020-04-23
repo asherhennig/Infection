@@ -1208,7 +1208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5411784921952686341
 Transform:
   m_ObjectHideFlags: 0
@@ -1286,6 +1286,7 @@ MonoBehaviour:
   ammo: {fileID: 0}
   fireSpeed: 0.1
   bulletSpeed: 25
+  audioManager: {fileID: 0}
 --- !u!1 &5411784921952390503
 GameObject:
   m_ObjectHideFlags: 0

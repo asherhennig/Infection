@@ -56,6 +56,8 @@ public class GunEquipper : MonoBehaviour
         heroAnim.SetBool("SetActive_shotgun", false);
         heroAnim.SetBool("SetActive_throw", false);
         heroAnim.SetBool("SetActive_pistol", false);
+        pistolButton.SetActive(false);
+        shotgunButton.SetActive(false);
     }
 
     public void deactiveMiniGun()
@@ -65,6 +67,7 @@ public class GunEquipper : MonoBehaviour
 
         heroAnim.SetBool("SetActive_pistol", true);
         heroAnim.SetBool("SetActive_miniGun", false);
+        pistolButton.SetActive(true);
     }
     
     // Update is called once per frame
