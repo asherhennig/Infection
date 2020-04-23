@@ -245,7 +245,7 @@ public class Player : MonoBehaviour
             audioManager.PlaySound("MinigunSound");
 
             //call againg in half a second
-            yield return new WaitForSeconds(1/2);
+            yield return new WaitForSeconds(2/3);
         }
 
         miniGun.GetComponent<Gun>().stopFiring();

@@ -336,7 +336,7 @@ public class GameManager : MonoBehaviour
             pickUp = Instantiate(pickUpPrefab[pickUpNum]) as GameObject;
             pickUp.transform.position = spawnLocation.transform.position;
             spawnedPickUp = true;
-            actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) + 60, (pickUpMaxSpawnTime * difficultyMod));
+            actualPickUpTime = Random.Range((pickUpMaxSpawnTime * difficultyMod) + 20, (pickUpMaxSpawnTime * difficultyMod));
             actualPickUpTime = Mathf.Abs(actualPickUpTime);
         }
         //checks if the pick up has been picked up
