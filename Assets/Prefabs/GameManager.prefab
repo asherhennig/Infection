@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  shotGunactive: 1
   player: {fileID: 0}
   itemSpawnPoints:
   - {fileID: 0}
@@ -59,19 +58,9 @@ MonoBehaviour:
   pickUpPrefab:
   - {fileID: 2085492883978391239, guid: 2b874bf9c936f224bbb3f8e494bff2a8, type: 3}
   - {fileID: 199283796997392061, guid: e5a1ac00b3a1ef74fad6260786f3ffd3, type: 3}
-  statScreen:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  gameUI: {fileID: 0}
+  - {fileID: 2664944982967585469, guid: 9416ac75bab616743aca81b47489868a, type: 3}
+  statScreen: {fileID: 0}
   score: 0
-  bubblegum: 0
-  isGameOver: 0
   maxEnemiesOnScreen: 10
   enemiesPerSpawn: 1
   restTimer: 0
@@ -88,6 +77,11 @@ MonoBehaviour:
   timerText: {fileID: 0}
   bubbleGumText: {fileID: 0}
   scoreText: {fileID: 0}
+  shopBubbleGumText: {fileID: 0}
+  shotgunHUD: {fileID: 0}
+  grenadeHUD: {fileID: 0}
+  brainadeHUD: {fileID: 0}
+  shotgunButton: {fileID: 0}
 --- !u!114 &1869377511
 MonoBehaviour:
   m_ObjectHideFlags: 0

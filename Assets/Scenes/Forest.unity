@@ -1019,6 +1019,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bucky.1.4
       objectReference: {fileID: 0}
+    - target: {fileID: 3720982207686164700, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: pistolButton
+      value: 
+      objectReference: {fileID: 1587164150}
+    - target: {fileID: 3720982207686164700, guid: d1e148f3be4aeb24aa85764057d16443,
+        type: 3}
+      propertyPath: shotgunButton
+      value: 
+      objectReference: {fileID: 1587164149}
     - target: {fileID: 9208815265047723724, guid: d1e148f3be4aeb24aa85764057d16443,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1074,16 +1084,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3720982207686164700, guid: d1e148f3be4aeb24aa85764057d16443,
-        type: 3}
-      propertyPath: pistolButton
-      value: 
-      objectReference: {fileID: 1587164150}
-    - target: {fileID: 3720982207686164700, guid: d1e148f3be4aeb24aa85764057d16443,
-        type: 3}
-      propertyPath: shotgunButton
-      value: 
-      objectReference: {fileID: 1587164149}
     - target: {fileID: 3529006698873507767, guid: d1e148f3be4aeb24aa85764057d16443,
         type: 3}
       propertyPath: healthBar
@@ -2495,52 +2495,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: enemySpawnPoints.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: pickUpPrefab.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: itemSpawnPoints.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 321353742}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 7339956823339914039, guid: 491564f37ea011243b3caf8ef9bfe8fc,
-        type: 3}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: enemySpawnPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 1706099052}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: enemySpawnPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 142153180}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: maxEnemiesOnScreen
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: enemySpawnPoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 142153180}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: pickUpPrefab.Array.data[0]
-      value: 
-      objectReference: {fileID: 2085492883978391239, guid: 2b874bf9c936f224bbb3f8e494bff2a8,
-        type: 3}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: pickUpPrefab.Array.data[1]
-      value: 
-      objectReference: {fileID: 199283796997392061, guid: e5a1ac00b3a1ef74fad6260786f3ffd3,
-        type: 3}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: itemSpawnPoints.Array.data[0]
       value: 
@@ -2554,49 +2511,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 32776637}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: enemiesPerSpawn
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: restTimer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: minSpawnTime
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: maxSpawnTime
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: pickUpMaxSpawnTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: enemySpawnPoints.Array.data[3]
+      propertyPath: enemySpawnPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 142153180}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: scoreText
+      propertyPath: enemySpawnPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 680397734}
+      objectReference: {fileID: 1706099052}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: bubbleGumText
+      propertyPath: enemySpawnPoints.Array.data[2]
       value: 
-      objectReference: {fileID: 1241974630}
+      objectReference: {fileID: 142153180}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: timerText
+      propertyPath: statScreen
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 783220118}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: ammo
       value: 
       objectReference: {fileID: 321353743}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
-      propertyPath: statScreen
+      propertyPath: bubbleGumText
       value: 
-      objectReference: {fileID: 783220118}
+      objectReference: {fileID: 1241974630}
+    - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 680397734}
     - target: {fileID: 49615721, guid: e1c7ed9f65770ff46823cf042493fd84, type: 3}
       propertyPath: shopBubbleGumText
       value: 
@@ -4017,6 +3958,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUI Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3611261558233358105, guid: 8426143429a63c74dbcb455e084183c7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 479324508}
     - target: {fileID: 3611261558276169595, guid: 8426143429a63c74dbcb455e084183c7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4032,11 +3978,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1587164149}
-    - target: {fileID: 3611261558233358105, guid: 8426143429a63c74dbcb455e084183c7,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 479324508}
     - target: {fileID: 3611261559195195438, guid: 8426143429a63c74dbcb455e084183c7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4897,10 +4838,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4071831739774208324, guid: 0a75508cbfa52f44f8ba7052035e3df6,
+    - target: {fileID: 2568128135377425170, guid: 0a75508cbfa52f44f8ba7052035e3df6,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 716593468}
+    - target: {fileID: 2568128135377425170, guid: 0a75508cbfa52f44f8ba7052035e3df6,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MuteSFXButton
       objectReference: {fileID: 0}
     - target: {fileID: 4303344074761733514, guid: 0a75508cbfa52f44f8ba7052035e3df6,
         type: 3}
@@ -4911,16 +4857,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetBGMVolume
-      objectReference: {fileID: 0}
-    - target: {fileID: 2568128135377425170, guid: 0a75508cbfa52f44f8ba7052035e3df6,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 716593468}
-    - target: {fileID: 2568128135377425170, guid: 0a75508cbfa52f44f8ba7052035e3df6,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MuteSFXButton
       objectReference: {fileID: 0}
     - target: {fileID: 8720247994795178384, guid: 0a75508cbfa52f44f8ba7052035e3df6,
         type: 3}
@@ -5188,6 +5124,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3597747442123819345, guid: 0a75508cbfa52f44f8ba7052035e3df6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071831739774208324, guid: 0a75508cbfa52f44f8ba7052035e3df6,
         type: 3}
       propertyPath: m_IsActive
       value: 1
