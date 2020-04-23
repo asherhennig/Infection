@@ -10,7 +10,6 @@ public class Gun : MonoBehaviour
     public Ammo ammo;
     public float fireSpeed = 0.75f;
     public float bulletSpeed = 10.0f;
-    bool miniFire = false;
 
     [HideInInspector]
     public AudioManager audioManager;
@@ -19,10 +18,6 @@ public class Gun : MonoBehaviour
     void Start()
     {
         audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("AudioManager not found!!!");
-        }
     }
 
     // Update is called once per frame
@@ -46,6 +41,15 @@ public class Gun : MonoBehaviour
     {   // 1   
         
         GameObject bullet = Instantiate(bulletPrefab) as GameObject;
+
+        if (Player.minigunFiring == true)
+        {
+            Destroy(bullet, 1f);
+        }
+        else
+        {
+            Destroy(bullet, 4f);
+        }
         // 2   
         bullet.transform.position = firePosition.position;
         bullet.transform.rotation = firePosition.rotation;

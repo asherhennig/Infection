@@ -19,10 +19,6 @@ public class shotGun : Gun
         }
 
         audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("AudioManager not found!!!");
-        }
     }
 
     void fireBullet()

@@ -39,17 +39,7 @@ public class Lure : MonoBehaviour
 
 
     }
-
-    public void Distraction(Lure lure)
-    {
-
-
-        if (GameObject.Find("grenade"))
-        {
-            Debug.Log("nomnomnom");
-        }
-    }
-
+    
     // Start is called before the first frame update
     void Start()
     {

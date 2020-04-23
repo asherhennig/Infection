@@ -15,10 +15,6 @@ public class SceneMusic : MonoBehaviour
         sceneName = currentScene.name;
 
         audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("AudioManager not found!!!");
-        }
 
         StartCoroutine(PlayMusic(0.1f));
     }
@@ -39,7 +35,7 @@ public class SceneMusic : MonoBehaviour
         {
             audioManager.PlaySound("ForestBGM");
         }
-        else if (sceneName == "Launchpad")
+        else if (sceneName == "LaunchPad")
         {
             audioManager.PlaySound("LaunchpadBGM");
         }

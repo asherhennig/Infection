@@ -15,10 +15,12 @@ public class Grenade : MonoBehaviour
     public MeshRenderer inHand;
     public bool isPurchased;
 
+    Animator heroAnim;
 
     // Start is called before the first frame update
     void Start()
     {
+        heroAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
     IEnumerator myCoroutine()
@@ -42,18 +44,14 @@ public class Grenade : MonoBehaviour
         float heightOfShot = 6f;
         Vector3 newVel = new Vector3();
         // Find the direction vector without the y-component
-
-        Debug.Log("Target click Pos" + targetPos);
+        
         Vector3 direction = targetPos - new Vector3(tossPos.position.x, 0f, tossPos.position.z);
         // Find the distance between the two points (without the y-component)
         float range = direction.magnitude;
-        Debug.Log("direction click Pos" + direction);
-
-        Debug.Log("Range" + range);
-
+        
         // Find unit direction of motion without the y component
         Vector3 unitDirection = direction.normalized;
-        Debug.Log("direction normalized" + direction.normalized);
+
         // Find the max height
         float maxYPos = tossPos.position.y + heightOfShot;
 
@@ -71,7 +69,6 @@ public class Grenade : MonoBehaviour
         // use the unit direction to find the x and z components of initial velocity
         newVel.x = horizontalVelocityMagnitude * unitDirection.x;
         newVel.z = horizontalVelocityMagnitude * unitDirection.z;
-        Debug.Log("newVel" + newVel);
 
         float elapse_time = 0;
         while (elapse_time < totalFlightTime)
@@ -93,6 +90,7 @@ public class Grenade : MonoBehaviour
         }
         else
         {
+            heroAnim.SetBool("Throw", false);
             inHand.enabled = false;
         }
     }
@@ -100,6 +98,8 @@ public class Grenade : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            heroAnim.SetBool("Throw", true);
+
             if (!IsInvoking("toss"))
             {
 
@@ -109,6 +109,7 @@ public class Grenade : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
+            heroAnim.SetBool("Throw", false);
             CancelInvoke("toss");
         }
     }

@@ -29,7 +29,7 @@ public class enemyBase : MonoBehaviour
     public GameObject currencyprefab2;
     public GameObject hitPrefab;
     public GameObject enemyDeathPrefab;
-
+    GameObject clone;
     public Animator head;
 
 
@@ -47,11 +47,6 @@ public class enemyBase : MonoBehaviour
         setEnemyStats();
 
         audioManager = AudioManager.instance;
-        if (audioManager == null)
-        {
-            Debug.LogError("AudioManager not found!!!");
-        }
-
     }
 
 
@@ -66,7 +61,9 @@ public class enemyBase : MonoBehaviour
             GameObject currency = Instantiate(currencyprefab) as GameObject;
             currencyprefab.transform.position = this.transform.position;
 
-            Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
+            clone = Instantiate(enemyDeathPrefab, this.transform.position, Quaternion.identity);
+            Destroy(clone, 2f);
+
             // Play sound
             audioManager.PlaySound("RobotDeathSound");
             //create a random chance for drop 
@@ -80,6 +77,7 @@ public class enemyBase : MonoBehaviour
             else
             {
                 Instantiate(currencyprefab, this.transform.position, Quaternion.identity);
+               
             }
         }
         
@@ -99,8 +97,7 @@ public class enemyBase : MonoBehaviour
             if (target2 != null)
             {
                 this.transform.LookAt(target2.position);                               //Enemy faces player
-                Vector3 direction = target2.position - this.transform.position;        //enemy direction: where its going MINUS where it is
-                Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
+                Vector3 direction = target2.position - this.transform.position;        //enemy direction: where its going MINUS where it is for the intended path
 
                 if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
                 {
@@ -120,8 +117,7 @@ public class enemyBase : MonoBehaviour
             else
             {
                 this.transform.LookAt(target.position);                               //Enemy faces player
-                Vector3 direction = target.position - this.transform.position;        //enemy direction: where its going MINUS where it is
-                Debug.DrawRay(this.transform.position, direction, Color.green);     //for the intended path
+                Vector3 direction = target.position - this.transform.position;        //enemy direction: where its going MINUS where it is for the intended path
 
                 if (direction.magnitude > accuracy)                                 //If direction length is larger than enemy dis from player
                 {
@@ -151,8 +147,8 @@ public class enemyBase : MonoBehaviour
     public void takeDamage(int damTaken)
     {
         ehealth -= damTaken;
-        Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
-        //Destroy(hitPrefab, hitPrefab.GetComponent<ParticleSystem>().duration);
+        clone = Instantiate(hitPrefab, this.transform.position, Quaternion.identity);
+        Destroy(clone, 2f);
     }
 
     public void setDiff(float DiffMod)
@@ -168,4 +164,7 @@ public class enemyBase : MonoBehaviour
         //speed luckily can stay as a float
         speed = speed * diffMod;
     }
+
+    
+   
 }

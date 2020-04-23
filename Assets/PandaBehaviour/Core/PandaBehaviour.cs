@@ -475,7 +475,6 @@ namespace Panda
         [Task]
         public void DebugLog(string message)
         {
-            Debug.Log(message);
             Task.current.Succeed();
         }
 
@@ -486,7 +485,6 @@ namespace Panda
         [Task]
         public void DebugLogError(string message)
         {
-            Debug.LogError(message);
             Task.current.Succeed();
         }
 
@@ -497,7 +495,6 @@ namespace Panda
         [Task]
         public void DebugLogWarning(string message)
         {
-            Debug.LogWarning(message);
             Task.current.Succeed();
         }
 

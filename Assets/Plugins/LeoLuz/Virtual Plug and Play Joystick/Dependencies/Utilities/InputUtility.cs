@@ -19,10 +19,7 @@ namespace LeoLuz.Utilities
             SerializedObject obj = new SerializedObject(inputManager);
 
             SerializedProperty axisArray = obj.FindProperty("m_Axes");
-
-            if (axisArray.arraySize == 0)
-                Debug.Log("No Axes");
-
+            
             for (int i = 0; i < axisArray.arraySize; ++i)
             {
                 var axis = axisArray.GetArrayElementAtIndex(i);
@@ -31,14 +28,7 @@ namespace LeoLuz.Utilities
                 var axisVal = axis.FindPropertyRelative("axis").intValue;
                 var negativeButton = axis.FindPropertyRelative("negativeButton").stringValue;
                 var inputType = (InputType)axis.FindPropertyRelative("type").intValue;
-
-                Debug.Log(name);
-                Debug.Log("negativeButton" + negativeButton);
-                Debug.Log(axisVal);
-                Debug.Log(inputType);
-
             }
-            Debug.Log("inputType");
         }
 
         public static object[] GetAxes()
@@ -51,10 +41,7 @@ namespace LeoLuz.Utilities
             SerializedObject obj = new SerializedObject(inputManager);
 
             SerializedProperty axisArray = obj.FindProperty("m_Axes");
-
-            if (axisArray.arraySize == 0)
-                Debug.Log("No Axes");
-
+            
             List<string> AxesLabelList = new List<string>();
             List<Axis> AxesList = new List<Axis>();
 
@@ -85,7 +72,6 @@ namespace LeoLuz.Utilities
 
                 }
                 //			if( negativeButton!="")
-                //				Debug.Log("NEGA "+name);
 
             }
             object[] AxesPackage = new object[] { AxesLabelList, AxesList };
