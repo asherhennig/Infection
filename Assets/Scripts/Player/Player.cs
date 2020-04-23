@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         maxHealth = 5;
+        curHealth = maxHealth;
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
         
@@ -233,7 +234,7 @@ public class Player : MonoBehaviour
     private IEnumerator fireMiniGun()
     {
         //200 is the num of bulets fired when powered up
-        for (int i = -0; i < 150; i++)   
+        for (int i = 0; i < 125; i++)   
         {
             minigunFiring = true;
             usingMinigun();
