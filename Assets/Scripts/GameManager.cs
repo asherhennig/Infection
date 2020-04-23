@@ -328,7 +328,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentPickUpTime > actualPickUpTime && !spawnedPickUp)
         {
-            pickUpNum = Random.Range(0, 2);
+            pickUpNum = Random.Range(0, 3);
             //generates a random number based on the number of spawn points we have and
             //assigns one to be the spawn, finally it spawns a pickup
             int randnum = Random.Range(0, itemSpawnPoints.Length - 1);
