@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         maxHealth = 5;
+        curHealth = maxHealth;
         characterController = GetComponent<CharacterController>();
         gunEquipper = GetComponent<GunEquipper>();
         
